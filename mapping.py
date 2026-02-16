@@ -79,7 +79,7 @@ df_map = df.dropna(subset=['위도', '경도']).copy()
 # [수정된 초기 설정]
 CENTER_LAT = 37.2458
 CENTER_LNG = 127.0560
-START_ZOOM = 12  # 특정 지점을 중심으로 볼 때는 13~14 레벨이 좋습니다.
+START_ZOOM = 11  # 특정 지점을 중심으로 볼 때는 13~14 레벨이 좋습니다.
 
 m = folium.Map(location=[CENTER_LAT, CENTER_LNG], zoom_start=START_ZOOM, tiles=None)
 folium.TileLayer('CartoDB positron', name='분포확인용').add_to(m)       # 배경 정리용
