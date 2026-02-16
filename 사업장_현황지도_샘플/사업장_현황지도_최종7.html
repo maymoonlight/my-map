@@ -1,0 +1,887 @@
+<!DOCTYPE html>
+<html>
+<head>
+    
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+    <script src="https://cdn.jsdelivr.net/npm/leaflet@1.9.3/dist/leaflet.js"></script>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet@1.9.3/dist/leaflet.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="https://netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap-glyphicons.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.2.0/css/all.min.css"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/python-visualization/folium/folium/templates/leaflet.awesome.rotate.min.css"/>
+    
+            <meta name="viewport" content="width=device-width,
+                initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+            <style>
+                #map_854662f71f4bc14c395a7298f4bbb325 {
+                    position: relative;
+                    width: 100.0%;
+                    height: 100.0%;
+                    left: 0.0%;
+                    top: 0.0%;
+                }
+                .leaflet-container { font-size: 1rem; }
+            </style>
+
+            <style>html, body {
+                width: 100%;
+                height: 100%;
+                margin: 0;
+                padding: 0;
+            }
+            </style>
+
+            <style>#map {
+                position:absolute;
+                top:0;
+                bottom:0;
+                right:0;
+                left:0;
+                }
+            </style>
+
+            <script>
+                L_NO_TOUCH = false;
+                L_DISABLE_3D = false;
+            </script>
+
+        
+    <script src="https://cdn.jsdelivr.net/gh/marslan390/BeautifyMarker/leaflet-beautify-marker-icon.min.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/marslan390/BeautifyMarker/leaflet-beautify-marker-icon.min.css"/>
+</head>
+<body>
+    
+    
+            <div class="folium-map" id="map_854662f71f4bc14c395a7298f4bbb325" ></div>
+        
+</body>
+<script>
+    
+    
+            var map_854662f71f4bc14c395a7298f4bbb325 = L.map(
+                "map_854662f71f4bc14c395a7298f4bbb325",
+                {
+                    center: [37.378746065350015, 127.27844331391518],
+                    crs: L.CRS.EPSG3857,
+                    ...{
+  "zoom": 11,
+  "zoomControl": true,
+  "preferCanvas": false,
+}
+
+                }
+            );
+
+            
+
+        
+    
+            var tile_layer_338ae8e07b33cdff61c7c5df73c93d1c = L.tileLayer(
+                "https://tile.openstreetmap.org/{z}/{x}/{y}.png",
+                {
+  "minZoom": 0,
+  "maxZoom": 19,
+  "maxNativeZoom": 19,
+  "noWrap": false,
+  "attribution": "\u0026copy; \u003ca href=\"https://www.openstreetmap.org/copyright\"\u003eOpenStreetMap\u003c/a\u003e contributors",
+  "subdomains": "abc",
+  "detectRetina": false,
+  "tms": false,
+  "opacity": 1,
+}
+
+            );
+        
+    
+            tile_layer_338ae8e07b33cdff61c7c5df73c93d1c.addTo(map_854662f71f4bc14c395a7298f4bbb325);
+        
+    
+            var feature_group_7f25e21356ca1f505572457154b45c22 = L.featureGroup(
+                {
+}
+            );
+        
+    
+            var marker_a49f54f5ceb0b983d4c9299caf517c78 = L.marker(
+                [37.3550250655428, 127.332544095282],
+                {
+}
+            ).addTo(feature_group_7f25e21356ca1f505572457154b45c22);
+        
+    
+            var beautify_icon_d29e55990e60b9be10f47f7e2968330c = new L.BeautifyIcon.icon(
+                {
+  "icon": "",
+  "iconShape": "marker",
+  "borderWidth": 3,
+  "borderColor": "blue",
+  "textColor": "#000",
+  "backgroundColor": "black",
+  "innerIconStyle": "font-size:15px; margin-top:2px; border:1px solid blue;",
+  "spin": false,
+  "isAlphaNumericIcon": false,
+  "iconSize": [
+22,
+22,
+],
+}
+            )
+            marker_a49f54f5ceb0b983d4c9299caf517c78.setIcon(beautify_icon_d29e55990e60b9be10f47f7e2968330c);
+        
+    
+        var popup_6e28a0fd6ac4a7bb59e82fd8cecf8c83 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_81c364115e75f3e507fa47f757a4d208 = $(`<div id="html_81c364115e75f3e507fa47f757a4d208" style="width: 100.0%; height: 100.0%;"><b>케이에이치(KH)종합</b><br>업종: 사업서비스업<br>방문회차: 0회</div>`)[0];
+                popup_6e28a0fd6ac4a7bb59e82fd8cecf8c83.setContent(html_81c364115e75f3e507fa47f757a4d208);
+            
+        
+
+        marker_a49f54f5ceb0b983d4c9299caf517c78.bindPopup(popup_6e28a0fd6ac4a7bb59e82fd8cecf8c83)
+        ;
+
+        
+    
+    
+                marker_a49f54f5ceb0b983d4c9299caf517c78.setIcon(beautify_icon_d29e55990e60b9be10f47f7e2968330c);
+            
+    
+            var marker_9c81bec2290f692654e46af254eaf9f2 = L.marker(
+                [37.3153459581883, 127.348859271596],
+                {
+}
+            ).addTo(feature_group_7f25e21356ca1f505572457154b45c22);
+        
+    
+            var beautify_icon_8a46e0dc5712425eb166194ee3cd64c0 = new L.BeautifyIcon.icon(
+                {
+  "iconShape": "flag",
+  "borderWidth": 3,
+  "borderColor": "red",
+  "textColor": "red",
+  "backgroundColor": "red",
+  "innerIconStyle": "background-color:white; border-radius:50%; width:16px; height:16px; line-height:16px; margin-top:2px;",
+  "spin": false,
+  "isAlphaNumericIcon": true,
+  "text": 1,
+  "iconSize": [
+30,
+30,
+],
+}
+            )
+            marker_9c81bec2290f692654e46af254eaf9f2.setIcon(beautify_icon_8a46e0dc5712425eb166194ee3cd64c0);
+        
+    
+        var popup_2ea89e00a9afd6b5cd1d3e7a3cbd07cd = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_bfc3ec3e2ca9f4fa17f5b27d7896f64d = $(`<div id="html_bfc3ec3e2ca9f4fa17f5b27d7896f64d" style="width: 100.0%; height: 100.0%;"><b>헤펠레코리아(주)본사</b><br>업종: 도소매 및 소비자용품수리업<br>방문회차: 1회</div>`)[0];
+                popup_2ea89e00a9afd6b5cd1d3e7a3cbd07cd.setContent(html_bfc3ec3e2ca9f4fa17f5b27d7896f64d);
+            
+        
+
+        marker_9c81bec2290f692654e46af254eaf9f2.bindPopup(popup_2ea89e00a9afd6b5cd1d3e7a3cbd07cd)
+        ;
+
+        
+    
+    
+                marker_9c81bec2290f692654e46af254eaf9f2.setIcon(beautify_icon_8a46e0dc5712425eb166194ee3cd64c0);
+            
+    
+            var marker_e52e575a84a85b1eae7c4615e5083dd8 = L.marker(
+                [37.3236352712277, 127.340186088004],
+                {
+}
+            ).addTo(feature_group_7f25e21356ca1f505572457154b45c22);
+        
+    
+            var beautify_icon_3bf46874e2d2e3a0a501c2a3c65f78b8 = new L.BeautifyIcon.icon(
+                {
+  "iconShape": "flag",
+  "borderWidth": 3,
+  "borderColor": "orange",
+  "textColor": "orange",
+  "backgroundColor": "orange",
+  "innerIconStyle": "background-color:white; border-radius:50%; width:16px; height:16px; line-height:16px; margin-top:2px;",
+  "spin": false,
+  "isAlphaNumericIcon": true,
+  "text": 2,
+  "iconSize": [
+30,
+30,
+],
+}
+            )
+            marker_e52e575a84a85b1eae7c4615e5083dd8.setIcon(beautify_icon_3bf46874e2d2e3a0a501c2a3c65f78b8);
+        
+    
+        var popup_244bb7eb8d9d819d0deeb298776789cf = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_3152fd2dbe6f4a4ba842f1d22acff8f1 = $(`<div id="html_3152fd2dbe6f4a4ba842f1d22acff8f1" style="width: 100.0%; height: 100.0%;"><b>(주)어시스트코리아(본사)</b><br>업종: 창고업<br>방문회차: 2회</div>`)[0];
+                popup_244bb7eb8d9d819d0deeb298776789cf.setContent(html_3152fd2dbe6f4a4ba842f1d22acff8f1);
+            
+        
+
+        marker_e52e575a84a85b1eae7c4615e5083dd8.bindPopup(popup_244bb7eb8d9d819d0deeb298776789cf)
+        ;
+
+        
+    
+    
+                marker_e52e575a84a85b1eae7c4615e5083dd8.setIcon(beautify_icon_3bf46874e2d2e3a0a501c2a3c65f78b8);
+            
+    
+            feature_group_7f25e21356ca1f505572457154b45c22.addTo(map_854662f71f4bc14c395a7298f4bbb325);
+        
+    
+            var feature_group_fe94fe6a6155d1375ec1481250d3e7c5 = L.featureGroup(
+                {
+}
+            );
+        
+    
+            var marker_bcf21063a8c6948cb534253e1bae3a60 = L.marker(
+                [37.3893200496502, 127.25385657095],
+                {
+}
+            ).addTo(feature_group_fe94fe6a6155d1375ec1481250d3e7c5);
+        
+    
+            var beautify_icon_14142953b191434751f40fdf728a5e48 = new L.BeautifyIcon.icon(
+                {
+  "iconShape": "flag",
+  "borderWidth": 3,
+  "borderColor": "yellow",
+  "textColor": "yellow",
+  "backgroundColor": "yellow",
+  "innerIconStyle": "background-color:white; border-radius:50%; width:16px; height:16px; line-height:16px; margin-top:2px;",
+  "spin": false,
+  "isAlphaNumericIcon": true,
+  "text": 3,
+  "iconSize": [
+30,
+30,
+],
+}
+            )
+            marker_bcf21063a8c6948cb534253e1bae3a60.setIcon(beautify_icon_14142953b191434751f40fdf728a5e48);
+        
+    
+        var popup_de5016dfcc5ce4f8e605b64c1c8473a2 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_94ce59b63bc961418b44c652816493bd = $(`<div id="html_94ce59b63bc961418b44c652816493bd" style="width: 100.0%; height: 100.0%;"><b>(주)에이치앤에프</b><br>업종: 도소매 및 소비자용품수리업<br>방문회차: 3회</div>`)[0];
+                popup_de5016dfcc5ce4f8e605b64c1c8473a2.setContent(html_94ce59b63bc961418b44c652816493bd);
+            
+        
+
+        marker_bcf21063a8c6948cb534253e1bae3a60.bindPopup(popup_de5016dfcc5ce4f8e605b64c1c8473a2)
+        ;
+
+        
+    
+    
+                marker_bcf21063a8c6948cb534253e1bae3a60.setIcon(beautify_icon_14142953b191434751f40fdf728a5e48);
+            
+    
+            var marker_2320cb165c1ee5ce91ccf0578a246740 = L.marker(
+                [37.3507852386519, 127.260779928173],
+                {
+}
+            ).addTo(feature_group_fe94fe6a6155d1375ec1481250d3e7c5);
+        
+    
+            var beautify_icon_a06b14272c903cfedbcfbd05676a3a7d = new L.BeautifyIcon.icon(
+                {
+  "iconShape": "flag",
+  "borderWidth": 3,
+  "borderColor": "green",
+  "textColor": "green",
+  "backgroundColor": "green",
+  "innerIconStyle": "background-color:white; border-radius:50%; width:16px; height:16px; line-height:16px; margin-top:2px;",
+  "spin": false,
+  "isAlphaNumericIcon": true,
+  "text": 4,
+  "iconSize": [
+30,
+30,
+],
+}
+            )
+            marker_2320cb165c1ee5ce91ccf0578a246740.setIcon(beautify_icon_a06b14272c903cfedbcfbd05676a3a7d);
+        
+    
+        var popup_0b06d6e132ce7e5c63b46bb160514914 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_89cb6b22d2cdc10f0f03f807fb7b9bfe = $(`<div id="html_89cb6b22d2cdc10f0f03f807fb7b9bfe" style="width: 100.0%; height: 100.0%;"><b>푸드뱅크주식회사</b><br>업종: 도소매 및 소비자용품수리업<br>방문회차: 4회</div>`)[0];
+                popup_0b06d6e132ce7e5c63b46bb160514914.setContent(html_89cb6b22d2cdc10f0f03f807fb7b9bfe);
+            
+        
+
+        marker_2320cb165c1ee5ce91ccf0578a246740.bindPopup(popup_0b06d6e132ce7e5c63b46bb160514914)
+        ;
+
+        
+    
+    
+                marker_2320cb165c1ee5ce91ccf0578a246740.setIcon(beautify_icon_a06b14272c903cfedbcfbd05676a3a7d);
+            
+    
+            var marker_2a32e5b8dac2ec735ffe460265416246 = L.marker(
+                [37.4116934803945, 127.200465336789],
+                {
+}
+            ).addTo(feature_group_fe94fe6a6155d1375ec1481250d3e7c5);
+        
+    
+            var beautify_icon_0ab3c6afc8fa5db3d92f7b779ed73e88 = new L.BeautifyIcon.icon(
+                {
+  "icon": "",
+  "iconShape": "marker",
+  "borderWidth": 3,
+  "borderColor": "blue",
+  "textColor": "#000",
+  "backgroundColor": "grey",
+  "innerIconStyle": "font-size:15px; margin-top:2px; border:1px solid blue;",
+  "spin": false,
+  "isAlphaNumericIcon": false,
+  "iconSize": [
+22,
+22,
+],
+}
+            )
+            marker_2a32e5b8dac2ec735ffe460265416246.setIcon(beautify_icon_0ab3c6afc8fa5db3d92f7b779ed73e88);
+        
+    
+        var popup_7a02ff5affef5d831e180b49d6cb5468 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_846f4b502f3b9f096e91dead987e7ad7 = $(`<div id="html_846f4b502f3b9f096e91dead987e7ad7" style="width: 100.0%; height: 100.0%;"><b>동양플러스(주)-본사</b><br>업종: 도소매 및 소비자용품수리업<br>방문회차: 0회</div>`)[0];
+                popup_7a02ff5affef5d831e180b49d6cb5468.setContent(html_846f4b502f3b9f096e91dead987e7ad7);
+            
+        
+
+        marker_2a32e5b8dac2ec735ffe460265416246.bindPopup(popup_7a02ff5affef5d831e180b49d6cb5468)
+        ;
+
+        
+    
+    
+                marker_2a32e5b8dac2ec735ffe460265416246.setIcon(beautify_icon_0ab3c6afc8fa5db3d92f7b779ed73e88);
+            
+    
+            feature_group_fe94fe6a6155d1375ec1481250d3e7c5.addTo(map_854662f71f4bc14c395a7298f4bbb325);
+        
+    
+            var feature_group_bfbf7b32efbea40e511208dfbc633365 = L.featureGroup(
+                {
+}
+            );
+        
+    
+            var marker_72d41225fe376e7eca24c44a2679b276 = L.marker(
+                [37.3790334497787, 127.254400771423],
+                {
+}
+            ).addTo(feature_group_bfbf7b32efbea40e511208dfbc633365);
+        
+    
+            var beautify_icon_2c4c7e80c29aa153783d7dd166b0ffc2 = new L.BeautifyIcon.icon(
+                {
+  "icon": "",
+  "iconShape": "marker",
+  "borderWidth": 3,
+  "borderColor": "blue",
+  "textColor": "#000",
+  "backgroundColor": "grey",
+  "innerIconStyle": "font-size:15px; margin-top:2px; border:1px solid blue;",
+  "spin": false,
+  "isAlphaNumericIcon": false,
+  "iconSize": [
+22,
+22,
+],
+}
+            )
+            marker_72d41225fe376e7eca24c44a2679b276.setIcon(beautify_icon_2c4c7e80c29aa153783d7dd166b0ffc2);
+        
+    
+        var popup_86cc3cf0a46b6caca9c0fc530eacdc33 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_a0213fd8a4d9f61a4d1ee11d2fb3977b = $(`<div id="html_a0213fd8a4d9f61a4d1ee11d2fb3977b" style="width: 100.0%; height: 100.0%;"><b>(주)리치마트</b><br>업종: 도소매 및 소비자용품수리업<br>방문회차: 0회</div>`)[0];
+                popup_86cc3cf0a46b6caca9c0fc530eacdc33.setContent(html_a0213fd8a4d9f61a4d1ee11d2fb3977b);
+            
+        
+
+        marker_72d41225fe376e7eca24c44a2679b276.bindPopup(popup_86cc3cf0a46b6caca9c0fc530eacdc33)
+        ;
+
+        
+    
+    
+                marker_72d41225fe376e7eca24c44a2679b276.setIcon(beautify_icon_2c4c7e80c29aa153783d7dd166b0ffc2);
+            
+    
+            var marker_e3778c7fa657a8a026b1d54e9a4ab27c = L.marker(
+                [37.3997014321663, 127.299447426903],
+                {
+}
+            ).addTo(feature_group_bfbf7b32efbea40e511208dfbc633365);
+        
+    
+            var beautify_icon_cd1db1d64de482794fb8b34d982b9ac3 = new L.BeautifyIcon.icon(
+                {
+  "icon": "",
+  "iconShape": "marker",
+  "borderWidth": 3,
+  "borderColor": "purple",
+  "textColor": "#000",
+  "backgroundColor": "grey",
+  "innerIconStyle": "font-size:15px; margin-top:2px; border:1px solid purple;",
+  "spin": false,
+  "isAlphaNumericIcon": false,
+  "iconSize": [
+22,
+22,
+],
+}
+            )
+            marker_e3778c7fa657a8a026b1d54e9a4ab27c.setIcon(beautify_icon_cd1db1d64de482794fb8b34d982b9ac3);
+        
+    
+        var popup_2fe32c513accd32cbac35444b70f8752 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_d1669314d2a5a3365390bbdccf46d0e0 = $(`<div id="html_d1669314d2a5a3365390bbdccf46d0e0" style="width: 100.0%; height: 100.0%;"><b>광주환경(주)</b><br>업종: 위생 및 유사서비스업<br>방문회차: 0회</div>`)[0];
+                popup_2fe32c513accd32cbac35444b70f8752.setContent(html_d1669314d2a5a3365390bbdccf46d0e0);
+            
+        
+
+        marker_e3778c7fa657a8a026b1d54e9a4ab27c.bindPopup(popup_2fe32c513accd32cbac35444b70f8752)
+        ;
+
+        
+    
+    
+                marker_e3778c7fa657a8a026b1d54e9a4ab27c.setIcon(beautify_icon_cd1db1d64de482794fb8b34d982b9ac3);
+            
+    
+            var marker_f727869a10b49bb8c41d5d3d684ae228 = L.marker(
+                [37.3945348336239, 127.30004290836],
+                {
+}
+            ).addTo(feature_group_bfbf7b32efbea40e511208dfbc633365);
+        
+    
+            var beautify_icon_ffd1971fddbf62936d9f2f6a6a5d1a0a = new L.BeautifyIcon.icon(
+                {
+  "iconShape": "flag",
+  "borderWidth": 3,
+  "borderColor": "blue",
+  "textColor": "blue",
+  "backgroundColor": "blue",
+  "innerIconStyle": "background-color:white; border-radius:50%; width:16px; height:16px; line-height:16px; margin-top:2px;",
+  "spin": false,
+  "isAlphaNumericIcon": true,
+  "text": 5,
+  "iconSize": [
+30,
+30,
+],
+}
+            )
+            marker_f727869a10b49bb8c41d5d3d684ae228.setIcon(beautify_icon_ffd1971fddbf62936d9f2f6a6a5d1a0a);
+        
+    
+        var popup_13d0b14ac20a22ce5cf408d994b77c0f = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_387b3687698be9e9229ef32b3f8c134e = $(`<div id="html_387b3687698be9e9229ef32b3f8c134e" style="width: 100.0%; height: 100.0%;"><b>(주)엠케이에프엔씨</b><br>업종: 도소매 및 소비자용품수리업<br>방문회차: 5회</div>`)[0];
+                popup_13d0b14ac20a22ce5cf408d994b77c0f.setContent(html_387b3687698be9e9229ef32b3f8c134e);
+            
+        
+
+        marker_f727869a10b49bb8c41d5d3d684ae228.bindPopup(popup_13d0b14ac20a22ce5cf408d994b77c0f)
+        ;
+
+        
+    
+    
+                marker_f727869a10b49bb8c41d5d3d684ae228.setIcon(beautify_icon_ffd1971fddbf62936d9f2f6a6a5d1a0a);
+            
+    
+            feature_group_bfbf7b32efbea40e511208dfbc633365.addTo(map_854662f71f4bc14c395a7298f4bbb325);
+        
+    
+            var feature_group_2699dab73ba932b6f7fa89c0a4291d9a = L.featureGroup(
+                {
+}
+            );
+        
+    
+            var marker_beee7526105c60f772c5257ed1d47354 = L.marker(
+                [37.4143160900817, 127.312952950812],
+                {
+}
+            ).addTo(feature_group_2699dab73ba932b6f7fa89c0a4291d9a);
+        
+    
+            var beautify_icon_538f08714304f14ec3014bcb46a5b60f = new L.BeautifyIcon.icon(
+                {
+  "iconShape": "flag",
+  "borderWidth": 3,
+  "borderColor": "green",
+  "textColor": "white",
+  "backgroundColor": "green",
+  "innerIconStyle": "background-color:black; border-radius:50%; width:16px; height:16px; line-height:16px; margin-top:2px;",
+  "spin": false,
+  "isAlphaNumericIcon": true,
+  "text": 4,
+  "iconSize": [
+30,
+30,
+],
+}
+            )
+            marker_beee7526105c60f772c5257ed1d47354.setIcon(beautify_icon_538f08714304f14ec3014bcb46a5b60f);
+        
+    
+        var popup_2526ab7c254b0ace2f1469c60072c498 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_1df1c2dac960b60e6af65427490157ef = $(`<div id="html_1df1c2dac960b60e6af65427490157ef" style="width: 100.0%; height: 100.0%;"><b>주식회사씨에스엔엠-곤지암풀필먼트2센터</b><br>업종: 육상화물취급업<br>방문회차: 4회</div>`)[0];
+                popup_2526ab7c254b0ace2f1469c60072c498.setContent(html_1df1c2dac960b60e6af65427490157ef);
+            
+        
+
+        marker_beee7526105c60f772c5257ed1d47354.bindPopup(popup_2526ab7c254b0ace2f1469c60072c498)
+        ;
+
+        
+    
+    
+                marker_beee7526105c60f772c5257ed1d47354.setIcon(beautify_icon_538f08714304f14ec3014bcb46a5b60f);
+            
+    
+            var marker_5868eca49ccb41b5c57ebc0a944775bc = L.marker(
+                [37.4143160900817, 127.312952950812],
+                {
+}
+            ).addTo(feature_group_2699dab73ba932b6f7fa89c0a4291d9a);
+        
+    
+            var beautify_icon_bf1dd1518505ee406fd6dc9e0fc5e2e2 = new L.BeautifyIcon.icon(
+                {
+  "icon": "",
+  "iconShape": "marker",
+  "borderWidth": 3,
+  "borderColor": "purple",
+  "textColor": "#000",
+  "backgroundColor": "grey",
+  "innerIconStyle": "font-size:15px; margin-top:2px; border:1px solid purple;",
+  "spin": false,
+  "isAlphaNumericIcon": false,
+  "iconSize": [
+22,
+22,
+],
+}
+            )
+            marker_5868eca49ccb41b5c57ebc0a944775bc.setIcon(beautify_icon_bf1dd1518505ee406fd6dc9e0fc5e2e2);
+        
+    
+        var popup_3975f70dd3868ed77a9da60069834577 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_62acf3eae75dadcfc93bb614d46b3d84 = $(`<div id="html_62acf3eae75dadcfc93bb614d46b3d84" style="width: 100.0%; height: 100.0%;"><b>와이케이엔젤스오쇼핑물류센터</b><br>업종: 육상화물취급업<br>방문회차: 0회</div>`)[0];
+                popup_3975f70dd3868ed77a9da60069834577.setContent(html_62acf3eae75dadcfc93bb614d46b3d84);
+            
+        
+
+        marker_5868eca49ccb41b5c57ebc0a944775bc.bindPopup(popup_3975f70dd3868ed77a9da60069834577)
+        ;
+
+        
+    
+    
+                marker_5868eca49ccb41b5c57ebc0a944775bc.setIcon(beautify_icon_bf1dd1518505ee406fd6dc9e0fc5e2e2);
+            
+    
+            feature_group_2699dab73ba932b6f7fa89c0a4291d9a.addTo(map_854662f71f4bc14c395a7298f4bbb325);
+        
+    
+            var feature_group_047e36dfcf92014168c4573f5c9c320b = L.featureGroup(
+                {
+}
+            );
+        
+    
+            var marker_7ed2f5988d79ea9dfe3baadfdfda4e24 = L.marker(
+                [37.4143983791896, 127.298304140481],
+                {
+}
+            ).addTo(feature_group_047e36dfcf92014168c4573f5c9c320b);
+        
+    
+            var beautify_icon_1291836418db4c3d4e71ef509a6c9d13 = new L.BeautifyIcon.icon(
+                {
+  "iconShape": "flag",
+  "borderWidth": 3,
+  "borderColor": "red",
+  "textColor": "red",
+  "backgroundColor": "red",
+  "innerIconStyle": "background-color:white; border-radius:50%; width:16px; height:16px; line-height:16px; margin-top:2px;",
+  "spin": false,
+  "isAlphaNumericIcon": true,
+  "text": 1,
+  "iconSize": [
+30,
+30,
+],
+}
+            )
+            marker_7ed2f5988d79ea9dfe3baadfdfda4e24.setIcon(beautify_icon_1291836418db4c3d4e71ef509a6c9d13);
+        
+    
+        var popup_cb7fce2aac6b610fa7bfa168b2c55a40 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_f3cdc3dddea696cdfc0771eaf91718e4 = $(`<div id="html_f3cdc3dddea696cdfc0771eaf91718e4" style="width: 100.0%; height: 100.0%;"><b>(주)한성체리티</b><br>업종: 도소매 및 소비자용품수리업<br>방문회차: 1회</div>`)[0];
+                popup_cb7fce2aac6b610fa7bfa168b2c55a40.setContent(html_f3cdc3dddea696cdfc0771eaf91718e4);
+            
+        
+
+        marker_7ed2f5988d79ea9dfe3baadfdfda4e24.bindPopup(popup_cb7fce2aac6b610fa7bfa168b2c55a40)
+        ;
+
+        
+    
+    
+                marker_7ed2f5988d79ea9dfe3baadfdfda4e24.setIcon(beautify_icon_1291836418db4c3d4e71ef509a6c9d13);
+            
+    
+            var marker_c9a26a2662f2779a3bdaf71515442667 = L.marker(
+                [37.4067955378366, 127.213889398885],
+                {
+}
+            ).addTo(feature_group_047e36dfcf92014168c4573f5c9c320b);
+        
+    
+            var beautify_icon_def5bbcccf6397cb98239a33ecf825c6 = new L.BeautifyIcon.icon(
+                {
+  "iconShape": "flag",
+  "borderWidth": 3,
+  "borderColor": "orange",
+  "textColor": "white",
+  "backgroundColor": "orange",
+  "innerIconStyle": "background-color:black; border-radius:50%; width:16px; height:16px; line-height:16px; margin-top:2px;",
+  "spin": false,
+  "isAlphaNumericIcon": true,
+  "text": 2,
+  "iconSize": [
+30,
+30,
+],
+}
+            )
+            marker_c9a26a2662f2779a3bdaf71515442667.setIcon(beautify_icon_def5bbcccf6397cb98239a33ecf825c6);
+        
+    
+        var popup_47b318363ba52940652d59a26ae4e6ea = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_07b2a5388cc9d37e9b482172325579d8 = $(`<div id="html_07b2a5388cc9d37e9b482172325579d8" style="width: 100.0%; height: 100.0%;"><b>선진안전(주)</b><br>업종: 도소매 및 소비자용품수리업<br>방문회차: 2회</div>`)[0];
+                popup_47b318363ba52940652d59a26ae4e6ea.setContent(html_07b2a5388cc9d37e9b482172325579d8);
+            
+        
+
+        marker_c9a26a2662f2779a3bdaf71515442667.bindPopup(popup_47b318363ba52940652d59a26ae4e6ea)
+        ;
+
+        
+    
+    
+                marker_c9a26a2662f2779a3bdaf71515442667.setIcon(beautify_icon_def5bbcccf6397cb98239a33ecf825c6);
+            
+    
+            feature_group_047e36dfcf92014168c4573f5c9c320b.addTo(map_854662f71f4bc14c395a7298f4bbb325);
+        
+    
+            var feature_group_2e21c66bc99fd54d77059213e4254b60 = L.featureGroup(
+                {
+}
+            );
+        
+    
+            var marker_85fbb8a6d35eb76c2ccd96a164a92e70 = L.marker(
+                [37.3557182502115, 127.222405997466],
+                {
+}
+            ).addTo(feature_group_2e21c66bc99fd54d77059213e4254b60);
+        
+    
+            var beautify_icon_7fd8ed9518bc0b35f6ff5e5223936d56 = new L.BeautifyIcon.icon(
+                {
+  "icon": "",
+  "iconShape": "marker",
+  "borderWidth": 3,
+  "borderColor": "purple",
+  "textColor": "#000",
+  "backgroundColor": "grey",
+  "innerIconStyle": "font-size:15px; margin-top:2px; border:1px solid purple;",
+  "spin": false,
+  "isAlphaNumericIcon": false,
+  "iconSize": [
+22,
+22,
+],
+}
+            )
+            marker_85fbb8a6d35eb76c2ccd96a164a92e70.setIcon(beautify_icon_7fd8ed9518bc0b35f6ff5e5223936d56);
+        
+    
+        var popup_1235c82bff8eda79ae6dd42bebba93bd = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_345d4805b8810cdd53b85adf8fdb4b81 = $(`<div id="html_345d4805b8810cdd53b85adf8fdb4b81" style="width: 100.0%; height: 100.0%;"><b>아미종합물류(주)</b><br>업종: 창고업<br>방문회차: 0회</div>`)[0];
+                popup_1235c82bff8eda79ae6dd42bebba93bd.setContent(html_345d4805b8810cdd53b85adf8fdb4b81);
+            
+        
+
+        marker_85fbb8a6d35eb76c2ccd96a164a92e70.bindPopup(popup_1235c82bff8eda79ae6dd42bebba93bd)
+        ;
+
+        
+    
+    
+                marker_85fbb8a6d35eb76c2ccd96a164a92e70.setIcon(beautify_icon_7fd8ed9518bc0b35f6ff5e5223936d56);
+            
+    
+            var marker_8c5ebf78152af3d0b0fe2f0806384561 = L.marker(
+                [37.3565718536249, 127.225561872792],
+                {
+}
+            ).addTo(feature_group_2e21c66bc99fd54d77059213e4254b60);
+        
+    
+            var beautify_icon_8f081ce827b78a763664a94a2be002d0 = new L.BeautifyIcon.icon(
+                {
+  "icon": "",
+  "iconShape": "marker",
+  "borderWidth": 3,
+  "borderColor": "blue",
+  "textColor": "#000",
+  "backgroundColor": "grey",
+  "innerIconStyle": "font-size:15px; margin-top:2px; border:1px solid blue;",
+  "spin": false,
+  "isAlphaNumericIcon": false,
+  "iconSize": [
+22,
+22,
+],
+}
+            )
+            marker_8c5ebf78152af3d0b0fe2f0806384561.setIcon(beautify_icon_8f081ce827b78a763664a94a2be002d0);
+        
+    
+        var popup_b04b9d60367884665a222b6c18b17a3e = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_2367e06ca727335cefd566ad941dfcce = $(`<div id="html_2367e06ca727335cefd566ad941dfcce" style="width: 100.0%; height: 100.0%;"><b>한국쥬맥스（주）</b><br>업종: 도소매 및 소비자용품수리업<br>방문회차: 0회</div>`)[0];
+                popup_b04b9d60367884665a222b6c18b17a3e.setContent(html_2367e06ca727335cefd566ad941dfcce);
+            
+        
+
+        marker_8c5ebf78152af3d0b0fe2f0806384561.bindPopup(popup_b04b9d60367884665a222b6c18b17a3e)
+        ;
+
+        
+    
+    
+                marker_8c5ebf78152af3d0b0fe2f0806384561.setIcon(beautify_icon_8f081ce827b78a763664a94a2be002d0);
+            
+    
+            feature_group_2e21c66bc99fd54d77059213e4254b60.addTo(map_854662f71f4bc14c395a7298f4bbb325);
+        
+    
+            var layer_control_bce76a8aae81b551bde3006fa8ee187a_layers = {
+                base_layers : {
+                    "openstreetmap" : tile_layer_338ae8e07b33cdff61c7c5df73c93d1c,
+                },
+                overlays :  {
+                    "\ub2f4\ub2f9\uc790: \uc7a5\ucca0\ud638" : feature_group_7f25e21356ca1f505572457154b45c22,
+                    "\ub2f4\ub2f9\uc790: \uad8c\uc131\uc2e0" : feature_group_fe94fe6a6155d1375ec1481250d3e7c5,
+                    "\ub2f4\ub2f9\uc790: \uc724\uc5ec\uc6b4" : feature_group_bfbf7b32efbea40e511208dfbc633365,
+                    "\ub2f4\ub2f9\uc790: \uae40\ucca0\uc21c" : feature_group_2699dab73ba932b6f7fa89c0a4291d9a,
+                    "\ub2f4\ub2f9\uc790: \uc784\uc724\uc2dd" : feature_group_047e36dfcf92014168c4573f5c9c320b,
+                    "\ub2f4\ub2f9\uc790: \uc11c\ud615\uae38" : feature_group_2e21c66bc99fd54d77059213e4254b60,
+                },
+            };
+            let layer_control_bce76a8aae81b551bde3006fa8ee187a = L.control.layers(
+                layer_control_bce76a8aae81b551bde3006fa8ee187a_layers.base_layers,
+                layer_control_bce76a8aae81b551bde3006fa8ee187a_layers.overlays,
+                {
+  "position": "topright",
+  "collapsed": true,
+  "autoZIndex": true,
+}
+            ).addTo(map_854662f71f4bc14c395a7298f4bbb325);
+
+        
+</script>
+</html>

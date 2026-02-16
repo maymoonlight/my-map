@@ -1,0 +1,1024 @@
+<!DOCTYPE html>
+<html>
+<head>
+    
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+    <script src="https://cdn.jsdelivr.net/npm/leaflet@1.9.3/dist/leaflet.js"></script>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet@1.9.3/dist/leaflet.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="https://netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap-glyphicons.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.2.0/css/all.min.css"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/python-visualization/folium/folium/templates/leaflet.awesome.rotate.min.css"/>
+    
+            <meta name="viewport" content="width=device-width,
+                initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+            <style>
+                #map_304f9db8b7bd98fca19590104cd83267 {
+                    position: relative;
+                    width: 100.0%;
+                    height: 100.0%;
+                    left: 0.0%;
+                    top: 0.0%;
+                }
+                .leaflet-container { font-size: 1rem; }
+            </style>
+
+            <style>html, body {
+                width: 100%;
+                height: 100%;
+                margin: 0;
+                padding: 0;
+            }
+            </style>
+
+            <style>#map {
+                position:absolute;
+                top:0;
+                bottom:0;
+                right:0;
+                left:0;
+                }
+            </style>
+
+            <script>
+                L_NO_TOUCH = false;
+                L_DISABLE_3D = false;
+            </script>
+
+        
+</head>
+<body>
+    
+    
+            <div class="folium-map" id="map_304f9db8b7bd98fca19590104cd83267" ></div>
+        
+</body>
+<script>
+    
+    
+            var map_304f9db8b7bd98fca19590104cd83267 = L.map(
+                "map_304f9db8b7bd98fca19590104cd83267",
+                {
+                    center: [37.37516158430135, 127.26628829144937],
+                    crs: L.CRS.EPSG3857,
+                    ...{
+  "zoom": 11,
+  "zoomControl": true,
+  "preferCanvas": false,
+}
+
+                }
+            );
+
+            
+
+        
+    
+            var tile_layer_d70ad11d0bf73bfac0a12def3d828adc = L.tileLayer(
+                "https://tile.openstreetmap.org/{z}/{x}/{y}.png",
+                {
+  "minZoom": 0,
+  "maxZoom": 19,
+  "maxNativeZoom": 19,
+  "noWrap": false,
+  "attribution": "\u0026copy; \u003ca href=\"https://www.openstreetmap.org/copyright\"\u003eOpenStreetMap\u003c/a\u003e contributors",
+  "subdomains": "abc",
+  "detectRetina": false,
+  "tms": false,
+  "opacity": 1,
+}
+
+            );
+        
+    
+            tile_layer_d70ad11d0bf73bfac0a12def3d828adc.addTo(map_304f9db8b7bd98fca19590104cd83267);
+        
+    
+            var feature_group_bd4d1ca63af8152021ea562723e8115d = L.featureGroup(
+                {
+}
+            );
+        
+    
+            var marker_4cfd5267c73a35e60565df1cd3b9fc6f = L.marker(
+                [37.3550250655428, 127.332544095282],
+                {
+  "opacity": 1.0,
+}
+            ).addTo(feature_group_bd4d1ca63af8152021ea562723e8115d);
+        
+    
+            var icon_9da78cb3c98f002fa68b47fbc1fd2fd7 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "lightgray",
+  "iconColor": "black",
+  "icon": "gear",
+  "prefix": "fa",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_983e9bec363cfc036a75a852dcc5e183 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_7994576d55230b76a6d247d8e106048d = $(`<div id="html_7994576d55230b76a6d247d8e106048d" style="width: 100.0%; height: 100.0%;">     <div style="width:280px; font-family:'Malgun Gothic', sans-serif; line-height:1.8; padding:5px;">         <h3 style="margin:0 0 8px 0;"><span style="color:#888; font-size:13px;">[케이에이치(KH)종합]</span><br>         <b style="font-size:18px; color:#000;">케이에이치(KH)종합</b></h3>         <hr style="margin:8px 0; border:0; border-top:2px solid #444;">         <div style="font-size:16px;">             <b>대표번호:</b> <a href="tel:031-266-7723" style="color:#0022ff; font-weight:bold;">031-266-7723</a><br>             <b>담당자명:</b> 홍길동1 부장<br>             <b>담당자폰:</b> <a href="tel:010-0000-0001" style="color:#0022ff; font-weight:bold;">010-0000-0001</a><br>             <b>이메일:</b> <a href="#" style="color:#228b22; font-weight:bold;">정보없음</a>         </div>         <div style="margin-top:15px; display:flex; gap:8px;">             <a href="tmap://route?goalname=케이에이치(KH)종합&goalx=127.332544095282&goaly=37.3550250655428" style="background-color:#0022FF; color:white; padding:10px; border-radius:6px; font-size:18px; font-weight:bold; flex:1; text-align:center; text-decoration:none;">T맵</a>             <a href="kakaomap://route?ep=37.3550250655428,127.332544095282&by=CAR" style="background-color:#FAE100; color:#3C1E1E; padding:10px; border-radius:6px; font-size:18px; font-weight:bold; flex:1; text-align:center; text-decoration:none;">카카오</a>         </div>         <hr style="margin:12px 0; border:0; border-top:1px solid #eee;">         <div style="font-size:14px; color:#666;">             <b>주소:</b> 경기 광주시 곤지암읍 평촌길11번길 44 <br><b>분야:</b> 일반 제조<br><b>업종:</b> 사업서비스업<br>             <b>방문:</b> 0회 / <span style="color:red; font-weight:bold;">⚠️ 재해발생(2건)</span>         </div>     </div>     </div>`)[0];
+                popup_983e9bec363cfc036a75a852dcc5e183.setContent(html_7994576d55230b76a6d247d8e106048d);
+            
+        
+
+        marker_4cfd5267c73a35e60565df1cd3b9fc6f.bindPopup(popup_983e9bec363cfc036a75a852dcc5e183)
+        ;
+
+        
+    
+    
+            marker_4cfd5267c73a35e60565df1cd3b9fc6f.bindTooltip(
+                `<div>
+                     케이에이치(KH)종합
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_4cfd5267c73a35e60565df1cd3b9fc6f.setIcon(icon_9da78cb3c98f002fa68b47fbc1fd2fd7);
+            
+    
+            var marker_ccb982c12d2e868ba1872cedcef62b4b = L.marker(
+                [37.3153459581883, 127.348859271596],
+                {
+  "opacity": 1.0,
+}
+            ).addTo(feature_group_bd4d1ca63af8152021ea562723e8115d);
+        
+    
+            var icon_bfd462aa45f0e4c608269ceecb6e5d8d = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "lightgray",
+  "iconColor": "white",
+  "icon": "gear",
+  "prefix": "fa",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_3604e122c484694043426bd59ae44deb = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_fa60cd257377fa9e57babda5b65bd6d4 = $(`<div id="html_fa60cd257377fa9e57babda5b65bd6d4" style="width: 100.0%; height: 100.0%;">     <div style="width:280px; font-family:'Malgun Gothic', sans-serif; line-height:1.8; padding:5px;">         <h3 style="margin:0 0 8px 0;"><span style="color:#888; font-size:13px;">[헤펠레코리아(주)]</span><br>         <b style="font-size:18px; color:#000;">헤펠레코리아(주)본사</b></h3>         <hr style="margin:8px 0; border:0; border-top:2px solid #444;">         <div style="font-size:16px;">             <b>대표번호:</b> <a href="tel:031-266-7723" style="color:#0022ff; font-weight:bold;">031-266-7723</a><br>             <b>담당자명:</b> 홍길동2 부장<br>             <b>담당자폰:</b> <a href="tel:010-0000-0002" style="color:#0022ff; font-weight:bold;">010-0000-0002</a><br>             <b>이메일:</b> <a href="#" style="color:#228b22; font-weight:bold;">정보없음</a>         </div>         <div style="margin-top:15px; display:flex; gap:8px;">             <a href="tmap://route?goalname=헤펠레코리아(주)본사&goalx=127.348859271596&goaly=37.3153459581883" style="background-color:#0022FF; color:white; padding:10px; border-radius:6px; font-size:18px; font-weight:bold; flex:1; text-align:center; text-decoration:none;">T맵</a>             <a href="kakaomap://route?ep=37.3153459581883,127.348859271596&by=CAR" style="background-color:#FAE100; color:#3C1E1E; padding:10px; border-radius:6px; font-size:18px; font-weight:bold; flex:1; text-align:center; text-decoration:none;">카카오</a>         </div>         <hr style="margin:12px 0; border:0; border-top:1px solid #eee;">         <div style="font-size:14px; color:#666;">             <b>주소:</b> 경기 광주시 도척면 국사봉로 159 <br><b>분야:</b> 일반 제조<br><b>업종:</b> 도소매 및 소비자용품수리업<br>             <b>방문:</b> 0회 / <span style="color:blue; font-weight:bold;">✅ 무재해</span>         </div>     </div>     </div>`)[0];
+                popup_3604e122c484694043426bd59ae44deb.setContent(html_fa60cd257377fa9e57babda5b65bd6d4);
+            
+        
+
+        marker_ccb982c12d2e868ba1872cedcef62b4b.bindPopup(popup_3604e122c484694043426bd59ae44deb)
+        ;
+
+        
+    
+    
+            marker_ccb982c12d2e868ba1872cedcef62b4b.bindTooltip(
+                `<div>
+                     헤펠레코리아(주)본사
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_ccb982c12d2e868ba1872cedcef62b4b.setIcon(icon_bfd462aa45f0e4c608269ceecb6e5d8d);
+            
+    
+            var marker_0bbd0c31692c99e4ba0e18aab9672d38 = L.marker(
+                [37.3236352712277, 127.340186088004],
+                {
+  "opacity": 1.0,
+}
+            ).addTo(feature_group_bd4d1ca63af8152021ea562723e8115d);
+        
+    
+            var icon_0fae28f87ea02f60e7c5f957575ffee0 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "lightgray",
+  "iconColor": "darkblue",
+  "icon": "gear",
+  "prefix": "fa",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_761274d28ffe632735b050eea26d5754 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_90f62fff9865de4418082fd65c359ffc = $(`<div id="html_90f62fff9865de4418082fd65c359ffc" style="width: 100.0%; height: 100.0%;">     <div style="width:280px; font-family:'Malgun Gothic', sans-serif; line-height:1.8; padding:5px;">         <h3 style="margin:0 0 8px 0;"><span style="color:#888; font-size:13px;">[(주)어시스트코리아]</span><br>         <b style="font-size:18px; color:#000;">(주)어시스트코리아(본사)</b></h3>         <hr style="margin:8px 0; border:0; border-top:2px solid #444;">         <div style="font-size:16px;">             <b>대표번호:</b> <a href="tel:031-123-3458" style="color:#0022ff; font-weight:bold;">031-123-3458</a><br>             <b>담당자명:</b> 홍길동3 부장<br>             <b>담당자폰:</b> <a href="tel:010-0000-0003" style="color:#0022ff; font-weight:bold;">010-0000-0003</a><br>             <b>이메일:</b> <a href="#" style="color:#228b22; font-weight:bold;">정보없음</a>         </div>         <div style="margin-top:15px; display:flex; gap:8px;">             <a href="tmap://route?goalname=(주)어시스트코리아(본사)&goalx=127.340186088004&goaly=37.3236352712277" style="background-color:#0022FF; color:white; padding:10px; border-radius:6px; font-size:18px; font-weight:bold; flex:1; text-align:center; text-decoration:none;">T맵</a>             <a href="kakaomap://route?ep=37.3236352712277,127.340186088004&by=CAR" style="background-color:#FAE100; color:#3C1E1E; padding:10px; border-radius:6px; font-size:18px; font-weight:bold; flex:1; text-align:center; text-decoration:none;">카카오</a>         </div>         <hr style="margin:12px 0; border:0; border-top:1px solid #eee;">         <div style="font-size:14px; color:#666;">             <b>주소:</b> 경기 광주시 도척면 국사봉로 35 (..)<br><b>분야:</b> 일반 제조<br><b>업종:</b> 창고업<br>             <b>방문:</b> 0회 / <span style="color:blue; font-weight:bold;">✅ 무재해</span>         </div>     </div>     </div>`)[0];
+                popup_761274d28ffe632735b050eea26d5754.setContent(html_90f62fff9865de4418082fd65c359ffc);
+            
+        
+
+        marker_0bbd0c31692c99e4ba0e18aab9672d38.bindPopup(popup_761274d28ffe632735b050eea26d5754)
+        ;
+
+        
+    
+    
+            marker_0bbd0c31692c99e4ba0e18aab9672d38.bindTooltip(
+                `<div>
+                     (주)어시스트코리아(본사)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_0bbd0c31692c99e4ba0e18aab9672d38.setIcon(icon_0fae28f87ea02f60e7c5f957575ffee0);
+            
+    
+            var marker_a4373260c3fc44f130144f9bc212f964 = L.marker(
+                [37.3213943685713, 127.083962954462],
+                {
+  "opacity": 1.0,
+}
+            ).addTo(feature_group_bd4d1ca63af8152021ea562723e8115d);
+        
+    
+            var icon_fa44ad9793abc2950b8e14cc69b8104f = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "gray",
+  "iconColor": "white",
+  "icon": "building",
+  "prefix": "fa",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_b80ad15beb37aebddbd627a736926760 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_5761a485aff53c5ccee08247c69cae35 = $(`<div id="html_5761a485aff53c5ccee08247c69cae35" style="width: 100.0%; height: 100.0%;">     <div style="width:280px; font-family:'Malgun Gothic', sans-serif; line-height:1.8; padding:5px;">         <h3 style="margin:0 0 8px 0;"><span style="color:#888; font-size:13px;">[장철호]</span><br>         <b style="font-size:18px; color:#000;">장철호가구공방</b></h3>         <hr style="margin:8px 0; border:0; border-top:2px solid #444;">         <div style="font-size:16px;">             <b>대표번호:</b> <a href="tel:031-266-7724" style="color:#0022ff; font-weight:bold;">031-266-7724</a><br>             <b>담당자명:</b> 장철호대표<br>             <b>담당자폰:</b> <a href="tel:010-3874-9397" style="color:#0022ff; font-weight:bold;">010-3874-9397</a><br>             <b>이메일:</b> <a href="mailto:changlk@naver.com" style="color:#228b22; font-weight:bold;">changlk@naver.com</a>         </div>         <div style="margin-top:15px; display:flex; gap:8px;">             <a href="tmap://route?goalname=장철호가구공방&goalx=127.083962954462&goaly=37.3213943685713" style="background-color:#0022FF; color:white; padding:10px; border-radius:6px; font-size:18px; font-weight:bold; flex:1; text-align:center; text-decoration:none;">T맵</a>             <a href="kakaomap://route?ep=37.3213943685713,127.083962954462&by=CAR" style="background-color:#FAE100; color:#3C1E1E; padding:10px; border-radius:6px; font-size:18px; font-weight:bold; flex:1; text-align:center; text-decoration:none;">카카오</a>         </div>         <hr style="margin:12px 0; border:0; border-top:1px solid #eee;">         <div style="font-size:14px; color:#666;">             <b>주소:</b> 경기 용인시 수지구 수지로227번길8<br><b>분야:</b> 일반 기타<br><b>업종:</b> 도소매 및 소비자용품수리업<br>             <b>방문:</b> 0회 / <span style="color:blue; font-weight:bold;">✅ 무재해</span>         </div>     </div>     </div>`)[0];
+                popup_b80ad15beb37aebddbd627a736926760.setContent(html_5761a485aff53c5ccee08247c69cae35);
+            
+        
+
+        marker_a4373260c3fc44f130144f9bc212f964.bindPopup(popup_b80ad15beb37aebddbd627a736926760)
+        ;
+
+        
+    
+    
+            marker_a4373260c3fc44f130144f9bc212f964.bindTooltip(
+                `<div>
+                     장철호가구공방
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_a4373260c3fc44f130144f9bc212f964.setIcon(icon_fa44ad9793abc2950b8e14cc69b8104f);
+            
+    
+            feature_group_bd4d1ca63af8152021ea562723e8115d.addTo(map_304f9db8b7bd98fca19590104cd83267);
+        
+    
+            var feature_group_e71f696aae8d401cc7ef160f6fe0f5b4 = L.featureGroup(
+                {
+}
+            );
+        
+    
+            feature_group_e71f696aae8d401cc7ef160f6fe0f5b4.addTo(map_304f9db8b7bd98fca19590104cd83267);
+        
+    
+            var feature_group_cc05ca3aa25a66461ebc9af20e9fbf85 = L.featureGroup(
+                {
+}
+            );
+        
+    
+            var marker_d4f7886651718ffade305be6f1cb60d1 = L.marker(
+                [37.3507852386519, 127.260779928173],
+                {
+  "opacity": 1.0,
+}
+            ).addTo(feature_group_cc05ca3aa25a66461ebc9af20e9fbf85);
+        
+    
+            var icon_e0e919f1d4509b23bcbc44fd66122d8e = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "lightgray",
+  "iconColor": "white",
+  "icon": "gear",
+  "prefix": "fa",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_8f56e97381ccb85548af73309bae26b3 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_579e9f61bdd6dec2e0a70fa67106248a = $(`<div id="html_579e9f61bdd6dec2e0a70fa67106248a" style="width: 100.0%; height: 100.0%;">     <div style="width:280px; font-family:'Malgun Gothic', sans-serif; line-height:1.8; padding:5px;">         <h3 style="margin:0 0 8px 0;"><span style="color:#888; font-size:13px;">[푸드뱅크주식회사]</span><br>         <b style="font-size:18px; color:#000;">푸드뱅크주식회사</b></h3>         <hr style="margin:8px 0; border:0; border-top:2px solid #444;">         <div style="font-size:16px;">             <b>대표번호:</b> <a href="tel:031-123-3460" style="color:#0022ff; font-weight:bold;">031-123-3460</a><br>             <b>담당자명:</b> 홍길동5 부장<br>             <b>담당자폰:</b> <a href="tel:010-0000-0005" style="color:#0022ff; font-weight:bold;">010-0000-0005</a><br>             <b>이메일:</b> <a href="#" style="color:#228b22; font-weight:bold;">정보없음</a>         </div>         <div style="margin-top:15px; display:flex; gap:8px;">             <a href="tmap://route?goalname=푸드뱅크주식회사&goalx=127.260779928173&goaly=37.3507852386519" style="background-color:#0022FF; color:white; padding:10px; border-radius:6px; font-size:18px; font-weight:bold; flex:1; text-align:center; text-decoration:none;">T맵</a>             <a href="kakaomap://route?ep=37.3507852386519,127.260779928173&by=CAR" style="background-color:#FAE100; color:#3C1E1E; padding:10px; border-radius:6px; font-size:18px; font-weight:bold; flex:1; text-align:center; text-decoration:none;">카카오</a>         </div>         <hr style="margin:12px 0; border:0; border-top:1px solid #eee;">         <div style="font-size:14px; color:#666;">             <b>주소:</b> 경기 광주시 매자리길27번길 144-2 (매산동)<br><b>분야:</b> 일반 제조<br><b>업종:</b> 도소매 및 소비자용품수리업<br>             <b>방문:</b> 0회 / <span style="color:blue; font-weight:bold;">✅ 무재해</span>         </div>     </div>     </div>`)[0];
+                popup_8f56e97381ccb85548af73309bae26b3.setContent(html_579e9f61bdd6dec2e0a70fa67106248a);
+            
+        
+
+        marker_d4f7886651718ffade305be6f1cb60d1.bindPopup(popup_8f56e97381ccb85548af73309bae26b3)
+        ;
+
+        
+    
+    
+            marker_d4f7886651718ffade305be6f1cb60d1.bindTooltip(
+                `<div>
+                     푸드뱅크주식회사
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_d4f7886651718ffade305be6f1cb60d1.setIcon(icon_e0e919f1d4509b23bcbc44fd66122d8e);
+            
+    
+            var marker_7d532aedd8ee588c77ee345593b312bc = L.marker(
+                [37.4116934803945, 127.200465336789],
+                {
+  "opacity": 0.3,
+}
+            ).addTo(feature_group_cc05ca3aa25a66461ebc9af20e9fbf85);
+        
+    
+            var icon_a981471b19d2771ca62e7e615d0d3ec6 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "lightgray",
+  "iconColor": "black",
+  "icon": "ban",
+  "prefix": "fa",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_41ae30509f357998bfcf9cd09a59e374 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_aaba0dd7484b15227105555fb500be29 = $(`<div id="html_aaba0dd7484b15227105555fb500be29" style="width: 100.0%; height: 100.0%;">     <div style="width:280px; font-family:'Malgun Gothic', sans-serif; line-height:1.8; padding:5px;">         <h3 style="margin:0 0 8px 0;"><span style="color:#888; font-size:13px;">[동양플러스(주)]</span><br>         <b style="font-size:18px; color:#000;">동양플러스(주)-본사</b></h3>         <hr style="margin:8px 0; border:0; border-top:2px solid #444;">         <div style="font-size:16px;">             <b>대표번호:</b> <a href="tel:031-123-3461" style="color:#0022ff; font-weight:bold;">031-123-3461</a><br>             <b>담당자명:</b> 홍길동6 부장<br>             <b>담당자폰:</b> <a href="tel:010-0000-0006" style="color:#0022ff; font-weight:bold;">010-0000-0006</a><br>             <b>이메일:</b> <a href="#" style="color:#228b22; font-weight:bold;">정보없음</a>         </div>         <div style="margin-top:15px; display:flex; gap:8px;">             <a href="tmap://route?goalname=동양플러스(주)-본사&goalx=127.200465336789&goaly=37.4116934803945" style="background-color:#0022FF; color:white; padding:10px; border-radius:6px; font-size:18px; font-weight:bold; flex:1; text-align:center; text-decoration:none;">T맵</a>             <a href="kakaomap://route?ep=37.4116934803945,127.200465336789&by=CAR" style="background-color:#FAE100; color:#3C1E1E; padding:10px; border-radius:6px; font-size:18px; font-weight:bold; flex:1; text-align:center; text-decoration:none;">카카오</a>         </div>         <hr style="margin:12px 0; border:0; border-top:1px solid #eee;">         <div style="font-size:14px; color:#666;">             <b>주소:</b> 경기 광주시 순암로492번길 10 (삼동)<br><b>분야:</b> 일반 기타<br><b>업종:</b> 도소매 및 소비자용품수리업<br>             <b>방문:</b> 9회 / <span style="color:red; font-weight:bold;">⚠️ 재해발생(1건)</span>         </div>     </div>     </div>`)[0];
+                popup_41ae30509f357998bfcf9cd09a59e374.setContent(html_aaba0dd7484b15227105555fb500be29);
+            
+        
+
+        marker_7d532aedd8ee588c77ee345593b312bc.bindPopup(popup_41ae30509f357998bfcf9cd09a59e374)
+        ;
+
+        
+    
+    
+            marker_7d532aedd8ee588c77ee345593b312bc.bindTooltip(
+                `<div>
+                     동양플러스(주)-본사
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_7d532aedd8ee588c77ee345593b312bc.setIcon(icon_a981471b19d2771ca62e7e615d0d3ec6);
+            
+    
+            feature_group_cc05ca3aa25a66461ebc9af20e9fbf85.addTo(map_304f9db8b7bd98fca19590104cd83267);
+        
+    
+            var feature_group_ba19b288e1a693801173d336d7a1f358 = L.featureGroup(
+                {
+}
+            );
+        
+    
+            var marker_8e3b56db59fec544af75066e03436463 = L.marker(
+                [37.3893200496502, 127.25385657095],
+                {
+  "opacity": 1.0,
+}
+            ).addTo(feature_group_ba19b288e1a693801173d336d7a1f358);
+        
+    
+            var icon_a2feb3244a0e30c43668aeb279eb989d = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "darkblue",
+  "iconColor": "white",
+  "icon": "battery-empty",
+  "prefix": "fa",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_c5b159a833f15ce53fcda07ff583850d = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_bf43033ab9d46f4d2b736b0a4d8ee6a0 = $(`<div id="html_bf43033ab9d46f4d2b736b0a4d8ee6a0" style="width: 100.0%; height: 100.0%;">     <div style="width:280px; font-family:'Malgun Gothic', sans-serif; line-height:1.8; padding:5px;">         <h3 style="margin:0 0 8px 0;"><span style="color:#888; font-size:13px;">[(주)에이치앤에프]</span><br>         <b style="font-size:18px; color:#000;">(주)에이치앤에프</b></h3>         <hr style="margin:8px 0; border:0; border-top:2px solid #444;">         <div style="font-size:16px;">             <b>대표번호:</b> <a href="tel:031-123-3459" style="color:#0022ff; font-weight:bold;">031-123-3459</a><br>             <b>담당자명:</b> 홍길동4 부장<br>             <b>담당자폰:</b> <a href="tel:010-0000-0004" style="color:#0022ff; font-weight:bold;">010-0000-0004</a><br>             <b>이메일:</b> <a href="#" style="color:#228b22; font-weight:bold;">정보없음</a>         </div>         <div style="margin-top:15px; display:flex; gap:8px;">             <a href="tmap://route?goalname=(주)에이치앤에프&goalx=127.25385657095&goaly=37.3893200496502" style="background-color:#0022FF; color:white; padding:10px; border-radius:6px; font-size:18px; font-weight:bold; flex:1; text-align:center; text-decoration:none;">T맵</a>             <a href="kakaomap://route?ep=37.3893200496502,127.25385657095&by=CAR" style="background-color:#FAE100; color:#3C1E1E; padding:10px; border-radius:6px; font-size:18px; font-weight:bold; flex:1; text-align:center; text-decoration:none;">카카오</a>         </div>         <hr style="margin:12px 0; border:0; border-top:1px solid #eee;">         <div style="font-size:14px; color:#666;">             <b>주소:</b> 경기 광주시 마루들길35번길 25 (양벌동)<br><b>분야:</b> 일반 제조<br><b>업종:</b> 도소매 및 소비자용품수리업<br>             <b>방문:</b> 1회 / <span style="color:blue; font-weight:bold;">✅ 무재해</span>         </div>     </div>     </div>`)[0];
+                popup_c5b159a833f15ce53fcda07ff583850d.setContent(html_bf43033ab9d46f4d2b736b0a4d8ee6a0);
+            
+        
+
+        marker_8e3b56db59fec544af75066e03436463.bindPopup(popup_c5b159a833f15ce53fcda07ff583850d)
+        ;
+
+        
+    
+    
+            marker_8e3b56db59fec544af75066e03436463.bindTooltip(
+                `<div>
+                     (주)에이치앤에프
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_8e3b56db59fec544af75066e03436463.setIcon(icon_a2feb3244a0e30c43668aeb279eb989d);
+            
+    
+            feature_group_ba19b288e1a693801173d336d7a1f358.addTo(map_304f9db8b7bd98fca19590104cd83267);
+        
+    
+            var feature_group_81efdc652590f2efc602883c3682dba9 = L.featureGroup(
+                {
+}
+            );
+        
+    
+            var marker_c01cfb3679063ce72b964928ecfb4cd3 = L.marker(
+                [37.3790334497787, 127.254400771423],
+                {
+  "opacity": 1.0,
+}
+            ).addTo(feature_group_81efdc652590f2efc602883c3682dba9);
+        
+    
+            var icon_939d3ee6733d838dbecd358714b163d8 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "lightgray",
+  "iconColor": "white",
+  "icon": "building",
+  "prefix": "fa",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_7607e1e4842bd7e4e8f405cd40fea71a = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_8ef3149b2a8e93b49d5eaf03b7e13d5e = $(`<div id="html_8ef3149b2a8e93b49d5eaf03b7e13d5e" style="width: 100.0%; height: 100.0%;">     <div style="width:280px; font-family:'Malgun Gothic', sans-serif; line-height:1.8; padding:5px;">         <h3 style="margin:0 0 8px 0;"><span style="color:#888; font-size:13px;">[(주)리치마트]</span><br>         <b style="font-size:18px; color:#000;">(주)리치마트</b></h3>         <hr style="margin:8px 0; border:0; border-top:2px solid #444;">         <div style="font-size:16px;">             <b>대표번호:</b> <a href="tel:031-123-3462" style="color:#0022ff; font-weight:bold;">031-123-3462</a><br>             <b>담당자명:</b> 정보없음<br>             <b>담당자폰:</b> <a href="tel:010-0000-0007" style="color:#0022ff; font-weight:bold;">010-0000-0007</a><br>             <b>이메일:</b> <a href="#" style="color:#228b22; font-weight:bold;">정보없음</a>         </div>         <div style="margin-top:15px; display:flex; gap:8px;">             <a href="tmap://route?goalname=(주)리치마트&goalx=127.254400771423&goaly=37.3790334497787" style="background-color:#0022FF; color:white; padding:10px; border-radius:6px; font-size:18px; font-weight:bold; flex:1; text-align:center; text-decoration:none;">T맵</a>             <a href="kakaomap://route?ep=37.3790334497787,127.254400771423&by=CAR" style="background-color:#FAE100; color:#3C1E1E; padding:10px; border-radius:6px; font-size:18px; font-weight:bold; flex:1; text-align:center; text-decoration:none;">카카오</a>         </div>         <hr style="margin:12px 0; border:0; border-top:1px solid #eee;">         <div style="font-size:14px; color:#666;">             <b>주소:</b> 경기 광주시 양벌로 200 (양벌리)<br><b>분야:</b> 일반 기타<br><b>업종:</b> 도소매 및 소비자용품수리업<br>             <b>방문:</b> 0회 / <span style="color:blue; font-weight:bold;">✅ 무재해</span>         </div>     </div>     </div>`)[0];
+                popup_7607e1e4842bd7e4e8f405cd40fea71a.setContent(html_8ef3149b2a8e93b49d5eaf03b7e13d5e);
+            
+        
+
+        marker_c01cfb3679063ce72b964928ecfb4cd3.bindPopup(popup_7607e1e4842bd7e4e8f405cd40fea71a)
+        ;
+
+        
+    
+    
+            marker_c01cfb3679063ce72b964928ecfb4cd3.bindTooltip(
+                `<div>
+                     (주)리치마트
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_c01cfb3679063ce72b964928ecfb4cd3.setIcon(icon_939d3ee6733d838dbecd358714b163d8);
+            
+    
+            feature_group_81efdc652590f2efc602883c3682dba9.addTo(map_304f9db8b7bd98fca19590104cd83267);
+        
+    
+            var feature_group_c3058ccb0d8ce6d73534047cf462828d = L.featureGroup(
+                {
+}
+            );
+        
+    
+            var marker_c38c5c641a3e92fd1fbf6e86c996be04 = L.marker(
+                [37.3997014321663, 127.299447426903],
+                {
+  "opacity": 1.0,
+}
+            ).addTo(feature_group_c3058ccb0d8ce6d73534047cf462828d);
+        
+    
+            var icon_4b5461fb0440c2f638cc4e562d0dc33c = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "darkblue",
+  "iconColor": "white",
+  "icon": "battery-quarter",
+  "prefix": "fa",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_6467359ecd88f5539a724f5592890b03 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_e5131b65a231c7c7000fe35aefde77cf = $(`<div id="html_e5131b65a231c7c7000fe35aefde77cf" style="width: 100.0%; height: 100.0%;">     <div style="width:280px; font-family:'Malgun Gothic', sans-serif; line-height:1.8; padding:5px;">         <h3 style="margin:0 0 8px 0;"><span style="color:#888; font-size:13px;">[광주환경(주)]</span><br>         <b style="font-size:18px; color:#000;">광주환경(주)</b></h3>         <hr style="margin:8px 0; border:0; border-top:2px solid #444;">         <div style="font-size:16px;">             <b>대표번호:</b> <a href="tel:031-123-3463" style="color:#0022ff; font-weight:bold;">031-123-3463</a><br>             <b>담당자명:</b> 정보없음<br>             <b>담당자폰:</b> <a href="tel:010-0000-0008" style="color:#0022ff; font-weight:bold;">010-0000-0008</a><br>             <b>이메일:</b> <a href="#" style="color:#228b22; font-weight:bold;">정보없음</a>         </div>         <div style="margin-top:15px; display:flex; gap:8px;">             <a href="tmap://route?goalname=광주환경(주)&goalx=127.299447426903&goaly=37.3997014321663" style="background-color:#0022FF; color:white; padding:10px; border-radius:6px; font-size:18px; font-weight:bold; flex:1; text-align:center; text-decoration:none;">T맵</a>             <a href="kakaomap://route?ep=37.3997014321663,127.299447426903&by=CAR" style="background-color:#FAE100; color:#3C1E1E; padding:10px; border-radius:6px; font-size:18px; font-weight:bold; flex:1; text-align:center; text-decoration:none;">카카오</a>         </div>         <hr style="margin:12px 0; border:0; border-top:1px solid #eee;">         <div style="font-size:14px; color:#666;">             <b>주소:</b> 경기 광주시 초월읍 도평길 207-14 <br><b>분야:</b> 일반 제조<br><b>업종:</b> 위생 및 유사서비스업<br>             <b>방문:</b> 2회 / <span style="color:blue; font-weight:bold;">✅ 무재해</span>         </div>     </div>     </div>`)[0];
+                popup_6467359ecd88f5539a724f5592890b03.setContent(html_e5131b65a231c7c7000fe35aefde77cf);
+            
+        
+
+        marker_c38c5c641a3e92fd1fbf6e86c996be04.bindPopup(popup_6467359ecd88f5539a724f5592890b03)
+        ;
+
+        
+    
+    
+            marker_c38c5c641a3e92fd1fbf6e86c996be04.bindTooltip(
+                `<div>
+                     광주환경(주)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_c38c5c641a3e92fd1fbf6e86c996be04.setIcon(icon_4b5461fb0440c2f638cc4e562d0dc33c);
+            
+    
+            feature_group_c3058ccb0d8ce6d73534047cf462828d.addTo(map_304f9db8b7bd98fca19590104cd83267);
+        
+    
+            var feature_group_78f6f8f0fdeb6f0cd7b733ad18d99301 = L.featureGroup(
+                {
+}
+            );
+        
+    
+            feature_group_78f6f8f0fdeb6f0cd7b733ad18d99301.addTo(map_304f9db8b7bd98fca19590104cd83267);
+        
+    
+            var feature_group_00d06b6b2517de971051d0f274e207a9 = L.featureGroup(
+                {
+}
+            );
+        
+    
+            var marker_0b0222d46a2c4e6d7a4e055bbc1c8b8f = L.marker(
+                [37.3945348336239, 127.30004290836],
+                {
+  "opacity": 1.0,
+}
+            ).addTo(feature_group_00d06b6b2517de971051d0f274e207a9);
+        
+    
+            var icon_32e7bd8b66eea5058d85e9dee8b188d3 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "darkblue",
+  "iconColor": "white",
+  "icon": "battery-half",
+  "prefix": "fa",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_4e5afa26ff499d47225ad6d4c1226fb4 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_05b3b35315b6763fd62abcc05729100c = $(`<div id="html_05b3b35315b6763fd62abcc05729100c" style="width: 100.0%; height: 100.0%;">     <div style="width:280px; font-family:'Malgun Gothic', sans-serif; line-height:1.8; padding:5px;">         <h3 style="margin:0 0 8px 0;"><span style="color:#888; font-size:13px;">[(주)엠케이에프엔씨]</span><br>         <b style="font-size:18px; color:#000;">(주)엠케이에프엔씨</b></h3>         <hr style="margin:8px 0; border:0; border-top:2px solid #444;">         <div style="font-size:16px;">             <b>대표번호:</b> <a href="tel:031-123-3464" style="color:#0022ff; font-weight:bold;">031-123-3464</a><br>             <b>담당자명:</b> 정보없음<br>             <b>담당자폰:</b> <a href="tel:정보없음" style="color:#0022ff; font-weight:bold;">정보없음</a><br>             <b>이메일:</b> <a href="#" style="color:#228b22; font-weight:bold;">정보없음</a>         </div>         <div style="margin-top:15px; display:flex; gap:8px;">             <a href="tmap://route?goalname=(주)엠케이에프엔씨&goalx=127.30004290836&goaly=37.3945348336239" style="background-color:#0022FF; color:white; padding:10px; border-radius:6px; font-size:18px; font-weight:bold; flex:1; text-align:center; text-decoration:none;">T맵</a>             <a href="kakaomap://route?ep=37.3945348336239,127.30004290836&by=CAR" style="background-color:#FAE100; color:#3C1E1E; padding:10px; border-radius:6px; font-size:18px; font-weight:bold; flex:1; text-align:center; text-decoration:none;">카카오</a>         </div>         <hr style="margin:12px 0; border:0; border-top:1px solid #eee;">         <div style="font-size:14px; color:#666;">             <b>주소:</b> 경기 광주시 초월읍 도평길110번길 49 <br><b>분야:</b> 일반 제조<br><b>업종:</b> 도소매 및 소비자용품수리업<br>             <b>방문:</b> 3회 / <span style="color:blue; font-weight:bold;">✅ 무재해</span>         </div>     </div>     </div>`)[0];
+                popup_4e5afa26ff499d47225ad6d4c1226fb4.setContent(html_05b3b35315b6763fd62abcc05729100c);
+            
+        
+
+        marker_0b0222d46a2c4e6d7a4e055bbc1c8b8f.bindPopup(popup_4e5afa26ff499d47225ad6d4c1226fb4)
+        ;
+
+        
+    
+    
+            marker_0b0222d46a2c4e6d7a4e055bbc1c8b8f.bindTooltip(
+                `<div>
+                     (주)엠케이에프엔씨
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_0b0222d46a2c4e6d7a4e055bbc1c8b8f.setIcon(icon_32e7bd8b66eea5058d85e9dee8b188d3);
+            
+    
+            var marker_8522fbf411fb61d71f8673264709c9ae = L.marker(
+                [37.4143160900817, 127.312952950812],
+                {
+  "opacity": 1.0,
+}
+            ).addTo(feature_group_00d06b6b2517de971051d0f274e207a9);
+        
+    
+            var icon_c82c1b180555fcaf227f87dfc3ac2b70 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "darkblue",
+  "iconColor": "black",
+  "icon": "battery-three-quarters",
+  "prefix": "fa",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_d101c301feda232042c11091ed6f6d28 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_b0377e79d6dfa1c66d608d3928e64414 = $(`<div id="html_b0377e79d6dfa1c66d608d3928e64414" style="width: 100.0%; height: 100.0%;">     <div style="width:280px; font-family:'Malgun Gothic', sans-serif; line-height:1.8; padding:5px;">         <h3 style="margin:0 0 8px 0;"><span style="color:#888; font-size:13px;">[주식회사씨에스엔엠-곤지암풀필먼트2센터]</span><br>         <b style="font-size:18px; color:#000;">주식회사씨에스엔엠-곤지암풀필먼트2센터</b></h3>         <hr style="margin:8px 0; border:0; border-top:2px solid #444;">         <div style="font-size:16px;">             <b>대표번호:</b> <a href="tel:031-123-3465" style="color:#0022ff; font-weight:bold;">031-123-3465</a><br>             <b>담당자명:</b> 정보없음<br>             <b>담당자폰:</b> <a href="tel:정보없음" style="color:#0022ff; font-weight:bold;">정보없음</a><br>             <b>이메일:</b> <a href="#" style="color:#228b22; font-weight:bold;">정보없음</a>         </div>         <div style="margin-top:15px; display:flex; gap:8px;">             <a href="tmap://route?goalname=주식회사씨에스엔엠-곤지암풀필먼트2센터&goalx=127.312952950812&goaly=37.4143160900817" style="background-color:#0022FF; color:white; padding:10px; border-radius:6px; font-size:18px; font-weight:bold; flex:1; text-align:center; text-decoration:none;">T맵</a>             <a href="kakaomap://route?ep=37.4143160900817,127.312952950812&by=CAR" style="background-color:#FAE100; color:#3C1E1E; padding:10px; border-radius:6px; font-size:18px; font-weight:bold; flex:1; text-align:center; text-decoration:none;">카카오</a>         </div>         <hr style="margin:12px 0; border:0; border-top:1px solid #eee;">         <div style="font-size:14px; color:#666;">             <b>주소:</b> 경기 광주시 초월읍 산수로 642-70 (초월읍, 곤지암메가허브 2층)<br><b>분야:</b> 일반 제조<br><b>업종:</b> 육상화물취급업<br>             <b>방문:</b> 4회 / <span style="color:red; font-weight:bold;">⚠️ 재해발생(1건)</span>         </div>     </div>     </div>`)[0];
+                popup_d101c301feda232042c11091ed6f6d28.setContent(html_b0377e79d6dfa1c66d608d3928e64414);
+            
+        
+
+        marker_8522fbf411fb61d71f8673264709c9ae.bindPopup(popup_d101c301feda232042c11091ed6f6d28)
+        ;
+
+        
+    
+    
+            marker_8522fbf411fb61d71f8673264709c9ae.bindTooltip(
+                `<div>
+                     주식회사씨에스엔엠-곤지암풀필먼트2센터
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_8522fbf411fb61d71f8673264709c9ae.setIcon(icon_c82c1b180555fcaf227f87dfc3ac2b70);
+            
+    
+            var marker_8c1f435a56767dc95608fc251c31472f = L.marker(
+                [37.4143160900817, 127.312952950812],
+                {
+  "opacity": 1.0,
+}
+            ).addTo(feature_group_00d06b6b2517de971051d0f274e207a9);
+        
+    
+            var icon_aa6b6b7b42d2943e17126d50ddae0870 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "darkgreen",
+  "iconColor": "white",
+  "icon": "battery-full",
+  "prefix": "fa",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_cfb549110257342c594797462b99a92c = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_677348a49221fd9bebe90426e3629753 = $(`<div id="html_677348a49221fd9bebe90426e3629753" style="width: 100.0%; height: 100.0%;">     <div style="width:280px; font-family:'Malgun Gothic', sans-serif; line-height:1.8; padding:5px;">         <h3 style="margin:0 0 8px 0;"><span style="color:#888; font-size:13px;">[와이케이엔젤스오쇼핑물류센터]</span><br>         <b style="font-size:18px; color:#000;">와이케이엔젤스오쇼핑물류센터</b></h3>         <hr style="margin:8px 0; border:0; border-top:2px solid #444;">         <div style="font-size:16px;">             <b>대표번호:</b> <a href="tel:031-123-3466" style="color:#0022ff; font-weight:bold;">031-123-3466</a><br>             <b>담당자명:</b> 홍길동11 부장<br>             <b>담당자폰:</b> <a href="tel:정보없음" style="color:#0022ff; font-weight:bold;">정보없음</a><br>             <b>이메일:</b> <a href="#" style="color:#228b22; font-weight:bold;">정보없음</a>         </div>         <div style="margin-top:15px; display:flex; gap:8px;">             <a href="tmap://route?goalname=와이케이엔젤스오쇼핑물류센터&goalx=127.312952950812&goaly=37.4143160900817" style="background-color:#0022FF; color:white; padding:10px; border-radius:6px; font-size:18px; font-weight:bold; flex:1; text-align:center; text-decoration:none;">T맵</a>             <a href="kakaomap://route?ep=37.4143160900817,127.312952950812&by=CAR" style="background-color:#FAE100; color:#3C1E1E; padding:10px; border-radius:6px; font-size:18px; font-weight:bold; flex:1; text-align:center; text-decoration:none;">카카오</a>         </div>         <hr style="margin:12px 0; border:0; border-top:1px solid #eee;">         <div style="font-size:14px; color:#666;">             <b>주소:</b> 경기 광주시 초월읍 산수로 642-70 <br><b>분야:</b> 일반 기타<br><b>업종:</b> 육상화물취급업<br>             <b>방문:</b> 5회 / <span style="color:blue; font-weight:bold;">✅ 무재해</span>         </div>     </div>     </div>`)[0];
+                popup_cfb549110257342c594797462b99a92c.setContent(html_677348a49221fd9bebe90426e3629753);
+            
+        
+
+        marker_8c1f435a56767dc95608fc251c31472f.bindPopup(popup_cfb549110257342c594797462b99a92c)
+        ;
+
+        
+    
+    
+            marker_8c1f435a56767dc95608fc251c31472f.bindTooltip(
+                `<div>
+                     와이케이엔젤스오쇼핑물류센터
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_8c1f435a56767dc95608fc251c31472f.setIcon(icon_aa6b6b7b42d2943e17126d50ddae0870);
+            
+    
+            feature_group_00d06b6b2517de971051d0f274e207a9.addTo(map_304f9db8b7bd98fca19590104cd83267);
+        
+    
+            var feature_group_4c77f7e99088dc7cddb3dd196d6d4c85 = L.featureGroup(
+                {
+}
+            );
+        
+    
+            var marker_8f8e9807b8124ba63ea1a8e117ad25be = L.marker(
+                [37.4143983791896, 127.298304140481],
+                {
+  "opacity": 0.3,
+}
+            ).addTo(feature_group_4c77f7e99088dc7cddb3dd196d6d4c85);
+        
+    
+            var icon_9937bf019aaf49f490d313f1f1ab34a8 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "lightgray",
+  "iconColor": "white",
+  "icon": "ban",
+  "prefix": "fa",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_1ffe7acbfd82734c5c13a9bedf30c097 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_9faf8e46c8c11932180e0662e136eb61 = $(`<div id="html_9faf8e46c8c11932180e0662e136eb61" style="width: 100.0%; height: 100.0%;">     <div style="width:280px; font-family:'Malgun Gothic', sans-serif; line-height:1.8; padding:5px;">         <h3 style="margin:0 0 8px 0;"><span style="color:#888; font-size:13px;">[(주)한성체리티]</span><br>         <b style="font-size:18px; color:#000;">(주)한성체리티</b></h3>         <hr style="margin:8px 0; border:0; border-top:2px solid #444;">         <div style="font-size:16px;">             <b>대표번호:</b> <a href="tel:031-123-3467" style="color:#0022ff; font-weight:bold;">031-123-3467</a><br>             <b>담당자명:</b> 홍길동12 부장<br>             <b>담당자폰:</b> <a href="tel:정보없음" style="color:#0022ff; font-weight:bold;">정보없음</a><br>             <b>이메일:</b> <a href="#" style="color:#228b22; font-weight:bold;">정보없음</a>         </div>         <div style="margin-top:15px; display:flex; gap:8px;">             <a href="tmap://route?goalname=(주)한성체리티&goalx=127.298304140481&goaly=37.4143983791896" style="background-color:#0022FF; color:white; padding:10px; border-radius:6px; font-size:18px; font-weight:bold; flex:1; text-align:center; text-decoration:none;">T맵</a>             <a href="kakaomap://route?ep=37.4143983791896,127.298304140481&by=CAR" style="background-color:#FAE100; color:#3C1E1E; padding:10px; border-radius:6px; font-size:18px; font-weight:bold; flex:1; text-align:center; text-decoration:none;">카카오</a>         </div>         <hr style="margin:12px 0; border:0; border-top:1px solid #eee;">         <div style="font-size:14px; color:#666;">             <b>주소:</b> 경기 광주시 초월읍 지월로 73 <br><b>분야:</b> 일반 제조<br><b>업종:</b> 도소매 및 소비자용품수리업<br>             <b>방문:</b> 9회 / <span style="color:blue; font-weight:bold;">✅ 무재해</span>         </div>     </div>     </div>`)[0];
+                popup_1ffe7acbfd82734c5c13a9bedf30c097.setContent(html_9faf8e46c8c11932180e0662e136eb61);
+            
+        
+
+        marker_8f8e9807b8124ba63ea1a8e117ad25be.bindPopup(popup_1ffe7acbfd82734c5c13a9bedf30c097)
+        ;
+
+        
+    
+    
+            marker_8f8e9807b8124ba63ea1a8e117ad25be.bindTooltip(
+                `<div>
+                     (주)한성체리티
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_8f8e9807b8124ba63ea1a8e117ad25be.setIcon(icon_9937bf019aaf49f490d313f1f1ab34a8);
+            
+    
+            feature_group_4c77f7e99088dc7cddb3dd196d6d4c85.addTo(map_304f9db8b7bd98fca19590104cd83267);
+        
+    
+            var feature_group_c12b316d6e0540e4efe0c1021908c674 = L.featureGroup(
+                {
+}
+            );
+        
+    
+            var marker_4423556ba999f7e89dae3ccd51d20eb7 = L.marker(
+                [37.4067955378366, 127.213889398885],
+                {
+  "opacity": 1.0,
+}
+            ).addTo(feature_group_c12b316d6e0540e4efe0c1021908c674);
+        
+    
+            var icon_a456555136d20ba0b4e9f8120260bf79 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "darkgreen",
+  "iconColor": "black",
+  "icon": "battery-quarter",
+  "prefix": "fa",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_41b3813407fe2e61e4a08cf76405576e = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_e5131900e14245e72bd707f9f441f63b = $(`<div id="html_e5131900e14245e72bd707f9f441f63b" style="width: 100.0%; height: 100.0%;">     <div style="width:280px; font-family:'Malgun Gothic', sans-serif; line-height:1.8; padding:5px;">         <h3 style="margin:0 0 8px 0;"><span style="color:#888; font-size:13px;">[선진안전(주)]</span><br>         <b style="font-size:18px; color:#000;">선진안전(주)</b></h3>         <hr style="margin:8px 0; border:0; border-top:2px solid #444;">         <div style="font-size:16px;">             <b>대표번호:</b> <a href="tel:031-123-3468" style="color:#0022ff; font-weight:bold;">031-123-3468</a><br>             <b>담당자명:</b> 홍길동13 부장<br>             <b>담당자폰:</b> <a href="tel:정보없음" style="color:#0022ff; font-weight:bold;">정보없음</a><br>             <b>이메일:</b> <a href="#" style="color:#228b22; font-weight:bold;">정보없음</a>         </div>         <div style="margin-top:15px; display:flex; gap:8px;">             <a href="tmap://route?goalname=선진안전(주)&goalx=127.213889398885&goaly=37.4067955378366" style="background-color:#0022FF; color:white; padding:10px; border-radius:6px; font-size:18px; font-weight:bold; flex:1; text-align:center; text-decoration:none;">T맵</a>             <a href="kakaomap://route?ep=37.4067955378366,127.213889398885&by=CAR" style="background-color:#FAE100; color:#3C1E1E; padding:10px; border-radius:6px; font-size:18px; font-weight:bold; flex:1; text-align:center; text-decoration:none;">카카오</a>         </div>         <hr style="margin:12px 0; border:0; border-top:1px solid #eee;">         <div style="font-size:14px; color:#666;">             <b>주소:</b> 경기 광주시 텃골길  19 (중대동, 09)<br><b>분야:</b> 일반 기타<br><b>업종:</b> 도소매 및 소비자용품수리업<br>             <b>방문:</b> 2회 / <span style="color:red; font-weight:bold;">⚠️ 재해발생(1건)</span>         </div>     </div>     </div>`)[0];
+                popup_41b3813407fe2e61e4a08cf76405576e.setContent(html_e5131900e14245e72bd707f9f441f63b);
+            
+        
+
+        marker_4423556ba999f7e89dae3ccd51d20eb7.bindPopup(popup_41b3813407fe2e61e4a08cf76405576e)
+        ;
+
+        
+    
+    
+            marker_4423556ba999f7e89dae3ccd51d20eb7.bindTooltip(
+                `<div>
+                     선진안전(주)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_4423556ba999f7e89dae3ccd51d20eb7.setIcon(icon_a456555136d20ba0b4e9f8120260bf79);
+            
+    
+            feature_group_c12b316d6e0540e4efe0c1021908c674.addTo(map_304f9db8b7bd98fca19590104cd83267);
+        
+    
+            var feature_group_28a3f577817fc2cd2c3d7aeabf4c1e52 = L.featureGroup(
+                {
+}
+            );
+        
+    
+            var marker_a89d936c4fdc1ea572880b0cf3b39e4f = L.marker(
+                [37.3565718536249, 127.225561872792],
+                {
+  "opacity": 1.0,
+}
+            ).addTo(feature_group_28a3f577817fc2cd2c3d7aeabf4c1e52);
+        
+    
+            var icon_51340f632897dde50c8d8c6b9f5e4c9f = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "gray",
+  "iconColor": "white",
+  "icon": "building",
+  "prefix": "fa",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_1a086765ddf6b88a716130cc0ccf572d = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_10025f3b300673371738458ba105665c = $(`<div id="html_10025f3b300673371738458ba105665c" style="width: 100.0%; height: 100.0%;">     <div style="width:280px; font-family:'Malgun Gothic', sans-serif; line-height:1.8; padding:5px;">         <h3 style="margin:0 0 8px 0;"><span style="color:#888; font-size:13px;">[한국쥬맥스（주）]</span><br>         <b style="font-size:18px; color:#000;">한국쥬맥스（주）</b></h3>         <hr style="margin:8px 0; border:0; border-top:2px solid #444;">         <div style="font-size:16px;">             <b>대표번호:</b> <a href="tel:031-123-3469" style="color:#0022ff; font-weight:bold;">031-123-3469</a><br>             <b>담당자명:</b> 홍길동15 부장<br>             <b>담당자폰:</b> <a href="tel:010-0000-0015" style="color:#0022ff; font-weight:bold;">010-0000-0015</a><br>             <b>이메일:</b> <a href="#" style="color:#228b22; font-weight:bold;">정보없음</a>         </div>         <div style="margin-top:15px; display:flex; gap:8px;">             <a href="tmap://route?goalname=한국쥬맥스（주）&goalx=127.225561872792&goaly=37.3565718536249" style="background-color:#0022FF; color:white; padding:10px; border-radius:6px; font-size:18px; font-weight:bold; flex:1; text-align:center; text-decoration:none;">T맵</a>             <a href="kakaomap://route?ep=37.3565718536249,127.225561872792&by=CAR" style="background-color:#FAE100; color:#3C1E1E; padding:10px; border-radius:6px; font-size:18px; font-weight:bold; flex:1; text-align:center; text-decoration:none;">카카오</a>         </div>         <hr style="margin:12px 0; border:0; border-top:1px solid #eee;">         <div style="font-size:14px; color:#666;">             <b>주소:</b> 경기 광주시 포은대로 282-19 (추자동)<br><b>분야:</b> 일반 기타<br><b>업종:</b> 도소매 및 소비자용품수리업<br>             <b>방문:</b> 0회 / <span style="color:blue; font-weight:bold;">✅ 무재해</span>         </div>     </div>     </div>`)[0];
+                popup_1a086765ddf6b88a716130cc0ccf572d.setContent(html_10025f3b300673371738458ba105665c);
+            
+        
+
+        marker_a89d936c4fdc1ea572880b0cf3b39e4f.bindPopup(popup_1a086765ddf6b88a716130cc0ccf572d)
+        ;
+
+        
+    
+    
+            marker_a89d936c4fdc1ea572880b0cf3b39e4f.bindTooltip(
+                `<div>
+                     한국쥬맥스（주）
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_a89d936c4fdc1ea572880b0cf3b39e4f.setIcon(icon_51340f632897dde50c8d8c6b9f5e4c9f);
+            
+    
+            feature_group_28a3f577817fc2cd2c3d7aeabf4c1e52.addTo(map_304f9db8b7bd98fca19590104cd83267);
+        
+    
+            var feature_group_bc633d31b9b556c73b9da48dd02a6592 = L.featureGroup(
+                {
+}
+            );
+        
+    
+            var marker_4ad8075046def2b7e630bf2082e80c59 = L.marker(
+                [37.3557182502115, 127.222405997466],
+                {
+  "opacity": 1.0,
+}
+            ).addTo(feature_group_bc633d31b9b556c73b9da48dd02a6592);
+        
+    
+            var icon_f69a9323263cd7a5a0bfd8eda550ae7d = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "darkgreen",
+  "iconColor": "white",
+  "icon": "battery-half",
+  "prefix": "fa",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_b4fdbd7c6efacf68809ee89d1e51edbb = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_12402d88cc074faee9c9d31d170112bf = $(`<div id="html_12402d88cc074faee9c9d31d170112bf" style="width: 100.0%; height: 100.0%;">     <div style="width:280px; font-family:'Malgun Gothic', sans-serif; line-height:1.8; padding:5px;">         <h3 style="margin:0 0 8px 0;"><span style="color:#888; font-size:13px;">[아미종합물류(주)]</span><br>         <b style="font-size:18px; color:#000;">아미종합물류(주)</b></h3>         <hr style="margin:8px 0; border:0; border-top:2px solid #444;">         <div style="font-size:16px;">             <b>대표번호:</b> <a href="tel:031-123-3469" style="color:#0022ff; font-weight:bold;">031-123-3469</a><br>             <b>담당자명:</b> 홍길동14 부장<br>             <b>담당자폰:</b> <a href="tel:010-0000-0014" style="color:#0022ff; font-weight:bold;">010-0000-0014</a><br>             <b>이메일:</b> <a href="#" style="color:#228b22; font-weight:bold;">정보없음</a>         </div>         <div style="margin-top:15px; display:flex; gap:8px;">             <a href="tmap://route?goalname=아미종합물류(주)&goalx=127.222405997466&goaly=37.3557182502115" style="background-color:#0022FF; color:white; padding:10px; border-radius:6px; font-size:18px; font-weight:bold; flex:1; text-align:center; text-decoration:none;">T맵</a>             <a href="kakaomap://route?ep=37.3557182502115,127.222405997466&by=CAR" style="background-color:#FAE100; color:#3C1E1E; padding:10px; border-radius:6px; font-size:18px; font-weight:bold; flex:1; text-align:center; text-decoration:none;">카카오</a>         </div>         <hr style="margin:12px 0; border:0; border-top:1px solid #eee;">         <div style="font-size:14px; color:#666;">             <b>주소:</b> 경기 광주시 포은대로 271 (추자동)<br><b>분야:</b> 일반 기타<br><b>업종:</b> 창고업<br>             <b>방문:</b> 3회 / <span style="color:blue; font-weight:bold;">✅ 무재해</span>         </div>     </div>     </div>`)[0];
+                popup_b4fdbd7c6efacf68809ee89d1e51edbb.setContent(html_12402d88cc074faee9c9d31d170112bf);
+            
+        
+
+        marker_4ad8075046def2b7e630bf2082e80c59.bindPopup(popup_b4fdbd7c6efacf68809ee89d1e51edbb)
+        ;
+
+        
+    
+    
+            marker_4ad8075046def2b7e630bf2082e80c59.bindTooltip(
+                `<div>
+                     아미종합물류(주)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_4ad8075046def2b7e630bf2082e80c59.setIcon(icon_f69a9323263cd7a5a0bfd8eda550ae7d);
+            
+    
+            feature_group_bc633d31b9b556c73b9da48dd02a6592.addTo(map_304f9db8b7bd98fca19590104cd83267);
+        
+    
+            var layer_control_30752ddac14960ff454c251f9a76e960_layers = {
+                base_layers : {
+                    "openstreetmap" : tile_layer_d70ad11d0bf73bfac0a12def3d828adc,
+                },
+                overlays :  {
+                    "\uc7a5\ucca0\ud638: \ubc29\ubb38\uc804" : feature_group_bd4d1ca63af8152021ea562723e8115d,
+                    "\uc7a5\ucca0\ud638: \uc9c4\ud589\uc911" : feature_group_e71f696aae8d401cc7ef160f6fe0f5b4,
+                    "\uad8c\uc131\uc2e0: \ubc29\ubb38\uc804" : feature_group_cc05ca3aa25a66461ebc9af20e9fbf85,
+                    "\uad8c\uc131\uc2e0: \uc9c4\ud589\uc911" : feature_group_ba19b288e1a693801173d336d7a1f358,
+                    "\uae40\ucca0\uc21c: \ubc29\ubb38\uc804" : feature_group_81efdc652590f2efc602883c3682dba9,
+                    "\uae40\ucca0\uc21c: \uc9c4\ud589\uc911" : feature_group_c3058ccb0d8ce6d73534047cf462828d,
+                    "\uc11c\ud615\uae38: \ubc29\ubb38\uc804" : feature_group_78f6f8f0fdeb6f0cd7b733ad18d99301,
+                    "\uc11c\ud615\uae38: \uc9c4\ud589\uc911" : feature_group_00d06b6b2517de971051d0f274e207a9,
+                    "\uc724\uc5ec\uc6b4: \ubc29\ubb38\uc804" : feature_group_4c77f7e99088dc7cddb3dd196d6d4c85,
+                    "\uc724\uc5ec\uc6b4: \uc9c4\ud589\uc911" : feature_group_c12b316d6e0540e4efe0c1021908c674,
+                    "\uc784\uc724\uc2dd: \ubc29\ubb38\uc804" : feature_group_28a3f577817fc2cd2c3d7aeabf4c1e52,
+                    "\uc784\uc724\uc2dd: \uc9c4\ud589\uc911" : feature_group_bc633d31b9b556c73b9da48dd02a6592,
+                },
+            };
+            let layer_control_30752ddac14960ff454c251f9a76e960 = L.control.layers(
+                layer_control_30752ddac14960ff454c251f9a76e960_layers.base_layers,
+                layer_control_30752ddac14960ff454c251f9a76e960_layers.overlays,
+                {
+  "position": "topright",
+  "collapsed": true,
+  "autoZIndex": true,
+}
+            ).addTo(map_304f9db8b7bd98fca19590104cd83267);
+
+        
+</script>
+</html>

@@ -1,0 +1,869 @@
+<!DOCTYPE html>
+<html>
+<head>
+    
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+    <script src="https://cdn.jsdelivr.net/npm/leaflet@1.9.3/dist/leaflet.js"></script>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet@1.9.3/dist/leaflet.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="https://netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap-glyphicons.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.2.0/css/all.min.css"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/python-visualization/folium/folium/templates/leaflet.awesome.rotate.min.css"/>
+    
+            <meta name="viewport" content="width=device-width,
+                initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+            <style>
+                #map_544e00d27989727768c10afcc0d77c18 {
+                    position: relative;
+                    width: 100.0%;
+                    height: 100.0%;
+                    left: 0.0%;
+                    top: 0.0%;
+                }
+                .leaflet-container { font-size: 1rem; }
+            </style>
+
+            <style>html, body {
+                width: 100%;
+                height: 100%;
+                margin: 0;
+                padding: 0;
+            }
+            </style>
+
+            <style>#map {
+                position:absolute;
+                top:0;
+                bottom:0;
+                right:0;
+                left:0;
+                }
+            </style>
+
+            <script>
+                L_NO_TOUCH = false;
+                L_DISABLE_3D = false;
+            </script>
+
+        
+</head>
+<body>
+    
+    
+            <div class="folium-map" id="map_544e00d27989727768c10afcc0d77c18" ></div>
+        
+</body>
+<script>
+    
+    
+            var map_544e00d27989727768c10afcc0d77c18 = L.map(
+                "map_544e00d27989727768c10afcc0d77c18",
+                {
+                    center: [37.37516158430135, 127.26628829144937],
+                    crs: L.CRS.EPSG3857,
+                    ...{
+  "zoom": 11,
+  "zoomControl": true,
+  "preferCanvas": false,
+}
+
+                }
+            );
+
+            
+
+        
+    
+            var tile_layer_a0aec5f917f1c60e475ba839b723bfa2 = L.tileLayer(
+                "https://tile.openstreetmap.org/{z}/{x}/{y}.png",
+                {
+  "minZoom": 0,
+  "maxZoom": 19,
+  "maxNativeZoom": 19,
+  "noWrap": false,
+  "attribution": "\u0026copy; \u003ca href=\"https://www.openstreetmap.org/copyright\"\u003eOpenStreetMap\u003c/a\u003e contributors",
+  "subdomains": "abc",
+  "detectRetina": false,
+  "tms": false,
+  "opacity": 1,
+}
+
+            );
+        
+    
+            tile_layer_a0aec5f917f1c60e475ba839b723bfa2.addTo(map_544e00d27989727768c10afcc0d77c18);
+        
+    
+            var marker_5d539a204904a7a353ff4112a7634e90 = L.marker(
+                [37.3550250655428, 127.332544095282],
+                {
+}
+            ).addTo(map_544e00d27989727768c10afcc0d77c18);
+        
+    
+            var icon_73e3c884ca03caaa737a6b61c6528894 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "lightgray",
+  "iconColor": "white",
+  "icon": "industry",
+  "prefix": "fa",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_b46243a3aca5352aedcdb53c0f19fa8e = L.popup({
+  "maxWidth": 250,
+});
+
+        
+            
+                var html_8730424001dbead50ce2228e61f62b83 = $(`<div id="html_8730424001dbead50ce2228e61f62b83" style="width: 100.0%; height: 100.0%;">             <b>케이에이치(KH)종합</b><br>             차수: 1차<br>             특화분야(D열): 일반 제조<br>             방문회차: 0회         </div>`)[0];
+                popup_b46243a3aca5352aedcdb53c0f19fa8e.setContent(html_8730424001dbead50ce2228e61f62b83);
+            
+        
+
+        marker_5d539a204904a7a353ff4112a7634e90.bindPopup(popup_b46243a3aca5352aedcdb53c0f19fa8e)
+        ;
+
+        
+    
+    
+            marker_5d539a204904a7a353ff4112a7634e90.bindTooltip(
+                `<div>
+                     케이에이치(KH)종합 (industry)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_5d539a204904a7a353ff4112a7634e90.setIcon(icon_73e3c884ca03caaa737a6b61c6528894);
+            
+    
+            var marker_ad39b0c86afe5cf3fc0f352f28c4c3a7 = L.marker(
+                [37.3153459581883, 127.348859271596],
+                {
+}
+            ).addTo(map_544e00d27989727768c10afcc0d77c18);
+        
+    
+            var icon_c0e590d33a12e301378df060d930e821 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "lightgray",
+  "iconColor": "white",
+  "icon": "industry",
+  "prefix": "fa",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_01b3f1474f7161a33e310663ad9c9c4a = L.popup({
+  "maxWidth": 250,
+});
+
+        
+            
+                var html_61132957ef7fc588fe539554b9874052 = $(`<div id="html_61132957ef7fc588fe539554b9874052" style="width: 100.0%; height: 100.0%;">             <b>헤펠레코리아(주)본사</b><br>             차수: 1차<br>             특화분야(D열): 일반 제조<br>             방문회차: 0회         </div>`)[0];
+                popup_01b3f1474f7161a33e310663ad9c9c4a.setContent(html_61132957ef7fc588fe539554b9874052);
+            
+        
+
+        marker_ad39b0c86afe5cf3fc0f352f28c4c3a7.bindPopup(popup_01b3f1474f7161a33e310663ad9c9c4a)
+        ;
+
+        
+    
+    
+            marker_ad39b0c86afe5cf3fc0f352f28c4c3a7.bindTooltip(
+                `<div>
+                     헤펠레코리아(주)본사 (industry)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_ad39b0c86afe5cf3fc0f352f28c4c3a7.setIcon(icon_c0e590d33a12e301378df060d930e821);
+            
+    
+            var marker_5009388c485366550afa1ec20a60880b = L.marker(
+                [37.3236352712277, 127.340186088004],
+                {
+}
+            ).addTo(map_544e00d27989727768c10afcc0d77c18);
+        
+    
+            var icon_b70e5d40a43c68dba5d7c6f61e167cd2 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "lightgray",
+  "iconColor": "white",
+  "icon": "industry",
+  "prefix": "fa",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_3fe56a11846e6dcea079a084eb4f5d15 = L.popup({
+  "maxWidth": 250,
+});
+
+        
+            
+                var html_524415ffc3096129cbeb55f3fd6aeb3a = $(`<div id="html_524415ffc3096129cbeb55f3fd6aeb3a" style="width: 100.0%; height: 100.0%;">             <b>(주)어시스트코리아(본사)</b><br>             차수: 1차<br>             특화분야(D열): 일반 제조<br>             방문회차: 0회         </div>`)[0];
+                popup_3fe56a11846e6dcea079a084eb4f5d15.setContent(html_524415ffc3096129cbeb55f3fd6aeb3a);
+            
+        
+
+        marker_5009388c485366550afa1ec20a60880b.bindPopup(popup_3fe56a11846e6dcea079a084eb4f5d15)
+        ;
+
+        
+    
+    
+            marker_5009388c485366550afa1ec20a60880b.bindTooltip(
+                `<div>
+                     (주)어시스트코리아(본사) (industry)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_5009388c485366550afa1ec20a60880b.setIcon(icon_b70e5d40a43c68dba5d7c6f61e167cd2);
+            
+    
+            var marker_0cbec0b27f38caee089742890e0c8a64 = L.marker(
+                [37.3893200496502, 127.25385657095],
+                {
+}
+            ).addTo(map_544e00d27989727768c10afcc0d77c18);
+        
+    
+            var icon_b4d0f199d3973480e16c0aa677c74e1c = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "lightgray",
+  "iconColor": "white",
+  "icon": "industry",
+  "prefix": "fa",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_1bb2f2dbe6296494b03a31243706240c = L.popup({
+  "maxWidth": 250,
+});
+
+        
+            
+                var html_e5eea37164191f05150ed8c572c588e7 = $(`<div id="html_e5eea37164191f05150ed8c572c588e7" style="width: 100.0%; height: 100.0%;">             <b>(주)에이치앤에프</b><br>             차수: 1차<br>             특화분야(D열): 일반 제조<br>             방문회차: 0회         </div>`)[0];
+                popup_1bb2f2dbe6296494b03a31243706240c.setContent(html_e5eea37164191f05150ed8c572c588e7);
+            
+        
+
+        marker_0cbec0b27f38caee089742890e0c8a64.bindPopup(popup_1bb2f2dbe6296494b03a31243706240c)
+        ;
+
+        
+    
+    
+            marker_0cbec0b27f38caee089742890e0c8a64.bindTooltip(
+                `<div>
+                     (주)에이치앤에프 (industry)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_0cbec0b27f38caee089742890e0c8a64.setIcon(icon_b4d0f199d3973480e16c0aa677c74e1c);
+            
+    
+            var marker_2cdcc60be5f7a40192ca97c74c2e835e = L.marker(
+                [37.3507852386519, 127.260779928173],
+                {
+}
+            ).addTo(map_544e00d27989727768c10afcc0d77c18);
+        
+    
+            var icon_5a612f619c83c3160cab9dca14c356b3 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "lightgray",
+  "iconColor": "white",
+  "icon": "industry",
+  "prefix": "fa",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_68aa4d7f8f38a2a1f9b44f0d5cbc29d4 = L.popup({
+  "maxWidth": 250,
+});
+
+        
+            
+                var html_7e29db2a68d26c6550f804732a13fb39 = $(`<div id="html_7e29db2a68d26c6550f804732a13fb39" style="width: 100.0%; height: 100.0%;">             <b>푸드뱅크주식회사</b><br>             차수: 1차<br>             특화분야(D열): 일반 제조<br>             방문회차: 0회         </div>`)[0];
+                popup_68aa4d7f8f38a2a1f9b44f0d5cbc29d4.setContent(html_7e29db2a68d26c6550f804732a13fb39);
+            
+        
+
+        marker_2cdcc60be5f7a40192ca97c74c2e835e.bindPopup(popup_68aa4d7f8f38a2a1f9b44f0d5cbc29d4)
+        ;
+
+        
+    
+    
+            marker_2cdcc60be5f7a40192ca97c74c2e835e.bindTooltip(
+                `<div>
+                     푸드뱅크주식회사 (industry)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_2cdcc60be5f7a40192ca97c74c2e835e.setIcon(icon_5a612f619c83c3160cab9dca14c356b3);
+            
+    
+            var marker_a7f50299e92ba6bf3ecff4e7ce56dea5 = L.marker(
+                [37.4116934803945, 127.200465336789],
+                {
+}
+            ).addTo(map_544e00d27989727768c10afcc0d77c18);
+        
+    
+            var icon_76900db365bd984bfed61614d89b880d = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "lightgray",
+  "iconColor": "white",
+  "icon": "building",
+  "prefix": "fa",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_320b21833567dc57dd7b4c1da1345f35 = L.popup({
+  "maxWidth": 250,
+});
+
+        
+            
+                var html_2c87a1fecbc6c7bb75586145e7ff29f0 = $(`<div id="html_2c87a1fecbc6c7bb75586145e7ff29f0" style="width: 100.0%; height: 100.0%;">             <b>동양플러스(주)-본사</b><br>             차수: 1차<br>             특화분야(D열): 일반 기타<br>             방문회차: 0회         </div>`)[0];
+                popup_320b21833567dc57dd7b4c1da1345f35.setContent(html_2c87a1fecbc6c7bb75586145e7ff29f0);
+            
+        
+
+        marker_a7f50299e92ba6bf3ecff4e7ce56dea5.bindPopup(popup_320b21833567dc57dd7b4c1da1345f35)
+        ;
+
+        
+    
+    
+            marker_a7f50299e92ba6bf3ecff4e7ce56dea5.bindTooltip(
+                `<div>
+                     동양플러스(주)-본사 (building)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_a7f50299e92ba6bf3ecff4e7ce56dea5.setIcon(icon_76900db365bd984bfed61614d89b880d);
+            
+    
+            var marker_2192106057ef9a969f180853f4b3227a = L.marker(
+                [37.3790334497787, 127.254400771423],
+                {
+}
+            ).addTo(map_544e00d27989727768c10afcc0d77c18);
+        
+    
+            var icon_945a99d1e85acdd43ee5e831518666d7 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "lightgray",
+  "iconColor": "white",
+  "icon": "building",
+  "prefix": "fa",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_fa276dbd9b0ed31dba9ebb7d3d430f15 = L.popup({
+  "maxWidth": 250,
+});
+
+        
+            
+                var html_c373e4fa7e9f7951bbe267ae00d59461 = $(`<div id="html_c373e4fa7e9f7951bbe267ae00d59461" style="width: 100.0%; height: 100.0%;">             <b>(주)리치마트</b><br>             차수: 1차<br>             특화분야(D열): 일반 기타<br>             방문회차: 0회         </div>`)[0];
+                popup_fa276dbd9b0ed31dba9ebb7d3d430f15.setContent(html_c373e4fa7e9f7951bbe267ae00d59461);
+            
+        
+
+        marker_2192106057ef9a969f180853f4b3227a.bindPopup(popup_fa276dbd9b0ed31dba9ebb7d3d430f15)
+        ;
+
+        
+    
+    
+            marker_2192106057ef9a969f180853f4b3227a.bindTooltip(
+                `<div>
+                     (주)리치마트 (building)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_2192106057ef9a969f180853f4b3227a.setIcon(icon_945a99d1e85acdd43ee5e831518666d7);
+            
+    
+            var marker_72267647d610118600dc020a0e7f9df0 = L.marker(
+                [37.3997014321663, 127.299447426903],
+                {
+}
+            ).addTo(map_544e00d27989727768c10afcc0d77c18);
+        
+    
+            var icon_d2d155fb6f85a721eeddef6033dfd24c = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "lightgray",
+  "iconColor": "white",
+  "icon": "building",
+  "prefix": "fa",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_4f72245543d154c329dbb133850acdaa = L.popup({
+  "maxWidth": 250,
+});
+
+        
+            
+                var html_b52bd8c84fcf684f69015990873bd36e = $(`<div id="html_b52bd8c84fcf684f69015990873bd36e" style="width: 100.0%; height: 100.0%;">             <b>광주환경(주)</b><br>             차수: 1차<br>             특화분야(D열): 일반 기타<br>             방문회차: 0회         </div>`)[0];
+                popup_4f72245543d154c329dbb133850acdaa.setContent(html_b52bd8c84fcf684f69015990873bd36e);
+            
+        
+
+        marker_72267647d610118600dc020a0e7f9df0.bindPopup(popup_4f72245543d154c329dbb133850acdaa)
+        ;
+
+        
+    
+    
+            marker_72267647d610118600dc020a0e7f9df0.bindTooltip(
+                `<div>
+                     광주환경(주) (building)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_72267647d610118600dc020a0e7f9df0.setIcon(icon_d2d155fb6f85a721eeddef6033dfd24c);
+            
+    
+            var marker_243411515f9c34a7fe7d90a53b1c0699 = L.marker(
+                [37.3945348336239, 127.30004290836],
+                {
+}
+            ).addTo(map_544e00d27989727768c10afcc0d77c18);
+        
+    
+            var icon_204d7a77977dd86e18ba1df67339a10c = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "black",
+  "iconColor": "white",
+  "icon": "industry",
+  "prefix": "fa",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_fe948ad48d5f81718572bbae7795b6c2 = L.popup({
+  "maxWidth": 250,
+});
+
+        
+            
+                var html_f83be100090dc1c8fe83a724d99cd1bf = $(`<div id="html_f83be100090dc1c8fe83a724d99cd1bf" style="width: 100.0%; height: 100.0%;">             <b>(주)엠케이에프엔씨</b><br>             차수: 2차<br>             특화분야(D열): 일반 제조<br>             방문회차: 0회         </div>`)[0];
+                popup_fe948ad48d5f81718572bbae7795b6c2.setContent(html_f83be100090dc1c8fe83a724d99cd1bf);
+            
+        
+
+        marker_243411515f9c34a7fe7d90a53b1c0699.bindPopup(popup_fe948ad48d5f81718572bbae7795b6c2)
+        ;
+
+        
+    
+    
+            marker_243411515f9c34a7fe7d90a53b1c0699.bindTooltip(
+                `<div>
+                     (주)엠케이에프엔씨 (industry)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_243411515f9c34a7fe7d90a53b1c0699.setIcon(icon_204d7a77977dd86e18ba1df67339a10c);
+            
+    
+            var marker_92563d032aedebbb1c034ba32eb4253e = L.marker(
+                [37.4143160900817, 127.312952950812],
+                {
+}
+            ).addTo(map_544e00d27989727768c10afcc0d77c18);
+        
+    
+            var icon_99f0b21c87a148f9aa3d61b66d37e893 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "black",
+  "iconColor": "white",
+  "icon": "industry",
+  "prefix": "fa",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_58b97ea8ad9ef8ff7aa8051a09d3d6c2 = L.popup({
+  "maxWidth": 250,
+});
+
+        
+            
+                var html_b0fe5ae23610658d21a5e783ec41d7e5 = $(`<div id="html_b0fe5ae23610658d21a5e783ec41d7e5" style="width: 100.0%; height: 100.0%;">             <b>주식회사씨에스엔엠-곤지암풀필먼트2센터</b><br>             차수: 2차<br>             특화분야(D열): 일반 제조<br>             방문회차: 0회         </div>`)[0];
+                popup_58b97ea8ad9ef8ff7aa8051a09d3d6c2.setContent(html_b0fe5ae23610658d21a5e783ec41d7e5);
+            
+        
+
+        marker_92563d032aedebbb1c034ba32eb4253e.bindPopup(popup_58b97ea8ad9ef8ff7aa8051a09d3d6c2)
+        ;
+
+        
+    
+    
+            marker_92563d032aedebbb1c034ba32eb4253e.bindTooltip(
+                `<div>
+                     주식회사씨에스엔엠-곤지암풀필먼트2센터 (industry)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_92563d032aedebbb1c034ba32eb4253e.setIcon(icon_99f0b21c87a148f9aa3d61b66d37e893);
+            
+    
+            var marker_5783f726ec81ef1667707955fef3a425 = L.marker(
+                [37.4143160900817, 127.312952950812],
+                {
+}
+            ).addTo(map_544e00d27989727768c10afcc0d77c18);
+        
+    
+            var icon_b557c0cac2c49e30865bb78357bfa475 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "black",
+  "iconColor": "white",
+  "icon": "industry",
+  "prefix": "fa",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_bccb8fca332644a886322c7c2d9a3054 = L.popup({
+  "maxWidth": 250,
+});
+
+        
+            
+                var html_b8ccd5903b8387e400a743b0741cacbd = $(`<div id="html_b8ccd5903b8387e400a743b0741cacbd" style="width: 100.0%; height: 100.0%;">             <b>와이케이엔젤스오쇼핑물류센터</b><br>             차수: 2차<br>             특화분야(D열): 일반 제조<br>             방문회차: 0회         </div>`)[0];
+                popup_bccb8fca332644a886322c7c2d9a3054.setContent(html_b8ccd5903b8387e400a743b0741cacbd);
+            
+        
+
+        marker_5783f726ec81ef1667707955fef3a425.bindPopup(popup_bccb8fca332644a886322c7c2d9a3054)
+        ;
+
+        
+    
+    
+            marker_5783f726ec81ef1667707955fef3a425.bindTooltip(
+                `<div>
+                     와이케이엔젤스오쇼핑물류센터 (industry)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_5783f726ec81ef1667707955fef3a425.setIcon(icon_b557c0cac2c49e30865bb78357bfa475);
+            
+    
+            var marker_8b7342cdd4d32416f93b661aa95020a2 = L.marker(
+                [37.4143983791896, 127.298304140481],
+                {
+}
+            ).addTo(map_544e00d27989727768c10afcc0d77c18);
+        
+    
+            var icon_266ca35d52787bb91a09e4238e66281f = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "black",
+  "iconColor": "white",
+  "icon": "industry",
+  "prefix": "fa",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_e6096500d5788b9e063767d61db1448f = L.popup({
+  "maxWidth": 250,
+});
+
+        
+            
+                var html_c422df93b498ddf6145a5798575a2fac = $(`<div id="html_c422df93b498ddf6145a5798575a2fac" style="width: 100.0%; height: 100.0%;">             <b>(주)한성체리티</b><br>             차수: 2차<br>             특화분야(D열): 일반 제조<br>             방문회차: 0회         </div>`)[0];
+                popup_e6096500d5788b9e063767d61db1448f.setContent(html_c422df93b498ddf6145a5798575a2fac);
+            
+        
+
+        marker_8b7342cdd4d32416f93b661aa95020a2.bindPopup(popup_e6096500d5788b9e063767d61db1448f)
+        ;
+
+        
+    
+    
+            marker_8b7342cdd4d32416f93b661aa95020a2.bindTooltip(
+                `<div>
+                     (주)한성체리티 (industry)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_8b7342cdd4d32416f93b661aa95020a2.setIcon(icon_266ca35d52787bb91a09e4238e66281f);
+            
+    
+            var marker_e493731fba6b43b21a41071d87354c4c = L.marker(
+                [37.4067955378366, 127.213889398885],
+                {
+}
+            ).addTo(map_544e00d27989727768c10afcc0d77c18);
+        
+    
+            var icon_f87631a2c85f7497252debe2f605ca0a = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "black",
+  "iconColor": "white",
+  "icon": "building",
+  "prefix": "fa",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_3f510e5005a8bf4e3a6a411207f9dd16 = L.popup({
+  "maxWidth": 250,
+});
+
+        
+            
+                var html_d6d7cadb136562855ba2bede7c3f816e = $(`<div id="html_d6d7cadb136562855ba2bede7c3f816e" style="width: 100.0%; height: 100.0%;">             <b>선진안전(주)</b><br>             차수: 2차<br>             특화분야(D열): 일반 기타<br>             방문회차: 0회         </div>`)[0];
+                popup_3f510e5005a8bf4e3a6a411207f9dd16.setContent(html_d6d7cadb136562855ba2bede7c3f816e);
+            
+        
+
+        marker_e493731fba6b43b21a41071d87354c4c.bindPopup(popup_3f510e5005a8bf4e3a6a411207f9dd16)
+        ;
+
+        
+    
+    
+            marker_e493731fba6b43b21a41071d87354c4c.bindTooltip(
+                `<div>
+                     선진안전(주) (building)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_e493731fba6b43b21a41071d87354c4c.setIcon(icon_f87631a2c85f7497252debe2f605ca0a);
+            
+    
+            var marker_781aebf3c7fa16b8e8f011de75eb6a1c = L.marker(
+                [37.3557182502115, 127.222405997466],
+                {
+}
+            ).addTo(map_544e00d27989727768c10afcc0d77c18);
+        
+    
+            var icon_307562a166d4c03b6d06ba492693bf5a = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "black",
+  "iconColor": "white",
+  "icon": "building",
+  "prefix": "fa",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_842c9170eb12c9ff9efbfe3a0353811c = L.popup({
+  "maxWidth": 250,
+});
+
+        
+            
+                var html_d7d328abf0f54709cb76331ea2a74acf = $(`<div id="html_d7d328abf0f54709cb76331ea2a74acf" style="width: 100.0%; height: 100.0%;">             <b>아미종합물류(주)</b><br>             차수: 2차<br>             특화분야(D열): 일반 기타<br>             방문회차: 0회         </div>`)[0];
+                popup_842c9170eb12c9ff9efbfe3a0353811c.setContent(html_d7d328abf0f54709cb76331ea2a74acf);
+            
+        
+
+        marker_781aebf3c7fa16b8e8f011de75eb6a1c.bindPopup(popup_842c9170eb12c9ff9efbfe3a0353811c)
+        ;
+
+        
+    
+    
+            marker_781aebf3c7fa16b8e8f011de75eb6a1c.bindTooltip(
+                `<div>
+                     아미종합물류(주) (building)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_781aebf3c7fa16b8e8f011de75eb6a1c.setIcon(icon_307562a166d4c03b6d06ba492693bf5a);
+            
+    
+            var marker_87811526165944f8896ced458f6f938e = L.marker(
+                [37.3565718536249, 127.225561872792],
+                {
+}
+            ).addTo(map_544e00d27989727768c10afcc0d77c18);
+        
+    
+            var icon_ff5a2166250544c26032fd140a2f4202 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "black",
+  "iconColor": "white",
+  "icon": "building",
+  "prefix": "fa",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_6c9a823b8379efb92baa1f393e23b472 = L.popup({
+  "maxWidth": 250,
+});
+
+        
+            
+                var html_d0fdf2dd93155593dfac2bde2d123db5 = $(`<div id="html_d0fdf2dd93155593dfac2bde2d123db5" style="width: 100.0%; height: 100.0%;">             <b>한국쥬맥스（주）</b><br>             차수: 2차<br>             특화분야(D열): 일반 기타<br>             방문회차: 0회         </div>`)[0];
+                popup_6c9a823b8379efb92baa1f393e23b472.setContent(html_d0fdf2dd93155593dfac2bde2d123db5);
+            
+        
+
+        marker_87811526165944f8896ced458f6f938e.bindPopup(popup_6c9a823b8379efb92baa1f393e23b472)
+        ;
+
+        
+    
+    
+            marker_87811526165944f8896ced458f6f938e.bindTooltip(
+                `<div>
+                     한국쥬맥스（주） (building)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_87811526165944f8896ced458f6f938e.setIcon(icon_ff5a2166250544c26032fd140a2f4202);
+            
+    
+            var marker_eb383c2cb3296cd657277610bda713df = L.marker(
+                [37.3213943685713, 127.083962954462],
+                {
+}
+            ).addTo(map_544e00d27989727768c10afcc0d77c18);
+        
+    
+            var icon_0ba18061e41f323af4043e4a8a5ecb74 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "black",
+  "iconColor": "white",
+  "icon": "building",
+  "prefix": "fa",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_2f085999616ac84dc39141ed51bb707c = L.popup({
+  "maxWidth": 250,
+});
+
+        
+            
+                var html_854ffe3f2379fbe2a49959f0b8319588 = $(`<div id="html_854ffe3f2379fbe2a49959f0b8319588" style="width: 100.0%; height: 100.0%;">             <b>장철호가구공방</b><br>             차수: 2차<br>             특화분야(D열): 일반 기타<br>             방문회차: 0회         </div>`)[0];
+                popup_2f085999616ac84dc39141ed51bb707c.setContent(html_854ffe3f2379fbe2a49959f0b8319588);
+            
+        
+
+        marker_eb383c2cb3296cd657277610bda713df.bindPopup(popup_2f085999616ac84dc39141ed51bb707c)
+        ;
+
+        
+    
+    
+            marker_eb383c2cb3296cd657277610bda713df.bindTooltip(
+                `<div>
+                     장철호가구공방 (building)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_eb383c2cb3296cd657277610bda713df.setIcon(icon_0ba18061e41f323af4043e4a8a5ecb74);
+            
+</script>
+</html>

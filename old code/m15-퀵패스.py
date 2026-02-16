@@ -449,5 +449,5 @@ zoom_and_hide_logic = f"""
 """
 m.get_root().html.add_child(folium.Element(zoom_and_hide_logic))
 
-m.save('index.html')
+m.save('m15-퀵패스 조건추가.html')
 print("✨ [진짜 완성] 9회차 반투명 효과까지 모두 포함된 지도가 생성되었습니다.")

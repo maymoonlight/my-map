@@ -1,0 +1,1095 @@
+<!DOCTYPE html>
+<html>
+<head>
+    
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+    <script src="https://cdn.jsdelivr.net/npm/leaflet@1.9.3/dist/leaflet.js"></script>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet@1.9.3/dist/leaflet.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="https://netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap-glyphicons.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.2.0/css/all.min.css"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/python-visualization/folium/folium/templates/leaflet.awesome.rotate.min.css"/>
+    
+            <meta name="viewport" content="width=device-width,
+                initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+            <style>
+                #map_9efb457509bb06de9acd22a4879d9838 {
+                    position: relative;
+                    width: 100.0%;
+                    height: 100.0%;
+                    left: 0.0%;
+                    top: 0.0%;
+                }
+                .leaflet-container { font-size: 1rem; }
+            </style>
+
+            <style>html, body {
+                width: 100%;
+                height: 100%;
+                margin: 0;
+                padding: 0;
+            }
+            </style>
+
+            <style>#map {
+                position:absolute;
+                top:0;
+                bottom:0;
+                right:0;
+                left:0;
+                }
+            </style>
+
+            <script>
+                L_NO_TOUCH = false;
+                L_DISABLE_3D = false;
+            </script>
+
+        
+    <script src="https://cdn.jsdelivr.net/gh/marslan390/BeautifyMarker/leaflet-beautify-marker-icon.min.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/marslan390/BeautifyMarker/leaflet-beautify-marker-icon.min.css"/>
+</head>
+<body>
+    
+    
+            <div class="folium-map" id="map_9efb457509bb06de9acd22a4879d9838" ></div>
+        
+</body>
+<script>
+    
+    
+            var map_9efb457509bb06de9acd22a4879d9838 = L.map(
+                "map_9efb457509bb06de9acd22a4879d9838",
+                {
+                    center: [37.37516158430135, 127.26628829144937],
+                    crs: L.CRS.EPSG3857,
+                    ...{
+  "zoom": 11,
+  "zoomControl": true,
+  "preferCanvas": false,
+}
+
+                }
+            );
+
+            
+
+        
+    
+            var tile_layer_8c18948f88515b1cbc377fbda1589321 = L.tileLayer(
+                "https://tile.openstreetmap.org/{z}/{x}/{y}.png",
+                {
+  "minZoom": 0,
+  "maxZoom": 19,
+  "maxNativeZoom": 19,
+  "noWrap": false,
+  "attribution": "\u0026copy; \u003ca href=\"https://www.openstreetmap.org/copyright\"\u003eOpenStreetMap\u003c/a\u003e contributors",
+  "subdomains": "abc",
+  "detectRetina": false,
+  "tms": false,
+  "opacity": 1,
+}
+
+            );
+        
+    
+            tile_layer_8c18948f88515b1cbc377fbda1589321.addTo(map_9efb457509bb06de9acd22a4879d9838);
+        
+    
+            var marker_23a8ec4ee19277e22653e38aad4592bb = L.marker(
+                [37.3550250655428, 127.332544095282],
+                {
+  "opacity": 0.8,
+}
+            ).addTo(map_9efb457509bb06de9acd22a4879d9838);
+        
+    
+            var beautify_icon_2cd6b7809d5156d715a0a2ef376f7f27 = new L.BeautifyIcon.icon(
+                {
+  "icon": "gear",
+  "iconShape": "marker",
+  "borderWidth": 2,
+  "borderColor": "white",
+  "textColor": "white",
+  "backgroundColor": "lightgray",
+  "innerIconStyle": "font-size:15px; line-height:31.200000000000003px;",
+  "spin": false,
+  "isAlphaNumericIcon": false,
+  "iconSize": [
+35,
+48,
+],
+  "iconAnchor": [
+17.5,
+48,
+],
+}
+            )
+            marker_23a8ec4ee19277e22653e38aad4592bb.setIcon(beautify_icon_2cd6b7809d5156d715a0a2ef376f7f27);
+        
+    
+        var popup_a75c774d208526c03a94f537cb6ec4be = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_f927d2b354014cb66fbec51fb0dbd078 = $(`<div id="html_f927d2b354014cb66fbec51fb0dbd078" style="width: 100.0%; height: 100.0%;"><b>케이에이치(KH)종합</b></div>`)[0];
+                popup_a75c774d208526c03a94f537cb6ec4be.setContent(html_f927d2b354014cb66fbec51fb0dbd078);
+            
+        
+
+        marker_23a8ec4ee19277e22653e38aad4592bb.bindPopup(popup_a75c774d208526c03a94f537cb6ec4be)
+        ;
+
+        
+    
+    
+            marker_23a8ec4ee19277e22653e38aad4592bb.bindTooltip(
+                `<div>
+                     케이에이치(KH)종합
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_23a8ec4ee19277e22653e38aad4592bb.setIcon(beautify_icon_2cd6b7809d5156d715a0a2ef376f7f27);
+            
+    
+            var marker_c42783e61eccff69b0760a10d661c2d6 = L.marker(
+                [37.3153459581883, 127.348859271596],
+                {
+  "opacity": 0.8,
+}
+            ).addTo(map_9efb457509bb06de9acd22a4879d9838);
+        
+    
+            var beautify_icon_bff70901a49e11b2fc7df927cdc57a8a = new L.BeautifyIcon.icon(
+                {
+  "icon": "gear",
+  "iconShape": "marker",
+  "borderWidth": 2,
+  "borderColor": "white",
+  "textColor": "white",
+  "backgroundColor": "lightgray",
+  "innerIconStyle": "font-size:15px; line-height:31.200000000000003px;",
+  "spin": false,
+  "isAlphaNumericIcon": false,
+  "iconSize": [
+35,
+48,
+],
+  "iconAnchor": [
+17.5,
+48,
+],
+}
+            )
+            marker_c42783e61eccff69b0760a10d661c2d6.setIcon(beautify_icon_bff70901a49e11b2fc7df927cdc57a8a);
+        
+    
+        var popup_c629533f7eb7be2dee3255c580e3c994 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_11a9982be19d848225301590a4c05037 = $(`<div id="html_11a9982be19d848225301590a4c05037" style="width: 100.0%; height: 100.0%;"><b>헤펠레코리아(주)본사</b></div>`)[0];
+                popup_c629533f7eb7be2dee3255c580e3c994.setContent(html_11a9982be19d848225301590a4c05037);
+            
+        
+
+        marker_c42783e61eccff69b0760a10d661c2d6.bindPopup(popup_c629533f7eb7be2dee3255c580e3c994)
+        ;
+
+        
+    
+    
+            marker_c42783e61eccff69b0760a10d661c2d6.bindTooltip(
+                `<div>
+                     헤펠레코리아(주)본사
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_c42783e61eccff69b0760a10d661c2d6.setIcon(beautify_icon_bff70901a49e11b2fc7df927cdc57a8a);
+            
+    
+            var marker_91a787d40e577b2ecc48d4b8efea378c = L.marker(
+                [37.3236352712277, 127.340186088004],
+                {
+  "opacity": 0.8,
+}
+            ).addTo(map_9efb457509bb06de9acd22a4879d9838);
+        
+    
+            var beautify_icon_f22fec470bc9c66ee4e8bdaf67bf3947 = new L.BeautifyIcon.icon(
+                {
+  "icon": "gear",
+  "iconShape": "marker",
+  "borderWidth": 2,
+  "borderColor": "white",
+  "textColor": "white",
+  "backgroundColor": "lightgray",
+  "innerIconStyle": "font-size:15px; line-height:31.200000000000003px;",
+  "spin": false,
+  "isAlphaNumericIcon": false,
+  "iconSize": [
+35,
+48,
+],
+  "iconAnchor": [
+17.5,
+48,
+],
+}
+            )
+            marker_91a787d40e577b2ecc48d4b8efea378c.setIcon(beautify_icon_f22fec470bc9c66ee4e8bdaf67bf3947);
+        
+    
+        var popup_45ada9f27bc73e629529eef0f197e526 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_ba3fbd7be327ca03b5c49fd9ccceb900 = $(`<div id="html_ba3fbd7be327ca03b5c49fd9ccceb900" style="width: 100.0%; height: 100.0%;"><b>(주)어시스트코리아(본사)</b></div>`)[0];
+                popup_45ada9f27bc73e629529eef0f197e526.setContent(html_ba3fbd7be327ca03b5c49fd9ccceb900);
+            
+        
+
+        marker_91a787d40e577b2ecc48d4b8efea378c.bindPopup(popup_45ada9f27bc73e629529eef0f197e526)
+        ;
+
+        
+    
+    
+            marker_91a787d40e577b2ecc48d4b8efea378c.bindTooltip(
+                `<div>
+                     (주)어시스트코리아(본사)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_91a787d40e577b2ecc48d4b8efea378c.setIcon(beautify_icon_f22fec470bc9c66ee4e8bdaf67bf3947);
+            
+    
+            var marker_538137e20d2e373e85c9b53e6501d58d = L.marker(
+                [37.3893200496502, 127.25385657095],
+                {
+  "opacity": 0.8,
+}
+            ).addTo(map_9efb457509bb06de9acd22a4879d9838);
+        
+    
+            var beautify_icon_6c2d70c857162b1172140e84a2b7cc06 = new L.BeautifyIcon.icon(
+                {
+  "icon": "gear",
+  "iconShape": "marker",
+  "borderWidth": 2,
+  "borderColor": "white",
+  "textColor": "white",
+  "backgroundColor": "lightgray",
+  "innerIconStyle": "font-size:15px; line-height:31.200000000000003px;",
+  "spin": false,
+  "isAlphaNumericIcon": false,
+  "iconSize": [
+35,
+48,
+],
+  "iconAnchor": [
+17.5,
+48,
+],
+}
+            )
+            marker_538137e20d2e373e85c9b53e6501d58d.setIcon(beautify_icon_6c2d70c857162b1172140e84a2b7cc06);
+        
+    
+        var popup_000758513507916b799e98c17a9d2448 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_66d62155dd28a78bfa3494b0eaadf8f8 = $(`<div id="html_66d62155dd28a78bfa3494b0eaadf8f8" style="width: 100.0%; height: 100.0%;"><b>(주)에이치앤에프</b></div>`)[0];
+                popup_000758513507916b799e98c17a9d2448.setContent(html_66d62155dd28a78bfa3494b0eaadf8f8);
+            
+        
+
+        marker_538137e20d2e373e85c9b53e6501d58d.bindPopup(popup_000758513507916b799e98c17a9d2448)
+        ;
+
+        
+    
+    
+            marker_538137e20d2e373e85c9b53e6501d58d.bindTooltip(
+                `<div>
+                     (주)에이치앤에프
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_538137e20d2e373e85c9b53e6501d58d.setIcon(beautify_icon_6c2d70c857162b1172140e84a2b7cc06);
+            
+    
+            var marker_b2bd5c13fa437408925fb8c6e0c5326c = L.marker(
+                [37.3507852386519, 127.260779928173],
+                {
+  "opacity": 0.8,
+}
+            ).addTo(map_9efb457509bb06de9acd22a4879d9838);
+        
+    
+            var beautify_icon_f816feef493b88a435869147fade254d = new L.BeautifyIcon.icon(
+                {
+  "icon": "gear",
+  "iconShape": "marker",
+  "borderWidth": 2,
+  "borderColor": "white",
+  "textColor": "white",
+  "backgroundColor": "lightgray",
+  "innerIconStyle": "font-size:15px; line-height:31.200000000000003px;",
+  "spin": false,
+  "isAlphaNumericIcon": false,
+  "iconSize": [
+35,
+48,
+],
+  "iconAnchor": [
+17.5,
+48,
+],
+}
+            )
+            marker_b2bd5c13fa437408925fb8c6e0c5326c.setIcon(beautify_icon_f816feef493b88a435869147fade254d);
+        
+    
+        var popup_8a20337800b121cfc560067443149da2 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_aab0ee00c41e6f89d50518f005827325 = $(`<div id="html_aab0ee00c41e6f89d50518f005827325" style="width: 100.0%; height: 100.0%;"><b>푸드뱅크주식회사</b></div>`)[0];
+                popup_8a20337800b121cfc560067443149da2.setContent(html_aab0ee00c41e6f89d50518f005827325);
+            
+        
+
+        marker_b2bd5c13fa437408925fb8c6e0c5326c.bindPopup(popup_8a20337800b121cfc560067443149da2)
+        ;
+
+        
+    
+    
+            marker_b2bd5c13fa437408925fb8c6e0c5326c.bindTooltip(
+                `<div>
+                     푸드뱅크주식회사
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_b2bd5c13fa437408925fb8c6e0c5326c.setIcon(beautify_icon_f816feef493b88a435869147fade254d);
+            
+    
+            var marker_443a386fd0094b12f6c9a273e7f23577 = L.marker(
+                [37.4116934803945, 127.200465336789],
+                {
+  "opacity": 0.8,
+}
+            ).addTo(map_9efb457509bb06de9acd22a4879d9838);
+        
+    
+            var beautify_icon_a20db75dcc75125f2143c04bd407a8e2 = new L.BeautifyIcon.icon(
+                {
+  "icon": "close",
+  "iconShape": "marker",
+  "borderWidth": 3,
+  "borderColor": "black",
+  "textColor": "black",
+  "backgroundColor": "lightgray",
+  "innerIconStyle": "font-size:22px; line-height:31.200000000000003px;",
+  "spin": false,
+  "isAlphaNumericIcon": false,
+  "iconSize": [
+35,
+48,
+],
+  "iconAnchor": [
+17.5,
+48,
+],
+}
+            )
+            marker_443a386fd0094b12f6c9a273e7f23577.setIcon(beautify_icon_a20db75dcc75125f2143c04bd407a8e2);
+        
+    
+        var popup_80f260e8c4160faa026f58ead8c58e19 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_ad80d57a5fca72fdedb12c60f33cf478 = $(`<div id="html_ad80d57a5fca72fdedb12c60f33cf478" style="width: 100.0%; height: 100.0%;"><b>동양플러스(주)-본사</b></div>`)[0];
+                popup_80f260e8c4160faa026f58ead8c58e19.setContent(html_ad80d57a5fca72fdedb12c60f33cf478);
+            
+        
+
+        marker_443a386fd0094b12f6c9a273e7f23577.bindPopup(popup_80f260e8c4160faa026f58ead8c58e19)
+        ;
+
+        
+    
+    
+            marker_443a386fd0094b12f6c9a273e7f23577.bindTooltip(
+                `<div>
+                     동양플러스(주)-본사
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_443a386fd0094b12f6c9a273e7f23577.setIcon(beautify_icon_a20db75dcc75125f2143c04bd407a8e2);
+            
+    
+            var marker_f227725faa29e5c5452f6273c1af9956 = L.marker(
+                [37.3790334497787, 127.254400771423],
+                {
+  "opacity": 0.8,
+}
+            ).addTo(map_9efb457509bb06de9acd22a4879d9838);
+        
+    
+            var beautify_icon_329ae39327c0817c386919ceb0f84ec9 = new L.BeautifyIcon.icon(
+                {
+  "icon": "building",
+  "iconShape": "marker",
+  "borderWidth": 2,
+  "borderColor": "white",
+  "textColor": "white",
+  "backgroundColor": "lightgray",
+  "innerIconStyle": "font-size:15px; line-height:31.200000000000003px;",
+  "spin": false,
+  "isAlphaNumericIcon": false,
+  "iconSize": [
+35,
+48,
+],
+  "iconAnchor": [
+17.5,
+48,
+],
+}
+            )
+            marker_f227725faa29e5c5452f6273c1af9956.setIcon(beautify_icon_329ae39327c0817c386919ceb0f84ec9);
+        
+    
+        var popup_57f9a985ed7aa7d5f3eb72d0e380b403 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_997c7f196fe813412f9664a76beefad6 = $(`<div id="html_997c7f196fe813412f9664a76beefad6" style="width: 100.0%; height: 100.0%;"><b>(주)리치마트</b></div>`)[0];
+                popup_57f9a985ed7aa7d5f3eb72d0e380b403.setContent(html_997c7f196fe813412f9664a76beefad6);
+            
+        
+
+        marker_f227725faa29e5c5452f6273c1af9956.bindPopup(popup_57f9a985ed7aa7d5f3eb72d0e380b403)
+        ;
+
+        
+    
+    
+            marker_f227725faa29e5c5452f6273c1af9956.bindTooltip(
+                `<div>
+                     (주)리치마트
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_f227725faa29e5c5452f6273c1af9956.setIcon(beautify_icon_329ae39327c0817c386919ceb0f84ec9);
+            
+    
+            var marker_30a1327dff143fafb33109a7f1688ac6 = L.marker(
+                [37.3997014321663, 127.299447426903],
+                {
+  "opacity": 0.8,
+}
+            ).addTo(map_9efb457509bb06de9acd22a4879d9838);
+        
+    
+            var beautify_icon_fd684e5460824a61e1b39364054ed739 = new L.BeautifyIcon.icon(
+                {
+  "icon": "building",
+  "iconShape": "marker",
+  "borderWidth": 2,
+  "borderColor": "white",
+  "textColor": "white",
+  "backgroundColor": "lightgray",
+  "innerIconStyle": "font-size:15px; line-height:31.200000000000003px;",
+  "spin": false,
+  "isAlphaNumericIcon": false,
+  "iconSize": [
+35,
+48,
+],
+  "iconAnchor": [
+17.5,
+48,
+],
+}
+            )
+            marker_30a1327dff143fafb33109a7f1688ac6.setIcon(beautify_icon_fd684e5460824a61e1b39364054ed739);
+        
+    
+        var popup_503758412197655b51830ad918b59027 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_40d9cb737d521db95fcd2b9f27cacc75 = $(`<div id="html_40d9cb737d521db95fcd2b9f27cacc75" style="width: 100.0%; height: 100.0%;"><b>광주환경(주)</b></div>`)[0];
+                popup_503758412197655b51830ad918b59027.setContent(html_40d9cb737d521db95fcd2b9f27cacc75);
+            
+        
+
+        marker_30a1327dff143fafb33109a7f1688ac6.bindPopup(popup_503758412197655b51830ad918b59027)
+        ;
+
+        
+    
+    
+            marker_30a1327dff143fafb33109a7f1688ac6.bindTooltip(
+                `<div>
+                     광주환경(주)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_30a1327dff143fafb33109a7f1688ac6.setIcon(beautify_icon_fd684e5460824a61e1b39364054ed739);
+            
+    
+            var marker_0bf448cc5aa86dcbc357af9fd57ef1db = L.marker(
+                [37.3945348336239, 127.30004290836],
+                {
+  "opacity": 0.8,
+}
+            ).addTo(map_9efb457509bb06de9acd22a4879d9838);
+        
+    
+            var beautify_icon_07a29ba3064e56d1662c11a17d1e3b1a = new L.BeautifyIcon.icon(
+                {
+  "icon": "gear",
+  "iconShape": "marker",
+  "borderWidth": 2,
+  "borderColor": "white",
+  "textColor": "white",
+  "backgroundColor": "lightgray",
+  "innerIconStyle": "font-size:15px; line-height:31.200000000000003px;",
+  "spin": false,
+  "isAlphaNumericIcon": false,
+  "iconSize": [
+35,
+48,
+],
+  "iconAnchor": [
+17.5,
+48,
+],
+}
+            )
+            marker_0bf448cc5aa86dcbc357af9fd57ef1db.setIcon(beautify_icon_07a29ba3064e56d1662c11a17d1e3b1a);
+        
+    
+        var popup_14d5d201a6b04957f9aa7539f9b37514 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_ceb9d287084de1220be69d5e68489085 = $(`<div id="html_ceb9d287084de1220be69d5e68489085" style="width: 100.0%; height: 100.0%;"><b>(주)엠케이에프엔씨</b></div>`)[0];
+                popup_14d5d201a6b04957f9aa7539f9b37514.setContent(html_ceb9d287084de1220be69d5e68489085);
+            
+        
+
+        marker_0bf448cc5aa86dcbc357af9fd57ef1db.bindPopup(popup_14d5d201a6b04957f9aa7539f9b37514)
+        ;
+
+        
+    
+    
+            marker_0bf448cc5aa86dcbc357af9fd57ef1db.bindTooltip(
+                `<div>
+                     (주)엠케이에프엔씨
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_0bf448cc5aa86dcbc357af9fd57ef1db.setIcon(beautify_icon_07a29ba3064e56d1662c11a17d1e3b1a);
+            
+    
+            var marker_dcf7b629bc4034af3dc75798cd0760c3 = L.marker(
+                [37.4143160900817, 127.312952950812],
+                {
+  "opacity": 0.8,
+}
+            ).addTo(map_9efb457509bb06de9acd22a4879d9838);
+        
+    
+            var beautify_icon_c6542553e36e9ff9e703a143bd7d7a03 = new L.BeautifyIcon.icon(
+                {
+  "icon": "gear",
+  "iconShape": "marker",
+  "borderWidth": 2,
+  "borderColor": "white",
+  "textColor": "white",
+  "backgroundColor": "lightgray",
+  "innerIconStyle": "font-size:15px; line-height:31.200000000000003px;",
+  "spin": false,
+  "isAlphaNumericIcon": false,
+  "iconSize": [
+35,
+48,
+],
+  "iconAnchor": [
+17.5,
+48,
+],
+}
+            )
+            marker_dcf7b629bc4034af3dc75798cd0760c3.setIcon(beautify_icon_c6542553e36e9ff9e703a143bd7d7a03);
+        
+    
+        var popup_73854f5120c302a90be77f4915388579 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_9336db5448fdb34b9d9accd96d00b963 = $(`<div id="html_9336db5448fdb34b9d9accd96d00b963" style="width: 100.0%; height: 100.0%;"><b>주식회사씨에스엔엠-곤지암풀필먼트2센터</b></div>`)[0];
+                popup_73854f5120c302a90be77f4915388579.setContent(html_9336db5448fdb34b9d9accd96d00b963);
+            
+        
+
+        marker_dcf7b629bc4034af3dc75798cd0760c3.bindPopup(popup_73854f5120c302a90be77f4915388579)
+        ;
+
+        
+    
+    
+            marker_dcf7b629bc4034af3dc75798cd0760c3.bindTooltip(
+                `<div>
+                     주식회사씨에스엔엠-곤지암풀필먼트2센터
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_dcf7b629bc4034af3dc75798cd0760c3.setIcon(beautify_icon_c6542553e36e9ff9e703a143bd7d7a03);
+            
+    
+            var marker_eefac38679c3b8980aaf6836b59aa408 = L.marker(
+                [37.4143160900817, 127.312952950812],
+                {
+  "opacity": 0.8,
+}
+            ).addTo(map_9efb457509bb06de9acd22a4879d9838);
+        
+    
+            var beautify_icon_511e0321369dca5e49575331d2e0596d = new L.BeautifyIcon.icon(
+                {
+  "icon": "bank",
+  "iconShape": "marker",
+  "borderWidth": 2,
+  "borderColor": "white",
+  "textColor": "white",
+  "backgroundColor": "gray",
+  "innerIconStyle": "font-size:15px; line-height:31.200000000000003px;",
+  "spin": false,
+  "isAlphaNumericIcon": false,
+  "iconSize": [
+35,
+48,
+],
+  "iconAnchor": [
+17.5,
+48,
+],
+}
+            )
+            marker_eefac38679c3b8980aaf6836b59aa408.setIcon(beautify_icon_511e0321369dca5e49575331d2e0596d);
+        
+    
+        var popup_8092bd73e802ca7ebc43fe6411ca0f9f = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_1adafd036c448c47f3cd5b687e43b97f = $(`<div id="html_1adafd036c448c47f3cd5b687e43b97f" style="width: 100.0%; height: 100.0%;"><b>와이케이엔젤스오쇼핑물류센터</b></div>`)[0];
+                popup_8092bd73e802ca7ebc43fe6411ca0f9f.setContent(html_1adafd036c448c47f3cd5b687e43b97f);
+            
+        
+
+        marker_eefac38679c3b8980aaf6836b59aa408.bindPopup(popup_8092bd73e802ca7ebc43fe6411ca0f9f)
+        ;
+
+        
+    
+    
+            marker_eefac38679c3b8980aaf6836b59aa408.bindTooltip(
+                `<div>
+                     와이케이엔젤스오쇼핑물류센터
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_eefac38679c3b8980aaf6836b59aa408.setIcon(beautify_icon_511e0321369dca5e49575331d2e0596d);
+            
+    
+            var marker_5437e92de191604a332cf3b11301d16e = L.marker(
+                [37.4143983791896, 127.298304140481],
+                {
+  "opacity": 0.8,
+}
+            ).addTo(map_9efb457509bb06de9acd22a4879d9838);
+        
+    
+            var beautify_icon_d4bb216d7422f91b4bda9f80f886f830 = new L.BeautifyIcon.icon(
+                {
+  "icon": "close",
+  "iconShape": "marker",
+  "borderWidth": 3,
+  "borderColor": "black",
+  "textColor": "black",
+  "backgroundColor": "lightgray",
+  "innerIconStyle": "font-size:22px; line-height:31.200000000000003px;",
+  "spin": false,
+  "isAlphaNumericIcon": false,
+  "iconSize": [
+35,
+48,
+],
+  "iconAnchor": [
+17.5,
+48,
+],
+}
+            )
+            marker_5437e92de191604a332cf3b11301d16e.setIcon(beautify_icon_d4bb216d7422f91b4bda9f80f886f830);
+        
+    
+        var popup_c82789f91a347a14e67d8b67597dc959 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_cd88e94101833b12944723a01927ac28 = $(`<div id="html_cd88e94101833b12944723a01927ac28" style="width: 100.0%; height: 100.0%;"><b>(주)한성체리티</b></div>`)[0];
+                popup_c82789f91a347a14e67d8b67597dc959.setContent(html_cd88e94101833b12944723a01927ac28);
+            
+        
+
+        marker_5437e92de191604a332cf3b11301d16e.bindPopup(popup_c82789f91a347a14e67d8b67597dc959)
+        ;
+
+        
+    
+    
+            marker_5437e92de191604a332cf3b11301d16e.bindTooltip(
+                `<div>
+                     (주)한성체리티
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_5437e92de191604a332cf3b11301d16e.setIcon(beautify_icon_d4bb216d7422f91b4bda9f80f886f830);
+            
+    
+            var marker_75922862578cd44ca54cb1d9373fee08 = L.marker(
+                [37.4067955378366, 127.213889398885],
+                {
+  "opacity": 0.8,
+}
+            ).addTo(map_9efb457509bb06de9acd22a4879d9838);
+        
+    
+            var beautify_icon_24a370c4183ba38a3b1813c3b98f778b = new L.BeautifyIcon.icon(
+                {
+  "icon": "building",
+  "iconShape": "marker",
+  "borderWidth": 2,
+  "borderColor": "white",
+  "textColor": "white",
+  "backgroundColor": "gray",
+  "innerIconStyle": "font-size:15px; line-height:31.200000000000003px;",
+  "spin": false,
+  "isAlphaNumericIcon": false,
+  "iconSize": [
+35,
+48,
+],
+  "iconAnchor": [
+17.5,
+48,
+],
+}
+            )
+            marker_75922862578cd44ca54cb1d9373fee08.setIcon(beautify_icon_24a370c4183ba38a3b1813c3b98f778b);
+        
+    
+        var popup_f145d8b6bc5429046fe20914ac63d781 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_d3da111ca40da05292d61d1831334db3 = $(`<div id="html_d3da111ca40da05292d61d1831334db3" style="width: 100.0%; height: 100.0%;"><b>선진안전(주)</b></div>`)[0];
+                popup_f145d8b6bc5429046fe20914ac63d781.setContent(html_d3da111ca40da05292d61d1831334db3);
+            
+        
+
+        marker_75922862578cd44ca54cb1d9373fee08.bindPopup(popup_f145d8b6bc5429046fe20914ac63d781)
+        ;
+
+        
+    
+    
+            marker_75922862578cd44ca54cb1d9373fee08.bindTooltip(
+                `<div>
+                     선진안전(주)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_75922862578cd44ca54cb1d9373fee08.setIcon(beautify_icon_24a370c4183ba38a3b1813c3b98f778b);
+            
+    
+            var marker_92efee0540ffb09df9c7fbab05165f45 = L.marker(
+                [37.3557182502115, 127.222405997466],
+                {
+  "opacity": 0.8,
+}
+            ).addTo(map_9efb457509bb06de9acd22a4879d9838);
+        
+    
+            var beautify_icon_06d5513007817c47f156342742489202 = new L.BeautifyIcon.icon(
+                {
+  "icon": "building",
+  "iconShape": "marker",
+  "borderWidth": 2,
+  "borderColor": "white",
+  "textColor": "white",
+  "backgroundColor": "gray",
+  "innerIconStyle": "font-size:15px; line-height:31.200000000000003px;",
+  "spin": false,
+  "isAlphaNumericIcon": false,
+  "iconSize": [
+35,
+48,
+],
+  "iconAnchor": [
+17.5,
+48,
+],
+}
+            )
+            marker_92efee0540ffb09df9c7fbab05165f45.setIcon(beautify_icon_06d5513007817c47f156342742489202);
+        
+    
+        var popup_e79621bf645a5714b55016ec54cb7e61 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_29a04ccc1c0269052f624ad804b1aa3b = $(`<div id="html_29a04ccc1c0269052f624ad804b1aa3b" style="width: 100.0%; height: 100.0%;"><b>아미종합물류(주)</b></div>`)[0];
+                popup_e79621bf645a5714b55016ec54cb7e61.setContent(html_29a04ccc1c0269052f624ad804b1aa3b);
+            
+        
+
+        marker_92efee0540ffb09df9c7fbab05165f45.bindPopup(popup_e79621bf645a5714b55016ec54cb7e61)
+        ;
+
+        
+    
+    
+            marker_92efee0540ffb09df9c7fbab05165f45.bindTooltip(
+                `<div>
+                     아미종합물류(주)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_92efee0540ffb09df9c7fbab05165f45.setIcon(beautify_icon_06d5513007817c47f156342742489202);
+            
+    
+            var marker_7fa098b4da7ef653fd8cf6077afa0f28 = L.marker(
+                [37.3565718536249, 127.225561872792],
+                {
+  "opacity": 0.8,
+}
+            ).addTo(map_9efb457509bb06de9acd22a4879d9838);
+        
+    
+            var beautify_icon_d1ac5094b310853f8ea0d37f91af9c35 = new L.BeautifyIcon.icon(
+                {
+  "icon": "building",
+  "iconShape": "marker",
+  "borderWidth": 2,
+  "borderColor": "white",
+  "textColor": "white",
+  "backgroundColor": "gray",
+  "innerIconStyle": "font-size:15px; line-height:31.200000000000003px;",
+  "spin": false,
+  "isAlphaNumericIcon": false,
+  "iconSize": [
+35,
+48,
+],
+  "iconAnchor": [
+17.5,
+48,
+],
+}
+            )
+            marker_7fa098b4da7ef653fd8cf6077afa0f28.setIcon(beautify_icon_d1ac5094b310853f8ea0d37f91af9c35);
+        
+    
+        var popup_9772665fe304bf3c195a86cbc160193b = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_59276d42065316197ec7a739fdf0586f = $(`<div id="html_59276d42065316197ec7a739fdf0586f" style="width: 100.0%; height: 100.0%;"><b>한국쥬맥스（주）</b></div>`)[0];
+                popup_9772665fe304bf3c195a86cbc160193b.setContent(html_59276d42065316197ec7a739fdf0586f);
+            
+        
+
+        marker_7fa098b4da7ef653fd8cf6077afa0f28.bindPopup(popup_9772665fe304bf3c195a86cbc160193b)
+        ;
+
+        
+    
+    
+            marker_7fa098b4da7ef653fd8cf6077afa0f28.bindTooltip(
+                `<div>
+                     한국쥬맥스（주）
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_7fa098b4da7ef653fd8cf6077afa0f28.setIcon(beautify_icon_d1ac5094b310853f8ea0d37f91af9c35);
+            
+    
+            var marker_7048e8aada79bb180958496048deeb11 = L.marker(
+                [37.3213943685713, 127.083962954462],
+                {
+  "opacity": 0.8,
+}
+            ).addTo(map_9efb457509bb06de9acd22a4879d9838);
+        
+    
+            var beautify_icon_4e889d133eb2ec2c0cbe8204c8c37b35 = new L.BeautifyIcon.icon(
+                {
+  "icon": "building",
+  "iconShape": "marker",
+  "borderWidth": 2,
+  "borderColor": "white",
+  "textColor": "white",
+  "backgroundColor": "gray",
+  "innerIconStyle": "font-size:15px; line-height:31.200000000000003px;",
+  "spin": false,
+  "isAlphaNumericIcon": false,
+  "iconSize": [
+35,
+48,
+],
+  "iconAnchor": [
+17.5,
+48,
+],
+}
+            )
+            marker_7048e8aada79bb180958496048deeb11.setIcon(beautify_icon_4e889d133eb2ec2c0cbe8204c8c37b35);
+        
+    
+        var popup_5da946b171702cf8a11c2da82c037c23 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_c5eef699ede2b890f4d6411e85a3f240 = $(`<div id="html_c5eef699ede2b890f4d6411e85a3f240" style="width: 100.0%; height: 100.0%;"><b>장철호가구공방</b></div>`)[0];
+                popup_5da946b171702cf8a11c2da82c037c23.setContent(html_c5eef699ede2b890f4d6411e85a3f240);
+            
+        
+
+        marker_7048e8aada79bb180958496048deeb11.bindPopup(popup_5da946b171702cf8a11c2da82c037c23)
+        ;
+
+        
+    
+    
+            marker_7048e8aada79bb180958496048deeb11.bindTooltip(
+                `<div>
+                     장철호가구공방
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_7048e8aada79bb180958496048deeb11.setIcon(beautify_icon_4e889d133eb2ec2c0cbe8204c8c37b35);
+            
+</script>
+</html>

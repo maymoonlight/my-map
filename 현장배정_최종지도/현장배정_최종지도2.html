@@ -1,0 +1,4459 @@
+<!DOCTYPE html>
+<html>
+<head>
+    
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+    
+<style>
+    .marker-cluster-small { background-color: rgba(255, 0, 0, 0.6) !important; }
+    .marker-cluster-small div { background-color: rgba(255, 0, 0, 0.6) !important; color: white !important; }
+    .marker-cluster-medium { background-color: rgba(255, 0, 0, 0.6) !important; }
+    .marker-cluster-medium div { background-color: rgba(255, 0, 0, 0.6) !important; color: white !important; }
+    .marker-cluster-large { background-color: rgba(255, 0, 0, 0.6) !important; }
+    .marker-cluster-large div { background-color: rgba(255, 0, 0, 0.6) !important; color: white !important; }
+</style>
+    <script src="https://cdn.jsdelivr.net/npm/leaflet@1.9.3/dist/leaflet.js"></script>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet@1.9.3/dist/leaflet.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="https://netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap-glyphicons.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.2.0/css/all.min.css"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/python-visualization/folium/folium/templates/leaflet.awesome.rotate.min.css"/>
+    
+            <meta name="viewport" content="width=device-width,
+                initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+            <style>
+                #map_6a0cb5f2703377fb42fb1818f9824a8f {
+                    position: relative;
+                    width: 100.0%;
+                    height: 100.0%;
+                    left: 0.0%;
+                    top: 0.0%;
+                }
+                .leaflet-container { font-size: 1rem; }
+            </style>
+
+            <style>html, body {
+                width: 100%;
+                height: 100%;
+                margin: 0;
+                padding: 0;
+            }
+            </style>
+
+            <style>#map {
+                position:absolute;
+                top:0;
+                bottom:0;
+                right:0;
+                left:0;
+                }
+            </style>
+
+            <script>
+                L_NO_TOUCH = false;
+                L_DISABLE_3D = false;
+            </script>
+
+        
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet.markercluster/1.1.0/leaflet.markercluster.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet.markercluster/1.1.0/MarkerCluster.css"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet.markercluster/1.1.0/MarkerCluster.Default.css"/>
+</head>
+<body>
+    
+    
+     <div style="position: fixed; 
+                 bottom: 50px; right: 50px; width: 250px; height: 200px; 
+                 border:2px solid grey; z-index:9999; font-size:14px;
+                 background-color:white; opacity: 0.8;
+                 padding: 10px;
+                 ">
+     <b>업종 구분</b><br>
+     <i class="fa fa-map-marker" style="color:green"></i>&nbsp; 도소매 및 소비자용품수리업<br>
+     <i class="fa fa-map-marker" style="color:red"></i>&nbsp; 창고업<br>
+     <i class="fa fa-map-marker" style="color:blue"></i>&nbsp; 사업서비스업<br>
+     <i class="fa fa-map-marker" style="color:orange"></i>&nbsp; 위생 및 유사서비스업<br>
+     <i class="fa fa-map-marker" style="color:darkgreen"></i>&nbsp; 육상화물취급업<br>
+     <i class="fa fa-map-marker" style="color:gray"></i>&nbsp; 기타
+
+     </div>
+     
+    
+            <div class="folium-map" id="map_6a0cb5f2703377fb42fb1818f9824a8f" ></div>
+        
+</body>
+<script>
+    
+    
+            var map_6a0cb5f2703377fb42fb1818f9824a8f = L.map(
+                "map_6a0cb5f2703377fb42fb1818f9824a8f",
+                {
+                    center: [37.408, 127.253],
+                    crs: L.CRS.EPSG3857,
+                    ...{
+  "zoom": 12,
+  "zoomControl": true,
+  "preferCanvas": false,
+}
+
+                }
+            );
+
+            
+
+        
+    
+            var tile_layer_b67d0efece7760a7598134718cf1a5e1 = L.tileLayer(
+                "https://tile.openstreetmap.org/{z}/{x}/{y}.png",
+                {
+  "minZoom": 0,
+  "maxZoom": 19,
+  "maxNativeZoom": 19,
+  "noWrap": false,
+  "attribution": "\u0026copy; \u003ca href=\"https://www.openstreetmap.org/copyright\"\u003eOpenStreetMap\u003c/a\u003e contributors",
+  "subdomains": "abc",
+  "detectRetina": false,
+  "tms": false,
+  "opacity": 1,
+}
+
+            );
+        
+    
+            tile_layer_b67d0efece7760a7598134718cf1a5e1.addTo(map_6a0cb5f2703377fb42fb1818f9824a8f);
+        
+    
+            var marker_cluster_a8035d375e55312eff396fa6f7cf2523 = L.markerClusterGroup(
+                {
+}
+            );
+        
+    
+            var marker_d25e862d7a819212af2d9b830ca31c8b = L.marker(
+                [37.3550250655428, 127.332544095282],
+                {
+}
+            ).addTo(marker_cluster_a8035d375e55312eff396fa6f7cf2523);
+        
+    
+            var icon_92941090d229f362c0867da1477bc037 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "blue",
+  "iconColor": "white",
+  "icon": "info-sign",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_6382a2cf6c62128d95beb96f7bd54d26 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_283f2dfc5f2b7f4ae260e3104b88b12f = $(`<div id="html_283f2dfc5f2b7f4ae260e3104b88b12f" style="width: 100.0%; height: 100.0%;">         <div style="width:200px; font-family: sans-serif;">             <h4 style="margin:0 0 5px 0;">케이에이치(KH)종합</h4>             <hr style="margin:5px 0;">             <b>업종:</b> 사업서비스업<br>             <b>연락처:</b> 031-266-7723<br>             <b>주소:</b> 경기 광주시 곤지암읍 평촌길11번길 44          </div>         </div>`)[0];
+                popup_6382a2cf6c62128d95beb96f7bd54d26.setContent(html_283f2dfc5f2b7f4ae260e3104b88b12f);
+            
+        
+
+        marker_d25e862d7a819212af2d9b830ca31c8b.bindPopup(popup_6382a2cf6c62128d95beb96f7bd54d26)
+        ;
+
+        
+    
+    
+            marker_d25e862d7a819212af2d9b830ca31c8b.bindTooltip(
+                `<div>
+                     케이에이치(KH)종합
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_d25e862d7a819212af2d9b830ca31c8b.setIcon(icon_92941090d229f362c0867da1477bc037);
+            
+    
+            var marker_d856239a3d7c9b46f9d18c788591ec3a = L.marker(
+                [37.3153459581883, 127.348859271596],
+                {
+}
+            ).addTo(marker_cluster_a8035d375e55312eff396fa6f7cf2523);
+        
+    
+            var icon_2ed54c1cfd50323ebf303e649272da39 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "green",
+  "iconColor": "white",
+  "icon": "info-sign",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_ae51c4cb57da2a6ad1ee382ba295133d = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_88ef8cf9db280f17ece18e1afdb4a5e6 = $(`<div id="html_88ef8cf9db280f17ece18e1afdb4a5e6" style="width: 100.0%; height: 100.0%;">         <div style="width:200px; font-family: sans-serif;">             <h4 style="margin:0 0 5px 0;">헤펠레코리아(주)본사</h4>             <hr style="margin:5px 0;">             <b>업종:</b> 도소매 및 소비자용품수리업<br>             <b>연락처:</b> 031-266-7723<br>             <b>주소:</b> 경기 광주시 도척면 국사봉로 159          </div>         </div>`)[0];
+                popup_ae51c4cb57da2a6ad1ee382ba295133d.setContent(html_88ef8cf9db280f17ece18e1afdb4a5e6);
+            
+        
+
+        marker_d856239a3d7c9b46f9d18c788591ec3a.bindPopup(popup_ae51c4cb57da2a6ad1ee382ba295133d)
+        ;
+
+        
+    
+    
+            marker_d856239a3d7c9b46f9d18c788591ec3a.bindTooltip(
+                `<div>
+                     헤펠레코리아(주)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_d856239a3d7c9b46f9d18c788591ec3a.setIcon(icon_2ed54c1cfd50323ebf303e649272da39);
+            
+    
+            var marker_1c034a17cfe34b8069cc88d8ab4f03b0 = L.marker(
+                [37.3236352712277, 127.340186088004],
+                {
+}
+            ).addTo(marker_cluster_a8035d375e55312eff396fa6f7cf2523);
+        
+    
+            var icon_8ec6297c6203154c4f6620eeccf28da2 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "red",
+  "iconColor": "white",
+  "icon": "info-sign",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_a1e910130311e8c9e1db752363aff0dc = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_6b02d931a2ea5a91a23e13469512f507 = $(`<div id="html_6b02d931a2ea5a91a23e13469512f507" style="width: 100.0%; height: 100.0%;">         <div style="width:200px; font-family: sans-serif;">             <h4 style="margin:0 0 5px 0;">(주)어시스트코리아(본사)</h4>             <hr style="margin:5px 0;">             <b>업종:</b> 창고업<br>             <b>연락처:</b> 031-123-3458<br>             <b>주소:</b> 경기 광주시 도척면 국사봉로 35 (..)         </div>         </div>`)[0];
+                popup_a1e910130311e8c9e1db752363aff0dc.setContent(html_6b02d931a2ea5a91a23e13469512f507);
+            
+        
+
+        marker_1c034a17cfe34b8069cc88d8ab4f03b0.bindPopup(popup_a1e910130311e8c9e1db752363aff0dc)
+        ;
+
+        
+    
+    
+            marker_1c034a17cfe34b8069cc88d8ab4f03b0.bindTooltip(
+                `<div>
+                     (주)어시스트코리아
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_1c034a17cfe34b8069cc88d8ab4f03b0.setIcon(icon_8ec6297c6203154c4f6620eeccf28da2);
+            
+    
+            var marker_a808fed2517fe407fd654c8d8da741b7 = L.marker(
+                [37.3893200496502, 127.25385657095],
+                {
+}
+            ).addTo(marker_cluster_a8035d375e55312eff396fa6f7cf2523);
+        
+    
+            var icon_c849dfeb109f22b8962f296e1fef977e = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "green",
+  "iconColor": "white",
+  "icon": "info-sign",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_797285d32d19fdc60c1b89dd6a8044fd = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_a1543cf2bf79ca5fc96f19561c92075f = $(`<div id="html_a1543cf2bf79ca5fc96f19561c92075f" style="width: 100.0%; height: 100.0%;">         <div style="width:200px; font-family: sans-serif;">             <h4 style="margin:0 0 5px 0;">(주)에이치앤에프</h4>             <hr style="margin:5px 0;">             <b>업종:</b> 도소매 및 소비자용품수리업<br>             <b>연락처:</b> 031-123-3459<br>             <b>주소:</b> 경기 광주시 마루들길35번길 25 (양벌동)         </div>         </div>`)[0];
+                popup_797285d32d19fdc60c1b89dd6a8044fd.setContent(html_a1543cf2bf79ca5fc96f19561c92075f);
+            
+        
+
+        marker_a808fed2517fe407fd654c8d8da741b7.bindPopup(popup_797285d32d19fdc60c1b89dd6a8044fd)
+        ;
+
+        
+    
+    
+            marker_a808fed2517fe407fd654c8d8da741b7.bindTooltip(
+                `<div>
+                     (주)에이치앤에프
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_a808fed2517fe407fd654c8d8da741b7.setIcon(icon_c849dfeb109f22b8962f296e1fef977e);
+            
+    
+            var marker_e2c10b48d42daa981906ea394f96fe31 = L.marker(
+                [37.3507852386519, 127.260779928173],
+                {
+}
+            ).addTo(marker_cluster_a8035d375e55312eff396fa6f7cf2523);
+        
+    
+            var icon_70fef4285a87d958e7e8f67a790269e5 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "green",
+  "iconColor": "white",
+  "icon": "info-sign",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_480198460494972feeaef0a96d2ba586 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_07da8f875bdf407304d51673246c8f9f = $(`<div id="html_07da8f875bdf407304d51673246c8f9f" style="width: 100.0%; height: 100.0%;">         <div style="width:200px; font-family: sans-serif;">             <h4 style="margin:0 0 5px 0;">푸드뱅크주식회사</h4>             <hr style="margin:5px 0;">             <b>업종:</b> 도소매 및 소비자용품수리업<br>             <b>연락처:</b> 031-123-3460<br>             <b>주소:</b> 경기 광주시 매자리길27번길 144-2 (매산동)         </div>         </div>`)[0];
+                popup_480198460494972feeaef0a96d2ba586.setContent(html_07da8f875bdf407304d51673246c8f9f);
+            
+        
+
+        marker_e2c10b48d42daa981906ea394f96fe31.bindPopup(popup_480198460494972feeaef0a96d2ba586)
+        ;
+
+        
+    
+    
+            marker_e2c10b48d42daa981906ea394f96fe31.bindTooltip(
+                `<div>
+                     푸드뱅크주식회사
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_e2c10b48d42daa981906ea394f96fe31.setIcon(icon_70fef4285a87d958e7e8f67a790269e5);
+            
+    
+            var marker_0046d5136a3126af40ed2b6abe27524a = L.marker(
+                [37.4116934803945, 127.200465336789],
+                {
+}
+            ).addTo(marker_cluster_a8035d375e55312eff396fa6f7cf2523);
+        
+    
+            var icon_e064570ea2791716e75aba9c38ba51a1 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "green",
+  "iconColor": "white",
+  "icon": "info-sign",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_5ce91dd450b7f101d1ed273b6f06464a = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_ceb064350a7398b0d1f2891f917545ca = $(`<div id="html_ceb064350a7398b0d1f2891f917545ca" style="width: 100.0%; height: 100.0%;">         <div style="width:200px; font-family: sans-serif;">             <h4 style="margin:0 0 5px 0;">동양플러스(주)-본사</h4>             <hr style="margin:5px 0;">             <b>업종:</b> 도소매 및 소비자용품수리업<br>             <b>연락처:</b> 031-123-3461<br>             <b>주소:</b> 경기 광주시 순암로492번길 10 (삼동)         </div>         </div>`)[0];
+                popup_5ce91dd450b7f101d1ed273b6f06464a.setContent(html_ceb064350a7398b0d1f2891f917545ca);
+            
+        
+
+        marker_0046d5136a3126af40ed2b6abe27524a.bindPopup(popup_5ce91dd450b7f101d1ed273b6f06464a)
+        ;
+
+        
+    
+    
+            marker_0046d5136a3126af40ed2b6abe27524a.bindTooltip(
+                `<div>
+                     동양플러스(주)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_0046d5136a3126af40ed2b6abe27524a.setIcon(icon_e064570ea2791716e75aba9c38ba51a1);
+            
+    
+            var marker_5e509684bdd6b53fca79156379014575 = L.marker(
+                [37.3790334497787, 127.254400771423],
+                {
+}
+            ).addTo(marker_cluster_a8035d375e55312eff396fa6f7cf2523);
+        
+    
+            var icon_7ef64264c7177de0f2aca60c8679c83a = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "green",
+  "iconColor": "white",
+  "icon": "info-sign",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_265a4e07fa7054b980785d8bf69c766d = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_1b1e7268d39c4d02fce90b182d1d1993 = $(`<div id="html_1b1e7268d39c4d02fce90b182d1d1993" style="width: 100.0%; height: 100.0%;">         <div style="width:200px; font-family: sans-serif;">             <h4 style="margin:0 0 5px 0;">(주)리치마트</h4>             <hr style="margin:5px 0;">             <b>업종:</b> 도소매 및 소비자용품수리업<br>             <b>연락처:</b> 031-123-3462<br>             <b>주소:</b> 경기 광주시 양벌로 200 (양벌리)         </div>         </div>`)[0];
+                popup_265a4e07fa7054b980785d8bf69c766d.setContent(html_1b1e7268d39c4d02fce90b182d1d1993);
+            
+        
+
+        marker_5e509684bdd6b53fca79156379014575.bindPopup(popup_265a4e07fa7054b980785d8bf69c766d)
+        ;
+
+        
+    
+    
+            marker_5e509684bdd6b53fca79156379014575.bindTooltip(
+                `<div>
+                     (주)리치마트
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_5e509684bdd6b53fca79156379014575.setIcon(icon_7ef64264c7177de0f2aca60c8679c83a);
+            
+    
+            var marker_f213e32c581fdf7001bc61ca0138904c = L.marker(
+                [37.3997014321663, 127.299447426903],
+                {
+}
+            ).addTo(marker_cluster_a8035d375e55312eff396fa6f7cf2523);
+        
+    
+            var icon_5f39f1675e5a6ef098ee104509e4f1c6 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "orange",
+  "iconColor": "white",
+  "icon": "info-sign",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_1267dc31474ebe0ec1b2bb4cbba6aeee = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_3b8f511e27326852024a4387f41c85ab = $(`<div id="html_3b8f511e27326852024a4387f41c85ab" style="width: 100.0%; height: 100.0%;">         <div style="width:200px; font-family: sans-serif;">             <h4 style="margin:0 0 5px 0;">광주환경(주)</h4>             <hr style="margin:5px 0;">             <b>업종:</b> 위생 및 유사서비스업<br>             <b>연락처:</b> 031-123-3463<br>             <b>주소:</b> 경기 광주시 초월읍 도평길 207-14          </div>         </div>`)[0];
+                popup_1267dc31474ebe0ec1b2bb4cbba6aeee.setContent(html_3b8f511e27326852024a4387f41c85ab);
+            
+        
+
+        marker_f213e32c581fdf7001bc61ca0138904c.bindPopup(popup_1267dc31474ebe0ec1b2bb4cbba6aeee)
+        ;
+
+        
+    
+    
+            marker_f213e32c581fdf7001bc61ca0138904c.bindTooltip(
+                `<div>
+                     광주환경(주)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_f213e32c581fdf7001bc61ca0138904c.setIcon(icon_5f39f1675e5a6ef098ee104509e4f1c6);
+            
+    
+            var marker_15949cc767615a4117e708cd8af3d52c = L.marker(
+                [37.3945348336239, 127.30004290836],
+                {
+}
+            ).addTo(marker_cluster_a8035d375e55312eff396fa6f7cf2523);
+        
+    
+            var icon_95a09a017679429ddd32bb8890f3329b = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "green",
+  "iconColor": "white",
+  "icon": "info-sign",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_81a1fe9047f4f95ab88919e45571bf0e = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_c8bfa379a536155d428e70a500380322 = $(`<div id="html_c8bfa379a536155d428e70a500380322" style="width: 100.0%; height: 100.0%;">         <div style="width:200px; font-family: sans-serif;">             <h4 style="margin:0 0 5px 0;">(주)엠케이에프엔씨</h4>             <hr style="margin:5px 0;">             <b>업종:</b> 도소매 및 소비자용품수리업<br>             <b>연락처:</b> 031-123-3464<br>             <b>주소:</b> 경기 광주시 초월읍 도평길110번길 49          </div>         </div>`)[0];
+                popup_81a1fe9047f4f95ab88919e45571bf0e.setContent(html_c8bfa379a536155d428e70a500380322);
+            
+        
+
+        marker_15949cc767615a4117e708cd8af3d52c.bindPopup(popup_81a1fe9047f4f95ab88919e45571bf0e)
+        ;
+
+        
+    
+    
+            marker_15949cc767615a4117e708cd8af3d52c.bindTooltip(
+                `<div>
+                     (주)엠케이에프엔씨
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_15949cc767615a4117e708cd8af3d52c.setIcon(icon_95a09a017679429ddd32bb8890f3329b);
+            
+    
+            var marker_59d05a40e79eb0091f3473c8cf5045a5 = L.marker(
+                [37.4143160900817, 127.312952950812],
+                {
+}
+            ).addTo(marker_cluster_a8035d375e55312eff396fa6f7cf2523);
+        
+    
+            var icon_f4014edc5fa6c4d2eb32acf4ed32be12 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "darkgreen",
+  "iconColor": "white",
+  "icon": "info-sign",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_1171f111655de24e9d05eff29a672774 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_11c4f8c6bb3c85626ecda659b3b66f89 = $(`<div id="html_11c4f8c6bb3c85626ecda659b3b66f89" style="width: 100.0%; height: 100.0%;">         <div style="width:200px; font-family: sans-serif;">             <h4 style="margin:0 0 5px 0;">주식회사씨에스엔엠-곤지암풀필먼트2센터</h4>             <hr style="margin:5px 0;">             <b>업종:</b> 육상화물취급업<br>             <b>연락처:</b> 031-123-3465<br>             <b>주소:</b> 경기 광주시 초월읍 산수로 642-70 (초월읍, 곤지암메가허브 2층)         </div>         </div>`)[0];
+                popup_1171f111655de24e9d05eff29a672774.setContent(html_11c4f8c6bb3c85626ecda659b3b66f89);
+            
+        
+
+        marker_59d05a40e79eb0091f3473c8cf5045a5.bindPopup(popup_1171f111655de24e9d05eff29a672774)
+        ;
+
+        
+    
+    
+            marker_59d05a40e79eb0091f3473c8cf5045a5.bindTooltip(
+                `<div>
+                     주식회사씨에스엔엠-곤지암풀필먼트2센터
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_59d05a40e79eb0091f3473c8cf5045a5.setIcon(icon_f4014edc5fa6c4d2eb32acf4ed32be12);
+            
+    
+            var marker_44bc4a55febd466f26e6db6b06781ffc = L.marker(
+                [37.4143160900817, 127.312952950812],
+                {
+}
+            ).addTo(marker_cluster_a8035d375e55312eff396fa6f7cf2523);
+        
+    
+            var icon_b340dba42d98bbd47033cd2a00c95496 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "darkgreen",
+  "iconColor": "white",
+  "icon": "info-sign",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_f099182629f16f5fa541834773b566b6 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_b0eebf0b0225f6326c6b2b4474041f7c = $(`<div id="html_b0eebf0b0225f6326c6b2b4474041f7c" style="width: 100.0%; height: 100.0%;">         <div style="width:200px; font-family: sans-serif;">             <h4 style="margin:0 0 5px 0;">와이케이엔젤스오쇼핑물류센터</h4>             <hr style="margin:5px 0;">             <b>업종:</b> 육상화물취급업<br>             <b>연락처:</b> 031-123-3466<br>             <b>주소:</b> 경기 광주시 초월읍 산수로 642-70          </div>         </div>`)[0];
+                popup_f099182629f16f5fa541834773b566b6.setContent(html_b0eebf0b0225f6326c6b2b4474041f7c);
+            
+        
+
+        marker_44bc4a55febd466f26e6db6b06781ffc.bindPopup(popup_f099182629f16f5fa541834773b566b6)
+        ;
+
+        
+    
+    
+            marker_44bc4a55febd466f26e6db6b06781ffc.bindTooltip(
+                `<div>
+                     와이케이엔젤스오쇼핑물류센터
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_44bc4a55febd466f26e6db6b06781ffc.setIcon(icon_b340dba42d98bbd47033cd2a00c95496);
+            
+    
+            var marker_48beb5786d88f7c3ef4bfb3c500724eb = L.marker(
+                [37.4143983791896, 127.298304140481],
+                {
+}
+            ).addTo(marker_cluster_a8035d375e55312eff396fa6f7cf2523);
+        
+    
+            var icon_fe163427929a51b9662797b4add8e27e = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "green",
+  "iconColor": "white",
+  "icon": "info-sign",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_152b544f9d58142153349474b5cd096a = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_8b6b3c5f349566f0336b3a7fef05e328 = $(`<div id="html_8b6b3c5f349566f0336b3a7fef05e328" style="width: 100.0%; height: 100.0%;">         <div style="width:200px; font-family: sans-serif;">             <h4 style="margin:0 0 5px 0;">(주)한성체리티</h4>             <hr style="margin:5px 0;">             <b>업종:</b> 도소매 및 소비자용품수리업<br>             <b>연락처:</b> 031-123-3467<br>             <b>주소:</b> 경기 광주시 초월읍 지월로 73          </div>         </div>`)[0];
+                popup_152b544f9d58142153349474b5cd096a.setContent(html_8b6b3c5f349566f0336b3a7fef05e328);
+            
+        
+
+        marker_48beb5786d88f7c3ef4bfb3c500724eb.bindPopup(popup_152b544f9d58142153349474b5cd096a)
+        ;
+
+        
+    
+    
+            marker_48beb5786d88f7c3ef4bfb3c500724eb.bindTooltip(
+                `<div>
+                     (주)한성체리티
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_48beb5786d88f7c3ef4bfb3c500724eb.setIcon(icon_fe163427929a51b9662797b4add8e27e);
+            
+    
+            var marker_6f317575ff2790e386e457765704dc28 = L.marker(
+                [37.4067955378366, 127.213889398885],
+                {
+}
+            ).addTo(marker_cluster_a8035d375e55312eff396fa6f7cf2523);
+        
+    
+            var icon_b198373f6e86a30c69c16aab9b4126ce = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "green",
+  "iconColor": "white",
+  "icon": "info-sign",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_27ebfc3bf502fc22365e8363546ac920 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_19bac4ccd17db727fc7eb0f02e59cc73 = $(`<div id="html_19bac4ccd17db727fc7eb0f02e59cc73" style="width: 100.0%; height: 100.0%;">         <div style="width:200px; font-family: sans-serif;">             <h4 style="margin:0 0 5px 0;">선진안전(주)</h4>             <hr style="margin:5px 0;">             <b>업종:</b> 도소매 및 소비자용품수리업<br>             <b>연락처:</b> 031-123-3468<br>             <b>주소:</b> 경기 광주시 텃골길  19 (중대동, 09)         </div>         </div>`)[0];
+                popup_27ebfc3bf502fc22365e8363546ac920.setContent(html_19bac4ccd17db727fc7eb0f02e59cc73);
+            
+        
+
+        marker_6f317575ff2790e386e457765704dc28.bindPopup(popup_27ebfc3bf502fc22365e8363546ac920)
+        ;
+
+        
+    
+    
+            marker_6f317575ff2790e386e457765704dc28.bindTooltip(
+                `<div>
+                     선진안전(주)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_6f317575ff2790e386e457765704dc28.setIcon(icon_b198373f6e86a30c69c16aab9b4126ce);
+            
+    
+            var marker_825a15ab8391fdb58b0703da6eba464f = L.marker(
+                [37.3557182502115, 127.222405997466],
+                {
+}
+            ).addTo(marker_cluster_a8035d375e55312eff396fa6f7cf2523);
+        
+    
+            var icon_557eff0a13ec7c54deeef3ed7523e114 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "red",
+  "iconColor": "white",
+  "icon": "info-sign",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_cd84c92263f98d0369922d5aef131ba5 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_63568bf100954ed4d6dcc9473ff9b919 = $(`<div id="html_63568bf100954ed4d6dcc9473ff9b919" style="width: 100.0%; height: 100.0%;">         <div style="width:200px; font-family: sans-serif;">             <h4 style="margin:0 0 5px 0;">아미종합물류(주)</h4>             <hr style="margin:5px 0;">             <b>업종:</b> 창고업<br>             <b>연락처:</b> 031-123-3469<br>             <b>주소:</b> 경기 광주시 포은대로 271 (추자동)         </div>         </div>`)[0];
+                popup_cd84c92263f98d0369922d5aef131ba5.setContent(html_63568bf100954ed4d6dcc9473ff9b919);
+            
+        
+
+        marker_825a15ab8391fdb58b0703da6eba464f.bindPopup(popup_cd84c92263f98d0369922d5aef131ba5)
+        ;
+
+        
+    
+    
+            marker_825a15ab8391fdb58b0703da6eba464f.bindTooltip(
+                `<div>
+                     아미종합물류(주)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_825a15ab8391fdb58b0703da6eba464f.setIcon(icon_557eff0a13ec7c54deeef3ed7523e114);
+            
+    
+            var marker_89569667a953671f2d35079dfc347f0b = L.marker(
+                [37.3565718536249, 127.225561872792],
+                {
+}
+            ).addTo(marker_cluster_a8035d375e55312eff396fa6f7cf2523);
+        
+    
+            var icon_01d83a8b22ac10a5e0cd010307fdc9e6 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "green",
+  "iconColor": "white",
+  "icon": "info-sign",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_cc8694d0e69004df3b15bb6f5bf3fb6c = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_7860ee2c7562f62b3c4f51889455c255 = $(`<div id="html_7860ee2c7562f62b3c4f51889455c255" style="width: 100.0%; height: 100.0%;">         <div style="width:200px; font-family: sans-serif;">             <h4 style="margin:0 0 5px 0;">한국쥬맥스（주）</h4>             <hr style="margin:5px 0;">             <b>업종:</b> 도소매 및 소비자용품수리업<br>             <b>연락처:</b> 031-123-3470<br>             <b>주소:</b> 경기 광주시 포은대로 282-19 (추자동)         </div>         </div>`)[0];
+                popup_cc8694d0e69004df3b15bb6f5bf3fb6c.setContent(html_7860ee2c7562f62b3c4f51889455c255);
+            
+        
+
+        marker_89569667a953671f2d35079dfc347f0b.bindPopup(popup_cc8694d0e69004df3b15bb6f5bf3fb6c)
+        ;
+
+        
+    
+    
+            marker_89569667a953671f2d35079dfc347f0b.bindTooltip(
+                `<div>
+                     한국쥬맥스（주）
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_89569667a953671f2d35079dfc347f0b.setIcon(icon_01d83a8b22ac10a5e0cd010307fdc9e6);
+            
+    
+            var marker_21a3e5751d8e99903a7f54250e8b18b7 = L.marker(
+                [37.3492805366198, 127.107286238061],
+                {
+}
+            ).addTo(marker_cluster_a8035d375e55312eff396fa6f7cf2523);
+        
+    
+            var icon_ec5ed4f69639d9dc9472a58ed8022592 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "green",
+  "iconColor": "white",
+  "icon": "info-sign",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_f227a7085dc8f565c39e4bd517e57339 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_6e7f46425e581863f1cdaa8d6999ae39 = $(`<div id="html_6e7f46425e581863f1cdaa8d6999ae39" style="width: 100.0%; height: 100.0%;">         <div style="width:200px; font-family: sans-serif;">             <h4 style="margin:0 0 5px 0;">이천일아울렛분당점</h4>             <hr style="margin:5px 0;">             <b>업종:</b> 도소매 및 소비자용품수리업<br>             <b>연락처:</b> 031-123-3471<br>             <b>주소:</b> 경기 성남시 분당구 구미동 11-1번지         </div>         </div>`)[0];
+                popup_f227a7085dc8f565c39e4bd517e57339.setContent(html_6e7f46425e581863f1cdaa8d6999ae39);
+            
+        
+
+        marker_21a3e5751d8e99903a7f54250e8b18b7.bindPopup(popup_f227a7085dc8f565c39e4bd517e57339)
+        ;
+
+        
+    
+    
+            marker_21a3e5751d8e99903a7f54250e8b18b7.bindTooltip(
+                `<div>
+                     (주)이랜드리테일
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_21a3e5751d8e99903a7f54250e8b18b7.setIcon(icon_ec5ed4f69639d9dc9472a58ed8022592);
+            
+    
+            var marker_5cc2a17116eb55879093b2e2a0314921 = L.marker(
+                [37.3376582431641, 127.109744862813],
+                {
+}
+            ).addTo(marker_cluster_a8035d375e55312eff396fa6f7cf2523);
+        
+    
+            var icon_b0f8bf0a7efb221cc2a69e8fe34a8bc9 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "green",
+  "iconColor": "white",
+  "icon": "info-sign",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_16373d8bd051c1cf9a5a82497a25505b = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_58ab00c829c6610c8df1e9480dcb341b = $(`<div id="html_58ab00c829c6610c8df1e9480dcb341b" style="width: 100.0%; height: 100.0%;">         <div style="width:200px; font-family: sans-serif;">             <h4 style="margin:0 0 5px 0;">케이던스디자인시스템즈아일랜드리미티드(영업소)</h4>             <hr style="margin:5px 0;">             <b>업종:</b> 도소매 및 소비자용품수리업<br>             <b>연락처:</b> 031-123-3472<br>             <b>주소:</b> 경기 성남시 분당구 구미로 8 (구미동, 분당엠타워) 5층         </div>         </div>`)[0];
+                popup_16373d8bd051c1cf9a5a82497a25505b.setContent(html_58ab00c829c6610c8df1e9480dcb341b);
+            
+        
+
+        marker_5cc2a17116eb55879093b2e2a0314921.bindPopup(popup_16373d8bd051c1cf9a5a82497a25505b)
+        ;
+
+        
+    
+    
+            marker_5cc2a17116eb55879093b2e2a0314921.bindTooltip(
+                `<div>
+                     케이던스디자인시스템즈아일랜드리미티드(영업소)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_5cc2a17116eb55879093b2e2a0314921.setIcon(icon_b0f8bf0a7efb221cc2a69e8fe34a8bc9);
+            
+    
+            var marker_3aec75858246a2efca08c13e88620ada = L.marker(
+                [37.360849532022, 127.11590498365],
+                {
+}
+            ).addTo(marker_cluster_a8035d375e55312eff396fa6f7cf2523);
+        
+    
+            var icon_57e87220f4396ff2bc831c3bc9203894 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "gray",
+  "iconColor": "white",
+  "icon": "info-sign",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_5d1119ac816e95c166236dc317982d47 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_eb6e4f1295b01f272a0a21d33b288e95 = $(`<div id="html_eb6e4f1295b01f272a0a21d33b288e95" style="width: 100.0%; height: 100.0%;">         <div style="width:200px; font-family: sans-serif;">             <h4 style="margin:0 0 5px 0;">한진7단지입주자대표회의</h4>             <hr style="margin:5px 0;">             <b>업종:</b> 기타<br>             <b>연락처:</b> 031-123-3473<br>             <b>주소:</b> 경기 성남시 분당구 내정로 10 (정자동, 정든마을)         </div>         </div>`)[0];
+                popup_5d1119ac816e95c166236dc317982d47.setContent(html_eb6e4f1295b01f272a0a21d33b288e95);
+            
+        
+
+        marker_3aec75858246a2efca08c13e88620ada.bindPopup(popup_5d1119ac816e95c166236dc317982d47)
+        ;
+
+        
+    
+    
+            marker_3aec75858246a2efca08c13e88620ada.bindTooltip(
+                `<div>
+                     주식회사동아씨스템
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_3aec75858246a2efca08c13e88620ada.setIcon(icon_57e87220f4396ff2bc831c3bc9203894);
+            
+    
+            var marker_5d5dd18016f5a9dee4a74ded6f478001 = L.marker(
+                [37.3687716703386, 127.112782940821],
+                {
+}
+            ).addTo(marker_cluster_a8035d375e55312eff396fa6f7cf2523);
+        
+    
+            var icon_ffb4df12e8d7ac35ba1d20bbf69ef445 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "gray",
+  "iconColor": "white",
+  "icon": "info-sign",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_e92c28fbef1234ef0cd0cf994d949de7 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_24f5270b5dd3353495948bc84d8185a1 = $(`<div id="html_24f5270b5dd3353495948bc84d8185a1" style="width: 100.0%; height: 100.0%;">         <div style="width:200px; font-family: sans-serif;">             <h4 style="margin:0 0 5px 0;">주식회사향연</h4>             <hr style="margin:5px 0;">             <b>업종:</b> 기타<br>             <b>연락처:</b> 031-123-3474<br>             <b>주소:</b> 경기 성남시 분당구 느티로  73 203호 (정자동, 현대빌딩)         </div>         </div>`)[0];
+                popup_e92c28fbef1234ef0cd0cf994d949de7.setContent(html_24f5270b5dd3353495948bc84d8185a1);
+            
+        
+
+        marker_5d5dd18016f5a9dee4a74ded6f478001.bindPopup(popup_e92c28fbef1234ef0cd0cf994d949de7)
+        ;
+
+        
+    
+    
+            marker_5d5dd18016f5a9dee4a74ded6f478001.bindTooltip(
+                `<div>
+                     주식회사향연
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_5d5dd18016f5a9dee4a74ded6f478001.setIcon(icon_ffb4df12e8d7ac35ba1d20bbf69ef445);
+            
+    
+            var marker_abb757d273c1e345afa0ed7ab12467cf = L.marker(
+                [37.369381289983, 127.101352173653],
+                {
+}
+            ).addTo(marker_cluster_a8035d375e55312eff396fa6f7cf2523);
+        
+    
+            var icon_6668700deb769784675bf56b42998aaa = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "gray",
+  "iconColor": "white",
+  "icon": "info-sign",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_70e1bc3ef7787f43f420a19f05340ec2 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_da34fc8a8c08ddd168f0b214280d315b = $(`<div id="html_da34fc8a8c08ddd168f0b214280d315b" style="width: 100.0%; height: 100.0%;">         <div style="width:200px; font-family: sans-serif;">             <h4 style="margin:0 0 5px 0;">진아교통주식회사</h4>             <hr style="margin:5px 0;">             <b>업종:</b> 기타<br>             <b>연락처:</b> 031-123-3475<br>             <b>주소:</b> 경기 성남시 분당구 대왕판교로 287 (궁내동)         </div>         </div>`)[0];
+                popup_70e1bc3ef7787f43f420a19f05340ec2.setContent(html_da34fc8a8c08ddd168f0b214280d315b);
+            
+        
+
+        marker_abb757d273c1e345afa0ed7ab12467cf.bindPopup(popup_70e1bc3ef7787f43f420a19f05340ec2)
+        ;
+
+        
+    
+    
+            marker_abb757d273c1e345afa0ed7ab12467cf.bindTooltip(
+                `<div>
+                     진아교통주식회사
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_abb757d273c1e345afa0ed7ab12467cf.setIcon(icon_6668700deb769784675bf56b42998aaa);
+            
+    
+            var marker_d71c198a70c12311c8c03ddb748b4c48 = L.marker(
+                [37.4035481182679, 127.1054368426],
+                {
+}
+            ).addTo(marker_cluster_a8035d375e55312eff396fa6f7cf2523);
+        
+    
+            var icon_d9db4144f6afadb20aaabb0da747b6be = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "green",
+  "iconColor": "white",
+  "icon": "info-sign",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_09bb018f5e8e0e9dcce34257134c4b4c = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_f1c92bc032e99a0d43b2e6c2560354c1 = $(`<div id="html_f1c92bc032e99a0d43b2e6c2560354c1" style="width: 100.0%; height: 100.0%;">         <div style="width:200px; font-family: sans-serif;">             <h4 style="margin:0 0 5px 0;">(주)서린바이오사이언스</h4>             <hr style="margin:5px 0;">             <b>업종:</b> 도소매 및 소비자용품수리업<br>             <b>연락처:</b> 031-123-3476<br>             <b>주소:</b> 경기 성남시 분당구 대왕판교로 700 (삼평동, 코리아 바이오 파크 A동 4층)         </div>         </div>`)[0];
+                popup_09bb018f5e8e0e9dcce34257134c4b4c.setContent(html_f1c92bc032e99a0d43b2e6c2560354c1);
+            
+        
+
+        marker_d71c198a70c12311c8c03ddb748b4c48.bindPopup(popup_09bb018f5e8e0e9dcce34257134c4b4c)
+        ;
+
+        
+    
+    
+            marker_d71c198a70c12311c8c03ddb748b4c48.bindTooltip(
+                `<div>
+                     (주)서린바이오사이언스
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_d71c198a70c12311c8c03ddb748b4c48.setIcon(icon_d9db4144f6afadb20aaabb0da747b6be);
+            
+    
+            var marker_a14245e9e4ab3e8305a8a7a72cdbf05d = L.marker(
+                [37.3993835359518, 127.108594068139],
+                {
+}
+            ).addTo(marker_cluster_a8035d375e55312eff396fa6f7cf2523);
+        
+    
+            var icon_07bc86cc257133ad9629141cb703e2ad = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "gray",
+  "iconColor": "white",
+  "icon": "info-sign",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_f28af51d6613360156df80929ccd41f7 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_e2088be7e6f2e09a0b5a1edf17a935b5 = $(`<div id="html_e2088be7e6f2e09a0b5a1edf17a935b5" style="width: 100.0%; height: 100.0%;">         <div style="width:200px; font-family: sans-serif;">             <h4 style="margin:0 0 5px 0;">엔씨소프트R&D센터</h4>             <hr style="margin:5px 0;">             <b>업종:</b> 기타<br>             <b>연락처:</b> 031-123-3477<br>             <b>주소:</b> 경기 성남시 분당구 대왕판교로644번길 12 (삼평동)         </div>         </div>`)[0];
+                popup_f28af51d6613360156df80929ccd41f7.setContent(html_e2088be7e6f2e09a0b5a1edf17a935b5);
+            
+        
+
+        marker_a14245e9e4ab3e8305a8a7a72cdbf05d.bindPopup(popup_f28af51d6613360156df80929ccd41f7)
+        ;
+
+        
+    
+    
+            marker_a14245e9e4ab3e8305a8a7a72cdbf05d.bindTooltip(
+                `<div>
+                     미성엠프로주식회사
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_a14245e9e4ab3e8305a8a7a72cdbf05d.setIcon(icon_07bc86cc257133ad9629141cb703e2ad);
+            
+    
+            var marker_62b7fc779eda8ee3c219d951489e7ad9 = L.marker(
+                [37.4064677978574, 127.101823295514],
+                {
+}
+            ).addTo(marker_cluster_a8035d375e55312eff396fa6f7cf2523);
+        
+    
+            var icon_8d051f0d0a9096a47d830a2193e8526f = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "green",
+  "iconColor": "white",
+  "icon": "info-sign",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_aaf2099b4474c3ce2fdfcbe15606cb13 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_d8d6cd0f01ea518e3a1bca775475bc62 = $(`<div id="html_d8d6cd0f01ea518e3a1bca775475bc62" style="width: 100.0%; height: 100.0%;">         <div style="width:200px; font-family: sans-serif;">             <h4 style="margin:0 0 5px 0;">베이커휴즈코리아주식회사</h4>             <hr style="margin:5px 0;">             <b>업종:</b> 도소매 및 소비자용품수리업<br>             <b>연락처:</b> 031-123-3478<br>             <b>주소:</b> 경기 성남시 분당구 대왕판교로712번길 22 (삼평동, 글로벌알앤디센터)         </div>         </div>`)[0];
+                popup_aaf2099b4474c3ce2fdfcbe15606cb13.setContent(html_d8d6cd0f01ea518e3a1bca775475bc62);
+            
+        
+
+        marker_62b7fc779eda8ee3c219d951489e7ad9.bindPopup(popup_aaf2099b4474c3ce2fdfcbe15606cb13)
+        ;
+
+        
+    
+    
+            marker_62b7fc779eda8ee3c219d951489e7ad9.bindTooltip(
+                `<div>
+                     베이커휴즈코리아주식회사
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_62b7fc779eda8ee3c219d951489e7ad9.setIcon(icon_8d051f0d0a9096a47d830a2193e8526f);
+            
+    
+            var marker_a27146a80c791497aea81b602cf6559a = L.marker(
+                [37.3503823071351, 127.107194918171],
+                {
+}
+            ).addTo(marker_cluster_a8035d375e55312eff396fa6f7cf2523);
+        
+    
+            var icon_66ce9d183d6a4906ee94b06b981e5ef3 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "green",
+  "iconColor": "white",
+  "icon": "info-sign",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_00505fe483ab9218615ea308b74ae23a = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_7f38d501974f5db05d4961279b2ba08a = $(`<div id="html_7f38d501974f5db05d4961279b2ba08a" style="width: 100.0%; height: 100.0%;">         <div style="width:200px; font-family: sans-serif;">             <h4 style="margin:0 0 5px 0;">프뢰벨교육원분당센터</h4>             <hr style="margin:5px 0;">             <b>업종:</b> 도소매 및 소비자용품수리업<br>             <b>연락처:</b> 031-123-3479<br>             <b>주소:</b> 경기 성남시 분당구 돌마로 47 704호 (금곡동, 이코노샤르망)         </div>         </div>`)[0];
+                popup_00505fe483ab9218615ea308b74ae23a.setContent(html_7f38d501974f5db05d4961279b2ba08a);
+            
+        
+
+        marker_a27146a80c791497aea81b602cf6559a.bindPopup(popup_00505fe483ab9218615ea308b74ae23a)
+        ;
+
+        
+    
+    
+            marker_a27146a80c791497aea81b602cf6559a.bindTooltip(
+                `<div>
+                     프뢰벨행복나누기(주)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_a27146a80c791497aea81b602cf6559a.setIcon(icon_66ce9d183d6a4906ee94b06b981e5ef3);
+            
+    
+            var marker_86053f3b040b592165e566270db56e2c = L.marker(
+                [37.3503823071351, 127.107194918171],
+                {
+}
+            ).addTo(marker_cluster_a8035d375e55312eff396fa6f7cf2523);
+        
+    
+            var icon_bcf3a82a3d6594f90516a3c0bae94fda = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "gray",
+  "iconColor": "white",
+  "icon": "info-sign",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_23d56fb956ff35e673f67ffeb08e5081 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_4237a7064685342b06574417c2879dec = $(`<div id="html_4237a7064685342b06574417c2879dec" style="width: 100.0%; height: 100.0%;">         <div style="width:200px; font-family: sans-serif;">             <h4 style="margin:0 0 5px 0;">미금이코노샤르망</h4>             <hr style="margin:5px 0;">             <b>업종:</b> 기타<br>             <b>연락처:</b> 031-123-3480<br>             <b>주소:</b> 경기 성남시 분당구 돌마로 47 (금곡동)         </div>         </div>`)[0];
+                popup_23d56fb956ff35e673f67ffeb08e5081.setContent(html_4237a7064685342b06574417c2879dec);
+            
+        
+
+        marker_86053f3b040b592165e566270db56e2c.bindPopup(popup_23d56fb956ff35e673f67ffeb08e5081)
+        ;
+
+        
+    
+    
+            marker_86053f3b040b592165e566270db56e2c.bindTooltip(
+                `<div>
+                     (주)미래비엠/건물관리901
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_86053f3b040b592165e566270db56e2c.setIcon(icon_bcf3a82a3d6594f90516a3c0bae94fda);
+            
+    
+            var marker_27e60c54e5282196bb24a176a5fa2a00 = L.marker(
+                [37.3803647607113, 127.104382093029],
+                {
+}
+            ).addTo(marker_cluster_a8035d375e55312eff396fa6f7cf2523);
+        
+    
+            var icon_8c990460fc6b2d91fa9dd7443530a9c5 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "blue",
+  "iconColor": "white",
+  "icon": "info-sign",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_22aa09bf1950f55c638708e4d18fff19 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_da7ce7a0b15fb4ec7646a85433949590 = $(`<div id="html_da7ce7a0b15fb4ec7646a85433949590" style="width: 100.0%; height: 100.0%;">         <div style="width:200px; font-family: sans-serif;">             <h4 style="margin:0 0 5px 0;">더블트리바이힐튼 서울 판교</h4>             <hr style="margin:5px 0;">             <b>업종:</b> 사업서비스업<br>             <b>연락처:</b> 031-123-3481<br>             <b>주소:</b> 경기 성남시 분당구 백현로 26 (정자동)         </div>         </div>`)[0];
+                popup_22aa09bf1950f55c638708e4d18fff19.setContent(html_da7ce7a0b15fb4ec7646a85433949590);
+            
+        
+
+        marker_27e60c54e5282196bb24a176a5fa2a00.bindPopup(popup_22aa09bf1950f55c638708e4d18fff19)
+        ;
+
+        
+    
+    
+            marker_27e60c54e5282196bb24a176a5fa2a00.bindTooltip(
+                `<div>
+                     주식회사윈잉
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_27e60c54e5282196bb24a176a5fa2a00.setIcon(icon_8c990460fc6b2d91fa9dd7443530a9c5);
+            
+    
+            var marker_224003e7e9eea9455305588b1ff3ac58 = L.marker(
+                [37.3771176263594, 127.111036153917],
+                {
+}
+            ).addTo(marker_cluster_a8035d375e55312eff396fa6f7cf2523);
+        
+    
+            var icon_162f181bd3f1b760969fbe367a92a841 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "green",
+  "iconColor": "white",
+  "icon": "info-sign",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_2185c45d34095fb440d2494e6aa1ce5d = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_63b9021abead2ccfe6803843de45d901 = $(`<div id="html_63b9021abead2ccfe6803843de45d901" style="width: 100.0%; height: 100.0%;">         <div style="width:200px; font-family: sans-serif;">             <h4 style="margin:0 0 5px 0;">에스씨지코리아(주)</h4>             <hr style="margin:5px 0;">             <b>업종:</b> 도소매 및 소비자용품수리업<br>             <b>연락처:</b> 031-123-3482<br>             <b>주소:</b> 경기 성남시 분당구 백현로 93 로지트빌딩 9층 (수내동)         </div>         </div>`)[0];
+                popup_2185c45d34095fb440d2494e6aa1ce5d.setContent(html_63b9021abead2ccfe6803843de45d901);
+            
+        
+
+        marker_224003e7e9eea9455305588b1ff3ac58.bindPopup(popup_2185c45d34095fb440d2494e6aa1ce5d)
+        ;
+
+        
+    
+    
+            marker_224003e7e9eea9455305588b1ff3ac58.bindTooltip(
+                `<div>
+                     에스씨지코리아(주)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_224003e7e9eea9455305588b1ff3ac58.setIcon(icon_162f181bd3f1b760969fbe367a92a841);
+            
+    
+            var marker_dbbb7079f4d593aedc989531668461b7 = L.marker(
+                [37.3834503463406, 127.137405556375],
+                {
+}
+            ).addTo(marker_cluster_a8035d375e55312eff396fa6f7cf2523);
+        
+    
+            var icon_61b7bebbb822de98e5a2a66498b20e92 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "green",
+  "iconColor": "white",
+  "icon": "info-sign",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_6687140cd4751ad911c7c0633c5adfc4 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_1dd2c9498e9551eb70f5ea08ab787592 = $(`<div id="html_1dd2c9498e9551eb70f5ea08ab787592" style="width: 100.0%; height: 100.0%;">         <div style="width:200px; font-family: sans-serif;">             <h4 style="margin:0 0 5px 0;">(주)광장오토모티브</h4>             <hr style="margin:5px 0;">             <b>업종:</b> 도소매 및 소비자용품수리업<br>             <b>연락처:</b> 031-123-3483<br>             <b>주소:</b> 경기 성남시 분당구 새마을로 59 토요타자동차전시장 (서현동)         </div>         </div>`)[0];
+                popup_6687140cd4751ad911c7c0633c5adfc4.setContent(html_1dd2c9498e9551eb70f5ea08ab787592);
+            
+        
+
+        marker_dbbb7079f4d593aedc989531668461b7.bindPopup(popup_6687140cd4751ad911c7c0633c5adfc4)
+        ;
+
+        
+    
+    
+            marker_dbbb7079f4d593aedc989531668461b7.bindTooltip(
+                `<div>
+                     (주)광장오토모티브
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_dbbb7079f4d593aedc989531668461b7.setIcon(icon_61b7bebbb822de98e5a2a66498b20e92);
+            
+    
+            var marker_7b4d351d2c96595064b602d4ec8712bf = L.marker(
+                [37.365948063663, 127.106632297825],
+                {
+}
+            ).addTo(marker_cluster_a8035d375e55312eff396fa6f7cf2523);
+        
+    
+            var icon_107a5b5fa46ea92faebe7574a5c4169f = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "gray",
+  "iconColor": "white",
+  "icon": "info-sign",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_6a375ccb53e96721f7ff4350c3ea6bab = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_679e8921798b28aead9c13707f84ae2f = $(`<div id="html_679e8921798b28aead9c13707f84ae2f" style="width: 100.0%; height: 100.0%;">         <div style="width:200px; font-family: sans-serif;">             <h4 style="margin:0 0 5px 0;">(주)파이닉스알엔디(일괄)</h4>             <hr style="margin:5px 0;">             <b>업종:</b> 기타<br>             <b>연락처:</b> 031-123-3484<br>             <b>주소:</b> 경기 성남시 분당구 성남대로331번길 8 609호 (정자동, 킨스타워)         </div>         </div>`)[0];
+                popup_6a375ccb53e96721f7ff4350c3ea6bab.setContent(html_679e8921798b28aead9c13707f84ae2f);
+            
+        
+
+        marker_7b4d351d2c96595064b602d4ec8712bf.bindPopup(popup_6a375ccb53e96721f7ff4350c3ea6bab)
+        ;
+
+        
+    
+    
+            marker_7b4d351d2c96595064b602d4ec8712bf.bindTooltip(
+                `<div>
+                     (주)파이닉스알엔디
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_7b4d351d2c96595064b602d4ec8712bf.setIcon(icon_107a5b5fa46ea92faebe7574a5c4169f);
+            
+    
+            var marker_53a40f34d626175a7e0719e16092d53c = L.marker(
+                [37.4108569664981, 127.129841388588],
+                {
+}
+            ).addTo(marker_cluster_a8035d375e55312eff396fa6f7cf2523);
+        
+    
+            var icon_403e544df455f963cc5c9b7907888a99 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "blue",
+  "iconColor": "white",
+  "icon": "info-sign",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_7dd5857fa467b427f4b4550dc8545fc6 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_6788de6ca2cf7f80efdb79540a191ce3 = $(`<div id="html_6788de6ca2cf7f80efdb79540a191ce3" style="width: 100.0%; height: 100.0%;">         <div style="width:200px; font-family: sans-serif;">             <h4 style="margin:0 0 5px 0;">(주) 이앤씨지엘에스</h4>             <hr style="margin:5px 0;">             <b>업종:</b> 사업서비스업<br>             <b>연락처:</b> 031-123-3486<br>             <b>주소:</b> 경기 성남시 분당구 성남대로916번길 11 (야탑동) 7층 601호         </div>         </div>`)[0];
+                popup_7dd5857fa467b427f4b4550dc8545fc6.setContent(html_6788de6ca2cf7f80efdb79540a191ce3);
+            
+        
+
+        marker_53a40f34d626175a7e0719e16092d53c.bindPopup(popup_7dd5857fa467b427f4b4550dc8545fc6)
+        ;
+
+        
+    
+    
+            marker_53a40f34d626175a7e0719e16092d53c.bindTooltip(
+                `<div>
+                     주식회사아이피시
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_53a40f34d626175a7e0719e16092d53c.setIcon(icon_403e544df455f963cc5c9b7907888a99);
+            
+    
+            var marker_7b2b42ea976c7cbafad356797aa421db = L.marker(
+                [37.4095029491435, 127.125978531405],
+                {
+}
+            ).addTo(marker_cluster_a8035d375e55312eff396fa6f7cf2523);
+        
+    
+            var icon_f1120a623a1cee93fab021659988e1e5 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "gray",
+  "iconColor": "white",
+  "icon": "info-sign",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_73847df70a2ec08c2a30b8ebae03105b = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_321bc61b027928d73b16d3925d5d5dfe = $(`<div id="html_321bc61b027928d73b16d3925d5d5dfe" style="width: 100.0%; height: 100.0%;">         <div style="width:200px; font-family: sans-serif;">             <h4 style="margin:0 0 5px 0;">(주)차케어스-야탑시장</h4>             <hr style="margin:5px 0;">             <b>업종:</b> 기타<br>             <b>연락처:</b> 031-123-3488<br>             <b>주소:</b> 경기 성남시 분당구 야탑로 64 (야탑동)         </div>         </div>`)[0];
+                popup_73847df70a2ec08c2a30b8ebae03105b.setContent(html_321bc61b027928d73b16d3925d5d5dfe);
+            
+        
+
+        marker_7b2b42ea976c7cbafad356797aa421db.bindPopup(popup_73847df70a2ec08c2a30b8ebae03105b)
+        ;
+
+        
+    
+    
+            marker_7b2b42ea976c7cbafad356797aa421db.bindTooltip(
+                `<div>
+                     (주)차케어스-건물종합관리
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_7b2b42ea976c7cbafad356797aa421db.setIcon(icon_f1120a623a1cee93fab021659988e1e5);
+            
+    
+            var marker_3e980f318497275387f86ba21236975b = L.marker(
+                [37.4103040880426, 127.126360755785],
+                {
+}
+            ).addTo(marker_cluster_a8035d375e55312eff396fa6f7cf2523);
+        
+    
+            var icon_c052221b564c4aea5dc3228285bf7899 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "green",
+  "iconColor": "white",
+  "icon": "info-sign",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_88e75721a84ac868dd41dc81504e2c10 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_6045a4986a49362821e747c274a93d7c = $(`<div id="html_6045a4986a49362821e747c274a93d7c" style="width: 100.0%; height: 100.0%;">         <div style="width:200px; font-family: sans-serif;">             <h4 style="margin:0 0 5px 0;">분당시민의약국</h4>             <hr style="margin:5px 0;">             <b>업종:</b> 도소매 및 소비자용품수리업<br>             <b>연락처:</b> 031-123-3489<br>             <b>주소:</b> 경기 성남시 분당구 야탑로65번길 6 1층 (야탑동)         </div>         </div>`)[0];
+                popup_88e75721a84ac868dd41dc81504e2c10.setContent(html_6045a4986a49362821e747c274a93d7c);
+            
+        
+
+        marker_3e980f318497275387f86ba21236975b.bindPopup(popup_88e75721a84ac868dd41dc81504e2c10)
+        ;
+
+        
+    
+    
+            marker_3e980f318497275387f86ba21236975b.bindTooltip(
+                `<div>
+                     분당시민의약국
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_3e980f318497275387f86ba21236975b.setIcon(icon_c052221b564c4aea5dc3228285bf7899);
+            
+    
+            var marker_748bd893bb92832987d57185e33a3b1c = L.marker(
+                [37.3672629507426, 127.104998833489],
+                {
+}
+            ).addTo(marker_cluster_a8035d375e55312eff396fa6f7cf2523);
+        
+    
+            var icon_cdeeba130d5c74ecf62b102542b5d6bd = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "gray",
+  "iconColor": "white",
+  "icon": "info-sign",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_01a292f0cf2c086f53cef0fb89ea2ec8 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_5f9af7a56ef625901c3216d3822e0e89 = $(`<div id="html_5f9af7a56ef625901c3216d3822e0e89" style="width: 100.0%; height: 100.0%;">         <div style="width:200px; font-family: sans-serif;">             <h4 style="margin:0 0 5px 0;">2022년 서울시 생활치료센터 운영지원 용역</h4>             <hr style="margin:5px 0;">             <b>업종:</b> 기타<br>             <b>연락처:</b> 031-123-3490<br>             <b>주소:</b> 경기 성남시 분당구 정자일로 191 (정자동)         </div>         </div>`)[0];
+                popup_01a292f0cf2c086f53cef0fb89ea2ec8.setContent(html_5f9af7a56ef625901c3216d3822e0e89);
+            
+        
+
+        marker_748bd893bb92832987d57185e33a3b1c.bindPopup(popup_01a292f0cf2c086f53cef0fb89ea2ec8)
+        ;
+
+        
+    
+    
+            marker_748bd893bb92832987d57185e33a3b1c.bindTooltip(
+                `<div>
+                     프로종합관리(주)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_748bd893bb92832987d57185e33a3b1c.setIcon(icon_cdeeba130d5c74ecf62b102542b5d6bd);
+            
+    
+            var marker_c38a0a585059e790db17040912418f6a = L.marker(
+                [37.3712532366232, 127.105602179014],
+                {
+}
+            ).addTo(marker_cluster_a8035d375e55312eff396fa6f7cf2523);
+        
+    
+            var icon_706bb6515549f2dc1d301745c0cb8913 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "green",
+  "iconColor": "white",
+  "icon": "info-sign",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_8246ad6853a38d6332661b58dc38fa69 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_e94d9c0150ca6012519341d3a54ccbff = $(`<div id="html_e94d9c0150ca6012519341d3a54ccbff" style="width: 100.0%; height: 100.0%;">         <div style="width:200px; font-family: sans-serif;">             <h4 style="margin:0 0 5px 0;">HDC현대EP분당사무소</h4>             <hr style="margin:5px 0;">             <b>업종:</b> 도소매 및 소비자용품수리업<br>             <b>연락처:</b> 031-123-3491<br>             <b>주소:</b> 경기 성남시 분당구 정자일로 239 (정자동, 아이파크분당1) 102동 5층,6층         </div>         </div>`)[0];
+                popup_8246ad6853a38d6332661b58dc38fa69.setContent(html_e94d9c0150ca6012519341d3a54ccbff);
+            
+        
+
+        marker_c38a0a585059e790db17040912418f6a.bindPopup(popup_8246ad6853a38d6332661b58dc38fa69)
+        ;
+
+        
+    
+    
+            marker_c38a0a585059e790db17040912418f6a.bindTooltip(
+                `<div>
+                     HDC현대EP분당사무소
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_c38a0a585059e790db17040912418f6a.setIcon(icon_706bb6515549f2dc1d301745c0cb8913);
+            
+    
+            var marker_4448e6932237583c7cc94850e85d45ac = L.marker(
+                [37.3443860150331, 127.105427987959],
+                {
+}
+            ).addTo(marker_cluster_a8035d375e55312eff396fa6f7cf2523);
+        
+    
+            var icon_8781fac69f8442f706d6725b81dc7886 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "gray",
+  "iconColor": "white",
+  "icon": "info-sign",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_be2f19a5747e8906e2b345fc96f9a0ec = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_56eabe7b84726053469da3bbf0859554 = $(`<div id="html_56eabe7b84726053469da3bbf0859554" style="width: 100.0%; height: 100.0%;">         <div style="width:200px; font-family: sans-serif;">             <h4 style="margin:0 0 5px 0;">시그마2오피스텔관리단</h4>             <hr style="margin:5px 0;">             <b>업종:</b> 기타<br>             <b>연락처:</b> 031-123-3492<br>             <b>주소:</b> 경기 성남시 분당구 탄천상로 164 시그마2오피스텔 관리사무소 (구미동)         </div>         </div>`)[0];
+                popup_be2f19a5747e8906e2b345fc96f9a0ec.setContent(html_56eabe7b84726053469da3bbf0859554);
+            
+        
+
+        marker_4448e6932237583c7cc94850e85d45ac.bindPopup(popup_be2f19a5747e8906e2b345fc96f9a0ec)
+        ;
+
+        
+    
+    
+            marker_4448e6932237583c7cc94850e85d45ac.bindTooltip(
+                `<div>
+                     시그마2오피스텔관리단
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_4448e6932237583c7cc94850e85d45ac.setIcon(icon_8781fac69f8442f706d6725b81dc7886);
+            
+    
+            var marker_ea6e8ab47d51c7bfb612e9dbfcbb3b07 = L.marker(
+                [37.402715463726, 127.105964814842],
+                {
+}
+            ).addTo(marker_cluster_a8035d375e55312eff396fa6f7cf2523);
+        
+    
+            var icon_23632ff997d40e1fc423d13d39d04606 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "blue",
+  "iconColor": "white",
+  "icon": "info-sign",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_081e348ca371cfc84c244196f191b9b4 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_b11c668b8303363977c3a302f9343ab5 = $(`<div id="html_b11c668b8303363977c3a302f9343ab5" style="width: 100.0%; height: 100.0%;">         <div style="width:200px; font-family: sans-serif;">             <h4 style="margin:0 0 5px 0;">한국앤컴퍼니(주)</h4>             <hr style="margin:5px 0;">             <b>업종:</b> 사업서비스업<br>             <b>연락처:</b> 031-123-3493<br>             <b>주소:</b> 경기 성남시 분당구 판교로 286 (삼평동)         </div>         </div>`)[0];
+                popup_081e348ca371cfc84c244196f191b9b4.setContent(html_b11c668b8303363977c3a302f9343ab5);
+            
+        
+
+        marker_ea6e8ab47d51c7bfb612e9dbfcbb3b07.bindPopup(popup_081e348ca371cfc84c244196f191b9b4)
+        ;
+
+        
+    
+    
+            marker_ea6e8ab47d51c7bfb612e9dbfcbb3b07.bindTooltip(
+                `<div>
+                     한국앤컴퍼니(주)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_ea6e8ab47d51c7bfb612e9dbfcbb3b07.setIcon(icon_23632ff997d40e1fc423d13d39d04606);
+            
+    
+            var marker_2075e0566c2bdffdbb0063343d10a3a4 = L.marker(
+                [37.4036521192726, 127.110058455825],
+                {
+}
+            ).addTo(marker_cluster_a8035d375e55312eff396fa6f7cf2523);
+        
+    
+            var icon_004a3676960ee4126d73f1174babfabc = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "green",
+  "iconColor": "white",
+  "icon": "info-sign",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_4afea9b956a879ae610c609b88bad63e = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_8bf809793c81e58011f74c70e2e20d2b = $(`<div id="html_8bf809793c81e58011f74c70e2e20d2b" style="width: 100.0%; height: 100.0%;">         <div style="width:200px; font-family: sans-serif;">             <h4 style="margin:0 0 5px 0;">(주)코스메카코리아</h4>             <hr style="margin:5px 0;">             <b>업종:</b> 도소매 및 소비자용품수리업<br>             <b>연락처:</b> 031-123-3494<br>             <b>주소:</b> 경기 성남시 분당구 판교로 323 (삼평동) 벤처포럼빌딩 6층, 7층         </div>         </div>`)[0];
+                popup_4afea9b956a879ae610c609b88bad63e.setContent(html_8bf809793c81e58011f74c70e2e20d2b);
+            
+        
+
+        marker_2075e0566c2bdffdbb0063343d10a3a4.bindPopup(popup_4afea9b956a879ae610c609b88bad63e)
+        ;
+
+        
+    
+    
+            marker_2075e0566c2bdffdbb0063343d10a3a4.bindTooltip(
+                `<div>
+                     (주)코스메카코리아
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_2075e0566c2bdffdbb0063343d10a3a4.setIcon(icon_004a3676960ee4126d73f1174babfabc);
+            
+    
+            var marker_16c2616a1ab64f1add6921e377ff6fc8 = L.marker(
+                [37.4052305806436, 127.101119203946],
+                {
+}
+            ).addTo(marker_cluster_a8035d375e55312eff396fa6f7cf2523);
+        
+    
+            var icon_7c2409f90e2d972af5c970c0da679c3a = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "green",
+  "iconColor": "white",
+  "icon": "info-sign",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_e22265ef313e6c0cb508c1d6376b5199 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_66951794b7f3a052682c3f512800f421 = $(`<div id="html_66951794b7f3a052682c3f512800f421" style="width: 100.0%; height: 100.0%;">         <div style="width:200px; font-family: sans-serif;">             <h4 style="margin:0 0 5px 0;">(주)아이앤씨테크놀로지</h4>             <hr style="margin:5px 0;">             <b>업종:</b> 도소매 및 소비자용품수리업<br>             <b>연락처:</b> 031-123-3495<br>             <b>주소:</b> 경기 성남시 분당구 판교로255번길 24 (삼평동)         </div>         </div>`)[0];
+                popup_e22265ef313e6c0cb508c1d6376b5199.setContent(html_66951794b7f3a052682c3f512800f421);
+            
+        
+
+        marker_16c2616a1ab64f1add6921e377ff6fc8.bindPopup(popup_e22265ef313e6c0cb508c1d6376b5199)
+        ;
+
+        
+    
+    
+            marker_16c2616a1ab64f1add6921e377ff6fc8.bindTooltip(
+                `<div>
+                     (주)아이앤씨테크놀로지
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_16c2616a1ab64f1add6921e377ff6fc8.setIcon(icon_7c2409f90e2d972af5c970c0da679c3a);
+            
+    
+            var marker_7e93168b840500715ad320afeeadb95b = L.marker(
+                [37.4054217647034, 127.100605663738],
+                {
+}
+            ).addTo(marker_cluster_a8035d375e55312eff396fa6f7cf2523);
+        
+    
+            var icon_de16623e2fe43efa58dbf798199b16d2 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "green",
+  "iconColor": "white",
+  "icon": "info-sign",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_748efa23f4e1cf023ab43e411b05d3b1 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_d130d959625696a9b3fb34b25634e470 = $(`<div id="html_d130d959625696a9b3fb34b25634e470" style="width: 100.0%; height: 100.0%;">         <div style="width:200px; font-family: sans-serif;">             <h4 style="margin:0 0 5px 0;">디에이치케이솔루션(주)</h4>             <hr style="margin:5px 0;">             <b>업종:</b> 도소매 및 소비자용품수리업<br>             <b>연락처:</b> 031-123-3496<br>             <b>주소:</b> 경기 성남시 분당구 판교로255번길 28 (삼평동, 디에이치케이솔루션빌딩 8층)         </div>         </div>`)[0];
+                popup_748efa23f4e1cf023ab43e411b05d3b1.setContent(html_d130d959625696a9b3fb34b25634e470);
+            
+        
+
+        marker_7e93168b840500715ad320afeeadb95b.bindPopup(popup_748efa23f4e1cf023ab43e411b05d3b1)
+        ;
+
+        
+    
+    
+            marker_7e93168b840500715ad320afeeadb95b.bindTooltip(
+                `<div>
+                     디에이치케이솔루션(주)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_7e93168b840500715ad320afeeadb95b.setIcon(icon_de16623e2fe43efa58dbf798199b16d2);
+            
+    
+            var marker_0999aa3f62a51e05368793c55373c019 = L.marker(
+                [37.405612094047, 127.100247535621],
+                {
+}
+            ).addTo(marker_cluster_a8035d375e55312eff396fa6f7cf2523);
+        
+    
+            var icon_1eac58d097a60a5078faa392ac606e7a = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "green",
+  "iconColor": "white",
+  "icon": "info-sign",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_4f86f9c96916b08a577b416dbc2bb956 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_8b0e93490ecdcf073c24f72fe483fb33 = $(`<div id="html_8b0e93490ecdcf073c24f72fe483fb33" style="width: 100.0%; height: 100.0%;">         <div style="width:200px; font-family: sans-serif;">             <h4 style="margin:0 0 5px 0;">솔브레인홀딩스주식회사</h4>             <hr style="margin:5px 0;">             <b>업종:</b> 도소매 및 소비자용품수리업<br>             <b>연락처:</b> 031-123-3497<br>             <b>주소:</b> 경기 성남시 분당구 판교로255번길 34 (삼평동) 5층         </div>         </div>`)[0];
+                popup_4f86f9c96916b08a577b416dbc2bb956.setContent(html_8b0e93490ecdcf073c24f72fe483fb33);
+            
+        
+
+        marker_0999aa3f62a51e05368793c55373c019.bindPopup(popup_4f86f9c96916b08a577b416dbc2bb956)
+        ;
+
+        
+    
+    
+            marker_0999aa3f62a51e05368793c55373c019.bindTooltip(
+                `<div>
+                     솔브레인홀딩스주식회사
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_0999aa3f62a51e05368793c55373c019.setIcon(icon_1eac58d097a60a5078faa392ac606e7a);
+            
+    
+            var marker_d3c0dac081dce2504d694e4983c3a218 = L.marker(
+                [37.4004114447476, 127.103132768749],
+                {
+}
+            ).addTo(marker_cluster_a8035d375e55312eff396fa6f7cf2523);
+        
+    
+            var icon_a6227c11a7784f92f590fb1890ea9f54 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "green",
+  "iconColor": "white",
+  "icon": "info-sign",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_88ca45000d8e0c092cdd62a60966efe8 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_c8872304938ed8155e86220804fb986e = $(`<div id="html_c8872304938ed8155e86220804fb986e" style="width: 100.0%; height: 100.0%;">         <div style="width:200px; font-family: sans-serif;">             <h4 style="margin:0 0 5px 0;">코스맥스엔비티(주)</h4>             <hr style="margin:5px 0;">             <b>업종:</b> 도소매 및 소비자용품수리업<br>             <b>연락처:</b> 031-123-3498<br>             <b>주소:</b> 경기 성남시 분당구 판교로256번길 25 제씨동 601호 (삼평동)         </div>         </div>`)[0];
+                popup_88ca45000d8e0c092cdd62a60966efe8.setContent(html_c8872304938ed8155e86220804fb986e);
+            
+        
+
+        marker_d3c0dac081dce2504d694e4983c3a218.bindPopup(popup_88ca45000d8e0c092cdd62a60966efe8)
+        ;
+
+        
+    
+    
+            marker_d3c0dac081dce2504d694e4983c3a218.bindTooltip(
+                `<div>
+                     코스맥스엔비티(주)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_d3c0dac081dce2504d694e4983c3a218.setIcon(icon_a6227c11a7784f92f590fb1890ea9f54);
+            
+    
+            var marker_d5eaf15007f07b65fdff9759c22a029a = L.marker(
+                [37.3944039022277, 127.108352326702],
+                {
+}
+            ).addTo(marker_cluster_a8035d375e55312eff396fa6f7cf2523);
+        
+    
+            var icon_02fc639ab8f12b194dca4342e39e715f = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "gray",
+  "iconColor": "white",
+  "icon": "info-sign",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_a62464f5c9d953d8a35d20fcb35b0e14 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_6f234a071fd5d19eda3db9b4d3188575 = $(`<div id="html_6f234a071fd5d19eda3db9b4d3188575" style="width: 100.0%; height: 100.0%;">         <div style="width:200px; font-family: sans-serif;">             <h4 style="margin:0 0 5px 0;">알파리움타워2동</h4>             <hr style="margin:5px 0;">             <b>업종:</b> 기타<br>             <b>연락처:</b> 031-123-3499<br>             <b>주소:</b> 경기 성남시 분당구 판교역로 145 (백현동, 알파리움)         </div>         </div>`)[0];
+                popup_a62464f5c9d953d8a35d20fcb35b0e14.setContent(html_6f234a071fd5d19eda3db9b4d3188575);
+            
+        
+
+        marker_d5eaf15007f07b65fdff9759c22a029a.bindPopup(popup_a62464f5c9d953d8a35d20fcb35b0e14)
+        ;
+
+        
+    
+    
+            marker_d5eaf15007f07b65fdff9759c22a029a.bindTooltip(
+                `<div>
+                     교보리얼코주식회사
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_d5eaf15007f07b65fdff9759c22a029a.setIcon(icon_02fc639ab8f12b194dca4342e39e715f);
+            
+    
+            var marker_57f3fbc26115fb54993cb7e8cb3b44dc = L.marker(
+                [37.3952969470752, 127.110449292622],
+                {
+}
+            ).addTo(marker_cluster_a8035d375e55312eff396fa6f7cf2523);
+        
+    
+            var icon_8ffc3c0a4adc23f29b624d509ddc507b = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "gray",
+  "iconColor": "white",
+  "icon": "info-sign",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_074e1a84e8d75555e38552b7e4a6b6a6 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_a9b07155882aefde04ddb6549dcf5774 = $(`<div id="html_a9b07155882aefde04ddb6549dcf5774" style="width: 100.0%; height: 100.0%;">         <div style="width:200px; font-family: sans-serif;">             <h4 style="margin:0 0 5px 0;">2023년 카카오판교아지트 건물외벽청소</h4>             <hr style="margin:5px 0;">             <b>업종:</b> 기타<br>             <b>연락처:</b> 031-123-3500<br>             <b>주소:</b> 경기 성남시 분당구 판교역로 166 (백현동, 카카오 판교 아지트)         </div>         </div>`)[0];
+                popup_074e1a84e8d75555e38552b7e4a6b6a6.setContent(html_a9b07155882aefde04ddb6549dcf5774);
+            
+        
+
+        marker_57f3fbc26115fb54993cb7e8cb3b44dc.bindPopup(popup_074e1a84e8d75555e38552b7e4a6b6a6)
+        ;
+
+        
+    
+    
+            marker_57f3fbc26115fb54993cb7e8cb3b44dc.bindTooltip(
+                `<div>
+                     （주）케이티씨엠에스
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_57f3fbc26115fb54993cb7e8cb3b44dc.setIcon(icon_8ffc3c0a4adc23f29b624d509ddc507b);
+            
+    
+            var marker_f42d7284dbea3f5237bbe89506eee6bd = L.marker(
+                [37.4013348710874, 127.108698530906],
+                {
+}
+            ).addTo(marker_cluster_a8035d375e55312eff396fa6f7cf2523);
+        
+    
+            var icon_d8ae9ad8198424448097467020f34846 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "green",
+  "iconColor": "white",
+  "icon": "info-sign",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_a8173aed0879b8038b5425dd32aab80d = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_5ea012d081ca21621e4afe32d79fca13 = $(`<div id="html_5ea012d081ca21621e4afe32d79fca13" style="width: 100.0%; height: 100.0%;">         <div style="width:200px; font-family: sans-serif;">             <h4 style="margin:0 0 5px 0;">(주)바커케미칼코리아</h4>             <hr style="margin:5px 0;">             <b>업종:</b> 도소매 및 소비자용품수리업<br>             <b>연락처:</b> 031-123-3501<br>             <b>주소:</b> 경기 성남시 분당구 판교역로 231 S동 301호(삼평동, 에이치스퀘어)         </div>         </div>`)[0];
+                popup_a8173aed0879b8038b5425dd32aab80d.setContent(html_5ea012d081ca21621e4afe32d79fca13);
+            
+        
+
+        marker_f42d7284dbea3f5237bbe89506eee6bd.bindPopup(popup_a8173aed0879b8038b5425dd32aab80d)
+        ;
+
+        
+    
+    
+            marker_f42d7284dbea3f5237bbe89506eee6bd.bindTooltip(
+                `<div>
+                     (주)바커케미칼코리아
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_f42d7284dbea3f5237bbe89506eee6bd.setIcon(icon_d8ae9ad8198424448097467020f34846);
+            
+    
+            var marker_e0d3da87bff82e09700311b7108fd2ff = L.marker(
+                [37.4013348710874, 127.108698530906],
+                {
+}
+            ).addTo(marker_cluster_a8035d375e55312eff396fa6f7cf2523);
+        
+    
+            var icon_5d7280d3e916b16e7f2ce1881e95aa6b = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "green",
+  "iconColor": "white",
+  "icon": "info-sign",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_f72ba691604eed0aebe590e3aa4b0898 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_99bee943859f8cc724f4f18f8b415542 = $(`<div id="html_99bee943859f8cc724f4f18f8b415542" style="width: 100.0%; height: 100.0%;">         <div style="width:200px; font-family: sans-serif;">             <h4 style="margin:0 0 5px 0;">(주)실리콘투</h4>             <hr style="margin:5px 0;">             <b>업종:</b> 도소매 및 소비자용품수리업<br>             <b>연락처:</b> 031-123-3502<br>             <b>주소:</b> 경기 성남시 분당구 판교역로 231 에스 907호 (삼평동)         </div>         </div>`)[0];
+                popup_f72ba691604eed0aebe590e3aa4b0898.setContent(html_99bee943859f8cc724f4f18f8b415542);
+            
+        
+
+        marker_e0d3da87bff82e09700311b7108fd2ff.bindPopup(popup_f72ba691604eed0aebe590e3aa4b0898)
+        ;
+
+        
+    
+    
+            marker_e0d3da87bff82e09700311b7108fd2ff.bindTooltip(
+                `<div>
+                     (주)실리콘투
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_e0d3da87bff82e09700311b7108fd2ff.setIcon(icon_5d7280d3e916b16e7f2ce1881e95aa6b);
+            
+    
+            var marker_fa12339dce1c1c07617f8e9ab5c22bcc = L.marker(
+                [37.402048486442, 127.108690978068],
+                {
+}
+            ).addTo(marker_cluster_a8035d375e55312eff396fa6f7cf2523);
+        
+    
+            var icon_e74e1780243a18b214be04a668b96648 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "gray",
+  "iconColor": "white",
+  "icon": "info-sign",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_10c47a5ca27affa6dde6303cd1dd098c = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_0d14748df07f4c244c58210586d2cb4d = $(`<div id="html_0d14748df07f4c244c58210586d2cb4d" style="width: 100.0%; height: 100.0%;">         <div style="width:200px; font-family: sans-serif;">             <h4 style="margin:0 0 5px 0;">성진자산관리(주)_판교H스퀘어(N동)</h4>             <hr style="margin:5px 0;">             <b>업종:</b> 기타<br>             <b>연락처:</b> 031-123-3503<br>             <b>주소:</b> 경기 성남시 분당구 판교역로 235 (삼평동)         </div>         </div>`)[0];
+                popup_10c47a5ca27affa6dde6303cd1dd098c.setContent(html_0d14748df07f4c244c58210586d2cb4d);
+            
+        
+
+        marker_fa12339dce1c1c07617f8e9ab5c22bcc.bindPopup(popup_10c47a5ca27affa6dde6303cd1dd098c)
+        ;
+
+        
+    
+    
+            marker_fa12339dce1c1c07617f8e9ab5c22bcc.bindTooltip(
+                `<div>
+                     성진자산관리(주)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_fa12339dce1c1c07617f8e9ab5c22bcc.setIcon(icon_e74e1780243a18b214be04a668b96648);
+            
+    
+            var marker_9976a24e5bd31958091ac4e74e41a952 = L.marker(
+                [37.4021021626954, 127.110467524727],
+                {
+}
+            ).addTo(marker_cluster_a8035d375e55312eff396fa6f7cf2523);
+        
+    
+            var icon_381267fd2f73200afeadc4e7f5370c49 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "gray",
+  "iconColor": "white",
+  "icon": "info-sign",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_f13c56cb361bee6e7246242f060dbf80 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_dfe4aff0d33a4ec1aada25b734d90368 = $(`<div id="html_dfe4aff0d33a4ec1aada25b734d90368" style="width: 100.0%; height: 100.0%;">         <div style="width:200px; font-family: sans-serif;">             <h4 style="margin:0 0 5px 0;">서비스랩 삼환하이펙스</h4>             <hr style="margin:5px 0;">             <b>업종:</b> 기타<br>             <b>연락처:</b> 031-123-3504<br>             <b>주소:</b> 경기 성남시 분당구 판교역로 240 (삼평동)         </div>         </div>`)[0];
+                popup_f13c56cb361bee6e7246242f060dbf80.setContent(html_dfe4aff0d33a4ec1aada25b734d90368);
+            
+        
+
+        marker_9976a24e5bd31958091ac4e74e41a952.bindPopup(popup_f13c56cb361bee6e7246242f060dbf80)
+        ;
+
+        
+    
+    
+            marker_9976a24e5bd31958091ac4e74e41a952.bindTooltip(
+                `<div>
+                     서비스랩
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_9976a24e5bd31958091ac4e74e41a952.setIcon(icon_381267fd2f73200afeadc4e7f5370c49);
+            
+    
+            var marker_9391f982fee7c9400e036cf12f47db0d = L.marker(
+                [37.3844784799849, 127.120840536204],
+                {
+}
+            ).addTo(marker_cluster_a8035d375e55312eff396fa6f7cf2523);
+        
+    
+            var icon_63296aba92e4edbdd2aacf7cbf9e48a7 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "green",
+  "iconColor": "white",
+  "icon": "info-sign",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_16fb8aee591cd347955007039063b5f5 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_2aad476ba5b50c7f58f18776f28cf75c = $(`<div id="html_2aad476ba5b50c7f58f18776f28cf75c" style="width: 100.0%; height: 100.0%;">         <div style="width:200px; font-family: sans-serif;">             <h4 style="margin:0 0 5px 0;">유니퀘스트(주)</h4>             <hr style="margin:5px 0;">             <b>업종:</b> 도소매 및 소비자용품수리업<br>             <b>연락처:</b> 031-123-3505<br>             <b>주소:</b> 경기 성남시 분당구 황새울로 314 유니퀘스트빌딩 (서현동)         </div>         </div>`)[0];
+                popup_16fb8aee591cd347955007039063b5f5.setContent(html_2aad476ba5b50c7f58f18776f28cf75c);
+            
+        
+
+        marker_9391f982fee7c9400e036cf12f47db0d.bindPopup(popup_16fb8aee591cd347955007039063b5f5)
+        ;
+
+        
+    
+    
+            marker_9391f982fee7c9400e036cf12f47db0d.bindTooltip(
+                `<div>
+                     유니퀘스트(주)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_9391f982fee7c9400e036cf12f47db0d.setIcon(icon_63296aba92e4edbdd2aacf7cbf9e48a7);
+            
+    
+            var marker_883156352c1afb633e51532f023407f4 = L.marker(
+                [37.379762326267, 127.117548565809],
+                {
+}
+            ).addTo(marker_cluster_a8035d375e55312eff396fa6f7cf2523);
+        
+    
+            var icon_e8ab4c24e3a73be40c809b3705b3140f = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "green",
+  "iconColor": "white",
+  "icon": "info-sign",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_34764649cd6d4c3bca0bf56dca2ec29b = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_5438a4831053f4892ec3ab32dd1a8bf1 = $(`<div id="html_5438a4831053f4892ec3ab32dd1a8bf1" style="width: 100.0%; height: 100.0%;">         <div style="width:200px; font-family: sans-serif;">             <h4 style="margin:0 0 5px 0;">(주)더블유티테크놀로지코리아</h4>             <hr style="margin:5px 0;">             <b>업종:</b> 도소매 및 소비자용품수리업<br>             <b>연락처:</b> 031-123-3506<br>             <b>주소:</b> 경기 성남시 분당구 황새울로258번길 19 한원빌딩 3층 (수내동)         </div>         </div>`)[0];
+                popup_34764649cd6d4c3bca0bf56dca2ec29b.setContent(html_5438a4831053f4892ec3ab32dd1a8bf1);
+            
+        
+
+        marker_883156352c1afb633e51532f023407f4.bindPopup(popup_34764649cd6d4c3bca0bf56dca2ec29b)
+        ;
+
+        
+    
+    
+            marker_883156352c1afb633e51532f023407f4.bindTooltip(
+                `<div>
+                     (주)더블유티테크놀로지코리아
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_883156352c1afb633e51532f023407f4.setIcon(icon_e8ab4c24e3a73be40c809b3705b3140f);
+            
+    
+            var marker_ce567c7c77a437994819c01f89a60c39 = L.marker(
+                [37.4651847777166, 127.126909844715],
+                {
+}
+            ).addTo(marker_cluster_a8035d375e55312eff396fa6f7cf2523);
+        
+    
+            var icon_2731890f70877aad88d8784b31ebcd46 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "green",
+  "iconColor": "white",
+  "icon": "info-sign",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_eec600c13da56d70236daeb8e1acdb32 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_ff4b82b07ea43847ea98a30bce42b379 = $(`<div id="html_ff4b82b07ea43847ea98a30bce42b379" style="width: 100.0%; height: 100.0%;">         <div style="width:200px; font-family: sans-serif;">             <h4 style="margin:0 0 5px 0;">위드원바이오주식회사</h4>             <hr style="margin:5px 0;">             <b>업종:</b> 도소매 및 소비자용품수리업<br>             <b>연락처:</b> 031-123-3508<br>             <b>주소:</b> 경기 성남시 수정구 복정로 135 (복정동, 미보빌딩) 4층         </div>         </div>`)[0];
+                popup_eec600c13da56d70236daeb8e1acdb32.setContent(html_ff4b82b07ea43847ea98a30bce42b379);
+            
+        
+
+        marker_ce567c7c77a437994819c01f89a60c39.bindPopup(popup_eec600c13da56d70236daeb8e1acdb32)
+        ;
+
+        
+    
+    
+            marker_ce567c7c77a437994819c01f89a60c39.bindTooltip(
+                `<div>
+                     위드원바이오주식회사
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_ce567c7c77a437994819c01f89a60c39.setIcon(icon_2731890f70877aad88d8784b31ebcd46);
+            
+    
+            var marker_418e52e76fd95018ce5afeeb7fa751db = L.marker(
+                [37.4152649344543, 127.115140776434],
+                {
+}
+            ).addTo(marker_cluster_a8035d375e55312eff396fa6f7cf2523);
+        
+    
+            var icon_dbc85d3c2aee7e2f37ac83ad23083d6d = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "gray",
+  "iconColor": "white",
+  "icon": "info-sign",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_0391132d9438769f617fcd74f5a49447 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_151cd6d7e80df61f01759ca56751663e = $(`<div id="html_151cd6d7e80df61f01759ca56751663e" style="width: 100.0%; height: 100.0%;">         <div style="width:200px; font-family: sans-serif;">             <h4 style="margin:0 0 5px 0;">주식회사광성운수</h4>             <hr style="margin:5px 0;">             <b>업종:</b> 기타<br>             <b>연락처:</b> 031-123-3509<br>             <b>주소:</b> 경기 성남시 수정구 사송로 41 (사송동)성남공영차고지         </div>         </div>`)[0];
+                popup_0391132d9438769f617fcd74f5a49447.setContent(html_151cd6d7e80df61f01759ca56751663e);
+            
+        
+
+        marker_418e52e76fd95018ce5afeeb7fa751db.bindPopup(popup_0391132d9438769f617fcd74f5a49447)
+        ;
+
+        
+    
+    
+            marker_418e52e76fd95018ce5afeeb7fa751db.bindTooltip(
+                `<div>
+                     주식회사광성운수
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_418e52e76fd95018ce5afeeb7fa751db.setIcon(icon_dbc85d3c2aee7e2f37ac83ad23083d6d);
+            
+    
+            var marker_0f7259846bbc8dcfaa7a5fd213ed1b14 = L.marker(
+                [37.4383094247002, 127.141234343378],
+                {
+}
+            ).addTo(marker_cluster_a8035d375e55312eff396fa6f7cf2523);
+        
+    
+            var icon_9cdaf2e84eb71b85679568d314a89859 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "blue",
+  "iconColor": "white",
+  "icon": "info-sign",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_ddc9d82f0285172b53b8bf1567ccf1e3 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_20de96a7640de4e93c97563c2bb85314 = $(`<div id="html_20de96a7640de4e93c97563c2bb85314" style="width: 100.0%; height: 100.0%;">         <div style="width:200px; font-family: sans-serif;">             <h4 style="margin:0 0 5px 0;">주식회사에스엔엔에이치</h4>             <hr style="margin:5px 0;">             <b>업종:</b> 사업서비스업<br>             <b>연락처:</b> 031-123-3510<br>             <b>주소:</b> 경기 성남시 수정구 산성대로 211 (신흥동) 502호 에스엔엔에이치         </div>         </div>`)[0];
+                popup_ddc9d82f0285172b53b8bf1567ccf1e3.setContent(html_20de96a7640de4e93c97563c2bb85314);
+            
+        
+
+        marker_0f7259846bbc8dcfaa7a5fd213ed1b14.bindPopup(popup_ddc9d82f0285172b53b8bf1567ccf1e3)
+        ;
+
+        
+    
+    
+            marker_0f7259846bbc8dcfaa7a5fd213ed1b14.bindTooltip(
+                `<div>
+                     주식회사에스엔엔에이치
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_0f7259846bbc8dcfaa7a5fd213ed1b14.setIcon(icon_9cdaf2e84eb71b85679568d314a89859);
+            
+    
+            var marker_bedf2a9f3634583a2bb23cd028a4a3e9 = L.marker(
+                [37.4439101761843, 127.153483203965],
+                {
+}
+            ).addTo(marker_cluster_a8035d375e55312eff396fa6f7cf2523);
+        
+    
+            var icon_99e0537a785debd4fc799cadd1455069 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "gray",
+  "iconColor": "white",
+  "icon": "info-sign",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_18ec2d06320bc7fa4127ee6979952aac = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_d61a37eb68fdecbd53bf6728575610ea = $(`<div id="html_d61a37eb68fdecbd53bf6728575610ea" style="width: 100.0%; height: 100.0%;">         <div style="width:200px; font-family: sans-serif;">             <h4 style="margin:0 0 5px 0;">세이브존성남</h4>             <hr style="margin:5px 0;">             <b>업종:</b> 기타<br>             <b>연락처:</b> 031-123-3511<br>             <b>주소:</b> 경기 성남시 수정구 산성대로 337 (신흥동)         </div>         </div>`)[0];
+                popup_18ec2d06320bc7fa4127ee6979952aac.setContent(html_d61a37eb68fdecbd53bf6728575610ea);
+            
+        
+
+        marker_bedf2a9f3634583a2bb23cd028a4a3e9.bindPopup(popup_18ec2d06320bc7fa4127ee6979952aac)
+        ;
+
+        
+    
+    
+            marker_bedf2a9f3634583a2bb23cd028a4a3e9.bindTooltip(
+                `<div>
+                     (주)유니씨앤에스코리아(건물등종합관리)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_bedf2a9f3634583a2bb23cd028a4a3e9.setIcon(icon_99e0537a785debd4fc799cadd1455069);
+            
+    
+            var marker_438cffad9a8af313dcadbb55782510cb = L.marker(
+                [37.4439101761843, 127.153483203965],
+                {
+}
+            ).addTo(marker_cluster_a8035d375e55312eff396fa6f7cf2523);
+        
+    
+            var icon_6578f7d54d53bc089ff2bc231e271e06 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "green",
+  "iconColor": "white",
+  "icon": "info-sign",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_c90ad01a43dfa5cd943892a3dabc07ea = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_03af71567835511a1a5031c92058eecb = $(`<div id="html_03af71567835511a1a5031c92058eecb" style="width: 100.0%; height: 100.0%;">         <div style="width:200px; font-family: sans-serif;">             <h4 style="margin:0 0 5px 0;">(주)세이브존아이앤씨성남점</h4>             <hr style="margin:5px 0;">             <b>업종:</b> 도소매 및 소비자용품수리업<br>             <b>연락처:</b> 031-123-3512<br>             <b>주소:</b> 경기 성남시 수정구 산성대로 337 (신흥동)         </div>         </div>`)[0];
+                popup_c90ad01a43dfa5cd943892a3dabc07ea.setContent(html_03af71567835511a1a5031c92058eecb);
+            
+        
+
+        marker_438cffad9a8af313dcadbb55782510cb.bindPopup(popup_c90ad01a43dfa5cd943892a3dabc07ea)
+        ;
+
+        
+    
+    
+            marker_438cffad9a8af313dcadbb55782510cb.bindTooltip(
+                `<div>
+                     (주)세이브존아이앤씨성남점
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_438cffad9a8af313dcadbb55782510cb.setIcon(icon_6578f7d54d53bc089ff2bc231e271e06);
+            
+    
+            var marker_cdbb7963e6dc1bd27cfe34abb54bd34e = L.marker(
+                [37.4428586467674, 127.137412527666],
+                {
+}
+            ).addTo(marker_cluster_a8035d375e55312eff396fa6f7cf2523);
+        
+    
+            var icon_c2c48ef86bf7b8c90ac1946448b1cf21 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "blue",
+  "iconColor": "white",
+  "icon": "info-sign",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_9dd12032a54fea7f59789a27fe4ed219 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_8049c86cd106e8ade8b960c811c49fa4 = $(`<div id="html_8049c86cd106e8ade8b960c811c49fa4" style="width: 100.0%; height: 100.0%;">         <div style="width:200px; font-family: sans-serif;">             <h4 style="margin:0 0 5px 0;">성남 본원</h4>             <hr style="margin:5px 0;">             <b>업종:</b> 사업서비스업<br>             <b>연락처:</b> 031-123-3513<br>             <b>주소:</b> 경기 성남시 수정구 수정로 157 (태평동) 6-8층         </div>         </div>`)[0];
+                popup_9dd12032a54fea7f59789a27fe4ed219.setContent(html_8049c86cd106e8ade8b960c811c49fa4);
+            
+        
+
+        marker_cdbb7963e6dc1bd27cfe34abb54bd34e.bindPopup(popup_9dd12032a54fea7f59789a27fe4ed219)
+        ;
+
+        
+    
+    
+            marker_cdbb7963e6dc1bd27cfe34abb54bd34e.bindTooltip(
+                `<div>
+                     한국사회적기업진흥원
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_cdbb7963e6dc1bd27cfe34abb54bd34e.setIcon(icon_c2c48ef86bf7b8c90ac1946448b1cf21);
+            
+    
+            var marker_9e2fabb26d01743d991a2c1b3fc93c29 = L.marker(
+                [37.4449845572902, 127.139057724536],
+                {
+}
+            ).addTo(marker_cluster_a8035d375e55312eff396fa6f7cf2523);
+        
+    
+            var icon_e6db9c72d960e3e1e9c7504292645248 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "gray",
+  "iconColor": "white",
+  "icon": "info-sign",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_eb928fcc5fdaf93b94423bd0f1a03e06 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_e2de951a36c29a9dec09f4e9fcde7994 = $(`<div id="html_e2de951a36c29a9dec09f4e9fcde7994" style="width: 100.0%; height: 100.0%;">         <div style="width:200px; font-family: sans-serif;">             <h4 style="margin:0 0 5px 0;">성남시의료원 청소용역</h4>             <hr style="margin:5px 0;">             <b>업종:</b> 기타<br>             <b>연락처:</b> 031-123-3516<br>             <b>주소:</b> 경기 성남시 수정구 수정로171번길 10 (태평동)         </div>         </div>`)[0];
+                popup_eb928fcc5fdaf93b94423bd0f1a03e06.setContent(html_e2de951a36c29a9dec09f4e9fcde7994);
+            
+        
+
+        marker_9e2fabb26d01743d991a2c1b3fc93c29.bindPopup(popup_eb928fcc5fdaf93b94423bd0f1a03e06)
+        ;
+
+        
+    
+    
+            marker_9e2fabb26d01743d991a2c1b3fc93c29.bindTooltip(
+                `<div>
+                     고려종합개발(주)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_9e2fabb26d01743d991a2c1b3fc93c29.setIcon(icon_e6db9c72d960e3e1e9c7504292645248);
+            
+    
+            var marker_bc2b45a6babda636d3fb0e4797b01d98 = L.marker(
+                [37.4643956367584, 127.139491214202],
+                {
+}
+            ).addTo(marker_cluster_a8035d375e55312eff396fa6f7cf2523);
+        
+    
+            var icon_2ed1fa5c5ffe0ae2623173086e6541ac = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "gray",
+  "iconColor": "white",
+  "icon": "info-sign",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_0d23cdb0ed3bad0e00125ae18aef4b33 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_af80efcdf76c5609f98fff24f320f7f3 = $(`<div id="html_af80efcdf76c5609f98fff24f320f7f3" style="width: 100.0%; height: 100.0%;">         <div style="width:200px; font-family: sans-serif;">             <h4 style="margin:0 0 5px 0;">(주)활기찬중부관광</h4>             <hr style="margin:5px 0;">             <b>업종:</b> 기타<br>             <b>연락처:</b> 031-123-3517<br>             <b>주소:</b> 경기 성남시 수정구 위례서일로 34 9층 906호 (창곡동, 위례성희프라자)         </div>         </div>`)[0];
+                popup_0d23cdb0ed3bad0e00125ae18aef4b33.setContent(html_af80efcdf76c5609f98fff24f320f7f3);
+            
+        
+
+        marker_bc2b45a6babda636d3fb0e4797b01d98.bindPopup(popup_0d23cdb0ed3bad0e00125ae18aef4b33)
+        ;
+
+        
+    
+    
+            marker_bc2b45a6babda636d3fb0e4797b01d98.bindTooltip(
+                `<div>
+                     (주)활기찬중부관광
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_bc2b45a6babda636d3fb0e4797b01d98.setIcon(icon_2ed1fa5c5ffe0ae2623173086e6541ac);
+            
+    
+            var marker_2f119e5005dab8444b45c52c65b3ed52 = L.marker(
+                [37.4121393783987, 127.094975928681],
+                {
+}
+            ).addTo(marker_cluster_a8035d375e55312eff396fa6f7cf2523);
+        
+    
+            var icon_696ab578ae85222064f8c4203086e347 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "green",
+  "iconColor": "white",
+  "icon": "info-sign",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_aeaa1ffeb0678d9fbe5d1da451c18182 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_13fa3a493f77195bfb5a57e059cde346 = $(`<div id="html_13fa3a493f77195bfb5a57e059cde346" style="width: 100.0%; height: 100.0%;">         <div style="width:200px; font-family: sans-serif;">             <h4 style="margin:0 0 5px 0;">주식회사파트론이에스엘(PARTRONESLCo.,Ltd.)</h4>             <hr style="margin:5px 0;">             <b>업종:</b> 도소매 및 소비자용품수리업<br>             <b>연락처:</b> 031-123-3518<br>             <b>주소:</b> 경기 성남시 수정구 창업로 42 8층 (시흥동, 판교 제2테크노밸리 경기 기업성장센터)         </div>         </div>`)[0];
+                popup_aeaa1ffeb0678d9fbe5d1da451c18182.setContent(html_13fa3a493f77195bfb5a57e059cde346);
+            
+        
+
+        marker_2f119e5005dab8444b45c52c65b3ed52.bindPopup(popup_aeaa1ffeb0678d9fbe5d1da451c18182)
+        ;
+
+        
+    
+    
+            marker_2f119e5005dab8444b45c52c65b3ed52.bindTooltip(
+                `<div>
+                     주식회사파트론이에스엘(PARTRONESLCo.,Ltd.)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_2f119e5005dab8444b45c52c65b3ed52.setIcon(icon_696ab578ae85222064f8c4203086e347);
+            
+    
+            var marker_e9efafac3c1235282d9651d69daf42c0 = L.marker(
+                [37.4497866833493, 127.134863852177],
+                {
+}
+            ).addTo(marker_cluster_a8035d375e55312eff396fa6f7cf2523);
+        
+    
+            var icon_73bf706821b2c4bc16e499a091b0f661 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "gray",
+  "iconColor": "white",
+  "icon": "info-sign",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_d7b1313495e9b35f17acb4b74ae7efea = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_dfe35cdd685cfe8cb43c24caebada531 = $(`<div id="html_dfe35cdd685cfe8cb43c24caebada531" style="width: 100.0%; height: 100.0%;">         <div style="width:200px; font-family: sans-serif;">             <h4 style="margin:0 0 5px 0;">신도양(주)</h4>             <hr style="margin:5px 0;">             <b>업종:</b> 기타<br>             <b>연락처:</b> 031-123-3519<br>             <b>주소:</b> 경기 성남시 수정구 태평로 74 (태평동)         </div>         </div>`)[0];
+                popup_d7b1313495e9b35f17acb4b74ae7efea.setContent(html_dfe35cdd685cfe8cb43c24caebada531);
+            
+        
+
+        marker_e9efafac3c1235282d9651d69daf42c0.bindPopup(popup_d7b1313495e9b35f17acb4b74ae7efea)
+        ;
+
+        
+    
+    
+            marker_e9efafac3c1235282d9651d69daf42c0.bindTooltip(
+                `<div>
+                     신도양(주)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_e9efafac3c1235282d9651d69daf42c0.setIcon(icon_73bf706821b2c4bc16e499a091b0f661);
+            
+    
+            var marker_7d56754504aad34eef68c0a96a5d549a = L.marker(
+                [37.4142154324546, 127.159841341376],
+                {
+}
+            ).addTo(marker_cluster_a8035d375e55312eff396fa6f7cf2523);
+        
+    
+            var icon_212607f04ae217b83dbd748bc04814a4 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "gray",
+  "iconColor": "white",
+  "icon": "info-sign",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_2d0be4229464e9edb1d812bbd2ea8b65 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_15937943ff99b2e894308c6634f3a5f8 = $(`<div id="html_15937943ff99b2e894308c6634f3a5f8" style="width: 100.0%; height: 100.0%;">         <div style="width:200px; font-family: sans-serif;">             <h4 style="margin:0 0 5px 0;">섬마을7단지</h4>             <hr style="margin:5px 0;">             <b>업종:</b> 기타<br>             <b>연락처:</b> 031-123-3520<br>             <b>주소:</b> 경기 성남시 중원구 도촌남로 101 (도촌동, 휴먼시아 섬마을)         </div>         </div>`)[0];
+                popup_2d0be4229464e9edb1d812bbd2ea8b65.setContent(html_15937943ff99b2e894308c6634f3a5f8);
+            
+        
+
+        marker_7d56754504aad34eef68c0a96a5d549a.bindPopup(popup_2d0be4229464e9edb1d812bbd2ea8b65)
+        ;
+
+        
+    
+    
+            marker_7d56754504aad34eef68c0a96a5d549a.bindTooltip(
+                `<div>
+                     (주)이데아그룹
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_7d56754504aad34eef68c0a96a5d549a.setIcon(icon_212607f04ae217b83dbd748bc04814a4);
+            
+    
+            var marker_021e00b54e87f9053d19f98613241337 = L.marker(
+                [37.4326323289144, 127.159291940243],
+                {
+}
+            ).addTo(marker_cluster_a8035d375e55312eff396fa6f7cf2523);
+        
+    
+            var icon_037eaf1df26027442d9adc03eb5f0beb = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "green",
+  "iconColor": "white",
+  "icon": "info-sign",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_eacb878a4bf0deaeca4950495862a408 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_7e5c936055ecc7962a4bbe8e261d6525 = $(`<div id="html_7e5c936055ecc7962a4bbe8e261d6525" style="width: 100.0%; height: 100.0%;">         <div style="width:200px; font-family: sans-serif;">             <h4 style="margin:0 0 5px 0;">(주)테마텍식품산업</h4>             <hr style="margin:5px 0;">             <b>업종:</b> 도소매 및 소비자용품수리업<br>             <b>연락처:</b> 031-123-3521<br>             <b>주소:</b> 경기 성남시 중원구 둔촌대로 388 크란츠테크노 1302호 (상대원동)         </div>         </div>`)[0];
+                popup_eacb878a4bf0deaeca4950495862a408.setContent(html_7e5c936055ecc7962a4bbe8e261d6525);
+            
+        
+
+        marker_021e00b54e87f9053d19f98613241337.bindPopup(popup_eacb878a4bf0deaeca4950495862a408)
+        ;
+
+        
+    
+    
+            marker_021e00b54e87f9053d19f98613241337.bindTooltip(
+                `<div>
+                     (주)테마텍식품산업
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_021e00b54e87f9053d19f98613241337.setIcon(icon_037eaf1df26027442d9adc03eb5f0beb);
+            
+    
+            var marker_42f92222a33d7cb87ecc87dfdacce58b = L.marker(
+                [37.4321159804643, 127.129799234862],
+                {
+}
+            ).addTo(marker_cluster_a8035d375e55312eff396fa6f7cf2523);
+        
+    
+            var icon_c3ee2fe3ba64f190966ef51ea8c705d2 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "gray",
+  "iconColor": "white",
+  "icon": "info-sign",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_a9b6a1f03d160d08b15da7087d2f3fbd = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_bf38635811ab75f86c864e0c031e5e52 = $(`<div id="html_bf38635811ab75f86c864e0c031e5e52" style="width: 100.0%; height: 100.0%;">         <div style="width:200px; font-family: sans-serif;">             <h4 style="margin:0 0 5px 0;">주식회사일오삼물류</h4>             <hr style="margin:5px 0;">             <b>업종:</b> 기타<br>             <b>연락처:</b> 031-123-3522<br>             <b>주소:</b> 경기 성남시 중원구 둔촌대로101번길 27 (성남동, 엠타워) 비864호         </div>         </div>`)[0];
+                popup_a9b6a1f03d160d08b15da7087d2f3fbd.setContent(html_bf38635811ab75f86c864e0c031e5e52);
+            
+        
+
+        marker_42f92222a33d7cb87ecc87dfdacce58b.bindPopup(popup_a9b6a1f03d160d08b15da7087d2f3fbd)
+        ;
+
+        
+    
+    
+            marker_42f92222a33d7cb87ecc87dfdacce58b.bindTooltip(
+                `<div>
+                     주식회사일오삼물류
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_42f92222a33d7cb87ecc87dfdacce58b.setIcon(icon_c3ee2fe3ba64f190966ef51ea8c705d2);
+            
+    
+            var marker_262b9acb9ed16854dbcdeea891616438 = L.marker(
+                [37.4321159804643, 127.129799234862],
+                {
+}
+            ).addTo(marker_cluster_a8035d375e55312eff396fa6f7cf2523);
+        
+    
+            var icon_26670f2a44881e8c8b30a279ae34d57d = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "gray",
+  "iconColor": "white",
+  "icon": "info-sign",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_d7d345439eb56260379ce9a3b6cfee82 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_7adb4239d2a2f6fc771239949b521c18 = $(`<div id="html_7adb4239d2a2f6fc771239949b521c18" style="width: 100.0%; height: 100.0%;">         <div style="width:200px; font-family: sans-serif;">             <h4 style="margin:0 0 5px 0;">주식회사푸드앤라이프</h4>             <hr style="margin:5px 0;">             <b>업종:</b> 기타<br>             <b>연락처:</b> 031-123-3523<br>             <b>주소:</b> 경기 성남시 중원구 둔촌대로101번길 27 B826호 (성남동, 엠타워)         </div>         </div>`)[0];
+                popup_d7d345439eb56260379ce9a3b6cfee82.setContent(html_7adb4239d2a2f6fc771239949b521c18);
+            
+        
+
+        marker_262b9acb9ed16854dbcdeea891616438.bindPopup(popup_d7d345439eb56260379ce9a3b6cfee82)
+        ;
+
+        
+    
+    
+            marker_262b9acb9ed16854dbcdeea891616438.bindTooltip(
+                `<div>
+                     주식회사푸드앤라이프
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_262b9acb9ed16854dbcdeea891616438.setIcon(icon_26670f2a44881e8c8b30a279ae34d57d);
+            
+    
+            var marker_35d841053e2d1629752f0ada69fab4c1 = L.marker(
+                [37.4327251743167, 127.141257859976],
+                {
+}
+            ).addTo(marker_cluster_a8035d375e55312eff396fa6f7cf2523);
+        
+    
+            var icon_a14db59c529af5db5ba4d27897d0f960 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "gray",
+  "iconColor": "white",
+  "icon": "info-sign",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_efa71d33c0593f0d8111c498a4b6ddb4 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_13890558adb63fa0218cae6dc83ad192 = $(`<div id="html_13890558adb63fa0218cae6dc83ad192" style="width: 100.0%; height: 100.0%;">         <div style="width:200px; font-family: sans-serif;">             <h4 style="margin:0 0 5px 0;">장수물류</h4>             <hr style="margin:5px 0;">             <b>업종:</b> 기타<br>             <b>연락처:</b> 031-123-3526<br>             <b>주소:</b> 경기 성남시 중원구 원터로75번길 19-3 302호(성남동, 다세대주택)         </div>         </div>`)[0];
+                popup_efa71d33c0593f0d8111c498a4b6ddb4.setContent(html_13890558adb63fa0218cae6dc83ad192);
+            
+        
+
+        marker_35d841053e2d1629752f0ada69fab4c1.bindPopup(popup_efa71d33c0593f0d8111c498a4b6ddb4)
+        ;
+
+        
+    
+    
+            marker_35d841053e2d1629752f0ada69fab4c1.bindTooltip(
+                `<div>
+                     장수물류
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_35d841053e2d1629752f0ada69fab4c1.setIcon(icon_a14db59c529af5db5ba4d27897d0f960);
+            
+    
+            var marker_5ef9bab591e9c328c26a1052703f7917 = L.marker(
+                [37.2782490551752, 126.978139683713],
+                {
+}
+            ).addTo(marker_cluster_a8035d375e55312eff396fa6f7cf2523);
+        
+    
+            var icon_3f010ccfe06fcdbd0fa1d90c32126ce3 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "blue",
+  "iconColor": "white",
+  "icon": "info-sign",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_6894c06d876999a41bef6b841ab32787 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_80552e5c3d082f99aa53a9cab2f6777d = $(`<div id="html_80552e5c3d082f99aa53a9cab2f6777d" style="width: 100.0%; height: 100.0%;">         <div style="width:200px; font-family: sans-serif;">             <h4 style="margin:0 0 5px 0;">(주)이에스통신</h4>             <hr style="margin:5px 0;">             <b>업종:</b> 사업서비스업<br>             <b>연락처:</b> 031-123-3528<br>             <b>주소:</b> 경기 수원시 권선구  수인로 210 (구운동, 케이티서수원전화국 4층)         </div>         </div>`)[0];
+                popup_6894c06d876999a41bef6b841ab32787.setContent(html_80552e5c3d082f99aa53a9cab2f6777d);
+            
+        
+
+        marker_5ef9bab591e9c328c26a1052703f7917.bindPopup(popup_6894c06d876999a41bef6b841ab32787)
+        ;
+
+        
+    
+    
+            marker_5ef9bab591e9c328c26a1052703f7917.bindTooltip(
+                `<div>
+                     (주)이에스통신
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_5ef9bab591e9c328c26a1052703f7917.setIcon(icon_3f010ccfe06fcdbd0fa1d90c32126ce3);
+            
+    
+            var marker_a052bfbd5e654395686750a06899ec64 = L.marker(
+                [37.2834092551538, 126.973069642774],
+                {
+}
+            ).addTo(marker_cluster_a8035d375e55312eff396fa6f7cf2523);
+        
+    
+            var icon_1525e0c8817e78d153852c3b973b85b5 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "blue",
+  "iconColor": "white",
+  "icon": "info-sign",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_cb1ec8c2fd5d6892e85448a146fe2e56 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_c6e2e3557984209df0e5c234ca0fc115 = $(`<div id="html_c6e2e3557984209df0e5c234ca0fc115" style="width: 100.0%; height: 100.0%;">         <div style="width:200px; font-family: sans-serif;">             <h4 style="margin:0 0 5px 0;">주식회사에스에너지</h4>             <hr style="margin:5px 0;">             <b>업종:</b> 사업서비스업<br>             <b>연락처:</b> 031-123-3529<br>             <b>주소:</b> 경기 수원시 권선구 일월천로 14 2층 (구운동, 남성빌딩)         </div>         </div>`)[0];
+                popup_cb1ec8c2fd5d6892e85448a146fe2e56.setContent(html_c6e2e3557984209df0e5c234ca0fc115);
+            
+        
+
+        marker_a052bfbd5e654395686750a06899ec64.bindPopup(popup_cb1ec8c2fd5d6892e85448a146fe2e56)
+        ;
+
+        
+    
+    
+            marker_a052bfbd5e654395686750a06899ec64.bindTooltip(
+                `<div>
+                     주식회사에스에너지
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_a052bfbd5e654395686750a06899ec64.setIcon(icon_1525e0c8817e78d153852c3b973b85b5);
+            
+    
+            var marker_1357837685b96e100a0cfa0e65b92f70 = L.marker(
+                [37.2652337837866, 127.058691198576],
+                {
+}
+            ).addTo(marker_cluster_a8035d375e55312eff396fa6f7cf2523);
+        
+    
+            var icon_1b80c2435be83720e2a4890c1becd045 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "gray",
+  "iconColor": "white",
+  "icon": "info-sign",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_02b19077cc5555771422d553d7cd6693 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_279a7f65b59c05f1e01db470a40f13d8 = $(`<div id="html_279a7f65b59c05f1e01db470a40f13d8" style="width: 100.0%; height: 100.0%;">         <div style="width:200px; font-family: sans-serif;">             <h4 style="margin:0 0 5px 0;">주식회사우진/삼성전기</h4>             <hr style="margin:5px 0;">             <b>업종:</b> 기타<br>             <b>연락처:</b> 031-123-3530<br>             <b>주소:</b> 경기 수원시 영통구 매영로 150 (매탄동, 삼성전기,에이10번건물)         </div>         </div>`)[0];
+                popup_02b19077cc5555771422d553d7cd6693.setContent(html_279a7f65b59c05f1e01db470a40f13d8);
+            
+        
+
+        marker_1357837685b96e100a0cfa0e65b92f70.bindPopup(popup_02b19077cc5555771422d553d7cd6693)
+        ;
+
+        
+    
+    
+            marker_1357837685b96e100a0cfa0e65b92f70.bindTooltip(
+                `<div>
+                     주식회사우진/삼성전기
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_1357837685b96e100a0cfa0e65b92f70.setIcon(icon_1b80c2435be83720e2a4890c1becd045);
+            
+    
+            var marker_784207e986329b107cac8681d2e3fb69 = L.marker(
+                [37.257643055151, 127.053129481167],
+                {
+}
+            ).addTo(marker_cluster_a8035d375e55312eff396fa6f7cf2523);
+        
+    
+            var icon_aa4eccef13dfb3e144aef829d9750d88 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "gray",
+  "iconColor": "white",
+  "icon": "info-sign",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_b75722a30fb8b0ebb08e1277c38d4526 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_a0288d45f3899234cad618e92e896e5c = $(`<div id="html_a0288d45f3899234cad618e92e896e5c" style="width: 100.0%; height: 100.0%;">         <div style="width:200px; font-family: sans-serif;">             <h4 style="margin:0 0 5px 0;">모바일연구소</h4>             <hr style="margin:5px 0;">             <b>업종:</b> 기타<br>             <b>연락처:</b> 031-123-3531<br>             <b>주소:</b> 경기 수원시 영통구 삼성로 129, 주차타워 (매탄동,삼성전자공업단지) 모바일연구소         </div>         </div>`)[0];
+                popup_b75722a30fb8b0ebb08e1277c38d4526.setContent(html_a0288d45f3899234cad618e92e896e5c);
+            
+        
+
+        marker_784207e986329b107cac8681d2e3fb69.bindPopup(popup_b75722a30fb8b0ebb08e1277c38d4526)
+        ;
+
+        
+    
+    
+            marker_784207e986329b107cac8681d2e3fb69.bindTooltip(
+                `<div>
+                     (주)대경이엔에스/시설관리일괄
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_784207e986329b107cac8681d2e3fb69.setIcon(icon_aa4eccef13dfb3e144aef829d9750d88);
+            
+    
+            var marker_e0a67a289318e3ce5c8451e8cbf88d35 = L.marker(
+                [37.257643055151, 127.053129481167],
+                {
+}
+            ).addTo(marker_cluster_a8035d375e55312eff396fa6f7cf2523);
+        
+    
+            var icon_7cccdebdf911b7e25113965683ff4c1a = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "gray",
+  "iconColor": "white",
+  "icon": "info-sign",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_1c630cfe9fa11633d1c70a40d053e0a0 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_d2f76f4a1183dd38cf862a7b8350f4c7 = $(`<div id="html_d2f76f4a1183dd38cf862a7b8350f4c7" style="width: 100.0%; height: 100.0%;">         <div style="width:200px; font-family: sans-serif;">             <h4 style="margin:0 0 5px 0;">(주)대경이엔에스/시설관리 일괄-디지털연구소</h4>             <hr style="margin:5px 0;">             <b>업종:</b> 기타<br>             <b>연락처:</b> 031-123-3532<br>             <b>주소:</b> 경기 수원시 영통구 삼성로 129 (매탄동)         </div>         </div>`)[0];
+                popup_1c630cfe9fa11633d1c70a40d053e0a0.setContent(html_d2f76f4a1183dd38cf862a7b8350f4c7);
+            
+        
+
+        marker_e0a67a289318e3ce5c8451e8cbf88d35.bindPopup(popup_1c630cfe9fa11633d1c70a40d053e0a0)
+        ;
+
+        
+    
+    
+            marker_e0a67a289318e3ce5c8451e8cbf88d35.bindTooltip(
+                `<div>
+                     (주)대경이엔에스/시설관리일괄
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_e0a67a289318e3ce5c8451e8cbf88d35.setIcon(icon_7cccdebdf911b7e25113965683ff4c1a);
+            
+    
+            var marker_f63fabd582404d97cf9778b54d639873 = L.marker(
+                [37.266933597784, 127.068115450453],
+                {
+}
+            ).addTo(marker_cluster_a8035d375e55312eff396fa6f7cf2523);
+        
+    
+            var icon_087ec25211acc79400193d15eef92b4d = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "gray",
+  "iconColor": "white",
+  "icon": "info-sign",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_8a9bdf772e350ba467b41c6a057731e5 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_afe4dbe9f3a75a50a4421c2c733ed42c = $(`<div id="html_afe4dbe9f3a75a50a4421c2c733ed42c" style="width: 100.0%; height: 100.0%;">         <div style="width:200px; font-family: sans-serif;">             <h4 style="margin:0 0 5px 0;">씨제이대한통운㈜택배남서울</h4>             <hr style="margin:5px 0;">             <b>업종:</b> 기타<br>             <b>연락처:</b> 031-123-3533<br>             <b>주소:</b> 경기 수원시 영통구 삼성로 318 (원천동)         </div>         </div>`)[0];
+                popup_8a9bdf772e350ba467b41c6a057731e5.setContent(html_afe4dbe9f3a75a50a4421c2c733ed42c);
+            
+        
+
+        marker_f63fabd582404d97cf9778b54d639873.bindPopup(popup_8a9bdf772e350ba467b41c6a057731e5)
+        ;
+
+        
+    
+    
+            marker_f63fabd582404d97cf9778b54d639873.bindTooltip(
+                `<div>
+                     씨제이대한통운㈜택배남서울
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_f63fabd582404d97cf9778b54d639873.setIcon(icon_087ec25211acc79400193d15eef92b4d);
+            
+    
+            var marker_76caf7470d42e8b1bfff5cfeb8a7b4f7 = L.marker(
+                [37.250724366842, 127.072974920178],
+                {
+}
+            ).addTo(marker_cluster_a8035d375e55312eff396fa6f7cf2523);
+        
+    
+            var icon_519a68952b77c15d6bffb7c6d7c49c51 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "green",
+  "iconColor": "white",
+  "icon": "info-sign",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_3d2505428ca4ac1cc0baf2b3e71c93aa = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_a0b962e54ab255695520f06fcd216344 = $(`<div id="html_a0b962e54ab255695520f06fcd216344" style="width: 100.0%; height: 100.0%;">         <div style="width:200px; font-family: sans-serif;">             <h4 style="margin:0 0 5px 0;">경기지사</h4>             <hr style="margin:5px 0;">             <b>업종:</b> 도소매 및 소비자용품수리업<br>             <b>연락처:</b> 031-123-3534<br>             <b>주소:</b> 경기 수원시 영통구 청명남로 3 (영통동) KT영통빌딩 4층         </div>         </div>`)[0];
+                popup_3d2505428ca4ac1cc0baf2b3e71c93aa.setContent(html_a0b962e54ab255695520f06fcd216344);
+            
+        
+
+        marker_76caf7470d42e8b1bfff5cfeb8a7b4f7.bindPopup(popup_3d2505428ca4ac1cc0baf2b3e71c93aa)
+        ;
+
+        
+    
+    
+            marker_76caf7470d42e8b1bfff5cfeb8a7b4f7.bindTooltip(
+                `<div>
+                     캐논코리아(주)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_76caf7470d42e8b1bfff5cfeb8a7b4f7.setIcon(icon_519a68952b77c15d6bffb7c6d7c49c51);
+            
+    
+            var marker_b1b16e1d328333f513a6e96539abed22 = L.marker(
+                [37.2970291494602, 127.01401072249],
+                {
+}
+            ).addTo(marker_cluster_a8035d375e55312eff396fa6f7cf2523);
+        
+    
+            var icon_1cfdb453e4b0a54532209ff88e5851e1 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "blue",
+  "iconColor": "white",
+  "icon": "info-sign",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_aed0a2f3ef63e1e8e4caf609707f6e5f = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_36c5d06372807d624ff2b385afa58b51 = $(`<div id="html_36c5d06372807d624ff2b385afa58b51" style="width: 100.0%; height: 100.0%;">         <div style="width:200px; font-family: sans-serif;">             <h4 style="margin:0 0 5px 0;">한국건강관리협회 경기지부</h4>             <hr style="margin:5px 0;">             <b>업종:</b> 사업서비스업<br>             <b>연락처:</b> 031-123-3535<br>             <b>주소:</b> 경기 수원시 장안구 경수대로853번길 4 (조원동) 유래빌딩         </div>         </div>`)[0];
+                popup_aed0a2f3ef63e1e8e4caf609707f6e5f.setContent(html_36c5d06372807d624ff2b385afa58b51);
+            
+        
+
+        marker_b1b16e1d328333f513a6e96539abed22.bindPopup(popup_aed0a2f3ef63e1e8e4caf609707f6e5f)
+        ;
+
+        
+    
+    
+            marker_b1b16e1d328333f513a6e96539abed22.bindTooltip(
+                `<div>
+                     신한비엠에스주식회사(콜센터)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_b1b16e1d328333f513a6e96539abed22.setIcon(icon_1cfdb453e4b0a54532209ff88e5851e1);
+            
+    
+            var marker_67efc7a17598c3ced6ed68b0bfba045e = L.marker(
+                [37.2672081796345, 127.028128768514],
+                {
+}
+            ).addTo(marker_cluster_a8035d375e55312eff396fa6f7cf2523);
+        
+    
+            var icon_824a25f549eff6a4f66dfd148eb760f6 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "orange",
+  "iconColor": "white",
+  "icon": "info-sign",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_50ef5a87ff436a21c620205477ebeb36 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_cf8633b91bba822175866717c2b6af4d = $(`<div id="html_cf8633b91bba822175866717c2b6af4d" style="width: 100.0%; height: 100.0%;">         <div style="width:200px; font-family: sans-serif;">             <h4 style="margin:0 0 5px 0;">(주)한길이앤씨</h4>             <hr style="margin:5px 0;">             <b>업종:</b> 위생 및 유사서비스업<br>             <b>연락처:</b> 031-123-3536<br>             <b>주소:</b> 경기 수원시 팔달구 경수대로466번길 20 (인계동)         </div>         </div>`)[0];
+                popup_50ef5a87ff436a21c620205477ebeb36.setContent(html_cf8633b91bba822175866717c2b6af4d);
+            
+        
+
+        marker_67efc7a17598c3ced6ed68b0bfba045e.bindPopup(popup_50ef5a87ff436a21c620205477ebeb36)
+        ;
+
+        
+    
+    
+            marker_67efc7a17598c3ced6ed68b0bfba045e.bindTooltip(
+                `<div>
+                     (주)한길이앤씨
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_67efc7a17598c3ced6ed68b0bfba045e.setIcon(icon_824a25f549eff6a4f66dfd148eb760f6);
+            
+    
+            var marker_735bb94b54a2dc82841dde8058a39846 = L.marker(
+                [37.2703753379282, 127.0212229456],
+                {
+}
+            ).addTo(marker_cluster_a8035d375e55312eff396fa6f7cf2523);
+        
+    
+            var icon_fb9a0fe5acda3e3046edd78cdd105a44 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "gray",
+  "iconColor": "white",
+  "icon": "info-sign",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_ee80f8c8d5f34273492ed0a1b43b6ad2 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_af63a50c08b9c68b4a781ecdee427357 = $(`<div id="html_af63a50c08b9c68b4a781ecdee427357" style="width: 100.0%; height: 100.0%;">         <div style="width:200px; font-family: sans-serif;">             <h4 style="margin:0 0 5px 0;">CJ대한통운경기수원조원대리점</h4>             <hr style="margin:5px 0;">             <b>업종:</b> 기타<br>             <b>연락처:</b> 031-123-3537<br>             <b>주소:</b> 경기 수원시 팔달구 인계로 21 (인계동) 수원센트럴아이파크자이 108동 1703호         </div>         </div>`)[0];
+                popup_ee80f8c8d5f34273492ed0a1b43b6ad2.setContent(html_af63a50c08b9c68b4a781ecdee427357);
+            
+        
+
+        marker_735bb94b54a2dc82841dde8058a39846.bindPopup(popup_ee80f8c8d5f34273492ed0a1b43b6ad2)
+        ;
+
+        
+    
+    
+            marker_735bb94b54a2dc82841dde8058a39846.bindTooltip(
+                `<div>
+                     CJ대한통운경기수원조원대리점
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_735bb94b54a2dc82841dde8058a39846.setIcon(icon_fb9a0fe5acda3e3046edd78cdd105a44);
+            
+    
+            var marker_21ad03b0d0a9d2273457d4580916f0f4 = L.marker(
+                [37.2366997760898, 127.570791856476],
+                {
+}
+            ).addTo(marker_cluster_a8035d375e55312eff396fa6f7cf2523);
+        
+    
+            var icon_b9b5b9b824c26e327b7d58a0b3bffd8f = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "red",
+  "iconColor": "white",
+  "icon": "info-sign",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_d0785ba79f1df00066493c390b18007c = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_38eb7b51f560226ab3eccecdc692311b = $(`<div id="html_38eb7b51f560226ab3eccecdc692311b" style="width: 100.0%; height: 100.0%;">         <div style="width:200px; font-family: sans-serif;">             <h4 style="margin:0 0 5px 0;">(주)태은물류</h4>             <hr style="margin:5px 0;">             <b>업종:</b> 창고업<br>             <b>연락처:</b> 031-123-3538<br>             <b>주소:</b> 경기 여주시 가남읍 여주남로 782          </div>         </div>`)[0];
+                popup_d0785ba79f1df00066493c390b18007c.setContent(html_38eb7b51f560226ab3eccecdc692311b);
+            
+        
+
+        marker_21ad03b0d0a9d2273457d4580916f0f4.bindPopup(popup_d0785ba79f1df00066493c390b18007c)
+        ;
+
+        
+    
+    
+            marker_21ad03b0d0a9d2273457d4580916f0f4.bindTooltip(
+                `<div>
+                     (주)태은물류
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_21ad03b0d0a9d2273457d4580916f0f4.setIcon(icon_b9b5b9b824c26e327b7d58a0b3bffd8f);
+            
+    
+            var marker_947984b7bc9231cbb1656948a9d4240b = L.marker(
+                [37.3432611592982, 127.635493946505],
+                {
+}
+            ).addTo(marker_cluster_a8035d375e55312eff396fa6f7cf2523);
+        
+    
+            var icon_6d091bbc90573f000c8b4a81f130c3bc = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "blue",
+  "iconColor": "white",
+  "icon": "info-sign",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_e462f7b6e0293890c749ac38a03c3773 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_f2033183d2d14d53e098be8fc687dbdb = $(`<div id="html_f2033183d2d14d53e098be8fc687dbdb" style="width: 100.0%; height: 100.0%;">         <div style="width:200px; font-family: sans-serif;">             <h4 style="margin:0 0 5px 0;">DHL여주</h4>             <hr style="margin:5px 0;">             <b>업종:</b> 사업서비스업<br>             <b>연락처:</b> 031-123-3539<br>             <b>주소:</b> 경기 여주시 대신면 여양로 763 G동 컨테이너 창고         </div>         </div>`)[0];
+                popup_e462f7b6e0293890c749ac38a03c3773.setContent(html_f2033183d2d14d53e098be8fc687dbdb);
+            
+        
+
+        marker_947984b7bc9231cbb1656948a9d4240b.bindPopup(popup_e462f7b6e0293890c749ac38a03c3773)
+        ;
+
+        
+    
+    
+            marker_947984b7bc9231cbb1656948a9d4240b.bindTooltip(
+                `<div>
+                     (주)멘토니아
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_947984b7bc9231cbb1656948a9d4240b.setIcon(icon_6d091bbc90573f000c8b4a81f130c3bc);
+            
+    
+            var marker_4dc710a03ddd76ccd09b4b5018e80721 = L.marker(
+                [37.269357595699, 127.597093572385],
+                {
+}
+            ).addTo(marker_cluster_a8035d375e55312eff396fa6f7cf2523);
+        
+    
+            var icon_6ff81a1140151ea41d6a556fd618ae9e = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "green",
+  "iconColor": "white",
+  "icon": "info-sign",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_a1f0bb6318394e9b9654f41ad3dd41fc = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_90c53d0d8f9f3045d2bc58ff6ca14bee = $(`<div id="html_90c53d0d8f9f3045d2bc58ff6ca14bee" style="width: 100.0%; height: 100.0%;">         <div style="width:200px; font-family: sans-serif;">             <h4 style="margin:0 0 5px 0;">(주)삼양팀버</h4>             <hr style="margin:5px 0;">             <b>업종:</b> 도소매 및 소비자용품수리업<br>             <b>연락처:</b> 031-123-3540<br>             <b>주소:</b> 경기 여주시 세종대왕면 능여로 350 (세종대왕면)         </div>         </div>`)[0];
+                popup_a1f0bb6318394e9b9654f41ad3dd41fc.setContent(html_90c53d0d8f9f3045d2bc58ff6ca14bee);
+            
+        
+
+        marker_4dc710a03ddd76ccd09b4b5018e80721.bindPopup(popup_a1f0bb6318394e9b9654f41ad3dd41fc)
+        ;
+
+        
+    
+    
+            marker_4dc710a03ddd76ccd09b4b5018e80721.bindTooltip(
+                `<div>
+                     (주)삼양팀버
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_4dc710a03ddd76ccd09b4b5018e80721.setIcon(icon_6ff81a1140151ea41d6a556fd618ae9e);
+            
+    
+            var marker_bf3b40371bcf19581d46858f2264c868 = L.marker(
+                [37.2972523435755, 127.598205442283],
+                {
+}
+            ).addTo(marker_cluster_a8035d375e55312eff396fa6f7cf2523);
+        
+    
+            var icon_8f8e2a9bf1ed5ff8f753f130937332c3 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "gray",
+  "iconColor": "white",
+  "icon": "info-sign",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_d9f958cd9484d964c7af31c606553f1a = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_78bd90b0e9a7b5990b8f9c0dc8558db5 = $(`<div id="html_78bd90b0e9a7b5990b8f9c0dc8558db5" style="width: 100.0%; height: 100.0%;">         <div style="width:200px; font-family: sans-serif;">             <h4 style="margin:0 0 5px 0;">대일운수</h4>             <hr style="margin:5px 0;">             <b>업종:</b> 기타<br>             <b>연락처:</b> 031-123-3541<br>             <b>주소:</b> 경기 여주시 세종대왕면 북성산로 14          </div>         </div>`)[0];
+                popup_d9f958cd9484d964c7af31c606553f1a.setContent(html_78bd90b0e9a7b5990b8f9c0dc8558db5);
+            
+        
+
+        marker_bf3b40371bcf19581d46858f2264c868.bindPopup(popup_d9f958cd9484d964c7af31c606553f1a)
+        ;
+
+        
+    
+    
+            marker_bf3b40371bcf19581d46858f2264c868.bindTooltip(
+                `<div>
+                     대일운수
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_bf3b40371bcf19581d46858f2264c868.setIcon(icon_8f8e2a9bf1ed5ff8f753f130937332c3);
+            
+    
+            var marker_ba85bdd4a3a661b8642d466266b59ff5 = L.marker(
+                [37.2510777568992, 127.648636764766],
+                {
+}
+            ).addTo(marker_cluster_a8035d375e55312eff396fa6f7cf2523);
+        
+    
+            var icon_a12978dee4677cff1f365b6fa6cd1cb7 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "gray",
+  "iconColor": "white",
+  "icon": "info-sign",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_1b06438a8382263c0274a6d4365b1e6c = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_dd146bbf5785a0dc4008bd12d3735cb1 = $(`<div id="html_dd146bbf5785a0dc4008bd12d3735cb1" style="width: 100.0%; height: 100.0%;">         <div style="width:200px; font-family: sans-serif;">             <h4 style="margin:0 0 5px 0;">주식회사장원로지스</h4>             <hr style="margin:5px 0;">             <b>업종:</b> 기타<br>             <b>연락처:</b> 031-123-3542<br>             <b>주소:</b> 경기 여주시 장여로 1721-6 (점봉동)         </div>         </div>`)[0];
+                popup_1b06438a8382263c0274a6d4365b1e6c.setContent(html_dd146bbf5785a0dc4008bd12d3735cb1);
+            
+        
+
+        marker_ba85bdd4a3a661b8642d466266b59ff5.bindPopup(popup_1b06438a8382263c0274a6d4365b1e6c)
+        ;
+
+        
+    
+    
+            marker_ba85bdd4a3a661b8642d466266b59ff5.bindTooltip(
+                `<div>
+                     주식회사장원로지스
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_ba85bdd4a3a661b8642d466266b59ff5.setIcon(icon_a12978dee4677cff1f365b6fa6cd1cb7);
+            
+    
+            var marker_86708d34166dfbceb3afce075fb4c00a = L.marker(
+                [37.1676273726676, 127.667803505773],
+                {
+}
+            ).addTo(marker_cluster_a8035d375e55312eff396fa6f7cf2523);
+        
+    
+            var icon_67aaf59b08b3d6fb6445908fa8f13c08 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "gray",
+  "iconColor": "white",
+  "icon": "info-sign",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_85884da23641bece7e9b84cabc9b1c4e = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_4e23e8e00874138ab7a8fa184dfd100d = $(`<div id="html_4e23e8e00874138ab7a8fa184dfd100d" style="width: 100.0%; height: 100.0%;">         <div style="width:200px; font-family: sans-serif;">             <h4 style="margin:0 0 5px 0;">(주)성보관광</h4>             <hr style="margin:5px 0;">             <b>업종:</b> 기타<br>             <b>연락처:</b> 031-123-3543<br>             <b>주소:</b> 경기 여주시 점동면 성주로 674-3          </div>         </div>`)[0];
+                popup_85884da23641bece7e9b84cabc9b1c4e.setContent(html_4e23e8e00874138ab7a8fa184dfd100d);
+            
+        
+
+        marker_86708d34166dfbceb3afce075fb4c00a.bindPopup(popup_85884da23641bece7e9b84cabc9b1c4e)
+        ;
+
+        
+    
+    
+            marker_86708d34166dfbceb3afce075fb4c00a.bindTooltip(
+                `<div>
+                     (주)성보관광
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_86708d34166dfbceb3afce075fb4c00a.setIcon(icon_67aaf59b08b3d6fb6445908fa8f13c08);
+            
+    
+            var marker_54e0b84c113f138388585f9b1d08b396 = L.marker(
+                [37.1651187190137, 127.634680025405],
+                {
+}
+            ).addTo(marker_cluster_a8035d375e55312eff396fa6f7cf2523);
+        
+    
+            var icon_8ee29a56385dc6987211e0a0615e1de7 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "red",
+  "iconColor": "white",
+  "icon": "info-sign",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_f70f323a2ade713d56cdc266b69db6f8 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_a73ae3d7977393771f9ab3befef60991 = $(`<div id="html_a73ae3d7977393771f9ab3befef60991" style="width: 100.0%; height: 100.0%;">         <div style="width:200px; font-family: sans-serif;">             <h4 style="margin:0 0 5px 0;">주식회사비앤비인터내셔날날</h4>             <hr style="margin:5px 0;">             <b>업종:</b> 창고업<br>             <b>연락처:</b> 031-123-3544<br>             <b>주소:</b> 경기 여주시 점동면 장여로 545 B L 에이동         </div>         </div>`)[0];
+                popup_f70f323a2ade713d56cdc266b69db6f8.setContent(html_a73ae3d7977393771f9ab3befef60991);
+            
+        
+
+        marker_54e0b84c113f138388585f9b1d08b396.bindPopup(popup_f70f323a2ade713d56cdc266b69db6f8)
+        ;
+
+        
+    
+    
+            marker_54e0b84c113f138388585f9b1d08b396.bindTooltip(
+                `<div>
+                     주식회사비앤비인터내셔날날
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_54e0b84c113f138388585f9b1d08b396.setIcon(icon_8ee29a56385dc6987211e0a0615e1de7);
+            
+    
+            var marker_8c2ce334d47cf6741c3e7f66e57104a8 = L.marker(
+                [37.2554437312773, 127.662912441182],
+                {
+}
+            ).addTo(marker_cluster_a8035d375e55312eff396fa6f7cf2523);
+        
+    
+            var icon_0fbd7a351e668929b5521a7456bb549c = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "gray",
+  "iconColor": "white",
+  "icon": "info-sign",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_6678b07f63f6103600dac7805c9b5ed1 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_3554d251b0342862729b66bb759cb772 = $(`<div id="html_3554d251b0342862729b66bb759cb772" style="width: 100.0%; height: 100.0%;">         <div style="width:200px; font-family: sans-serif;">             <h4 style="margin:0 0 5px 0;">한국통운(주) (본사)</h4>             <hr style="margin:5px 0;">             <b>업종:</b> 기타<br>             <b>연락처:</b> 031-123-3545<br>             <b>주소:</b> 경기 여주시 주내로 837 (멱곡동)         </div>         </div>`)[0];
+                popup_6678b07f63f6103600dac7805c9b5ed1.setContent(html_3554d251b0342862729b66bb759cb772);
+            
+        
+
+        marker_8c2ce334d47cf6741c3e7f66e57104a8.bindPopup(popup_6678b07f63f6103600dac7805c9b5ed1)
+        ;
+
+        
+    
+    
+            marker_8c2ce334d47cf6741c3e7f66e57104a8.bindTooltip(
+                `<div>
+                     (주)유진로지스틱스
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_8c2ce334d47cf6741c3e7f66e57104a8.setIcon(icon_0fbd7a351e668929b5521a7456bb549c);
+            
+    
+            var marker_2e621c72be9af88b97441194015ce083 = L.marker(
+                [37.3121855878201, 127.63688758302],
+                {
+}
+            ).addTo(marker_cluster_a8035d375e55312eff396fa6f7cf2523);
+        
+    
+            var icon_634e6ddcddfcb28dc15f9d3c8b0a6b9e = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "gray",
+  "iconColor": "white",
+  "icon": "info-sign",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_71362527216ee9c310565b99d8623d42 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_21b15b0d9d7500376f128a6394b3459b = $(`<div id="html_21b15b0d9d7500376f128a6394b3459b" style="width: 100.0%; height: 100.0%;">         <div style="width:200px; font-family: sans-serif;">             <h4 style="margin:0 0 5px 0;">민아물류</h4>             <hr style="margin:5px 0;">             <b>업종:</b> 기타<br>             <b>연락처:</b> 031-123-3546<br>             <b>주소:</b> 경기 여주시 현암2길 66-1 (대신면, 어울림빌라) A동202호         </div>         </div>`)[0];
+                popup_71362527216ee9c310565b99d8623d42.setContent(html_21b15b0d9d7500376f128a6394b3459b);
+            
+        
+
+        marker_2e621c72be9af88b97441194015ce083.bindPopup(popup_71362527216ee9c310565b99d8623d42)
+        ;
+
+        
+    
+    
+            marker_2e621c72be9af88b97441194015ce083.bindTooltip(
+                `<div>
+                     민아물류
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_2e621c72be9af88b97441194015ce083.setIcon(icon_634e6ddcddfcb28dc15f9d3c8b0a6b9e);
+            
+    
+            var marker_4b7bc809e51e2d89772de741aea5c114 = L.marker(
+                [37.2770153454241, 127.153428293102],
+                {
+}
+            ).addTo(marker_cluster_a8035d375e55312eff396fa6f7cf2523);
+        
+    
+            var icon_450a38542368851de1d8e8c915232354 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "gray",
+  "iconColor": "white",
+  "icon": "info-sign",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_3f84d243fae16d5f34116b1005c53407 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_fc7e329c4ec3643ca5f436c631d1fbab = $(`<div id="html_fc7e329c4ec3643ca5f436c631d1fbab" style="width: 100.0%; height: 100.0%;">         <div style="width:200px; font-family: sans-serif;">             <h4 style="margin:0 0 5px 0;">동백사업소</h4>             <hr style="margin:5px 0;">             <b>업종:</b> 기타<br>             <b>연락처:</b> 031-123-3547<br>             <b>주소:</b> 경기 용인시 기흥구 동백중앙로 273 (중동)         </div>         </div>`)[0];
+                popup_3f84d243fae16d5f34116b1005c53407.setContent(html_fc7e329c4ec3643ca5f436c631d1fbab);
+            
+        
+
+        marker_4b7bc809e51e2d89772de741aea5c114.bindPopup(popup_3f84d243fae16d5f34116b1005c53407)
+        ;
+
+        
+    
+    
+            marker_4b7bc809e51e2d89772de741aea5c114.bindTooltip(
+                `<div>
+                     (주)드림스페이스
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_4b7bc809e51e2d89772de741aea5c114.setIcon(icon_450a38542368851de1d8e8c915232354);
+            
+    
+            var marker_f71ba559e95d36dfd0481868c44eecb2 = L.marker(
+                [37.2269444725375, 127.087763746841],
+                {
+}
+            ).addTo(marker_cluster_a8035d375e55312eff396fa6f7cf2523);
+        
+    
+            var icon_0a1d044c25e095951d09e799843e0cbd = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "blue",
+  "iconColor": "white",
+  "icon": "info-sign",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_426c7fb8bcd5340bc5c2c85888a00dde = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_27b05d64f0f1192b42028198114112d1 = $(`<div id="html_27b05d64f0f1192b42028198114112d1" style="width: 100.0%; height: 100.0%;">         <div style="width:200px; font-family: sans-serif;">             <h4 style="margin:0 0 5px 0;">기흥사업장</h4>             <hr style="margin:5px 0;">             <b>업종:</b> 사업서비스업<br>             <b>연락처:</b> 031-123-3549<br>             <b>주소:</b> 경기 용인시 기흥구 삼성로 1 (농서동)         </div>         </div>`)[0];
+                popup_426c7fb8bcd5340bc5c2c85888a00dde.setContent(html_27b05d64f0f1192b42028198114112d1);
+            
+        
+
+        marker_f71ba559e95d36dfd0481868c44eecb2.bindPopup(popup_426c7fb8bcd5340bc5c2c85888a00dde)
+        ;
+
+        
+    
+    
+            marker_f71ba559e95d36dfd0481868c44eecb2.bindTooltip(
+                `<div>
+                     이트너스(주)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_f71ba559e95d36dfd0481868c44eecb2.setIcon(icon_0a1d044c25e095951d09e799843e0cbd);
+            
+    
+            var marker_2615bd50f2ed956dca0b1a11a70f3f50 = L.marker(
+                [37.2694696650513, 127.064585130033],
+                {
+}
+            ).addTo(marker_cluster_a8035d375e55312eff396fa6f7cf2523);
+        
+    
+            var icon_f41d73f8cac2c253e91c12459f689bb4 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "gray",
+  "iconColor": "white",
+  "icon": "info-sign",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_87bd0ef6eb186a0a14cc29957559e3f7 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_cd393dd111e17ca3524cad588c377af7 = $(`<div id="html_cd393dd111e17ca3524cad588c377af7" style="width: 100.0%; height: 100.0%;">         <div style="width:200px; font-family: sans-serif;">             <h4 style="margin:0 0 5px 0;">(주)신현대관리-에이스침대 광교점</h4>             <hr style="margin:5px 0;">             <b>업종:</b> 기타<br>             <b>연락처:</b> 031-123-3551<br>             <b>주소:</b> 경기 용인시 기흥구 흥덕1로 5-15 (영덕동, (주)에이스침대 광교점)         </div>         </div>`)[0];
+                popup_87bd0ef6eb186a0a14cc29957559e3f7.setContent(html_cd393dd111e17ca3524cad588c377af7);
+            
+        
+
+        marker_2615bd50f2ed956dca0b1a11a70f3f50.bindPopup(popup_87bd0ef6eb186a0a14cc29957559e3f7)
+        ;
+
+        
+    
+    
+            marker_2615bd50f2ed956dca0b1a11a70f3f50.bindTooltip(
+                `<div>
+                     (주)신현대관리
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_2615bd50f2ed956dca0b1a11a70f3f50.setIcon(icon_f41d73f8cac2c253e91c12459f689bb4);
+            
+    
+            var marker_b53a8bad642b80ac285667f99642d9a2 = L.marker(
+                [37.3341882647957, 127.129049534607],
+                {
+}
+            ).addTo(marker_cluster_a8035d375e55312eff396fa6f7cf2523);
+        
+    
+            var icon_e826252466b8b2df82d9fbddbd77688f = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "gray",
+  "iconColor": "white",
+  "icon": "info-sign",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_fba2cff5001e12185b4eeac27274de85 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_c64c236dd575c35571294b00361dfdd6 = $(`<div id="html_c64c236dd575c35571294b00361dfdd6" style="width: 100.0%; height: 100.0%;">         <div style="width:200px; font-family: sans-serif;">             <h4 style="margin:0 0 5px 0;">대청초 특별실 및 연구실 청소</h4>             <hr style="margin:5px 0;">             <b>업종:</b> 기타<br>             <b>연락처:</b> 031-123-3552<br>             <b>주소:</b> 경기 용인시 수지구 죽전로 276 (죽전동)대청초등학교         </div>         </div>`)[0];
+                popup_fba2cff5001e12185b4eeac27274de85.setContent(html_c64c236dd575c35571294b00361dfdd6);
+            
+        
+
+        marker_b53a8bad642b80ac285667f99642d9a2.bindPopup(popup_fba2cff5001e12185b4eeac27274de85)
+        ;
+
+        
+    
+    
+            marker_b53a8bad642b80ac285667f99642d9a2.bindTooltip(
+                `<div>
+                     용인새집연구소
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_b53a8bad642b80ac285667f99642d9a2.setIcon(icon_e826252466b8b2df82d9fbddbd77688f);
+            
+    
+            var marker_ee0888355395b9645a71b420b05c9f2b = L.marker(
+                [37.2343382225993, 127.211983911094],
+                {
+}
+            ).addTo(marker_cluster_a8035d375e55312eff396fa6f7cf2523);
+        
+    
+            var icon_84e65cf5b268716b0721dd4a74a0949d = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "blue",
+  "iconColor": "white",
+  "icon": "info-sign",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_ade0df5bf803b4a8577fcead995c8b76 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_06fd522604f414fd239602319a29f280 = $(`<div id="html_06fd522604f414fd239602319a29f280" style="width: 100.0%; height: 100.0%;">         <div style="width:200px; font-family: sans-serif;">             <h4 style="margin:0 0 5px 0;">주식회사휴엔로지스</h4>             <hr style="margin:5px 0;">             <b>업종:</b> 사업서비스업<br>             <b>연락처:</b> 031-123-3553<br>             <b>주소:</b> 경기 용인시 처인구 금령로140번길 5-4 (마평동) 2층 202호         </div>         </div>`)[0];
+                popup_ade0df5bf803b4a8577fcead995c8b76.setContent(html_06fd522604f414fd239602319a29f280);
+            
+        
+
+        marker_ee0888355395b9645a71b420b05c9f2b.bindPopup(popup_ade0df5bf803b4a8577fcead995c8b76)
+        ;
+
+        
+    
+    
+            marker_ee0888355395b9645a71b420b05c9f2b.bindTooltip(
+                `<div>
+                     주식회사휴엔로지스
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_ee0888355395b9645a71b420b05c9f2b.setIcon(icon_84e65cf5b268716b0721dd4a74a0949d);
+            
+    
+            var marker_7b5b59051bcd8fae4b947b89e0cfd858 = L.marker(
+                [37.1766250100641, 127.179654388592],
+                {
+}
+            ).addTo(marker_cluster_a8035d375e55312eff396fa6f7cf2523);
+        
+    
+            var icon_fe27371fb393b711cfc9a1038e73874f = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "blue",
+  "iconColor": "white",
+  "icon": "info-sign",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_36efbe72e765711bcbaee89e47664269 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_2bd0a1d7aa176514bd0f11d9fad5020b = $(`<div id="html_2bd0a1d7aa176514bd0f11d9fad5020b" style="width: 100.0%; height: 100.0%;">         <div style="width:200px; font-family: sans-serif;">             <h4 style="margin:0 0 5px 0;">(주)조은시스템-쿠팡용인2센터</h4>             <hr style="margin:5px 0;">             <b>업종:</b> 사업서비스업<br>             <b>연락처:</b> 031-123-3554<br>             <b>주소:</b> 경기 용인시 처인구 남사면 처인성로 1027         </div>         </div>`)[0];
+                popup_36efbe72e765711bcbaee89e47664269.setContent(html_2bd0a1d7aa176514bd0f11d9fad5020b);
+            
+        
+
+        marker_7b5b59051bcd8fae4b947b89e0cfd858.bindPopup(popup_36efbe72e765711bcbaee89e47664269)
+        ;
+
+        
+    
+    
+            marker_7b5b59051bcd8fae4b947b89e0cfd858.bindTooltip(
+                `<div>
+                     (주)조은시스템
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_7b5b59051bcd8fae4b947b89e0cfd858.setIcon(icon_fe27371fb393b711cfc9a1038e73874f);
+            
+    
+            var marker_ca88fe661ee5c9c144d272cb90799e20 = L.marker(
+                [37.0981686614919, 127.17583387729],
+                {
+}
+            ).addTo(marker_cluster_a8035d375e55312eff396fa6f7cf2523);
+        
+    
+            var icon_3606b0fbc4faee2769d0fa15ccebd812 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "darkgreen",
+  "iconColor": "white",
+  "icon": "info-sign",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_25c318e7474756bcad3e3e1df475d011 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_7ff792b6304177092239bbeeafdb8c99 = $(`<div id="html_7ff792b6304177092239bbeeafdb8c99" style="width: 100.0%; height: 100.0%;">         <div style="width:200px; font-family: sans-serif;">             <h4 style="margin:0 0 5px 0;">진영물류산업용인site</h4>             <hr style="margin:5px 0;">             <b>업종:</b> 육상화물취급업<br>             <b>연락처:</b> 031-123-3555<br>             <b>주소:</b> 경기 용인시 처인구 남사읍 원암로 439 (남사읍)         </div>         </div>`)[0];
+                popup_25c318e7474756bcad3e3e1df475d011.setContent(html_7ff792b6304177092239bbeeafdb8c99);
+            
+        
+
+        marker_ca88fe661ee5c9c144d272cb90799e20.bindPopup(popup_25c318e7474756bcad3e3e1df475d011)
+        ;
+
+        
+    
+    
+            marker_ca88fe661ee5c9c144d272cb90799e20.bindTooltip(
+                `<div>
+                     진영물류산업용인site
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_ca88fe661ee5c9c144d272cb90799e20.setIcon(icon_3606b0fbc4faee2769d0fa15ccebd812);
+            
+    
+            marker_cluster_a8035d375e55312eff396fa6f7cf2523.addTo(map_6a0cb5f2703377fb42fb1818f9824a8f);
+        
+</script>
+</html>
