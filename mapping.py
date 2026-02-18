@@ -36,16 +36,15 @@ FILE_NAME = '현황1.xlsx'
 # shopping-cart, archive, truck, briefcase, leaf
 # 제조업 : industry, gear, gears, plug, wrench, truck, 
 sector_config_map = {
-    '도소매 및 소비자용품수리업': {'color': 'beige',      'icon': 'shopping-cart'}, 
-    '창고업':                   {'color': 'pink',       'icon': 'building'}, 
-    '육상화물취급업':            {'color': 'lightblue',  'icon': 'building'}, 
-    '사업서비스업':              {'color': 'lightgreen', 'icon': 'gear'}, 
-    '위생 및 유사서비스업':      {'color': 'green',      'icon': 'gear'}, 
-    '제조업':                   {'color': 'cadetblue',  'icon': 'gear'},
-    '기타의 사업':              {'color': 'lightblue',     'icon': 'gear'},
-    '사업서비스업#':            {'color': 'darkpurple',  'icon': 'wifi'}
+    # '도소매 및 소비자용품수리업': {'color': 'white',   'icon': 'building'}, 
+    # '창고업':                   {'color': 'white',   'icon': 'building'}, 
+    # '육상화물취급업':            {'color': 'white',    'icon': 'building'}, 
+    # '사업서비스업':              {'color': 'white',   'icon': 'building'}, 
+    # '위생 및 유사서비스업':      {'color': 'white',    'icon': 'gear'}, 
+    # '제조업':                   {'color': 'white',    'icon': 'gear'},
+    '기타의 사업':              {'color': 'white',    'icon': 'gear'},
+    '사업서비스업#':            {'color': 'white',     'icon': 'wifi'}
 }
-
 
 BATTERY_ICONS = {1: 'battery-empty', 2: 'battery-quarter', 3: 'battery-half', 4: 'battery-three-quarters', 5: 'battery-full'}
 
@@ -153,16 +152,18 @@ for _, row in df_map.iterrows():
         except:
             d_count = -1; d_display = "해당없음"; d_color = "white"
 
+    
     # -------------------------------------------------------------------------
-    # 2. 업종별 통합 설정(아이콘/컬러) 매칭
+    # 2. 업종별 통합 설정 매칭 (이제 아이콘 결정은 하단 필터에서만 합니다)
     # -------------------------------------------------------------------------
-    # sector_config_map에 없으면 기본 아이콘 할당
+    # 우선 sector_config_map에 등록된 '특별한' 업종이 있는지 확인만 합니다.
     config = sector_config_map.get(current_sector)
-    if not config:
-        if '제조' in current_sector:
-            config = {'color': 'white', 'icon': 'industry'}
-        else:
-            config = {'color': 'white', 'icon': 'building'}
+    
+    # if not config:
+    #     if '제조' in current_sector:
+    #         config = {'color': 'white', 'icon': 'gear'}
+    #     else:
+    #         config = {'color': 'white', 'icon': 'building'}
 
 
     # -------------------------------------------------------------------------
@@ -173,7 +174,7 @@ for _, row in df_map.iterrows():
         location_counts[pos_key] = 0
     else:
         location_counts[pos_key] += 1
-        offset_radius = 0.00018 
+        offset_radius = 0.0002 # ????? 꽃무늬 크기
         angle = location_counts[pos_key] * (2 * math.pi / 6)
         lat += offset_radius * math.cos(angle); lon += offset_radius * math.sin(angle)
 
@@ -185,76 +186,48 @@ for _, row in df_map.iterrows():
     m_opacity = 1.0  # 기본 불투명도
 
 
-    # [A] 일반 장소 (최우선 고정 스타일) ---# 특화분야에 '일반 장소'가 포함되어 있으면 방문회차 상관없이 고정 스타일 적용
+    # [4A] 일반 장소 (최우선 고정 스타일) ---# 특화분야에 '일반 장소'가 포함되어 있으면 방문회차 상관없이 고정 스타일 적용
     if '일반 장소' in spec_field:
-        m_color = 'red'      # 핀 색상
+        m_color = 'orange'      # 핀 색상
         i_name = 'info'      # 아이콘 모양
         i_color = 'white'    # 아이콘 내부 색상
-        m_opacity = 0.5      # 핀 투명도 필요 시 수정
+        m_opacity = 0.6      # 핀 투명도 필요 시 수정
 
-    # [B] 관리 제외 (9회차)
-    elif v_count == 9:
-        m_color = 'lightgray'; i_name = 'close'
-        i_color = 'black' if d_count > 0 else 'white'
-        m_opacity = 0.5
     
-
-    # [C] 방문 전 (0회차) - 현장 파악 모드
+    # [4B] 방문 전 (0회차) - 현장 파악 모드
     elif v_count == 0:
         m_color = 'gray' if row['차수_temp'] == max_round_val else 'lightgray'
-        
-        # --- 아이콘 결정 우선순위 조정 ---
-        # 1순위: sector_config_map에 지정된 아이콘이 있으면 바로 사용 (예: 휴게소->coffee)
-        if config and config.get('icon'):
-            i_name = config['icon']
-        # 2순위: 지정된 게 없을 때만 특화분야 단어 검색
-        elif '특화 기계' in spec_field: i_name = 'gears'
-        elif '특화 화학' in spec_field: i_name = 'flask'
-        elif '특화 목재' in spec_field: i_name = 'tree'
-        elif '일반 제조' in spec_field: i_name = 'industry'
-        elif '일반 기타' in spec_field: i_name = 'building'
-        # 3순위: 이것도 저것도 아니면 물음표
-        else: 
-            i_name = 'question'
-        
+        m_opacity = 0.9
         # 재해 여부에 따른 아이콘 컬러 강조
-        i_color = config['color'] if d_count <= 0 else 'black'  # 방문전 재해사업장 아이콘 컬러
+#        i_color = config['color'] if d_count <= 0 else 'black'  # 방문전 재해사업장 아이콘 컬러
+        i_color = 'black' if d_count > 0 else 'white'
+
+        # --- 아이콘 결정 3단계 필터 ---
+        
+        # [단계 1] '일반 제조'인 경우 : 설정(config)에 아이콘이 있으면 사용, 없으면 'gear'
+        if '일반 제조' in spec_field:
+            i_name = config.get('icon', 'gear') if config else 'gear'
+        # [단계 2] '일반 기타'인 경우 : 설정(config)에 아이콘이 있으면 사용, 없으면 'building'
+        elif '일반 기타' in spec_field: 
+            i_name = config.get('icon', 'building') if config else 'building'
+
+        # [단계 3] 그 외 구체적인 특화분야 검색 (기계, 화학 등)
+        elif '특화 기계' in spec_field:
+            i_name = config.get('icon', 'gears') if config else 'gears'
+        elif '특화 화학' in spec_field:
+            i_name = config.get('icon', 'flask') if config else 'flask'
+        elif '특화 목재' in spec_field:
+            i_name = config.get('icon', 'tree') if config else 'tree'
+
+        # [최종 단계] 아무것도 해당하지 않는 '정보 누락'의 경우
+        else:
+            i_name = 'question'
 
 
-
-    #     # [D1] 방문 중 (1~8회차) - 공정 관리 모드
-    # elif 1 <= v_count <= 8:
-    #     # [변수 1] 퀵패스 여부에 따른 투명도 조절 (기존 로직 유지)
-    #     m_opacity = 1.0 if quick_pass == '퀵패스' else 0.8
-
-    #     # [변수 2] 업종 및 모니터링 대상 여부에 따른 핀 색상(m_color) 결정
-    #     # 1. 특화분야 (Purple 계열)
-    #     if '특화' in spec_field:
-    #         m_color = 'purple' if monitoring == '모니터링' else 'darkpurple'
-    #         i_name = BATTERY_ICONS.get(v_count, 'battery-full')  # 5단계
-            
-    #     # 2. 일반 제조 (Blue 계열)
-    #     elif '제조' in spec_field:
-    #         m_color = 'blue' if monitoring == '모니터링' else 'darkblue'
-    #         i_name = BATTERY_ICONS.get(v_count, 'battery-full')  # 5단계
-            
-    #     # 3. 일반 기타 (Green 계열)
-    #     else:
-    #         m_color = 'green' if monitoring == '모니터링' else 'darkgreen'
-    #         # 기타 업종은 3단계 배터리 로직 (1회:empty, 2회:half, 3회이상:full)
-    #         if v_count == 1: i_name = 'battery-empty'
-    #         elif v_count == 2: i_name = 'battery-half'
-    #         else: i_name = 'battery-full'
-
-    #     # [변수 3] 재해 여부에 따른 내부 배터리 아이콘 색상(i_color) 결정 재해 있음: red (#FF0000), 재해 없음: white
-    #     # 재해 여부에 따른 아이콘 내부 색상 설정
-    #     i_color = '#ff5c5c' if d_count > 0 else 'white'
-
-
-        # [D2] 방문 중 (1~8회차) - 공정 관리 모드
-    elif 1 <= v_count <= 8:
+    # [4C] 방문 중 (1~7회차) - 공정 관리 모드
+    elif 1 <= v_count <= 7:
         # [변수 1] 퀵패스 여부에 따른 투명도 조절 (기존 로직 유지)
-        m_opacity = 1.0 if quick_pass.strip() == '퀵패스' else 0.8
+        m_opacity = 1.0 if quick_pass.strip() == '퀵패스' else 0.7
         
         # [변수 2] 업종 및 '모니터링' 열 참조에 따른 핀 색상 결정
         # is_mon = (monitoring.strip() == '모니터링') # '모니터링' 단어가 있는 경우만
@@ -283,6 +256,18 @@ for _, row in df_map.iterrows():
         # [변수 3] 재해 여부에 따른 내부 배터리 아이콘 색상(i_color) 결정 재해 있음: red (#FF0000), 재해 없음: white
         # 재해 여부에 따른 아이콘 내부 색상 설정
         i_color = '#ff5c5c' if d_count > 0 else 'white'
+
+
+    # [4D] 관리 제외 1 (8회차)
+    elif v_count == 8:
+        m_color = 'darkpurple'; i_name = 'warning'
+        i_color = 'black' if d_count > 0 else 'white'
+        m_opacity = 0.8
+    # [4E] 관리 제외 2 (9회차)
+    elif v_count == 9:
+        m_color = 'lightgray'; i_name = 'ban'        
+        i_color = 'black' if d_count > 0 else 'white'
+        m_opacity = 0.5
 
 
     # -------------------------------------------------------------------------
@@ -363,10 +348,10 @@ for _, row in df_map.iterrows():
         <hr style="margin:5px 0; border:0; border-top:2px solid #444;">
         
         <div style="font-size:{BODY_SIZE}; line-height:1.5; padding:0;">
-            <span style="font-size: 15px">사업장: </span> <a href="{phone_link}" style="color:{LINK_COLOR}; font-weight:bold;">{p_display}</a><br>
-            <span style="font-size: 15px">담당자: </span> <span style="color:#000; font-weight:bold;">{s_display}</span><br>
-            <span style="font-size: 15px">연락처: </span> <a href="{manager_phone_link}" style="color:{LINK_COLOR}; font-weight:bold;">{m_p_display}</a><br>
-            <span style="font-size: 15px">이메일: </span> <a href="{email_link}" style="color:{EMAIL_COLOR}; font-weight:bold;">{e_display}</a>
+            <span style="font-size: 16px">사업장: </span> <a href="{phone_link}" style="color:{LINK_COLOR}; font-weight:bold;">{p_display}</a><br>
+            <span style="font-size: 16px">담당자: </span> <span style="color:#000; font-weight:bold;">{s_display}</span><br>
+            <span style="font-size: 16px">연락처: </span> <a href="{manager_phone_link}" style="color:{LINK_COLOR}; font-weight:bold;">{m_p_display}</a><br>
+            <span style="font-size: 16px">이메일: </span> <a href="{email_link}" style="color:{EMAIL_COLOR}; font-weight:bold;">{e_display}</a>
         </div>
 
         <div style="margin-top:10px; display:flex; gap:5px;">
