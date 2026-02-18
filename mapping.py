@@ -349,10 +349,10 @@ for _, row in df_map.iterrows():
         <hr style="margin:5px 0; border:0; border-top:2px solid #444;">
         
         <div style="font-size:{BODY_SIZE}; line-height:1.5; padding:0;">
-            <span style="font-size: 16px">사업장: </span> <a href="{phone_link}" style="color:{LINK_COLOR}; font-weight:bold;">{p_display}</a><br>
-            <span style="font-size: 16px">담당자: </span> <span style="color:#000; font-weight:bold;">{s_display}</span><br>
-            <span style="font-size: 16px">연락처: </span> <a href="{manager_phone_link}" style="color:{LINK_COLOR}; font-weight:bold;">{m_p_display}</a><br>
-            <span style="font-size: 16px">이메일: </span> <a href="{email_link}" style="color:{EMAIL_COLOR}; font-weight:bold;">{e_display}</a>
+            <span style="font-size: 16px">사업장 : </span> <a href="{phone_link}" style="color:{LINK_COLOR}; font-weight:bold;">{p_display}</a><br>
+            <span style="font-size: 16px">담당자 : </span> <span style="color:#000; font-weight:bold;">{s_display}</span><br>
+            <span style="font-size: 16px">연락처 : </span> <a href="{manager_phone_link}" style="color:{LINK_COLOR}; font-weight:bold;">{m_p_display}</a><br>
+            <span style="font-size: 16px">이메일 : </span> <a href="{email_link}" style="color:{EMAIL_COLOR}; font-weight:bold;">{e_display}</a>
         </div>
 
         <div style="margin-top:10px; display:flex; gap:5px;">
@@ -362,12 +362,11 @@ for _, row in df_map.iterrows():
         <hr style="margin:10px 0; border:0; border-top:1px solid #666;">
         
         <div style="font-size:{FOOTER_SIZE}; color:#000; line-height:1.5;">
-            <span style="font-size: 17px">{row['현장주소']}</span><br>
+            <span style="font-size: 17px">{str(row['현장주소']).replace('경기 ', '')}</span><br>
             <span style="color: #333;">{spec_field} / {current_sector}</span><br>
             {v_count}회 / <span style="color:{d_color}; font-weight:bold;">{d_display}</span>{f" / {extra_info}" if extra_info else ""}
         </div>
     </div>"""
-
 
     # -------------------------------------------------------------------------
     #  6. 마커 생성 및 레이어 배정
