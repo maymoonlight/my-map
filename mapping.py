@@ -34,7 +34,8 @@ FILE_NAME = '현황1.xlsx'
 # [BLOCK 1] 업종별 아이콘 스타일 통합 설정 (색상, 아이콘모양)
 # 아이콘 이름 참고: gear(톱니), building(빌딩), truck(트럭), leaf(나뭇잎), wrench(렌치) 등
 # shopping-cart, archive, truck, briefcase, leaf
-# 제조업 : industry, gear, gears, plug, wrench, truck, 
+# 제조업종 : gear, gears, industry, plug, wrench, car
+# 기타업종 : building, shopping-cart, truck, refresh 
 sector_config_map = {
     # '도소매 및 소비자용품수리업': {'color': 'white',   'icon': 'building'}, 
     # '창고업':                   {'color': 'white',   'icon': 'building'}, 
@@ -42,8 +43,8 @@ sector_config_map = {
     # '사업서비스업':              {'color': 'white',   'icon': 'building'}, 
     # '위생 및 유사서비스업':      {'color': 'white',    'icon': 'gear'}, 
     # '제조업':                   {'color': 'white',    'icon': 'gear'},
-    '기타의 사업':              {'color': 'white',    'icon': 'gear'},
-    '사업서비스업#':            {'color': 'white',     'icon': 'wifi'}
+    # '기타의 사업':              {'color': 'white',    'icon': 'gear'},
+    '사업서비스업#':            {'color': 'white',     'icon': 'gears'}
 }
 
 BATTERY_ICONS = {1: 'battery-empty', 2: 'battery-quarter', 3: 'battery-half', 4: 'battery-three-quarters', 5: 'battery-full'}
