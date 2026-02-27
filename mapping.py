@@ -424,7 +424,7 @@ for _, row in df_map.iterrows():
         
 
         <div style="font-size:{FOOTER_SIZE}; color:#000; line-height:1.5;">
-            <span style="font-size: 15px; font-weight: bold; color: #0056b3;">{full_address.replace('경기 ', '')}</span><br>
+            <span style="font-size: 16px; font-weight: bold; color: #0022ff;">{full_address.replace('경기 ', '')}</span><br>
             <span style="color: #333;">{display_spec} / {current_sector}</span><br>
             {v_count}회 / <span style="color:{d_color}; font-weight:bold;">{d_display}</span>{f" / {extra_info}" if extra_info else ""}
         </div>
