@@ -63,6 +63,12 @@ BATTERY_ICONS = {1: 'battery-empty', 2: 'battery-quarter', 3: 'battery-half', 4:
 # ==============================================================================
 # [BLOCK 2] 데이터 준비 및 좌표 변환
 # ==============================================================================
+
+
+
+
+
+
 def get_coordinates(address):
     if pd.isna(address) or address == "": return None, None
     url = f"https://dapi.kakao.com/v2/local/search/address.json?query={address}"
@@ -90,6 +96,33 @@ df['차수_temp'] = df['배정차수'].apply(lambda x: int(re.findall(r'\d+', st
 max_round_val = df['차수_temp'].max()
 
 df[['위도', '경도']] = df['현장주소'].apply(lambda x: pd.Series(get_coordinates(x)))
+
+
+
+
+# 1. 좌표 변환 실패 데이터 추출 (dropna 하기 전!)
+df_missing = df[df['위도'].isna() | df['경도'].isna()].copy()
+missing_count = len(df_missing)
+
+# 2. 콘솔창 출력 보고서
+print("\n" + "="*60)
+print(f"📡 [지도 매핑 시스템 검수 보고서]")
+print(f"- 총 데이터 개수: {len(df)}개")
+print(f"- 지도 표시 성공: {len(df) - missing_count}개")
+print(f"- 지도 표시 실패: {missing_count}개")
+print("="*60)
+
+if missing_count > 0:
+    print(f"\n❌ [누락된 사업장 리스트 - 주소를 확인하세요]")
+    # 인덱스(순번)와 함께 사업장명, 주소를 출력합니다.
+    for i, (idx, row) in enumerate(df_missing.iterrows(), 1):
+        print(f"{i}. {row['사업장명_공사장명']} -> 주소: {row['현장주소']}")
+    print("\n💡 조언: 엑셀에서 위 사업장들의 주소에 오타가 없는지 확인해 보십시오.")
+else:
+    print("\n✅ 모든 사업장의 좌표가 정상적으로 확보되었습니다!")
+print("="*60 + "\n")
+
+
 df_map = df.dropna(subset=['위도', '경도']).copy()
 
 
