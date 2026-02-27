@@ -10,6 +10,10 @@ import math
 # ==============================================================================
 COL_MAIN_OFFICE   = '주사업장'           
 COL_PHONE         = '전화번호'           
+COL_FAX           = '팩스번호'           
+COL_CEO           = '대표자'           
+COL_PHONE         = '전화번호'           
+COL_WORKERS       = '근로자수'
 COL_SITE_MANAGER  = '사업장담당자명직위' 
 COL_MANAGER_PHONE = '사업장담당자연락처' 
 COL_EMAIL         = '담당자이메일'       
@@ -37,13 +41,20 @@ FILE_NAME = '현황1.xlsx'
 # 제조업종 : gear, gears, industry, plug, wrench, car
 # 기타업종 : building, shopping-cart, truck, refresh 
 sector_config_map = {
-    # '도소매 및 소비자용품수리업': {'color': 'white',   'icon': 'building'}, 
-    # '창고업':                   {'color': 'white',   'icon': 'building'}, 
-    # '육상화물취급업':            {'color': 'white',    'icon': 'building'}, 
-    # '사업서비스업':              {'color': 'white',   'icon': 'building'}, 
-    # '위생 및 유사서비스업':      {'color': 'white',    'icon': 'gear'}, 
-    # '제조업':                   {'color': 'white',    'icon': 'gear'},
-    # '기타의 사업':              {'color': 'white',    'icon': 'gear'},
+    '도소매 및 소비자용품수리업': {'color': 'white',   'icon': 'shopping-cart'}, 
+    '각종 운수 부대사업':        {'color': 'white',   'icon': 'car'}, 
+    '운수부대서비스업':          {'color': 'white',   'icon': 'car'}, 
+    '특수화물운수업':            {'color': 'white',   'icon': 'car'}, 
+    '위생 및 유사서비스업':      {'color': 'white',    'icon': 'building'}, 
+
+    '기타각종제조업': {'color': 'white',   'icon': 'wrench'}, 
+    '금형제조업':                   {'color': 'white',   'icon': 'cube'}, 
+    '육제품또는유제품제조업':        {'color': 'white',   'icon': 'database'}, 
+    '기타식료품제조업':            {'color': 'white',   'icon': 'cutlery'}, 
+    '기타전기기계기구제조업':      {'color': 'white',    'icon': 'plug'}, 
+    '인쇄업':      {'color': 'white',    'icon': 'map'}, 
+    '전자관또는반도체소자제조업':      {'color': 'white',    'icon': 'microchip'}, 
+    '기타섬유제품제조업':      {'color': 'white',    'icon': 'square'}, 
     '사업서비스업#':            {'color': 'white',     'icon': 'gears'}
 }
 
@@ -65,12 +76,22 @@ def get_coordinates(address):
 
 df = pd.read_excel(FILE_NAME, sheet_name='맵핑', engine='openpyxl')
 df = df.fillna('정보없음')
+df[COL_WORKERS] = pd.to_numeric(df[COL_WORKERS], errors='coerce').fillna(0).astype(int)
+
+df = pd.read_excel(
+    FILE_NAME, 
+    sheet_name='맵핑', 
+    engine='openpyxl',
+    dtype={COL_FAX: str, COL_PHONE: str, COL_MANAGER_PHONE: str} # 전화번호 관련은 다 문자열로!
+)
+df = df.fillna('정보없음')
 
 df['차수_temp'] = df['배정차수'].apply(lambda x: int(re.findall(r'\d+', str(x))[0]) if re.findall(r'\d+', str(x)) else 0)
 max_round_val = df['차수_temp'].max()
 
 df[['위도', '경도']] = df['현장주소'].apply(lambda x: pd.Series(get_coordinates(x)))
 df_map = df.dropna(subset=['위도', '경도']).copy()
+
 
 # m = folium.Map(location=[df_map['위도'].mean(), df_map['경도'].mean()], zoom_start=11, tiles=None)   # 1. 도화지를 비우고 지도 객체 생성
 # folium.TileLayer('CartoDB positron', name='분포확인용').add_to(m)       # 배경 정리용
@@ -290,18 +311,51 @@ for _, row in df_map.iterrows():
 
 
     main_office = row.get(COL_MAIN_OFFICE, '정보없음')
+    main_ceo = row.get(COL_CEO, '정보없음')
+
     phone = row.get(COL_PHONE, '정보없음')
     site_manager = row.get(COL_SITE_MANAGER, '정보없음')
     manager_phone = row.get(COL_MANAGER_PHONE, '정보없음')
+          
     email = str(row.get(COL_EMAIL, '정보없음')).strip()
-
+    workers = str(row.get(COL_WORKERS, '정보없음')).strip()
+    
     # 값이 '정보없음'이면 빈 문자열(''), 아니면 원래 값을 유지합니다.
     p_display = phone if phone != '정보없음' else ""
+ 
+
+    # 주소 데이터: '현장주소_원본' 사용
+    full_address = str(row.get('현장주소_원본', '정보없음'))
+    if full_address == 'nan' or full_address == '정보없음':
+        full_address = str(row.get('현장주소', '정보없음')) # 원본 없으면 기본 주소라도 표시
+
+    # 팩스번호 정제 (앞자리 0 살리고, 뒷자리 .0 제거)
+    raw_fax = str(row.get(COL_FAX, '')).strip()
+    if raw_fax.lower() in ['nan', '0.0', 'none', '']:
+        f_display = "정보없음"
+    else:
+        f_display = raw_fax.replace('.0', '') # 혹시 모를 소수점 제거
+
+
     s_display = site_manager if site_manager != '정보없음' else ""
     m_p_display = manager_phone if manager_phone != '정보없음' else ""
     e_display = email if email != '정보없음' else ""
     q_display = quick_pass if quick_pass != '정보없음' else ''
     m_display_text = monitoring if monitoring != '정보없음' else ''
+   
+    # 근로자수 데이터 정제
+    raw_workers = row.get(COL_WORKERS, 0)
+    try:
+        w_display = str(int(float(raw_workers))) if pd.notna(raw_workers) and raw_workers != '정보없음' else "0"
+    except:
+        w_display = "0"
+
+    # '일반 ' 문자열 삭제 (뒤에 공백 한 칸까지 포함해서 지우는 게 깔끔합니다)
+    display_spec = spec_field.replace('일반 ', '')
+        # 2. 만약 '특화 '도 빼고 싶으시다면 체이닝(Chaining)을 쓸 수 있습니다.
+        # display_spec = spec_field.replace('일반 ', '').replace('특화 ', '')
+
+
     # 만약 둘 다 값이 있을 때만 쉼표(,)를 넣고 싶다면 이렇게 조립할 수도 있습니다.
     extra_info = f"{q_display}, {m_display_text}".strip(", ")
 
@@ -340,16 +394,23 @@ for _, row in df_map.iterrows():
     # </div>"""
 
 
+# -------------------------------------------------------------------------
+# 3. 팝업 HTML 조립 (디자인 수정)
+# -------------------------------------------------------------------------
     popup_html = f"""
     <div style="width:{POPUP_WIDTH}px; font-family:{POPUP_FONT}; line-height:1.5; padding:2px;">
         <h3 style="margin:0 0 5px 0; padding:0;">
-            <span style="color:#333; font-size:14px;">[{main_office}]</span><br>
-            <b style="font-size:{TITLE_SIZE}; color:#000;">{row['사업장명_공사장명']}</b>
+            <span style="color:#333; font-size:14px;">[{main_office}]</span> / 
+            <span style="color:#333; font-size:14px; font-weight:bold;">{main_ceo}</span> <br>
+            <b style="font-size:{TITLE_SIZE}; color:#000;">{row['사업장명_공사장명']}</b> / {w_display}명
         </h3>
-        <hr style="margin:5px 0; border:0; border-top:2px solid #444;">
+        <hr style="margin:5px 0; border:0; border-top:2px solid #333;">
         
         <div style="font-size:{BODY_SIZE}; line-height:1.5; padding:0;">
             <span style="font-size: 16px">사업장 : </span> <a href="{phone_link}" style="color:{LINK_COLOR}; font-weight:bold;">{p_display}</a><br>
+            <span style="font-size: 16px">팩스번 : </span> <span style="font-size: 16px; color: #333;">{f_display}</span><br>
+            <hr style="margin:5px 0; border:0; border-top:1px solid #666;">
+
             <span style="font-size: 16px">담당자 : </span> <span style="color:#000; font-weight:bold;">{s_display}</span><br>
             <span style="font-size: 16px">연락처 : </span> <a href="{manager_phone_link}" style="color:{LINK_COLOR}; font-weight:bold;">{m_p_display}</a><br>
             <span style="font-size: 16px">이메일 : </span> <a href="{email_link}" style="color:{EMAIL_COLOR}; font-weight:bold;">{e_display}</a>
@@ -361,9 +422,10 @@ for _, row in df_map.iterrows():
         </div>
         <hr style="margin:10px 0; border:0; border-top:1px solid #666;">
         
+
         <div style="font-size:{FOOTER_SIZE}; color:#000; line-height:1.5;">
-            <span style="font-size: 17px">{str(row['현장주소']).replace('경기 ', '')}</span><br>
-            <span style="color: #333;">{spec_field} / {current_sector}</span><br>
+            <span style="font-size: 15px; font-weight: bold; color: #0056b3;">{full_address.replace('경기 ', '')}</span><br>
+            <span style="color: #333;">{display_spec} / {current_sector}</span><br>
             {v_count}회 / <span style="color:{d_color}; font-weight:bold;">{d_display}</span>{f" / {extra_info}" if extra_info else ""}
         </div>
     </div>"""
