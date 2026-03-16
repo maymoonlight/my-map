@@ -262,9 +262,11 @@ for _, row in df_map.iterrows():
         # [단계 1] '일반 제조'인 경우 : 설정(config)에 아이콘이 있으면 사용, 없으면 'gear'
         if '일반 제조' in spec_field:
             i_name = config.get('icon', 'gear') if config else 'gear'
+            m_color = 'gray'
         # [단계 2] '일반 기타'인 경우 : 설정(config)에 아이콘이 있으면 사용, 없으면 'building'
         elif '일반 기타' in spec_field: 
             i_name = config.get('icon', 'building') if config else 'building'
+            m_color = 'lightgray'
 
         # [단계 3] 그 외 구체적인 특화분야 검색 (기계, 화학 등)
         elif '특화 기계' in spec_field:
@@ -273,6 +275,10 @@ for _, row in df_map.iterrows():
             i_name = config.get('icon', 'flask') if config else 'flask'
         elif '특화 목재' in spec_field:
             i_name = config.get('icon', 'tree') if config else 'tree'
+        elif '특화 선박' in spec_field:
+            i_name = config.get('icon', 'ship') if config else 'ship'
+            m_color = 'green'
+
 
         # [최종 단계] 아무것도 해당하지 않는 '정보 누락'의 경우
         else:
