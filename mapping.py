@@ -271,13 +271,14 @@ for _, row in df_map.iterrows():
         # [단계 3] 그 외 구체적인 특화분야 검색 (기계, 화학 등)
         elif '특화 기계' in spec_field:
             i_name = config.get('icon', 'gears') if config else 'gears'
+            m_color = 'green'
         elif '특화 화학' in spec_field:
             i_name = config.get('icon', 'flask') if config else 'flask'
         elif '특화 목재' in spec_field:
             i_name = config.get('icon', 'tree') if config else 'tree'
         elif '특화 선박' in spec_field:
             i_name = config.get('icon', 'ship') if config else 'ship'
-            m_color = 'green'
+            m_color = 'darkred'
 
 
         # [최종 단계] 아무것도 해당하지 않는 '정보 누락'의 경우
