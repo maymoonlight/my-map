@@ -1,0 +1,1372 @@
+<!DOCTYPE html>
+<html>
+<head>
+    
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+    <script src="https://cdn.jsdelivr.net/npm/leaflet@1.9.3/dist/leaflet.js"></script>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet@1.9.3/dist/leaflet.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="https://netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap-glyphicons.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.2.0/css/all.min.css"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/python-visualization/folium/folium/templates/leaflet.awesome.rotate.min.css"/>
+    
+            <meta name="viewport" content="width=device-width,
+                initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+            <style>
+                #map_2e34c1393d0d40427419223394167cd0 {
+                    position: relative;
+                    width: 100.0%;
+                    height: 100.0%;
+                    left: 0.0%;
+                    top: 0.0%;
+                }
+                .leaflet-container { font-size: 1rem; }
+            </style>
+
+            <style>html, body {
+                width: 100%;
+                height: 100%;
+                margin: 0;
+                padding: 0;
+            }
+            </style>
+
+            <style>#map {
+                position:absolute;
+                top:0;
+                bottom:0;
+                right:0;
+                left:0;
+                }
+            </style>
+
+            <script>
+                L_NO_TOUCH = false;
+                L_DISABLE_3D = false;
+            </script>
+
+        
+</head>
+<body>
+    
+    
+<script>
+    function setupMapLogic() {
+        var map = map_2e34c1393d0d40427419223394167cd0;
+        var mapContainer = map.getContainer();
+        function updateDisplay() {
+            var currentZoom = map.getZoom();
+            if (currentZoom < 15) { mapContainer.classList.add('hide-tooltips-by-zoom'); } 
+            else { mapContainer.classList.remove('hide-tooltips-by-zoom'); }
+        }
+        map.on('zoomend', updateDisplay);
+        updateDisplay();
+    }
+    window.addEventListener('load', setupMapLogic);
+</script>
+<style>
+    .hide-tooltips-by-zoom .leaflet-tooltip { display: none !important; }
+    .leaflet-popup-pane ~ .leaflet-tooltip-pane { display: none !important; }
+    .leaflet-popup-close-button {
+        width: 35px !important; height: 35px !important;
+        font-size: 28px !important; line-height: 35px !important;
+        color: #555 !important; font-weight: bold !important;
+    }
+</style>
+    
+            <div class="folium-map" id="map_2e34c1393d0d40427419223394167cd0" ></div>
+        
+</body>
+<script>
+    
+    
+            var map_2e34c1393d0d40427419223394167cd0 = L.map(
+                "map_2e34c1393d0d40427419223394167cd0",
+                {
+                    center: [37.2458, 127.056],
+                    crs: L.CRS.EPSG3857,
+                    ...{
+  "zoom": 10,
+  "zoomControl": true,
+  "preferCanvas": false,
+}
+
+                }
+            );
+
+            
+
+        
+    
+            var tile_layer_48aae08f77366c7366cd76c965bdd35f = L.tileLayer(
+                "https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png",
+                {
+  "minZoom": 0,
+  "maxZoom": 20,
+  "maxNativeZoom": 20,
+  "noWrap": false,
+  "attribution": "\u0026copy; \u003ca href=\"https://www.openstreetmap.org/copyright\"\u003eOpenStreetMap\u003c/a\u003e contributors \u0026copy; \u003ca href=\"https://carto.com/attributions\"\u003eCARTO\u003c/a\u003e",
+  "subdomains": "abcd",
+  "detectRetina": false,
+  "tms": false,
+  "opacity": 1,
+}
+
+            );
+        
+    
+            tile_layer_48aae08f77366c7366cd76c965bdd35f.addTo(map_2e34c1393d0d40427419223394167cd0);
+        
+    
+            var tile_layer_9001f0af4e7d1c4b0c4462f0114e2b9a = L.tileLayer(
+                "https://tile.openstreetmap.org/{z}/{x}/{y}.png",
+                {
+  "minZoom": 0,
+  "maxZoom": 19,
+  "maxNativeZoom": 19,
+  "noWrap": false,
+  "attribution": "\u0026copy; \u003ca href=\"https://www.openstreetmap.org/copyright\"\u003eOpenStreetMap\u003c/a\u003e contributors",
+  "subdomains": "abc",
+  "detectRetina": false,
+  "tms": false,
+  "opacity": 1,
+}
+
+            );
+        
+    
+            tile_layer_9001f0af4e7d1c4b0c4462f0114e2b9a.addTo(map_2e34c1393d0d40427419223394167cd0);
+        
+    
+            var feature_group_f57e6abfdc5b57608b29a1d782af187e = L.featureGroup(
+                {
+}
+            );
+        
+    
+            var marker_322d3548832343933f4c2447a6f7fa32 = L.marker(
+                [37.2469552920401, 127.056694782742],
+                {
+  "opacity": 0.6,
+}
+            ).addTo(feature_group_f57e6abfdc5b57608b29a1d782af187e);
+        
+    
+            var icon_e3a2d65eb4c8152be92740ba56b7fee5 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "orange",
+  "iconColor": "white",
+  "icon": "info",
+  "prefix": "fa",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_5ee068f84215d5acb6f141b49a1c43ba = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_d2f9b1c05958fe0ff987249361670bc0 = $(`<div id="html_d2f9b1c05958fe0ff987249361670bc0" style="width: 100.0%; height: 100.0%;">     <div style="width:280px; font-family:'Malgun Gothic', sans-serif; line-height:1.5; padding:2px;">         <h3 style="margin:0 0 5px 0; padding:0;">             <span style="color:#333; font-size:14px;">[회사]</span> /              <span style="color:#333; font-size:14px; font-weight:bold;">정보없음</span> <br>             <b style="font-size:20px; color:#000;">에스이코리아</b> / 0명         </h3>         <hr style="margin:5px 0; border:0; border-top:2px solid #333;">                  <div style="font-size:20px; line-height:1.5; padding:0;">             <span style="font-size: 16px">사업장 : </span> <a href="tel:031-205-5320" style="color:#0022ff; font-weight:bold;">031-205-5320</a><br>             <span style="font-size: 16px">팩스번 : </span> <span style="font-size: 16px; color: #333;">정보없음</span><br>             <hr style="margin:5px 0; border:0; border-top:1px solid #666;">              <span style="font-size: 16px">담당자 : </span> <span style="color:#000; font-weight:bold;">이소현 주임</span><br>             <span style="font-size: 16px">연락처 : </span> <a href="tel:031-205-5321" style="color:#0022ff; font-weight:bold;">031-205-5321</a><br>             <span style="font-size: 16px">이메일 : </span> <a href="mailto:sekorea2@daum.net" style="color:#228b22; font-weight:bold;">sekorea2@daum.net</a>         </div>          <div style="margin-top:10px; display:flex; gap:5px;">             <a href="tmap://route?goalname=에스이코리아&goalx=127.056694782742&goaly=37.2469552920401" style="background-color:#0022FF; color:white; padding:6px 0; border-radius:6px; font-size:18px; font-weight:bold; flex:1; text-align:center; text-decoration:none;">T맵</a>             <a href="kakaomap://route?ep=37.2469552920401,127.056694782742&by=CAR" style="background-color:#FAE100; color:#3C1E1E; padding:6px 0; border-radius:6px; font-size:18px; font-weight:bold; flex:1; text-align:center; text-decoration:none;">카카오맵</a>         </div>         <hr style="margin:10px 0; border:0; border-top:1px solid #666;">                   <div style="font-size:15px; color:#000; line-height:1.5;">             <span style="font-size: 16px; font-weight: bold; color: #0022ff;">수원시 영통구 영통로217번길 6</span><br>             <span style="color: #333;">장소 / 정보없음</span><br>             0회 / <span style="color:blue; font-weight:bold;">✅무재해</span>         </div>     </div></div>`)[0];
+                popup_5ee068f84215d5acb6f141b49a1c43ba.setContent(html_d2f9b1c05958fe0ff987249361670bc0);
+            
+        
+
+        marker_322d3548832343933f4c2447a6f7fa32.bindPopup(popup_5ee068f84215d5acb6f141b49a1c43ba)
+        ;
+
+        
+    
+    
+            marker_322d3548832343933f4c2447a6f7fa32.bindTooltip(
+                `<div>
+                     에스이코리아
+                 </div>`,
+                {
+  "permanent": true,
+  "direction": "top",
+  "offset": [0, -35],
+  "sticky": true,
+}
+            );
+        
+    
+                marker_322d3548832343933f4c2447a6f7fa32.setIcon(icon_e3a2d65eb4c8152be92740ba56b7fee5);
+            
+    
+            var marker_b60dce1d1263f69ebeb5f2f307e5f9d2 = L.marker(
+                [37.1290362270832, 127.010536789644],
+                {
+  "opacity": 0.9,
+}
+            ).addTo(feature_group_f57e6abfdc5b57608b29a1d782af187e);
+        
+    
+            var icon_80cc14923340345aaec27b2d98fa1d76 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "green",
+  "iconColor": "white",
+  "icon": "gears",
+  "prefix": "fa",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_679b47898324da868749f6beca746549 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_fec41f5f37307621cb8de0c3867b655c = $(`<div id="html_fec41f5f37307621cb8de0c3867b655c" style="width: 100.0%; height: 100.0%;">     <div style="width:280px; font-family:'Malgun Gothic', sans-serif; line-height:1.5; padding:2px;">         <h3 style="margin:0 0 5px 0; padding:0;">             <span style="color:#333; font-size:14px;">[엠씨모션공장]</span> /              <span style="color:#333; font-size:14px; font-weight:bold;">박형섭</span> <br>             <b style="font-size:20px; color:#000;">엠씨모션공장</b> / 8명         </h3>         <hr style="margin:5px 0; border:0; border-top:2px solid #333;">                  <div style="font-size:20px; line-height:1.5; padding:0;">             <span style="font-size: 16px">사업장 : </span> <a href="tel:0318318248" style="color:#0022ff; font-weight:bold;">0318318248</a><br>             <span style="font-size: 16px">팩스번 : </span> <span style="font-size: 16px; color: #333;">정보없음</span><br>             <hr style="margin:5px 0; border:0; border-top:1px solid #666;">              <span style="font-size: 16px">담당자 : </span> <span style="color:#000; font-weight:bold;">장철호</span><br>             <span style="font-size: 16px">연락처 : </span> <a href="javascript:void(0);" style="color:#0022ff; font-weight:bold;"></a><br>             <span style="font-size: 16px">이메일 : </span> <a href="mailto:장철호" style="color:#228b22; font-weight:bold;">장철호</a>         </div>          <div style="margin-top:10px; display:flex; gap:5px;">             <a href="tmap://route?goalname=엠씨모션공장&goalx=127.010536789644&goaly=37.1290362270832" style="background-color:#0022FF; color:white; padding:6px 0; border-radius:6px; font-size:18px; font-weight:bold; flex:1; text-align:center; text-decoration:none;">T맵</a>             <a href="kakaomap://route?ep=37.1290362270832,127.010536789644&by=CAR" style="background-color:#FAE100; color:#3C1E1E; padding:6px 0; border-radius:6px; font-size:18px; font-weight:bold; flex:1; text-align:center; text-decoration:none;">카카오맵</a>         </div>         <hr style="margin:10px 0; border:0; border-top:1px solid #666;">                   <div style="font-size:15px; color:#000; line-height:1.5;">             <span style="font-size: 16px; font-weight: bold; color: #0022ff;">화성시 효행구 정남면 발안로 983-8</span><br>             <span style="color: #333;">특화 기계 / 일반산업용기계장치제조업</span><br>             0회 / <span style="color:white; font-weight:bold;">해당없음</span>         </div>     </div></div>`)[0];
+                popup_679b47898324da868749f6beca746549.setContent(html_fec41f5f37307621cb8de0c3867b655c);
+            
+        
+
+        marker_b60dce1d1263f69ebeb5f2f307e5f9d2.bindPopup(popup_679b47898324da868749f6beca746549)
+        ;
+
+        
+    
+    
+            marker_b60dce1d1263f69ebeb5f2f307e5f9d2.bindTooltip(
+                `<div>
+                     엠씨모션공장
+                 </div>`,
+                {
+  "permanent": true,
+  "direction": "top",
+  "offset": [0, -35],
+  "sticky": true,
+}
+            );
+        
+    
+                marker_b60dce1d1263f69ebeb5f2f307e5f9d2.setIcon(icon_80cc14923340345aaec27b2d98fa1d76);
+            
+    
+            var marker_3359ae687ca5f342fe5005459ef88cf6 = L.marker(
+                [37.0447678444354, 126.793642193546],
+                {
+  "opacity": 0.9,
+}
+            ).addTo(feature_group_f57e6abfdc5b57608b29a1d782af187e);
+        
+    
+            var icon_696340c50ae4e27df8dc6c2a044a6bad = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "green",
+  "iconColor": "white",
+  "icon": "gears",
+  "prefix": "fa",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_54c7881652527c8a8aa94acf1cb11699 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_82e7280f2eca6100774447bc6476e3ee = $(`<div id="html_82e7280f2eca6100774447bc6476e3ee" style="width: 100.0%; height: 100.0%;">     <div style="width:280px; font-family:'Malgun Gothic', sans-serif; line-height:1.5; padding:2px;">         <h3 style="margin:0 0 5px 0; padding:0;">             <span style="color:#333; font-size:14px;">[티엠주식회사/이화모듈주식회사]</span> /              <span style="color:#333; font-size:14px; font-weight:bold;">변일식</span> <br>             <b style="font-size:20px; color:#000;">티엠주식회사/이화모듈주식회사</b> / 9명         </h3>         <hr style="margin:5px 0; border:0; border-top:2px solid #333;">                  <div style="font-size:20px; line-height:1.5; padding:0;">             <span style="font-size: 16px">사업장 : </span> <a href="tel:0415226678" style="color:#0022ff; font-weight:bold;">0415226678</a><br>             <span style="font-size: 16px">팩스번 : </span> <span style="font-size: 16px; color: #333;">정보없음</span><br>             <hr style="margin:5px 0; border:0; border-top:1px solid #666;">              <span style="font-size: 16px">담당자 : </span> <span style="color:#000; font-weight:bold;">장철호</span><br>             <span style="font-size: 16px">연락처 : </span> <a href="javascript:void(0);" style="color:#0022ff; font-weight:bold;"></a><br>             <span style="font-size: 16px">이메일 : </span> <a href="mailto:장철호" style="color:#228b22; font-weight:bold;">장철호</a>         </div>          <div style="margin-top:10px; display:flex; gap:5px;">             <a href="tmap://route?goalname=티엠주식회사/이화모듈주식회사&goalx=126.793642193546&goaly=37.0447678444354" style="background-color:#0022FF; color:white; padding:6px 0; border-radius:6px; font-size:18px; font-weight:bold; flex:1; text-align:center; text-decoration:none;">T맵</a>             <a href="kakaomap://route?ep=37.0447678444354,126.793642193546&by=CAR" style="background-color:#FAE100; color:#3C1E1E; padding:6px 0; border-radius:6px; font-size:18px; font-weight:bold; flex:1; text-align:center; text-decoration:none;">카카오맵</a>         </div>         <hr style="margin:10px 0; border:0; border-top:1px solid #666;">                   <div style="font-size:15px; color:#000; line-height:1.5;">             <span style="font-size: 16px; font-weight: bold; color: #0022ff;">화성시 만세구 우정읍 남양만로 707</span><br>             <span style="color: #333;">특화 기계 / 각종기계또는동부속품제조업</span><br>             0회 / <span style="color:white; font-weight:bold;">해당없음</span>         </div>     </div></div>`)[0];
+                popup_54c7881652527c8a8aa94acf1cb11699.setContent(html_82e7280f2eca6100774447bc6476e3ee);
+            
+        
+
+        marker_3359ae687ca5f342fe5005459ef88cf6.bindPopup(popup_54c7881652527c8a8aa94acf1cb11699)
+        ;
+
+        
+    
+    
+            marker_3359ae687ca5f342fe5005459ef88cf6.bindTooltip(
+                `<div>
+                     티엠주식회사/이화모듈주식회사
+                 </div>`,
+                {
+  "permanent": true,
+  "direction": "top",
+  "offset": [0, -35],
+  "sticky": true,
+}
+            );
+        
+    
+                marker_3359ae687ca5f342fe5005459ef88cf6.setIcon(icon_696340c50ae4e27df8dc6c2a044a6bad);
+            
+    
+            var marker_5ebeec1f096f67c6ea63f2f75758a860 = L.marker(
+                [37.173092770386, 126.771753399959],
+                {
+  "opacity": 0.9,
+}
+            ).addTo(feature_group_f57e6abfdc5b57608b29a1d782af187e);
+        
+    
+            var icon_fe25202d49ab7d61bf9e2cc409c6ee57 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "green",
+  "iconColor": "white",
+  "icon": "gears",
+  "prefix": "fa",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_a6e21a8651970a5a0100a6fc5045598f = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_30f80163d3b552b412ec0bd264c4e6c9 = $(`<div id="html_30f80163d3b552b412ec0bd264c4e6c9" style="width: 100.0%; height: 100.0%;">     <div style="width:280px; font-family:'Malgun Gothic', sans-serif; line-height:1.5; padding:2px;">         <h3 style="margin:0 0 5px 0; padding:0;">             <span style="color:#333; font-size:14px;">[엘파워텍]</span> /              <span style="color:#333; font-size:14px; font-weight:bold;">김영순</span> <br>             <b style="font-size:20px; color:#000;">엘파워텍</b> / 13명         </h3>         <hr style="margin:5px 0; border:0; border-top:2px solid #333;">                  <div style="font-size:20px; line-height:1.5; padding:0;">             <span style="font-size: 16px">사업장 : </span> <a href="tel:0313551743" style="color:#0022ff; font-weight:bold;">0313551743</a><br>             <span style="font-size: 16px">팩스번 : </span> <span style="font-size: 16px; color: #333;">정보없음</span><br>             <hr style="margin:5px 0; border:0; border-top:1px solid #666;">              <span style="font-size: 16px">담당자 : </span> <span style="color:#000; font-weight:bold;">임윤식</span><br>             <span style="font-size: 16px">연락처 : </span> <a href="javascript:void(0);" style="color:#0022ff; font-weight:bold;"></a><br>             <span style="font-size: 16px">이메일 : </span> <a href="mailto:임윤식" style="color:#228b22; font-weight:bold;">임윤식</a>         </div>          <div style="margin-top:10px; display:flex; gap:5px;">             <a href="tmap://route?goalname=엘파워텍&goalx=126.771753399959&goaly=37.173092770386" style="background-color:#0022FF; color:white; padding:6px 0; border-radius:6px; font-size:18px; font-weight:bold; flex:1; text-align:center; text-decoration:none;">T맵</a>             <a href="kakaomap://route?ep=37.173092770386,126.771753399959&by=CAR" style="background-color:#FAE100; color:#3C1E1E; padding:6px 0; border-radius:6px; font-size:18px; font-weight:bold; flex:1; text-align:center; text-decoration:none;">카카오맵</a>         </div>         <hr style="margin:10px 0; border:0; border-top:1px solid #666;">                   <div style="font-size:15px; color:#000; line-height:1.5;">             <span style="font-size: 16px; font-weight: bold; color: #0022ff;">화성시 만세구 마도면 청원산단로 144</span><br>             <span style="color: #333;">특화 기계 / 동력용전기기계기구제조업</span><br>             0회 / <span style="color:white; font-weight:bold;">해당없음</span>         </div>     </div></div>`)[0];
+                popup_a6e21a8651970a5a0100a6fc5045598f.setContent(html_30f80163d3b552b412ec0bd264c4e6c9);
+            
+        
+
+        marker_5ebeec1f096f67c6ea63f2f75758a860.bindPopup(popup_a6e21a8651970a5a0100a6fc5045598f)
+        ;
+
+        
+    
+    
+            marker_5ebeec1f096f67c6ea63f2f75758a860.bindTooltip(
+                `<div>
+                     엘파워텍
+                 </div>`,
+                {
+  "permanent": true,
+  "direction": "top",
+  "offset": [0, -35],
+  "sticky": true,
+}
+            );
+        
+    
+                marker_5ebeec1f096f67c6ea63f2f75758a860.setIcon(icon_fe25202d49ab7d61bf9e2cc409c6ee57);
+            
+    
+            var marker_2cb477af837b140d2ff2979877170262 = L.marker(
+                [37.1971814215851, 126.828288449493],
+                {
+  "opacity": 0.9,
+}
+            ).addTo(feature_group_f57e6abfdc5b57608b29a1d782af187e);
+        
+    
+            var icon_337deccb457cf25b64668fbca309c18b = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "green",
+  "iconColor": "white",
+  "icon": "gears",
+  "prefix": "fa",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_0e66a0369fc92745592a2a08942ae02d = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_aba54c557a1c2515eff14aaef136d7db = $(`<div id="html_aba54c557a1c2515eff14aaef136d7db" style="width: 100.0%; height: 100.0%;">     <div style="width:280px; font-family:'Malgun Gothic', sans-serif; line-height:1.5; padding:2px;">         <h3 style="margin:0 0 5px 0; padding:0;">             <span style="color:#333; font-size:14px;">[서비스 2파트(화성)]</span> /              <span style="color:#333; font-size:14px; font-weight:bold;">이두순</span> <br>             <b style="font-size:20px; color:#000;">서비스 2파트(화성)</b> / 7명         </h3>         <hr style="margin:5px 0; border:0; border-top:2px solid #333;">                  <div style="font-size:20px; line-height:1.5; padding:0;">             <span style="font-size: 16px">사업장 : </span> <a href="tel:0233980770" style="color:#0022ff; font-weight:bold;">0233980770</a><br>             <span style="font-size: 16px">팩스번 : </span> <span style="font-size: 16px; color: #333;">정보없음</span><br>             <hr style="margin:5px 0; border:0; border-top:1px solid #666;">              <span style="font-size: 16px">담당자 : </span> <span style="color:#000; font-weight:bold;">임윤식</span><br>             <span style="font-size: 16px">연락처 : </span> <a href="javascript:void(0);" style="color:#0022ff; font-weight:bold;"></a><br>             <span style="font-size: 16px">이메일 : </span> <a href="mailto:임윤식" style="color:#228b22; font-weight:bold;">임윤식</a>         </div>          <div style="margin-top:10px; display:flex; gap:5px;">             <a href="tmap://route?goalname=서비스 2파트(화성)&goalx=126.828288449493&goaly=37.1971814215851" style="background-color:#0022FF; color:white; padding:6px 0; border-radius:6px; font-size:18px; font-weight:bold; flex:1; text-align:center; text-decoration:none;">T맵</a>             <a href="kakaomap://route?ep=37.1971814215851,126.828288449493&by=CAR" style="background-color:#FAE100; color:#3C1E1E; padding:6px 0; border-radius:6px; font-size:18px; font-weight:bold; flex:1; text-align:center; text-decoration:none;">카카오맵</a>         </div>         <hr style="margin:10px 0; border:0; border-top:1px solid #666;">                   <div style="font-size:15px; color:#000; line-height:1.5;">             <span style="font-size: 16px; font-weight: bold; color: #0022ff;">화성시 만세구 남양읍 시청로160번길 10 두산퓨얼셀</span><br>             <span style="color: #333;">특화 기계 / 동력용전기기계기구제조업</span><br>             0회 / <span style="color:white; font-weight:bold;">해당없음</span>         </div>     </div></div>`)[0];
+                popup_0e66a0369fc92745592a2a08942ae02d.setContent(html_aba54c557a1c2515eff14aaef136d7db);
+            
+        
+
+        marker_2cb477af837b140d2ff2979877170262.bindPopup(popup_0e66a0369fc92745592a2a08942ae02d)
+        ;
+
+        
+    
+    
+            marker_2cb477af837b140d2ff2979877170262.bindTooltip(
+                `<div>
+                     서비스 2파트(화성)
+                 </div>`,
+                {
+  "permanent": true,
+  "direction": "top",
+  "offset": [0, -35],
+  "sticky": true,
+}
+            );
+        
+    
+                marker_2cb477af837b140d2ff2979877170262.setIcon(icon_337deccb457cf25b64668fbca309c18b);
+            
+    
+            var marker_91a412a1ac3f13353ac61e6f8a8f104a = L.marker(
+                [37.0392721817949, 126.788974493825],
+                {
+  "opacity": 0.9,
+}
+            ).addTo(feature_group_f57e6abfdc5b57608b29a1d782af187e);
+        
+    
+            var icon_6ff7aed807e2cacec20f02c0629e1d84 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "green",
+  "iconColor": "white",
+  "icon": "gears",
+  "prefix": "fa",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_911e7a098b19bad8726ec4bda52b50c2 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_77859c2fc4f1e1fe2fd85af94f073d6b = $(`<div id="html_77859c2fc4f1e1fe2fd85af94f073d6b" style="width: 100.0%; height: 100.0%;">     <div style="width:280px; font-family:'Malgun Gothic', sans-serif; line-height:1.5; padding:2px;">         <h3 style="margin:0 0 5px 0; padding:0;">             <span style="color:#333; font-size:14px;">[이엠오토모티브(주)(화성)]</span> /              <span style="color:#333; font-size:14px; font-weight:bold;">조성근</span> <br>             <b style="font-size:20px; color:#000;">이엠오토모티브(주)(화성)</b> / 57명         </h3>         <hr style="margin:5px 0; border:0; border-top:2px solid #333;">                  <div style="font-size:20px; line-height:1.5; padding:0;">             <span style="font-size: 16px">사업장 : </span> <a href="tel:0317019789" style="color:#0022ff; font-weight:bold;">0317019789</a><br>             <span style="font-size: 16px">팩스번 : </span> <span style="font-size: 16px; color: #333;">317019708</span><br>             <hr style="margin:5px 0; border:0; border-top:1px solid #666;">              <span style="font-size: 16px">담당자 : </span> <span style="color:#000; font-weight:bold;">장철호</span><br>             <span style="font-size: 16px">연락처 : </span> <a href="javascript:void(0);" style="color:#0022ff; font-weight:bold;"></a><br>             <span style="font-size: 16px">이메일 : </span> <a href="mailto:장철호" style="color:#228b22; font-weight:bold;">장철호</a>         </div>          <div style="margin-top:10px; display:flex; gap:5px;">             <a href="tmap://route?goalname=이엠오토모티브(주)(화성)&goalx=126.788974493825&goaly=37.0392721817949" style="background-color:#0022FF; color:white; padding:6px 0; border-radius:6px; font-size:18px; font-weight:bold; flex:1; text-align:center; text-decoration:none;">T맵</a>             <a href="kakaomap://route?ep=37.0392721817949,126.788974493825&by=CAR" style="background-color:#FAE100; color:#3C1E1E; padding:6px 0; border-radius:6px; font-size:18px; font-weight:bold; flex:1; text-align:center; text-decoration:none;">카카오맵</a>         </div>         <hr style="margin:10px 0; border:0; border-top:1px solid #666;">                   <div style="font-size:15px; color:#000; line-height:1.5;">             <span style="font-size: 16px; font-weight: bold; color: #0022ff;">화성시 만세구 우정읍 기아자동차로 95 (우정읍)</span><br>             <span style="color: #333;">특화 기계 / 자동차제조업</span><br>             0회 / <span style="color:white; font-weight:bold;">해당없음</span>         </div>     </div></div>`)[0];
+                popup_911e7a098b19bad8726ec4bda52b50c2.setContent(html_77859c2fc4f1e1fe2fd85af94f073d6b);
+            
+        
+
+        marker_91a412a1ac3f13353ac61e6f8a8f104a.bindPopup(popup_911e7a098b19bad8726ec4bda52b50c2)
+        ;
+
+        
+    
+    
+            marker_91a412a1ac3f13353ac61e6f8a8f104a.bindTooltip(
+                `<div>
+                     이엠오토모티브(주)(화성)
+                 </div>`,
+                {
+  "permanent": true,
+  "direction": "top",
+  "offset": [0, -35],
+  "sticky": true,
+}
+            );
+        
+    
+                marker_91a412a1ac3f13353ac61e6f8a8f104a.setIcon(icon_6ff7aed807e2cacec20f02c0629e1d84);
+            
+    
+            var marker_abc07608eaa69f0a76925e7634749baf = L.marker(
+                [37.2140199358773, 126.8476255516],
+                {
+  "opacity": 0.9,
+}
+            ).addTo(feature_group_f57e6abfdc5b57608b29a1d782af187e);
+        
+    
+            var icon_f5af1e0e903e4528373657ef804a9568 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "green",
+  "iconColor": "white",
+  "icon": "gears",
+  "prefix": "fa",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_df92535c0d33f473cab6c8aa6eec24db = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_18a4d152099361e001b8d71435b3374a = $(`<div id="html_18a4d152099361e001b8d71435b3374a" style="width: 100.0%; height: 100.0%;">     <div style="width:280px; font-family:'Malgun Gothic', sans-serif; line-height:1.5; padding:2px;">         <h3 style="margin:0 0 5px 0; padding:0;">             <span style="color:#333; font-size:14px;">[(주)대진이엔씨/(주)디아이비앤피]</span> /              <span style="color:#333; font-size:14px; font-weight:bold;">배대현</span> <br>             <b style="font-size:20px; color:#000;">(주)대진이엔씨/(주)디아이비앤피</b> / 8명         </h3>         <hr style="margin:5px 0; border:0; border-top:2px solid #333;">                  <div style="font-size:20px; line-height:1.5; padding:0;">             <span style="font-size: 16px">사업장 : </span> <a href="tel:03180475075" style="color:#0022ff; font-weight:bold;">03180475075</a><br>             <span style="font-size: 16px">팩스번 : </span> <span style="font-size: 16px; color: #333;">3180475076</span><br>             <hr style="margin:5px 0; border:0; border-top:1px solid #666;">              <span style="font-size: 16px">담당자 : </span> <span style="color:#000; font-weight:bold;">임윤식</span><br>             <span style="font-size: 16px">연락처 : </span> <a href="javascript:void(0);" style="color:#0022ff; font-weight:bold;"></a><br>             <span style="font-size: 16px">이메일 : </span> <a href="mailto:임윤식" style="color:#228b22; font-weight:bold;">임윤식</a>         </div>          <div style="margin-top:10px; display:flex; gap:5px;">             <a href="tmap://route?goalname=(주)대진이엔씨/(주)디아이비앤피&goalx=126.8476255516&goaly=37.2140199358773" style="background-color:#0022FF; color:white; padding:6px 0; border-radius:6px; font-size:18px; font-weight:bold; flex:1; text-align:center; text-decoration:none;">T맵</a>             <a href="kakaomap://route?ep=37.2140199358773,126.8476255516&by=CAR" style="background-color:#FAE100; color:#3C1E1E; padding:6px 0; border-radius:6px; font-size:18px; font-weight:bold; flex:1; text-align:center; text-decoration:none;">카카오맵</a>         </div>         <hr style="margin:10px 0; border:0; border-top:1px solid #666;">                   <div style="font-size:15px; color:#000; line-height:1.5;">             <span style="font-size: 16px; font-weight: bold; color: #0022ff;">화성시 만세구 남양읍 주석로184번길 52 (북양동)</span><br>             <span style="color: #333;">특화 기계 / 일반산업용기계장치제조업</span><br>             0회 / <span style="color:white; font-weight:bold;">해당없음</span>         </div>     </div></div>`)[0];
+                popup_df92535c0d33f473cab6c8aa6eec24db.setContent(html_18a4d152099361e001b8d71435b3374a);
+            
+        
+
+        marker_abc07608eaa69f0a76925e7634749baf.bindPopup(popup_df92535c0d33f473cab6c8aa6eec24db)
+        ;
+
+        
+    
+    
+            marker_abc07608eaa69f0a76925e7634749baf.bindTooltip(
+                `<div>
+                     (주)대진이엔씨/(주)디아이비앤피
+                 </div>`,
+                {
+  "permanent": true,
+  "direction": "top",
+  "offset": [0, -35],
+  "sticky": true,
+}
+            );
+        
+    
+                marker_abc07608eaa69f0a76925e7634749baf.setIcon(icon_f5af1e0e903e4528373657ef804a9568);
+            
+    
+            var marker_4816da64332daef39773308a0219c634 = L.marker(
+                [37.0567162645031, 126.790461403171],
+                {
+  "opacity": 0.9,
+}
+            ).addTo(feature_group_f57e6abfdc5b57608b29a1d782af187e);
+        
+    
+            var icon_db4f2b0d3e10778a942d1a135df3767e = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "green",
+  "iconColor": "white",
+  "icon": "gears",
+  "prefix": "fa",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_1b6df542b84ee73a79045c76ddf4c38c = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_021e059440fb4c86c7b816e0b7067911 = $(`<div id="html_021e059440fb4c86c7b816e0b7067911" style="width: 100.0%; height: 100.0%;">     <div style="width:280px; font-family:'Malgun Gothic', sans-serif; line-height:1.5; padding:2px;">         <h3 style="margin:0 0 5px 0; padding:0;">             <span style="color:#333; font-size:14px;">[(주)태창조립]</span> /              <span style="color:#333; font-size:14px; font-weight:bold;">윤희중</span> <br>             <b style="font-size:20px; color:#000;">(주)태창조립</b> / 7명         </h3>         <hr style="margin:5px 0; border:0; border-top:2px solid #333;">                  <div style="font-size:20px; line-height:1.5; padding:0;">             <span style="font-size: 16px">사업장 : </span> <a href="tel:0313193574" style="color:#0022ff; font-weight:bold;">0313193574</a><br>             <span style="font-size: 16px">팩스번 : </span> <span style="font-size: 16px; color: #333;">정보없음</span><br>             <hr style="margin:5px 0; border:0; border-top:1px solid #666;">              <span style="font-size: 16px">담당자 : </span> <span style="color:#000; font-weight:bold;">장철호</span><br>             <span style="font-size: 16px">연락처 : </span> <a href="javascript:void(0);" style="color:#0022ff; font-weight:bold;"></a><br>             <span style="font-size: 16px">이메일 : </span> <a href="mailto:장철호" style="color:#228b22; font-weight:bold;">장철호</a>         </div>          <div style="margin-top:10px; display:flex; gap:5px;">             <a href="tmap://route?goalname=(주)태창조립&goalx=126.790461403171&goaly=37.0567162645031" style="background-color:#0022FF; color:white; padding:6px 0; border-radius:6px; font-size:18px; font-weight:bold; flex:1; text-align:center; text-decoration:none;">T맵</a>             <a href="kakaomap://route?ep=37.0567162645031,126.790461403171&by=CAR" style="background-color:#FAE100; color:#3C1E1E; padding:6px 0; border-radius:6px; font-size:18px; font-weight:bold; flex:1; text-align:center; text-decoration:none;">카카오맵</a>         </div>         <hr style="margin:10px 0; border:0; border-top:1px solid #666;">                   <div style="font-size:15px; color:#000; line-height:1.5;">             <span style="font-size: 16px; font-weight: bold; color: #0022ff;">화성시 만세구 우정읍 석천길 34</span><br>             <span style="color: #333;">특화 기계 / 자동차부분품제조업</span><br>             0회 / <span style="color:white; font-weight:bold;">해당없음</span>         </div>     </div></div>`)[0];
+                popup_1b6df542b84ee73a79045c76ddf4c38c.setContent(html_021e059440fb4c86c7b816e0b7067911);
+            
+        
+
+        marker_4816da64332daef39773308a0219c634.bindPopup(popup_1b6df542b84ee73a79045c76ddf4c38c)
+        ;
+
+        
+    
+    
+            marker_4816da64332daef39773308a0219c634.bindTooltip(
+                `<div>
+                     (주)태창조립
+                 </div>`,
+                {
+  "permanent": true,
+  "direction": "top",
+  "offset": [0, -35],
+  "sticky": true,
+}
+            );
+        
+    
+                marker_4816da64332daef39773308a0219c634.setIcon(icon_db4f2b0d3e10778a942d1a135df3767e);
+            
+    
+            var marker_b84a2638f47851c93a4ef5c1a727ff4b = L.marker(
+                [37.0577709268693, 126.855906466162],
+                {
+  "opacity": 0.9,
+}
+            ).addTo(feature_group_f57e6abfdc5b57608b29a1d782af187e);
+        
+    
+            var icon_f78e4305825ae51725bec8584302f7b2 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "green",
+  "iconColor": "white",
+  "icon": "gears",
+  "prefix": "fa",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_d603b65666d8716a310f1ac908c0cb49 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_4f5b86fa10ae4599a85a48bcca7bde2e = $(`<div id="html_4f5b86fa10ae4599a85a48bcca7bde2e" style="width: 100.0%; height: 100.0%;">     <div style="width:280px; font-family:'Malgun Gothic', sans-serif; line-height:1.5; padding:2px;">         <h3 style="margin:0 0 5px 0; padding:0;">             <span style="color:#333; font-size:14px;">[토탈도장기화성공장]</span> /              <span style="color:#333; font-size:14px; font-weight:bold;">유재혁</span> <br>             <b style="font-size:20px; color:#000;">토탈도장기화성공장</b> / 8명         </h3>         <hr style="margin:5px 0; border:0; border-top:2px solid #333;">                  <div style="font-size:20px; line-height:1.5; padding:0;">             <span style="font-size: 16px">사업장 : </span> <a href="tel:0314794326" style="color:#0022ff; font-weight:bold;">0314794326</a><br>             <span style="font-size: 16px">팩스번 : </span> <span style="font-size: 16px; color: #333;">정보없음</span><br>             <hr style="margin:5px 0; border:0; border-top:1px solid #666;">              <span style="font-size: 16px">담당자 : </span> <span style="color:#000; font-weight:bold;">장철호</span><br>             <span style="font-size: 16px">연락처 : </span> <a href="javascript:void(0);" style="color:#0022ff; font-weight:bold;"></a><br>             <span style="font-size: 16px">이메일 : </span> <a href="mailto:장철호" style="color:#228b22; font-weight:bold;">장철호</a>         </div>          <div style="margin-top:10px; display:flex; gap:5px;">             <a href="tmap://route?goalname=토탈도장기화성공장&goalx=126.855906466162&goaly=37.0577709268693" style="background-color:#0022FF; color:white; padding:6px 0; border-radius:6px; font-size:18px; font-weight:bold; flex:1; text-align:center; text-decoration:none;">T맵</a>             <a href="kakaomap://route?ep=37.0577709268693,126.855906466162&by=CAR" style="background-color:#FAE100; color:#3C1E1E; padding:6px 0; border-radius:6px; font-size:18px; font-weight:bold; flex:1; text-align:center; text-decoration:none;">카카오맵</a>         </div>         <hr style="margin:10px 0; border:0; border-top:1px solid #666;">                   <div style="font-size:15px; color:#000; line-height:1.5;">             <span style="font-size: 16px; font-weight: bold; color: #0022ff;">화성시 만세구 장안면 포승장안로 1020 (장안면)</span><br>             <span style="color: #333;">특화 기계 / 일반산업용기계장치제조업</span><br>             0회 / <span style="color:white; font-weight:bold;">해당없음</span>         </div>     </div></div>`)[0];
+                popup_d603b65666d8716a310f1ac908c0cb49.setContent(html_4f5b86fa10ae4599a85a48bcca7bde2e);
+            
+        
+
+        marker_b84a2638f47851c93a4ef5c1a727ff4b.bindPopup(popup_d603b65666d8716a310f1ac908c0cb49)
+        ;
+
+        
+    
+    
+            marker_b84a2638f47851c93a4ef5c1a727ff4b.bindTooltip(
+                `<div>
+                     토탈도장기화성공장
+                 </div>`,
+                {
+  "permanent": true,
+  "direction": "top",
+  "offset": [0, -35],
+  "sticky": true,
+}
+            );
+        
+    
+                marker_b84a2638f47851c93a4ef5c1a727ff4b.setIcon(icon_f78e4305825ae51725bec8584302f7b2);
+            
+    
+            var marker_77a1a06ceab29d18994ddde2ccbc069b = L.marker(
+                [37.1731564358597, 127.088167551089],
+                {
+  "opacity": 0.9,
+}
+            ).addTo(feature_group_f57e6abfdc5b57608b29a1d782af187e);
+        
+    
+            var icon_0d532ed58acccdbd09e8ead598f0dd31 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "green",
+  "iconColor": "white",
+  "icon": "gears",
+  "prefix": "fa",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_68b36a53f158ffeecd7db6cd7587946f = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_3bf3afae157cd21eadde1c96dd645f26 = $(`<div id="html_3bf3afae157cd21eadde1c96dd645f26" style="width: 100.0%; height: 100.0%;">     <div style="width:280px; font-family:'Malgun Gothic', sans-serif; line-height:1.5; padding:2px;">         <h3 style="margin:0 0 5px 0; padding:0;">             <span style="color:#333; font-size:14px;">[AP시스템(동탄 본사)]</span> /              <span style="color:#333; font-size:14px; font-weight:bold;">이철연</span> <br>             <b style="font-size:20px; color:#000;">AP시스템(동탄 본사)</b> / 5명         </h3>         <hr style="margin:5px 0; border:0; border-top:2px solid #333;">                  <div style="font-size:20px; line-height:1.5; padding:0;">             <span style="font-size: 16px">사업장 : </span> <a href="tel:0313738075" style="color:#0022ff; font-weight:bold;">0313738075</a><br>             <span style="font-size: 16px">팩스번 : </span> <span style="font-size: 16px; color: #333;">정보없음</span><br>             <hr style="margin:5px 0; border:0; border-top:1px solid #666;">              <span style="font-size: 16px">담당자 : </span> <span style="color:#000; font-weight:bold;">김형구</span><br>             <span style="font-size: 16px">연락처 : </span> <a href="javascript:void(0);" style="color:#0022ff; font-weight:bold;"></a><br>             <span style="font-size: 16px">이메일 : </span> <a href="mailto:김형구" style="color:#228b22; font-weight:bold;">김형구</a>         </div>          <div style="margin-top:10px; display:flex; gap:5px;">             <a href="tmap://route?goalname=AP시스템(동탄 본사)&goalx=127.088167551089&goaly=37.1731564358597" style="background-color:#0022FF; color:white; padding:6px 0; border-radius:6px; font-size:18px; font-weight:bold; flex:1; text-align:center; text-decoration:none;">T맵</a>             <a href="kakaomap://route?ep=37.1731564358597,127.088167551089&by=CAR" style="background-color:#FAE100; color:#3C1E1E; padding:6px 0; border-radius:6px; font-size:18px; font-weight:bold; flex:1; text-align:center; text-decoration:none;">카카오맵</a>         </div>         <hr style="margin:10px 0; border:0; border-top:1px solid #666;">                   <div style="font-size:15px; color:#000; line-height:1.5;">             <span style="font-size: 16px; font-weight: bold; color: #0022ff;">화성시 동탄구 동탄산단8길 15-5 (방교동)</span><br>             <span style="color: #333;">특화 기계 / 특수산업용기계제조업</span><br>             0회 / <span style="color:white; font-weight:bold;">해당없음</span>         </div>     </div></div>`)[0];
+                popup_68b36a53f158ffeecd7db6cd7587946f.setContent(html_3bf3afae157cd21eadde1c96dd645f26);
+            
+        
+
+        marker_77a1a06ceab29d18994ddde2ccbc069b.bindPopup(popup_68b36a53f158ffeecd7db6cd7587946f)
+        ;
+
+        
+    
+    
+            marker_77a1a06ceab29d18994ddde2ccbc069b.bindTooltip(
+                `<div>
+                     AP시스템(동탄 본사)
+                 </div>`,
+                {
+  "permanent": true,
+  "direction": "top",
+  "offset": [0, -35],
+  "sticky": true,
+}
+            );
+        
+    
+                marker_77a1a06ceab29d18994ddde2ccbc069b.setIcon(icon_0d532ed58acccdbd09e8ead598f0dd31);
+            
+    
+            var marker_a6f64368a85c604f3eef0985f548a137 = L.marker(
+                [37.2533151265051, 127.083875622244],
+                {
+  "opacity": 0.9,
+}
+            ).addTo(feature_group_f57e6abfdc5b57608b29a1d782af187e);
+        
+    
+            var icon_032ea9b80b4b088b6486ca0546e74f3c = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "green",
+  "iconColor": "white",
+  "icon": "gears",
+  "prefix": "fa",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_e7b5ccc241369a589ce07d2b49ce0e1b = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_4977c4673b8d44f72b32f3101c419040 = $(`<div id="html_4977c4673b8d44f72b32f3101c419040" style="width: 100.0%; height: 100.0%;">     <div style="width:280px; font-family:'Malgun Gothic', sans-serif; line-height:1.5; padding:2px;">         <h3 style="margin:0 0 5px 0; padding:0;">             <span style="color:#333; font-size:14px;">[경기남부영업소]</span> /              <span style="color:#333; font-size:14px; font-weight:bold;">윤승수</span> <br>             <b style="font-size:20px; color:#000;">경기남부영업소</b> / 10명         </h3>         <hr style="margin:5px 0; border:0; border-top:2px solid #333;">                  <div style="font-size:20px; line-height:1.5; padding:0;">             <span style="font-size: 16px">사업장 : </span> <a href="tel:0312115529" style="color:#0022ff; font-weight:bold;">0312115529</a><br>             <span style="font-size: 16px">팩스번 : </span> <span style="font-size: 16px; color: #333;">정보없음</span><br>             <hr style="margin:5px 0; border:0; border-top:1px solid #666;">              <span style="font-size: 16px">담당자 : </span> <span style="color:#000; font-weight:bold;">김형구</span><br>             <span style="font-size: 16px">연락처 : </span> <a href="javascript:void(0);" style="color:#0022ff; font-weight:bold;"></a><br>             <span style="font-size: 16px">이메일 : </span> <a href="mailto:김형구" style="color:#228b22; font-weight:bold;">김형구</a>         </div>          <div style="margin-top:10px; display:flex; gap:5px;">             <a href="tmap://route?goalname=경기남부영업소&goalx=127.083875622244&goaly=37.2533151265051" style="background-color:#0022FF; color:white; padding:6px 0; border-radius:6px; font-size:18px; font-weight:bold; flex:1; text-align:center; text-decoration:none;">T맵</a>             <a href="kakaomap://route?ep=37.2533151265051,127.083875622244&by=CAR" style="background-color:#FAE100; color:#3C1E1E; padding:6px 0; border-radius:6px; font-size:18px; font-weight:bold; flex:1; text-align:center; text-decoration:none;">카카오맵</a>         </div>         <hr style="margin:10px 0; border:0; border-top:1px solid #666;">                   <div style="font-size:15px; color:#000; line-height:1.5;">             <span style="font-size: 16px; font-weight: bold; color: #0022ff;">용인시 기흥구 덕영대로 1751 (하갈동) 삼성노블카운티 리빙프라자</span><br>             <span style="color: #333;">특화 기계 / 일반산업용기계장치제조업</span><br>             0회 / <span style="color:white; font-weight:bold;">해당없음</span>         </div>     </div></div>`)[0];
+                popup_e7b5ccc241369a589ce07d2b49ce0e1b.setContent(html_4977c4673b8d44f72b32f3101c419040);
+            
+        
+
+        marker_a6f64368a85c604f3eef0985f548a137.bindPopup(popup_e7b5ccc241369a589ce07d2b49ce0e1b)
+        ;
+
+        
+    
+    
+            marker_a6f64368a85c604f3eef0985f548a137.bindTooltip(
+                `<div>
+                     경기남부영업소
+                 </div>`,
+                {
+  "permanent": true,
+  "direction": "top",
+  "offset": [0, -35],
+  "sticky": true,
+}
+            );
+        
+    
+                marker_a6f64368a85c604f3eef0985f548a137.setIcon(icon_032ea9b80b4b088b6486ca0546e74f3c);
+            
+    
+            var marker_b5534bd8604848ece085ad6711a747a5 = L.marker(
+                [37.2664760311963, 127.074574219128],
+                {
+  "opacity": 0.9,
+}
+            ).addTo(feature_group_f57e6abfdc5b57608b29a1d782af187e);
+        
+    
+            var icon_d44f150bd2873c69c2952d351e8f4847 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "green",
+  "iconColor": "white",
+  "icon": "gears",
+  "prefix": "fa",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_a5fadc484b46adeb2e1c3c65e3a544c3 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_3cc31aa89545ea78d7886f887ed9ee05 = $(`<div id="html_3cc31aa89545ea78d7886f887ed9ee05" style="width: 100.0%; height: 100.0%;">     <div style="width:280px; font-family:'Malgun Gothic', sans-serif; line-height:1.5; padding:2px;">         <h3 style="margin:0 0 5px 0; padding:0;">             <span style="color:#333; font-size:14px;">[수원지점]</span> /              <span style="color:#333; font-size:14px; font-weight:bold;">한영철</span> <br>             <b style="font-size:20px; color:#000;">수원지점</b> / 38명         </h3>         <hr style="margin:5px 0; border:0; border-top:2px solid #333;">                  <div style="font-size:20px; line-height:1.5; padding:0;">             <span style="font-size: 16px">사업장 : </span> <a href="tel:0312843033" style="color:#0022ff; font-weight:bold;">0312843033</a><br>             <span style="font-size: 16px">팩스번 : </span> <span style="font-size: 16px; color: #333;">정보없음</span><br>             <hr style="margin:5px 0; border:0; border-top:1px solid #666;">              <span style="font-size: 16px">담당자 : </span> <span style="color:#000; font-weight:bold;">김형구</span><br>             <span style="font-size: 16px">연락처 : </span> <a href="javascript:void(0);" style="color:#0022ff; font-weight:bold;"></a><br>             <span style="font-size: 16px">이메일 : </span> <a href="mailto:김형구" style="color:#228b22; font-weight:bold;">김형구</a>         </div>          <div style="margin-top:10px; display:flex; gap:5px;">             <a href="tmap://route?goalname=수원지점&goalx=127.074574219128&goaly=37.2664760311963" style="background-color:#0022FF; color:white; padding:6px 0; border-radius:6px; font-size:18px; font-weight:bold; flex:1; text-align:center; text-decoration:none;">T맵</a>             <a href="kakaomap://route?ep=37.2664760311963,127.074574219128&by=CAR" style="background-color:#FAE100; color:#3C1E1E; padding:6px 0; border-radius:6px; font-size:18px; font-weight:bold; flex:1; text-align:center; text-decoration:none;">카카오맵</a>         </div>         <hr style="margin:10px 0; border:0; border-top:1px solid #666;">                   <div style="font-size:15px; color:#000; line-height:1.5;">             <span style="font-size: 16px; font-weight: bold; color: #0022ff;">용인시 기흥구 중부대로56번길 8 (영덕동)</span><br>             <span style="color: #333;">특화 기계 / 자동차 및 모터사이클 수리업</span><br>             0회 / <span style="color:white; font-weight:bold;">해당없음</span>         </div>     </div></div>`)[0];
+                popup_a5fadc484b46adeb2e1c3c65e3a544c3.setContent(html_3cc31aa89545ea78d7886f887ed9ee05);
+            
+        
+
+        marker_b5534bd8604848ece085ad6711a747a5.bindPopup(popup_a5fadc484b46adeb2e1c3c65e3a544c3)
+        ;
+
+        
+    
+    
+            marker_b5534bd8604848ece085ad6711a747a5.bindTooltip(
+                `<div>
+                     수원지점
+                 </div>`,
+                {
+  "permanent": true,
+  "direction": "top",
+  "offset": [0, -35],
+  "sticky": true,
+}
+            );
+        
+    
+                marker_b5534bd8604848ece085ad6711a747a5.setIcon(icon_d44f150bd2873c69c2952d351e8f4847);
+            
+    
+            var marker_1a0ec911016205da75963595221d76e6 = L.marker(
+                [37.2356708691789, 127.192625453725],
+                {
+  "opacity": 0.9,
+}
+            ).addTo(feature_group_f57e6abfdc5b57608b29a1d782af187e);
+        
+    
+            var icon_e49efba99b43fc2adcd4e45fa2e97922 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "green",
+  "iconColor": "white",
+  "icon": "gears",
+  "prefix": "fa",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_344b7827e379987b82d7a3ee92910615 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_67041a0d1a2d4606f6a5b0cb49b2cb95 = $(`<div id="html_67041a0d1a2d4606f6a5b0cb49b2cb95" style="width: 100.0%; height: 100.0%;">     <div style="width:280px; font-family:'Malgun Gothic', sans-serif; line-height:1.5; padding:2px;">         <h3 style="margin:0 0 5px 0; padding:0;">             <span style="color:#333; font-size:14px;">[(주)한승엘리베이터]</span> /              <span style="color:#333; font-size:14px; font-weight:bold;">홍광진</span> <br>             <b style="font-size:20px; color:#000;">(주)한승엘리베이터</b> / 7명         </h3>         <hr style="margin:5px 0; border:0; border-top:2px solid #333;">                  <div style="font-size:20px; line-height:1.5; padding:0;">             <span style="font-size: 16px">사업장 : </span> <a href="tel:0313333696" style="color:#0022ff; font-weight:bold;">0313333696</a><br>             <span style="font-size: 16px">팩스번 : </span> <span style="font-size: 16px; color: #333;">정보없음</span><br>             <hr style="margin:5px 0; border:0; border-top:1px solid #666;">              <span style="font-size: 16px">담당자 : </span> <span style="color:#000; font-weight:bold;">김형구</span><br>             <span style="font-size: 16px">연락처 : </span> <a href="javascript:void(0);" style="color:#0022ff; font-weight:bold;"></a><br>             <span style="font-size: 16px">이메일 : </span> <a href="mailto:김형구" style="color:#228b22; font-weight:bold;">김형구</a>         </div>          <div style="margin-top:10px; display:flex; gap:5px;">             <a href="tmap://route?goalname=(주)한승엘리베이터&goalx=127.192625453725&goaly=37.2356708691789" style="background-color:#0022FF; color:white; padding:6px 0; border-radius:6px; font-size:18px; font-weight:bold; flex:1; text-align:center; text-decoration:none;">T맵</a>             <a href="kakaomap://route?ep=37.2356708691789,127.192625453725&by=CAR" style="background-color:#FAE100; color:#3C1E1E; padding:6px 0; border-radius:6px; font-size:18px; font-weight:bold; flex:1; text-align:center; text-decoration:none;">카카오맵</a>         </div>         <hr style="margin:10px 0; border:0; border-top:1px solid #666;">                   <div style="font-size:15px; color:#000; line-height:1.5;">             <span style="font-size: 16px; font-weight: bold; color: #0022ff;">용인시 처인구 중부대로 1329 보성빌딩(역북동)503호</span><br>             <span style="color: #333;">특화 기계 / 일반산업용기계장치제조업</span><br>             0회 / <span style="color:white; font-weight:bold;">해당없음</span>         </div>     </div></div>`)[0];
+                popup_344b7827e379987b82d7a3ee92910615.setContent(html_67041a0d1a2d4606f6a5b0cb49b2cb95);
+            
+        
+
+        marker_1a0ec911016205da75963595221d76e6.bindPopup(popup_344b7827e379987b82d7a3ee92910615)
+        ;
+
+        
+    
+    
+            marker_1a0ec911016205da75963595221d76e6.bindTooltip(
+                `<div>
+                     (주)한승엘리베이터
+                 </div>`,
+                {
+  "permanent": true,
+  "direction": "top",
+  "offset": [0, -35],
+  "sticky": true,
+}
+            );
+        
+    
+                marker_1a0ec911016205da75963595221d76e6.setIcon(icon_e49efba99b43fc2adcd4e45fa2e97922);
+            
+    
+            var marker_1451f4d01324467cedc63f94589c345b = L.marker(
+                [37.2049706348794, 127.07396314979],
+                {
+  "opacity": 0.9,
+}
+            ).addTo(feature_group_f57e6abfdc5b57608b29a1d782af187e);
+        
+    
+            var icon_ffee847c128df89a6854a728ee0bab41 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "green",
+  "iconColor": "white",
+  "icon": "gears",
+  "prefix": "fa",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_1c31225e68c7d459de9fcb82ae478925 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_57d9371f14bf85d5317dce7f3a2bef0d = $(`<div id="html_57d9371f14bf85d5317dce7f3a2bef0d" style="width: 100.0%; height: 100.0%;">     <div style="width:280px; font-family:'Malgun Gothic', sans-serif; line-height:1.5; padding:2px;">         <h3 style="margin:0 0 5px 0; padding:0;">             <span style="color:#333; font-size:14px;">[(주)에스티아이(동탄)]</span> /              <span style="color:#333; font-size:14px; font-weight:bold;">서인수</span> <br>             <b style="font-size:20px; color:#000;">(주)에스티아이(동탄)</b> / 51명         </h3>         <hr style="margin:5px 0; border:0; border-top:2px solid #333;">                  <div style="font-size:20px; line-height:1.5; padding:0;">             <span style="font-size: 16px">사업장 : </span> <a href="tel:0312054844" style="color:#0022ff; font-weight:bold;">0312054844</a><br>             <span style="font-size: 16px">팩스번 : </span> <span style="font-size: 16px; color: #333;">312054846</span><br>             <hr style="margin:5px 0; border:0; border-top:1px solid #666;">              <span style="font-size: 16px">담당자 : </span> <span style="color:#000; font-weight:bold;">김형구</span><br>             <span style="font-size: 16px">연락처 : </span> <a href="javascript:void(0);" style="color:#0022ff; font-weight:bold;"></a><br>             <span style="font-size: 16px">이메일 : </span> <a href="mailto:김형구" style="color:#228b22; font-weight:bold;">김형구</a>         </div>          <div style="margin-top:10px; display:flex; gap:5px;">             <a href="tmap://route?goalname=(주)에스티아이(동탄)&goalx=127.07396314979&goaly=37.2049706348794" style="background-color:#0022FF; color:white; padding:6px 0; border-radius:6px; font-size:18px; font-weight:bold; flex:1; text-align:center; text-decoration:none;">T맵</a>             <a href="kakaomap://route?ep=37.2049706348794,127.07396314979&by=CAR" style="background-color:#FAE100; color:#3C1E1E; padding:6px 0; border-radius:6px; font-size:18px; font-weight:bold; flex:1; text-align:center; text-decoration:none;">카카오맵</a>         </div>         <hr style="margin:10px 0; border:0; border-top:1px solid #666;">                   <div style="font-size:15px; color:#000; line-height:1.5;">             <span style="font-size: 16px; font-weight: bold; color: #0022ff;">경기도 화성시 동탄구 동탄지성로 2 (반송동) 동탄 플래티넘 3층</span><br>             <span style="color: #333;">특화 기계 / 일반산업용기계장치제조업</span><br>             0회 / <span style="color:white; font-weight:bold;">해당없음</span>         </div>     </div></div>`)[0];
+                popup_1c31225e68c7d459de9fcb82ae478925.setContent(html_57d9371f14bf85d5317dce7f3a2bef0d);
+            
+        
+
+        marker_1451f4d01324467cedc63f94589c345b.bindPopup(popup_1c31225e68c7d459de9fcb82ae478925)
+        ;
+
+        
+    
+    
+            marker_1451f4d01324467cedc63f94589c345b.bindTooltip(
+                `<div>
+                     (주)에스티아이(동탄)
+                 </div>`,
+                {
+  "permanent": true,
+  "direction": "top",
+  "offset": [0, -35],
+  "sticky": true,
+}
+            );
+        
+    
+                marker_1451f4d01324467cedc63f94589c345b.setIcon(icon_ffee847c128df89a6854a728ee0bab41);
+            
+    
+            var marker_50892e43d5961531f2c2a9cd2224dd24 = L.marker(
+                [37.2299528754961, 127.109134229001],
+                {
+  "opacity": 0.9,
+}
+            ).addTo(feature_group_f57e6abfdc5b57608b29a1d782af187e);
+        
+    
+            var icon_f369284f3fdeb0b3af15b24c4f114985 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "green",
+  "iconColor": "white",
+  "icon": "gears",
+  "prefix": "fa",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_82e12d3bf3903e0241230285045a9f74 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_623e76414f63e1414222e6f4deab2598 = $(`<div id="html_623e76414f63e1414222e6f4deab2598" style="width: 100.0%; height: 100.0%;">     <div style="width:280px; font-family:'Malgun Gothic', sans-serif; line-height:1.5; padding:2px;">         <h3 style="margin:0 0 5px 0; padding:0;">             <span style="color:#333; font-size:14px;">[주식회사탑월드/에스티에스(주)]</span> /              <span style="color:#333; font-size:14px; font-weight:bold;">김강섭</span> <br>             <b style="font-size:20px; color:#000;">주식회사탑월드/에스티에스(주)</b> / 15명         </h3>         <hr style="margin:5px 0; border:0; border-top:2px solid #333;">                  <div style="font-size:20px; line-height:1.5; padding:0;">             <span style="font-size: 16px">사업장 : </span> <a href="tel:0312068617" style="color:#0022ff; font-weight:bold;">0312068617</a><br>             <span style="font-size: 16px">팩스번 : </span> <span style="font-size: 16px; color: #333;">313788617</span><br>             <hr style="margin:5px 0; border:0; border-top:1px solid #666;">              <span style="font-size: 16px">담당자 : </span> <span style="color:#000; font-weight:bold;">김형구</span><br>             <span style="font-size: 16px">연락처 : </span> <a href="javascript:void(0);" style="color:#0022ff; font-weight:bold;"></a><br>             <span style="font-size: 16px">이메일 : </span> <a href="mailto:김형구" style="color:#228b22; font-weight:bold;">김형구</a>         </div>          <div style="margin-top:10px; display:flex; gap:5px;">             <a href="tmap://route?goalname=주식회사탑월드/에스티에스(주)&goalx=127.109134229001&goaly=37.2299528754961" style="background-color:#0022FF; color:white; padding:6px 0; border-radius:6px; font-size:18px; font-weight:bold; flex:1; text-align:center; text-decoration:none;">T맵</a>             <a href="kakaomap://route?ep=37.2299528754961,127.109134229001&by=CAR" style="background-color:#FAE100; color:#3C1E1E; padding:6px 0; border-radius:6px; font-size:18px; font-weight:bold; flex:1; text-align:center; text-decoration:none;">카카오맵</a>         </div>         <hr style="margin:10px 0; border:0; border-top:1px solid #666;">                   <div style="font-size:15px; color:#000; line-height:1.5;">             <span style="font-size: 16px; font-weight: bold; color: #0022ff;">용인시 기흥구 기흥단지로141번길 46 (고매동, STS)</span><br>             <span style="color: #333;">특화 기계 / 각종기계또는동부속품제조업</span><br>             0회 / <span style="color:white; font-weight:bold;">해당없음</span>         </div>     </div></div>`)[0];
+                popup_82e12d3bf3903e0241230285045a9f74.setContent(html_623e76414f63e1414222e6f4deab2598);
+            
+        
+
+        marker_50892e43d5961531f2c2a9cd2224dd24.bindPopup(popup_82e12d3bf3903e0241230285045a9f74)
+        ;
+
+        
+    
+    
+            marker_50892e43d5961531f2c2a9cd2224dd24.bindTooltip(
+                `<div>
+                     주식회사탑월드/에스티에스(주)
+                 </div>`,
+                {
+  "permanent": true,
+  "direction": "top",
+  "offset": [0, -35],
+  "sticky": true,
+}
+            );
+        
+    
+                marker_50892e43d5961531f2c2a9cd2224dd24.setIcon(icon_f369284f3fdeb0b3af15b24c4f114985);
+            
+    
+            var marker_c72155cde1070743e30faed0b8505458 = L.marker(
+                [37.2881943862144, 127.057346969072],
+                {
+  "opacity": 0.9,
+}
+            ).addTo(feature_group_f57e6abfdc5b57608b29a1d782af187e);
+        
+    
+            var icon_0af1e8eaf8f2ad6843a68306f8586360 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "green",
+  "iconColor": "white",
+  "icon": "gears",
+  "prefix": "fa",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_e3c538f82a0e57095e472e15356d5cd0 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_4cafc4b846577abcd21b08f87c8b2385 = $(`<div id="html_4cafc4b846577abcd21b08f87c8b2385" style="width: 100.0%; height: 100.0%;">     <div style="width:280px; font-family:'Malgun Gothic', sans-serif; line-height:1.5; padding:2px;">         <h3 style="margin:0 0 5px 0; padding:0;">             <span style="color:#333; font-size:14px;">[SK렌터카 광교물류센터(방문점검)]</span> /              <span style="color:#333; font-size:14px; font-weight:bold;">김창근</span> <br>             <b style="font-size:20px; color:#000;">SK렌터카 광교물류센터(방문점검)</b> / 10명         </h3>         <hr style="margin:5px 0; border:0; border-top:2px solid #333;">                  <div style="font-size:20px; line-height:1.5; padding:0;">             <span style="font-size: 16px">사업장 : </span> <a href="tel:0318908598" style="color:#0022ff; font-weight:bold;">0318908598</a><br>             <span style="font-size: 16px">팩스번 : </span> <span style="font-size: 16px; color: #333;">정보없음</span><br>             <hr style="margin:5px 0; border:0; border-top:1px solid #666;">              <span style="font-size: 16px">담당자 : </span> <span style="color:#000; font-weight:bold;">김형구</span><br>             <span style="font-size: 16px">연락처 : </span> <a href="javascript:void(0);" style="color:#0022ff; font-weight:bold;"></a><br>             <span style="font-size: 16px">이메일 : </span> <a href="mailto:김형구" style="color:#228b22; font-weight:bold;">김형구</a>         </div>          <div style="margin-top:10px; display:flex; gap:5px;">             <a href="tmap://route?goalname=SK렌터카 광교물류센터(방문점검)&goalx=127.057346969072&goaly=37.2881943862144" style="background-color:#0022FF; color:white; padding:6px 0; border-radius:6px; font-size:18px; font-weight:bold; flex:1; text-align:center; text-decoration:none;">T맵</a>             <a href="kakaomap://route?ep=37.2881943862144,127.057346969072&by=CAR" style="background-color:#FAE100; color:#3C1E1E; padding:6px 0; border-radius:6px; font-size:18px; font-weight:bold; flex:1; text-align:center; text-decoration:none;">카카오맵</a>         </div>         <hr style="margin:10px 0; border:0; border-top:1px solid #666;">                   <div style="font-size:15px; color:#000; line-height:1.5;">             <span style="font-size: 16px; font-weight: bold; color: #0022ff;">수원시 영통구 센트럴타운로 15 아이플렉스 211호(이의동)</span><br>             <span style="color: #333;">특화 기계 / 자동차 및 모터사이클 수리업</span><br>             0회 / <span style="color:white; font-weight:bold;">해당없음</span>         </div>     </div></div>`)[0];
+                popup_e3c538f82a0e57095e472e15356d5cd0.setContent(html_4cafc4b846577abcd21b08f87c8b2385);
+            
+        
+
+        marker_c72155cde1070743e30faed0b8505458.bindPopup(popup_e3c538f82a0e57095e472e15356d5cd0)
+        ;
+
+        
+    
+    
+            marker_c72155cde1070743e30faed0b8505458.bindTooltip(
+                `<div>
+                     SK렌터카 광교물류센터(방문점검)
+                 </div>`,
+                {
+  "permanent": true,
+  "direction": "top",
+  "offset": [0, -35],
+  "sticky": true,
+}
+            );
+        
+    
+                marker_c72155cde1070743e30faed0b8505458.setIcon(icon_0af1e8eaf8f2ad6843a68306f8586360);
+            
+    
+            var marker_58d5aa2b9fa797fa24a6d75420f59913 = L.marker(
+                [37.2382530503875, 127.018487673558],
+                {
+  "opacity": 0.9,
+}
+            ).addTo(feature_group_f57e6abfdc5b57608b29a1d782af187e);
+        
+    
+            var icon_3d601ad08584f11a8b88413d66c21e6b = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "green",
+  "iconColor": "white",
+  "icon": "gears",
+  "prefix": "fa",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_0ff2c4620aca7d612bc22c0ef7c91fbb = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_992dc67b9f312471179a0b515f9b8804 = $(`<div id="html_992dc67b9f312471179a0b515f9b8804" style="width: 100.0%; height: 100.0%;">     <div style="width:280px; font-family:'Malgun Gothic', sans-serif; line-height:1.5; padding:2px;">         <h3 style="margin:0 0 5px 0; padding:0;">             <span style="color:#333; font-size:14px;">[한성자동차 수원권선서비스센터]</span> /              <span style="color:#333; font-size:14px; font-weight:bold;">울프아우스프룽</span> <br>             <b style="font-size:20px; color:#000;">한성자동차 수원권선서비스센터</b> / 18명         </h3>         <hr style="margin:5px 0; border:0; border-top:2px solid #333;">                  <div style="font-size:20px; line-height:1.5; padding:0;">             <span style="font-size: 16px">사업장 : </span> <a href="tel:03180928100" style="color:#0022ff; font-weight:bold;">03180928100</a><br>             <span style="font-size: 16px">팩스번 : </span> <span style="font-size: 16px; color: #333;">정보없음</span><br>             <hr style="margin:5px 0; border:0; border-top:1px solid #666;">              <span style="font-size: 16px">담당자 : </span> <span style="color:#000; font-weight:bold;">김형구</span><br>             <span style="font-size: 16px">연락처 : </span> <a href="javascript:void(0);" style="color:#0022ff; font-weight:bold;"></a><br>             <span style="font-size: 16px">이메일 : </span> <a href="mailto:김형구" style="color:#228b22; font-weight:bold;">김형구</a>         </div>          <div style="margin-top:10px; display:flex; gap:5px;">             <a href="tmap://route?goalname=한성자동차 수원권선서비스센터&goalx=127.018487673558&goaly=37.2382530503875" style="background-color:#0022FF; color:white; padding:6px 0; border-radius:6px; font-size:18px; font-weight:bold; flex:1; text-align:center; text-decoration:none;">T맵</a>             <a href="kakaomap://route?ep=37.2382530503875,127.018487673558&by=CAR" style="background-color:#FAE100; color:#3C1E1E; padding:6px 0; border-radius:6px; font-size:18px; font-weight:bold; flex:1; text-align:center; text-decoration:none;">카카오맵</a>         </div>         <hr style="margin:10px 0; border:0; border-top:1px solid #666;">                   <div style="font-size:15px; color:#000; line-height:1.5;">             <span style="font-size: 16px; font-weight: bold; color: #0022ff;">수원시 권선구 경수대로 123 (권선동) 한성자동차</span><br>             <span style="color: #333;">특화 기계 / 자동차 및 모터사이클 수리업</span><br>             0회 / <span style="color:white; font-weight:bold;">해당없음</span>         </div>     </div></div>`)[0];
+                popup_0ff2c4620aca7d612bc22c0ef7c91fbb.setContent(html_992dc67b9f312471179a0b515f9b8804);
+            
+        
+
+        marker_58d5aa2b9fa797fa24a6d75420f59913.bindPopup(popup_0ff2c4620aca7d612bc22c0ef7c91fbb)
+        ;
+
+        
+    
+    
+            marker_58d5aa2b9fa797fa24a6d75420f59913.bindTooltip(
+                `<div>
+                     한성자동차 수원권선서비스센터
+                 </div>`,
+                {
+  "permanent": true,
+  "direction": "top",
+  "offset": [0, -35],
+  "sticky": true,
+}
+            );
+        
+    
+                marker_58d5aa2b9fa797fa24a6d75420f59913.setIcon(icon_3d601ad08584f11a8b88413d66c21e6b);
+            
+    
+            var marker_c92b09a55e9c91f92aa9b6e7524d47cc = L.marker(
+                [37.2516587060047, 127.215977978746],
+                {
+  "opacity": 0.9,
+}
+            ).addTo(feature_group_f57e6abfdc5b57608b29a1d782af187e);
+        
+    
+            var icon_a36dbbd996211c772754604c36fc69b1 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "green",
+  "iconColor": "white",
+  "icon": "gears",
+  "prefix": "fa",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_4fe0b37b5e9ca335b3e3ebd3d42aaad7 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_2321d744a6d00610616a940e4800b0d2 = $(`<div id="html_2321d744a6d00610616a940e4800b0d2" style="width: 100.0%; height: 100.0%;">     <div style="width:280px; font-family:'Malgun Gothic', sans-serif; line-height:1.5; padding:2px;">         <h3 style="margin:0 0 5px 0; padding:0;">             <span style="color:#333; font-size:14px;">[씨에스케이주식회사(리필사업장)]</span> /              <span style="color:#333; font-size:14px; font-weight:bold;">제이슨윤</span> <br>             <b style="font-size:20px; color:#000;">씨에스케이주식회사(리필사업장)</b> / 6명         </h3>         <hr style="margin:5px 0; border:0; border-top:2px solid #333;">                  <div style="font-size:20px; line-height:1.5; padding:0;">             <span style="font-size: 16px">사업장 : </span> <a href="tel:0317813761" style="color:#0022ff; font-weight:bold;">0317813761</a><br>             <span style="font-size: 16px">팩스번 : </span> <span style="font-size: 16px; color: #333;">317813768</span><br>             <hr style="margin:5px 0; border:0; border-top:1px solid #666;">              <span style="font-size: 16px">담당자 : </span> <span style="color:#000; font-weight:bold;">김형구</span><br>             <span style="font-size: 16px">연락처 : </span> <a href="javascript:void(0);" style="color:#0022ff; font-weight:bold;"></a><br>             <span style="font-size: 16px">이메일 : </span> <a href="mailto:김형구" style="color:#228b22; font-weight:bold;">김형구</a>         </div>          <div style="margin-top:10px; display:flex; gap:5px;">             <a href="tmap://route?goalname=씨에스케이주식회사(리필사업장)&goalx=127.215977978746&goaly=37.2516587060047" style="background-color:#0022FF; color:white; padding:6px 0; border-radius:6px; font-size:18px; font-weight:bold; flex:1; text-align:center; text-decoration:none;">T맵</a>             <a href="kakaomap://route?ep=37.2516587060047,127.215977978746&by=CAR" style="background-color:#FAE100; color:#3C1E1E; padding:6px 0; border-radius:6px; font-size:18px; font-weight:bold; flex:1; text-align:center; text-decoration:none;">카카오맵</a>         </div>         <hr style="margin:10px 0; border:0; border-top:1px solid #666;">                   <div style="font-size:15px; color:#000; line-height:1.5;">             <span style="font-size: 16px; font-weight: bold; color: #0022ff;">용인시 처인구 백옥대로1300번길 31 (유방동, 대림실업)</span><br>             <span style="color: #333;">특화 기계 / 일반산업용기계장치제조업</span><br>             0회 / <span style="color:white; font-weight:bold;">해당없음</span>         </div>     </div></div>`)[0];
+                popup_4fe0b37b5e9ca335b3e3ebd3d42aaad7.setContent(html_2321d744a6d00610616a940e4800b0d2);
+            
+        
+
+        marker_c92b09a55e9c91f92aa9b6e7524d47cc.bindPopup(popup_4fe0b37b5e9ca335b3e3ebd3d42aaad7)
+        ;
+
+        
+    
+    
+            marker_c92b09a55e9c91f92aa9b6e7524d47cc.bindTooltip(
+                `<div>
+                     씨에스케이주식회사(리필사업장)
+                 </div>`,
+                {
+  "permanent": true,
+  "direction": "top",
+  "offset": [0, -35],
+  "sticky": true,
+}
+            );
+        
+    
+                marker_c92b09a55e9c91f92aa9b6e7524d47cc.setIcon(icon_a36dbbd996211c772754604c36fc69b1);
+            
+    
+            var marker_4e517faf5272f94ab120b4c6533cb5c4 = L.marker(
+                [37.2548006329607, 127.106763221262],
+                {
+  "opacity": 0.9,
+}
+            ).addTo(feature_group_f57e6abfdc5b57608b29a1d782af187e);
+        
+    
+            var icon_de9a27bbfdd9a84c0b77bf3571678c81 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "green",
+  "iconColor": "white",
+  "icon": "gears",
+  "prefix": "fa",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_f193459d65bbcc13a0730b0f70794a85 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_961297b0233adb16c3fcd9ef92badd62 = $(`<div id="html_961297b0233adb16c3fcd9ef92badd62" style="width: 100.0%; height: 100.0%;">     <div style="width:280px; font-family:'Malgun Gothic', sans-serif; line-height:1.5; padding:2px;">         <h3 style="margin:0 0 5px 0; padding:0;">             <span style="color:#333; font-size:14px;">[용인서비스]</span> /              <span style="color:#333; font-size:14px; font-weight:bold;">박용환</span> <br>             <b style="font-size:20px; color:#000;">용인서비스</b> / 9명         </h3>         <hr style="margin:5px 0; border:0; border-top:2px solid #333;">                  <div style="font-size:20px; line-height:1.5; padding:0;">             <span style="font-size: 16px">사업장 : </span> <a href="tel:0339000451" style="color:#0022ff; font-weight:bold;">0339000451</a><br>             <span style="font-size: 16px">팩스번 : </span> <span style="font-size: 16px; color: #333;">정보없음</span><br>             <hr style="margin:5px 0; border:0; border-top:1px solid #666;">              <span style="font-size: 16px">담당자 : </span> <span style="color:#000; font-weight:bold;">김형구</span><br>             <span style="font-size: 16px">연락처 : </span> <a href="javascript:void(0);" style="color:#0022ff; font-weight:bold;"></a><br>             <span style="font-size: 16px">이메일 : </span> <a href="mailto:김형구" style="color:#228b22; font-weight:bold;">김형구</a>         </div>          <div style="margin-top:10px; display:flex; gap:5px;">             <a href="tmap://route?goalname=용인서비스&goalx=127.106763221262&goaly=37.2548006329607" style="background-color:#0022FF; color:white; padding:6px 0; border-radius:6px; font-size:18px; font-weight:bold; flex:1; text-align:center; text-decoration:none;">T맵</a>             <a href="kakaomap://route?ep=37.2548006329607,127.106763221262&by=CAR" style="background-color:#FAE100; color:#3C1E1E; padding:6px 0; border-radius:6px; font-size:18px; font-weight:bold; flex:1; text-align:center; text-decoration:none;">카카오맵</a>         </div>         <hr style="margin:10px 0; border:0; border-top:1px solid #666;">                   <div style="font-size:15px; color:#000; line-height:1.5;">             <span style="font-size: 16px; font-weight: bold; color: #0022ff;">용인시 기흥구 민속촌로 18 (보라동)</span><br>             <span style="color: #333;">특화 기계 / 자동차 및 모터사이클 수리업</span><br>             0회 / <span style="color:white; font-weight:bold;">해당없음</span>         </div>     </div></div>`)[0];
+                popup_f193459d65bbcc13a0730b0f70794a85.setContent(html_961297b0233adb16c3fcd9ef92badd62);
+            
+        
+
+        marker_4e517faf5272f94ab120b4c6533cb5c4.bindPopup(popup_f193459d65bbcc13a0730b0f70794a85)
+        ;
+
+        
+    
+    
+            marker_4e517faf5272f94ab120b4c6533cb5c4.bindTooltip(
+                `<div>
+                     용인서비스
+                 </div>`,
+                {
+  "permanent": true,
+  "direction": "top",
+  "offset": [0, -35],
+  "sticky": true,
+}
+            );
+        
+    
+                marker_4e517faf5272f94ab120b4c6533cb5c4.setIcon(icon_de9a27bbfdd9a84c0b77bf3571678c81);
+            
+    
+            var marker_4069dacd00ee48de38d171ef2c9bba96 = L.marker(
+                [37.2234648640396, 127.063384197856],
+                {
+  "opacity": 0.9,
+}
+            ).addTo(feature_group_f57e6abfdc5b57608b29a1d782af187e);
+        
+    
+            var icon_fedfcb05ead8f51dfdb77c0fe6b387f6 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "green",
+  "iconColor": "white",
+  "icon": "gears",
+  "prefix": "fa",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_0442069d7a83204273f9ca8679558b46 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_02ff01151450e02bc1acd916c13897e2 = $(`<div id="html_02ff01151450e02bc1acd916c13897e2" style="width: 100.0%; height: 100.0%;">     <div style="width:280px; font-family:'Malgun Gothic', sans-serif; line-height:1.5; padding:2px;">         <h3 style="margin:0 0 5px 0; padding:0;">             <span style="color:#333; font-size:14px;">[(주)제이솔루션]</span> /              <span style="color:#333; font-size:14px; font-weight:bold;">이승룡</span> <br>             <b style="font-size:20px; color:#000;">(주)제이솔루션</b> / 6명         </h3>         <hr style="margin:5px 0; border:0; border-top:2px solid #333;">                  <div style="font-size:20px; line-height:1.5; padding:0;">             <span style="font-size: 16px">사업장 : </span> <a href="tel:0313723893" style="color:#0022ff; font-weight:bold;">0313723893</a><br>             <span style="font-size: 16px">팩스번 : </span> <span style="font-size: 16px; color: #333;">313343894</span><br>             <hr style="margin:5px 0; border:0; border-top:1px solid #666;">              <span style="font-size: 16px">담당자 : </span> <span style="color:#000; font-weight:bold;">김형구</span><br>             <span style="font-size: 16px">연락처 : </span> <a href="javascript:void(0);" style="color:#0022ff; font-weight:bold;"></a><br>             <span style="font-size: 16px">이메일 : </span> <a href="mailto:김형구" style="color:#228b22; font-weight:bold;">김형구</a>         </div>          <div style="margin-top:10px; display:flex; gap:5px;">             <a href="tmap://route?goalname=(주)제이솔루션&goalx=127.063384197856&goaly=37.2234648640396" style="background-color:#0022FF; color:white; padding:6px 0; border-radius:6px; font-size:18px; font-weight:bold; flex:1; text-align:center; text-decoration:none;">T맵</a>             <a href="kakaomap://route?ep=37.2234648640396,127.063384197856&by=CAR" style="background-color:#FAE100; color:#3C1E1E; padding:6px 0; border-radius:6px; font-size:18px; font-weight:bold; flex:1; text-align:center; text-decoration:none;">카카오맵</a>         </div>         <hr style="margin:10px 0; border:0; border-top:1px solid #666;">                   <div style="font-size:15px; color:#000; line-height:1.5;">             <span style="font-size: 16px; font-weight: bold; color: #0022ff;">화성시 삼성전자로 1 (반월동)H1 UT2동 3층</span><br>             <span style="color: #333;">특화 기계 / 각종기계또는동부속품제조업</span><br>             0회 / <span style="color:white; font-weight:bold;">해당없음</span>         </div>     </div></div>`)[0];
+                popup_0442069d7a83204273f9ca8679558b46.setContent(html_02ff01151450e02bc1acd916c13897e2);
+            
+        
+
+        marker_4069dacd00ee48de38d171ef2c9bba96.bindPopup(popup_0442069d7a83204273f9ca8679558b46)
+        ;
+
+        
+    
+    
+            marker_4069dacd00ee48de38d171ef2c9bba96.bindTooltip(
+                `<div>
+                     (주)제이솔루션
+                 </div>`,
+                {
+  "permanent": true,
+  "direction": "top",
+  "offset": [0, -35],
+  "sticky": true,
+}
+            );
+        
+    
+                marker_4069dacd00ee48de38d171ef2c9bba96.setIcon(icon_fedfcb05ead8f51dfdb77c0fe6b387f6);
+            
+    
+            var marker_ab73e7d4517f92f25978721e67f659df = L.marker(
+                [37.2637671697591, 127.13704836471],
+                {
+  "opacity": 0.9,
+}
+            ).addTo(feature_group_f57e6abfdc5b57608b29a1d782af187e);
+        
+    
+            var icon_8ac6d69d472e506c4c3dcf650e83d97b = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "green",
+  "iconColor": "white",
+  "icon": "gears",
+  "prefix": "fa",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_81de2f97d8c3544440ed7a02437cfdfc = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_97560c4b39ada0cef45d53357a271972 = $(`<div id="html_97560c4b39ada0cef45d53357a271972" style="width: 100.0%; height: 100.0%;">     <div style="width:280px; font-family:'Malgun Gothic', sans-serif; line-height:1.5; padding:2px;">         <h3 style="margin:0 0 5px 0; padding:0;">             <span style="color:#333; font-size:14px;">[(주)삼구엘에스 _ 신갈출고센터]</span> /              <span style="color:#333; font-size:14px; font-weight:bold;">김광영</span> <br>             <b style="font-size:20px; color:#000;">(주)삼구엘에스 _ 신갈출고센터</b> / 31명         </h3>         <hr style="margin:5px 0; border:0; border-top:2px solid #333;">                  <div style="font-size:20px; line-height:1.5; padding:0;">             <span style="font-size: 16px">사업장 : </span> <a href="javascript:void(0);" style="color:#0022ff; font-weight:bold;"></a><br>             <span style="font-size: 16px">팩스번 : </span> <span style="font-size: 16px; color: #333;">정보없음</span><br>             <hr style="margin:5px 0; border:0; border-top:1px solid #666;">              <span style="font-size: 16px">담당자 : </span> <span style="color:#000; font-weight:bold;">김형구</span><br>             <span style="font-size: 16px">연락처 : </span> <a href="javascript:void(0);" style="color:#0022ff; font-weight:bold;"></a><br>             <span style="font-size: 16px">이메일 : </span> <a href="mailto:김형구" style="color:#228b22; font-weight:bold;">김형구</a>         </div>          <div style="margin-top:10px; display:flex; gap:5px;">             <a href="tmap://route?goalname=(주)삼구엘에스 _ 신갈출고센터&goalx=127.13704836471&goaly=37.2637671697591" style="background-color:#0022FF; color:white; padding:6px 0; border-radius:6px; font-size:18px; font-weight:bold; flex:1; text-align:center; text-decoration:none;">T맵</a>             <a href="kakaomap://route?ep=37.2637671697591,127.13704836471&by=CAR" style="background-color:#FAE100; color:#3C1E1E; padding:6px 0; border-radius:6px; font-size:18px; font-weight:bold; flex:1; text-align:center; text-decoration:none;">카카오맵</a>         </div>         <hr style="margin:10px 0; border:0; border-top:1px solid #666;">                   <div style="font-size:15px; color:#000; line-height:1.5;">             <span style="font-size: 16px; font-weight: bold; color: #0022ff;">용인시 기흥구 중부대로 690 (상하동)</span><br>             <span style="color: #333;">특화 기계 / 자동차 및 모터사이클 수리업</span><br>             0회 / <span style="color:white; font-weight:bold;">해당없음</span>         </div>     </div></div>`)[0];
+                popup_81de2f97d8c3544440ed7a02437cfdfc.setContent(html_97560c4b39ada0cef45d53357a271972);
+            
+        
+
+        marker_ab73e7d4517f92f25978721e67f659df.bindPopup(popup_81de2f97d8c3544440ed7a02437cfdfc)
+        ;
+
+        
+    
+    
+            marker_ab73e7d4517f92f25978721e67f659df.bindTooltip(
+                `<div>
+                     (주)삼구엘에스 _ 신갈출고센터
+                 </div>`,
+                {
+  "permanent": true,
+  "direction": "top",
+  "offset": [0, -35],
+  "sticky": true,
+}
+            );
+        
+    
+                marker_ab73e7d4517f92f25978721e67f659df.setIcon(icon_8ac6d69d472e506c4c3dcf650e83d97b);
+            
+    
+            var marker_b2e1b6123d6cf86ac92c35146cf068ff = L.marker(
+                [37.2108651707078, 127.089445559923],
+                {
+  "opacity": 0.9,
+}
+            ).addTo(feature_group_f57e6abfdc5b57608b29a1d782af187e);
+        
+    
+            var icon_dd741638f63b7d6b6c15b12924c6c8ad = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "green",
+  "iconColor": "white",
+  "icon": "gears",
+  "prefix": "fa",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_c34404423560d18f4719eb7833a9280d = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_f8a64d431bd0ca4012226c9e70fc66de = $(`<div id="html_f8a64d431bd0ca4012226c9e70fc66de" style="width: 100.0%; height: 100.0%;">     <div style="width:280px; font-family:'Malgun Gothic', sans-serif; line-height:1.5; padding:2px;">         <h3 style="margin:0 0 5px 0; padding:0;">             <span style="color:#333; font-size:14px;">[주식회사네오셈_동탄]</span> /              <span style="color:#333; font-size:14px; font-weight:bold;">염동현</span> <br>             <b style="font-size:20px; color:#000;">주식회사네오셈_동탄</b> / 9명         </h3>         <hr style="margin:5px 0; border:0; border-top:2px solid #333;">                  <div style="font-size:20px; line-height:1.5; padding:0;">             <span style="font-size: 16px">사업장 : </span> <a href="tel:0234639998" style="color:#0022ff; font-weight:bold;">0234639998</a><br>             <span style="font-size: 16px">팩스번 : </span> <span style="font-size: 16px; color: #333;">정보없음</span><br>             <hr style="margin:5px 0; border:0; border-top:1px solid #666;">              <span style="font-size: 16px">담당자 : </span> <span style="color:#000; font-weight:bold;">김형구</span><br>             <span style="font-size: 16px">연락처 : </span> <a href="javascript:void(0);" style="color:#0022ff; font-weight:bold;"></a><br>             <span style="font-size: 16px">이메일 : </span> <a href="mailto:김형구" style="color:#228b22; font-weight:bold;">김형구</a>         </div>          <div style="margin-top:10px; display:flex; gap:5px;">             <a href="tmap://route?goalname=주식회사네오셈_동탄&goalx=127.089445559923&goaly=37.2108651707078" style="background-color:#0022FF; color:white; padding:6px 0; border-radius:6px; font-size:18px; font-weight:bold; flex:1; text-align:center; text-decoration:none;">T맵</a>             <a href="kakaomap://route?ep=37.2108651707078,127.089445559923&by=CAR" style="background-color:#FAE100; color:#3C1E1E; padding:6px 0; border-radius:6px; font-size:18px; font-weight:bold; flex:1; text-align:center; text-decoration:none;">카카오맵</a>         </div>         <hr style="margin:10px 0; border:0; border-top:1px solid #666;">                   <div style="font-size:15px; color:#000; line-height:1.5;">             <span style="font-size: 16px; font-weight: bold; color: #0022ff;">화성시 동탄구 동탄첨단산업1로 27 16층 A동제1608~1610호(영천동)</span><br>             <span style="color: #333;">특화 기계 / 각종기계또는동부속품제조업</span><br>             0회 / <span style="color:white; font-weight:bold;">해당없음</span>         </div>     </div></div>`)[0];
+                popup_c34404423560d18f4719eb7833a9280d.setContent(html_f8a64d431bd0ca4012226c9e70fc66de);
+            
+        
+
+        marker_b2e1b6123d6cf86ac92c35146cf068ff.bindPopup(popup_c34404423560d18f4719eb7833a9280d)
+        ;
+
+        
+    
+    
+            marker_b2e1b6123d6cf86ac92c35146cf068ff.bindTooltip(
+                `<div>
+                     주식회사네오셈_동탄
+                 </div>`,
+                {
+  "permanent": true,
+  "direction": "top",
+  "offset": [0, -35],
+  "sticky": true,
+}
+            );
+        
+    
+                marker_b2e1b6123d6cf86ac92c35146cf068ff.setIcon(icon_dd741638f63b7d6b6c15b12924c6c8ad);
+            
+    
+            var marker_88678864a886a2464db7d803260d0bc2 = L.marker(
+                [37.2176806572261, 127.10829047502],
+                {
+  "opacity": 0.9,
+}
+            ).addTo(feature_group_f57e6abfdc5b57608b29a1d782af187e);
+        
+    
+            var icon_b304f8bc7ed99c1131bc2f509c191d64 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "green",
+  "iconColor": "white",
+  "icon": "gears",
+  "prefix": "fa",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_4529c68a78ded13d18709ccd46a5b187 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_2238a90568e903ce244c4accb5e934a6 = $(`<div id="html_2238a90568e903ce244c4accb5e934a6" style="width: 100.0%; height: 100.0%;">     <div style="width:280px; font-family:'Malgun Gothic', sans-serif; line-height:1.5; padding:2px;">         <h3 style="margin:0 0 5px 0; padding:0;">             <span style="color:#333; font-size:14px;">[(주)트리엔화성사업장]</span> /              <span style="color:#333; font-size:14px; font-weight:bold;">이춘무</span> <br>             <b style="font-size:20px; color:#000;">(주)트리엔화성사업장</b> / 7명         </h3>         <hr style="margin:5px 0; border:0; border-top:2px solid #333;">                  <div style="font-size:20px; line-height:1.5; padding:0;">             <span style="font-size: 16px">사업장 : </span> <a href="tel:0547157100" style="color:#0022ff; font-weight:bold;">0547157100</a><br>             <span style="font-size: 16px">팩스번 : </span> <span style="font-size: 16px; color: #333;">547157101</span><br>             <hr style="margin:5px 0; border:0; border-top:1px solid #666;">              <span style="font-size: 16px">담당자 : </span> <span style="color:#000; font-weight:bold;">김형구</span><br>             <span style="font-size: 16px">연락처 : </span> <a href="javascript:void(0);" style="color:#0022ff; font-weight:bold;"></a><br>             <span style="font-size: 16px">이메일 : </span> <a href="mailto:김형구" style="color:#228b22; font-weight:bold;">김형구</a>         </div>          <div style="margin-top:10px; display:flex; gap:5px;">             <a href="tmap://route?goalname=(주)트리엔화성사업장&goalx=127.10829047502&goaly=37.2176806572261" style="background-color:#0022FF; color:white; padding:6px 0; border-radius:6px; font-size:18px; font-weight:bold; flex:1; text-align:center; text-decoration:none;">T맵</a>             <a href="kakaomap://route?ep=37.2176806572261,127.10829047502&by=CAR" style="background-color:#FAE100; color:#3C1E1E; padding:6px 0; border-radius:6px; font-size:18px; font-weight:bold; flex:1; text-align:center; text-decoration:none;">카카오맵</a>         </div>         <hr style="margin:10px 0; border:0; border-top:1px solid #666;">                   <div style="font-size:15px; color:#000; line-height:1.5;">             <span style="font-size: 16px; font-weight: bold; color: #0022ff;">화성시 동탄구 동탄대로24길 31-8 (영천동)</span><br>             <span style="color: #333;">특화 기계 / 일반산업용기계장치제조업</span><br>             0회 / <span style="color:white; font-weight:bold;">해당없음</span>         </div>     </div></div>`)[0];
+                popup_4529c68a78ded13d18709ccd46a5b187.setContent(html_2238a90568e903ce244c4accb5e934a6);
+            
+        
+
+        marker_88678864a886a2464db7d803260d0bc2.bindPopup(popup_4529c68a78ded13d18709ccd46a5b187)
+        ;
+
+        
+    
+    
+            marker_88678864a886a2464db7d803260d0bc2.bindTooltip(
+                `<div>
+                     (주)트리엔화성사업장
+                 </div>`,
+                {
+  "permanent": true,
+  "direction": "top",
+  "offset": [0, -35],
+  "sticky": true,
+}
+            );
+        
+    
+                marker_88678864a886a2464db7d803260d0bc2.setIcon(icon_b304f8bc7ed99c1131bc2f509c191d64);
+            
+    
+            feature_group_f57e6abfdc5b57608b29a1d782af187e.addTo(map_2e34c1393d0d40427419223394167cd0);
+        
+    
+            var layer_control_e7c060dafd021ee0e4a2236f0cda8013_layers = {
+                base_layers : {
+                    "\ubd84\ud3ec\ud655\uc778\uc6a9" : tile_layer_48aae08f77366c7366cd76c965bdd35f,
+                    "\uc218\ud589\uc694\uc6d0\ubcc4" : tile_layer_9001f0af4e7d1c4b0c4462f0114e2b9a,
+                },
+                overlays :  {
+                    "\ubbf8\ubc30\uc815" : feature_group_f57e6abfdc5b57608b29a1d782af187e,
+                },
+            };
+            let layer_control_e7c060dafd021ee0e4a2236f0cda8013 = L.control.layers(
+                layer_control_e7c060dafd021ee0e4a2236f0cda8013_layers.base_layers,
+                layer_control_e7c060dafd021ee0e4a2236f0cda8013_layers.overlays,
+                {
+  "position": "topright",
+  "collapsed": true,
+  "autoZIndex": true,
+  "baseTop": true,
+}
+            ).addTo(map_2e34c1393d0d40427419223394167cd0);
+
+        
+</script>
+</html>
